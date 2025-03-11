@@ -7,7 +7,7 @@
 import atexit
 import glob
 import os
-import pipes
+import shlex 
 import platform
 import subprocess
 import sys
@@ -34,7 +34,7 @@ EnsurePythonVersion(2, 7)
 EnsureSConsVersion(2, 1)
 Helper.printInfo("Platform: {}".format(", ".join(platform.uname())))
 Helper.printInfo("Using SCons {} on Python {}".format(SCons.__version__, platform.python_version()))
-Helper.printInfo("SCons command line: {}".format(" ".join([pipes.quote(arg) for arg in sys.argv])))
+Helper.printInfo("SCons command line: {}".format(" ".join([shlex.quote(arg) for arg in sys.argv])))
 
 sconsVersion = SConsEnvironment()._get_major_minor_revision(SCons.__version__)
 if sconsVersion < (2, 3, 0):
@@ -443,6 +443,10 @@ if env["RUN_PYTHON_TESTS"]:
     Helper.printWarning("Python tests disabled because SG_PYTHON is disabled.")
 
 if env["COMPILE_BOOST_TESTS"]:
+  # also add the Boost library path to the PATH
+  # so that the Boost test lib can be found when running the tests
+  env["ENV"]["LD_LIBRARY_PATH"] = os.pathsep.join([env["BOOST_LIBRARY_PATH"],
+                                        env["ENV"].get("LD_LIBRARY_PATH", "")])
   builder = Builder(action="./$SOURCE --log_level=test_suite")
   env.Append(BUILDERS={"BoostTest" : builder})
 
