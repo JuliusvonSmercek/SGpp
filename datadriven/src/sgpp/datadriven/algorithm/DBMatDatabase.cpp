@@ -141,7 +141,7 @@ void DBMatDatabase::putDataMatrix(
     if (gridConfig.generalType_ == sgpp::base::GeneralGridType::ComponentGrid) {
       json::ListNode& level =
           dynamic_cast<json::ListNode&>(gridConfigEntry.addListAttr(keyGridLevel));
-      for (size_t i = 0; i < gridConfig.levelVector_.size(); i++) {
+      for (uint64_t i = 0; i < gridConfig.levelVector_.size(); i++) {
         level.addIdValue(gridConfig.levelVector_[i]);
       }
     } else {

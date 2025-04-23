@@ -106,7 +106,7 @@ vars.Add("LIBPATH", "Set path where to look for additional libraries", "",
                     converter=Helper.multiParamPathConverter)
 vars.Add("ARCH", "Set the architecture, the possible values are compiler-dependent, " +
                  "for COMPILER=gnu, e.g., the following values are possible: " +
-                 "sse3, sse42, avx, fma4, avx2, avx512", "sse3")
+                 "sse3, sse42, avx, fma4, avx2, avx512, aarch64", "sse3")
 vars.Add("COMPILER", "Set the compiler, \"gnu\" means using gcc with standard configuration, " +
                      "the following values are possible: " +
                      "gnu, clang, intel, openmpi, mpich, intel.mpi; " +
