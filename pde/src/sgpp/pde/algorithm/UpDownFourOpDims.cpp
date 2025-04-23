@@ -133,7 +133,7 @@ void UpDownFourOpDims::specialOpX(
     sgpp::base::DataVector result_temp(alpha.getSize());
     sgpp::base::DataVector temp_two(alpha.getSize());
 
-#pragma omp task if (curNumAlgoDims - dim <= curMaxParallelDims) shared(alpha, temp, result)
+#pragma omp task if (curNumAlgoDims - dim <= curMaxParallelDims) shared(alpha, temp, result, pt2UpFunc)
     {
       (this->*pt2UpFunc)(alpha, temp, this->algoDims[dim]);
       updown(temp, result, dim - 1, op_dim_one, op_dim_two, op_dim_three, op_dim_four);
@@ -141,7 +141,7 @@ void UpDownFourOpDims::specialOpX(
 
 // Same from the other direction:
 #pragma omp task if (curNumAlgoDims - dim <= curMaxParallelDims) shared(alpha, temp_two, \
-                                                                        result_temp)
+                                                                        result_temp, pt2DownFunc)
     {  // NOLINT(whitespace/braces)
       updown(alpha, temp_two, dim - 1, op_dim_one, op_dim_two, op_dim_three, op_dim_four);
       (this->*pt2DownFunc)(temp_two, result_temp, this->algoDims[dim]);
@@ -154,10 +154,10 @@ void UpDownFourOpDims::specialOpX(
     // Terminates dimension recursion
     sgpp::base::DataVector temp(alpha.getSize());
 
-#pragma omp task if (curNumAlgoDims - dim <= curMaxParallelDims) shared(alpha, result)
+#pragma omp task if (curNumAlgoDims - dim <= curMaxParallelDims) shared(alpha, result, pt2UpFunc)
     (this->*pt2UpFunc)(alpha, result, this->algoDims[dim]);
 
-#pragma omp task if (curNumAlgoDims - dim <= curMaxParallelDims) shared(alpha, temp)
+#pragma omp task if (curNumAlgoDims - dim <= curMaxParallelDims) shared(alpha, temp, pt2DownFunc)
     (this->*pt2DownFunc)(alpha, temp, this->algoDims[dim]);
 
 #pragma omp taskwait
