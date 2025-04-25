@@ -564,7 +564,7 @@ void VisualizerClassification::storeHeatmapJsonClassification(DataMatrix &matrix
       jsonOutput["data"][graphIndex]["marker"].
       addIDAttr("symbol", "\"star-dot\"");
       jsonOutput["data"][graphIndex]["marker"].
-      addIDAttr("size", static_cast<size_t>(10));
+      addIDAttr("size", static_cast<uint64_t>(10));
       jsonOutput["data"][graphIndex]["marker"].
       addDictAttr("line");
       jsonOutput["data"][graphIndex]["marker"]["line"].
@@ -846,7 +846,7 @@ void VisualizerClassification::storeHeatmapJsonClassification(DataMatrix &matrix
     jsonOutput["data"][graphIndex].addDictAttr("marker");
     jsonOutput["data"][graphIndex]["marker"].addIDAttr("symbol", "\"star-dot\"");
     jsonOutput["data"][graphIndex]["marker"].addIDAttr("size",
-      static_cast<size_t>(10));
+      static_cast<uint64_t>(10));
     jsonOutput["data"][graphIndex]["marker"].addDictAttr("line");
     jsonOutput["data"][graphIndex]["marker"]["line"].addIDAttr("color", "\"blue\"");
     jsonOutput["data"][graphIndex]["marker"]["line"].addIDAttr("width", 1.5);
