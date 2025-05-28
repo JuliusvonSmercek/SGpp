@@ -46,7 +46,7 @@ pipeline {
     SGPP_TMP_DIR= "/scratch/jenkins/sgpp-tmp"
     // Limit ourselves to 12 out of the 18 cores to keep the machine useable for other stuff
     // NOTE: Never use 36 with the hyperthreading -- the tests will take a long time otherwise
-    PARALLEL_PROCESSES_USED=12 
+    PARALLEL_PROCESSES_USED=12
   }
 
   stages {
@@ -80,7 +80,7 @@ pipeline {
           // currently running and about the status of the finished tests
           for (int i = 0; i < variantList.size(); i++) {
             // 1. Set commit status for this test to "pending" (yellow dot)
-            // Done by sending a message via curl to Github with the commit 
+            // Done by sending a message via curl to Github with the commit
             // information and our Github token
             sh """
             github_token=\$(echo \${GITHUB_TOKEN} | cut -f2 -d':')
