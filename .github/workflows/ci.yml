@@ -4,12 +4,13 @@ on:
   push:
     branches:
       - master
+      - update_gh_actions_windows
   pull_request: # build on PRs. Asks for maintainers approval before running for external PRs
   workflow_dispatch: # allow to manually trigger the workflow
 
 jobs:
   windows:
-    runs-on: windows-2019
+    runs-on: windows-2025
     strategy:
       matrix:
         static: [0, 1]
@@ -24,8 +25,6 @@ jobs:
           # You can test your matrix by printing the current Python version
       - name: Install boost
         run: c:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-boost
-      - name: Boost library
-        run: Copy-Item "c:\msys64\mingw64\bin\libboost_unit_test_framework-mt.dll" -Destination "c:\msys64\mingw64\bin\boost_unit_test_framework.dll"
       - name: Install swig
         run: |
           (New-Object System.Net.WebClient).DownloadFile("http://prdownloads.sourceforge.net/swig/swigwin-4.0.1.zip","d:\a\_temp\swigwin-4.0.1.zip");
