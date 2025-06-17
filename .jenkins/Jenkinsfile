@@ -3,14 +3,14 @@
 // Define the build badge which will be visible on the SGpp Github Readme landing page
 def buildbadge = addEmbeddableBadgeConfiguration(id: "Jenkins", subject: "SGpp Jenkins Tests", status: "skipped")
 
-// Declarative Jenkins Pipeline for the SGpp tests. It define a list of SGpp
+// Declarative Jenkins Pipeline for the SGpp tests. It defines a list of SGpp
 // variants to build and test with the given GIT commit. The status of each
 // test will be sent to Github as a commit status via curl and a Github token
 // (stored within Jenkins itself).
-// NOTE: This pipeline requires working SGpp spack package and the node pcsgs03
+// NOTE: This pipeline requires working SGpp Spack package and the compute node pcsgs03
 // to be working!
 pipeline {
-  // Keep the tests on pcsgs03 for now Here, the jenkins user has Spack
+  // Keep the tests on pcsgs03 for now here, the jenkins user has Spack
   // installed in "/scratch/jenkins/sgpp-spack"
   // NOTE: Make sure that the installed gcc supports Fortran.
   agent { label 'pcsgs03' }
@@ -24,7 +24,7 @@ pipeline {
         artifactNumToKeepStr: "50"
       )
     )
-    // Do not allow concurrent builds (machine gets well utilized by a single one
+    // Do not allow concurrent builds (machine gets well utilized by a single one)
     disableConcurrentBuilds()
   }
 
@@ -39,7 +39,7 @@ pipeline {
     GITHUB_TOKEN = credentials('GITHUB_TOKEN_OCTOTIGER')
     BRANCH_NAME = "${env.BRANCH_NAME}"
     WORKSPACE= "${env.WORKSPACE}"
-    // This is the spack configuration (directory and config)
+    // This is the Spack configuration (directory and config)
     SGPP_SPACK_HOME= "/scratch/jenkins/spack-sgpp"
     SGPP_SPACK_CONFIGURATION= "/scratch/jenkins/spack-sgpp-configuration"
     // Spack requires its on tmp storage as the given one on the machine is limited
