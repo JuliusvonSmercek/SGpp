@@ -1004,7 +1004,7 @@ std::vector<size_t> indexes, size_t &varDim1, size_t &varDim2, std::string filep
     tempGrid.getColumn(varDim2, yColGrid);
 
     jsonOutput["data"][graphIndex].addIDAttr("y", yColGrid.toString());
-    jsonOutput["data"][graphIndex].addIDAttr("legendgroup", static_cast<size_t>(1));
+    jsonOutput["data"][graphIndex].addIDAttr("legendgroup", static_cast<uint64_t>(1));
     jsonOutput["data"][graphIndex].addIDAttr("hoverinfo", "\"x+y\"");
 
     if (showLegendGroup && tempGrid.getNrows() > 0) {

@@ -455,7 +455,7 @@ def configureGNUCompiler(config):
   #     ensure you also compile with -fno-strict-aliasing"
   config.env.Append(CPPFLAGS=allWarnings + [
       "-fno-strict-aliasing",
-      "-funroll-loops", "-mfpmath=sse"])
+      "-funroll-loops"])
 
   # Mitigation for old Ubuntu (should probably be also applied to Debian?):
   # Package 'libomp-dev' installs a symlink 'libgomp.so' to 'libomp.so' in /usr/lib/x86_64-linux.
@@ -507,23 +507,31 @@ def configureGNUCompiler(config):
 
   if config.env["ARCH"] == "sse3":
     config.env.AppendUnique(CPPFLAGS=["-msse3"])
+    config.env.AppendUnique(CPPFLAGS=["-mfpmath=sse"])
   elif config.env["ARCH"] == "sse42":
     config.env.AppendUnique(CPPFLAGS=["-msse4.2"])
+    config.env.AppendUnique(CPPFLAGS=["-mfpmath=sse"])
   elif config.env["ARCH"] == "avx":
     config.env.AppendUnique(CPPFLAGS=["-mavx"])
+    config.env.AppendUnique(CPPFLAGS=["-mfpmath=sse"])
   elif config.env["ARCH"] == "fma4":
     config.env.AppendUnique(CPPFLAGS=["-mavx"])
     config.env.AppendUnique(CPPFLAGS=["-mfma4"])
+    config.env.AppendUnique(CPPFLAGS=["-mfpmath=sse"])
   elif config.env["ARCH"] == "avx2":
     config.env.AppendUnique(CPPFLAGS=["-mavx2"])
     config.env.AppendUnique(CPPFLAGS=["-mfma"])
+    config.env.AppendUnique(CPPFLAGS=["-mfpmath=sse"])
   elif config.env["ARCH"] == "avx512":
     config.env.AppendUnique(CPPFLAGS=["-mavx512f"])
     config.env.AppendUnique(CPPFLAGS=["-mavx512cd"])
     config.env.AppendUnique(CPPFLAGS=["-mfma"])
+    config.env.AppendUnique(CPPFLAGS=["-mfpmath=sse"])
+  elif config.env["ARCH"] == "aarch64":
+    config.env.AppendUnique(CPPFLAGS=[""])
   else:
     Helper.printErrorAndExit("You must specify a valid ARCH value for gnu.",
-                             "Available configurations are: sse3, sse42, avx, fma4, avx2, avx512")
+                             "Available configurations are: sse3, sse42, avx, fma4, avx2, avx512, aarch64")
 
   # check if using MinGW (g++ on win32)
   if config.env["PLATFORM"] == "win32":
@@ -589,9 +597,11 @@ def configureClangCompiler(config):
     config.env.AppendUnique(CPPFLAGS=["-mavx512f"])
     config.env.AppendUnique(CPPFLAGS=["-mavx512cd"])
     config.env.AppendUnique(CPPFLAGS=["-mfma"])
+  elif config.env["ARCH"] == "aarch64":
+    config.env.AppendUnique(CPPFLAGS=[""])
   else:
     Helper.printErrorAndExit("You must specify a valid ARCH value for clang.",
-                             "Available configurations are: sse3, sse4.2, avx, fma4, avx2, avx512")
+                             "Available configurations are: sse3, sse4.2, avx, fma4, avx2, avx512, aarch64")
 
 def configureIntelCompiler(config):
   config.env.AppendUnique(CPPFLAGS=["-Wall", "-ansi", "-Wno-deprecated", "-wd1125",
@@ -642,9 +652,11 @@ def configureIntelCompiler(config):
     config.env.AppendUnique(CPPFLAGS=["-mmic"])
     config.env.AppendUnique(LINKFLAGS=["-mmic"])
     config.env["CPPDEFINES"]["USEMIC"] = "1"
+  elif config.env["ARCH"] == "aarch64":
+    config.env.AppendUnique(CPPFLAGS=[""])
   else:
     Helper.printErrorAndExit("You must specify a valid ARCH value for intel.",
-                             "Available configurations are: sse3, sse4.2, avx, avx2, avx512, mic")
+                             "Available configurations are: sse3, sse4.2, avx, avx2, avx512, mic, aarch64")
 
 def detectGSL(config):
   if "GSL_INCLUDE_PATH" in config.env:
