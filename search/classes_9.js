@@ -26,10 +26,12 @@ var searchData=
   ['interpolationalgorithm_23',['InterpolationAlgorithm',['../classpython_1_1uq_1_1operations_1_1forcePositivity_1_1interpolationAlgorithm_1_1InterpolationAlgorithm.html',1,'python::uq::operations::forcePositivity::interpolationAlgorithm']]],
   ['intersectioncandidates_24',['IntersectionCandidates',['../classpython_1_1uq_1_1operations_1_1forcePositivity_1_1findIntersections_1_1IntersectionCandidates.html',1,'python::uq::operations::forcePositivity::findIntersections']]],
   ['intersectionsubspacecandidates_25',['IntersectionSubspaceCandidates',['../classpython_1_1uq_1_1operations_1_1forcePositivity_1_1findIntersectionsSubspaceBased_1_1IntersectionSubspaceCandidates.html',1,'python::uq::operations::forcePositivity::findIntersectionsSubspaceBased']]],
-  ['iterativegridgenerator_26',['IterativeGridGenerator',['../classsgpp_1_1optimization_1_1IterativeGridGenerator.html',1,'sgpp::optimization']]],
-  ['iterativegridgeneratorfuzzyritternovak_27',['IterativeGridGeneratorFuzzyRitterNovak',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorFuzzyRitterNovak.html',1,'sgpp::optimization']]],
-  ['iterativegridgeneratorlinearsurplus_28',['IterativeGridGeneratorLinearSurplus',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorLinearSurplus.html',1,'sgpp::optimization']]],
-  ['iterativegridgeneratorritternovak_29',['IterativeGridGeneratorRitterNovak',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak.html',1,'sgpp::optimization']]],
-  ['iterativegridgeneratorsoo_30',['IterativeGridGeneratorSOO',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorSOO.html',1,'sgpp::optimization']]],
-  ['iterator_31',['iterator',['../classsgpp_1_1base_1_1IndexInSubspaceGenerator_1_1iterator.html',1,'sgpp::base::IndexInSubspaceGenerator::iterator'],['../classsgpp_1_1base_1_1SubspaceGenerator_1_1iterator.html',1,'sgpp::base::SubspaceGenerator::iterator']]]
+  ['iterativegaussianelimination_26',['IterativeGaussianElimination',['../classsgpp_1_1base_1_1sle__solver_1_1IterativeGaussianElimination.html',1,'sgpp::base::sle_solver']]],
+  ['iterativegridgenerator_27',['IterativeGridGenerator',['../classsgpp_1_1optimization_1_1IterativeGridGenerator.html',1,'sgpp::optimization']]],
+  ['iterativegridgeneratorfulladaptiveritternovak_28',['IterativeGridGeneratorFullAdaptiveRitterNovak',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html',1,'sgpp::optimization']]],
+  ['iterativegridgeneratorfuzzyritternovak_29',['IterativeGridGeneratorFuzzyRitterNovak',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorFuzzyRitterNovak.html',1,'sgpp::optimization']]],
+  ['iterativegridgeneratorlinearsurplus_30',['IterativeGridGeneratorLinearSurplus',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorLinearSurplus.html',1,'sgpp::optimization']]],
+  ['iterativegridgeneratorritternovak_31',['IterativeGridGeneratorRitterNovak',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak.html',1,'sgpp::optimization']]],
+  ['iterativegridgeneratorsoo_32',['IterativeGridGeneratorSOO',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorSOO.html',1,'sgpp::optimization']]],
+  ['iterator_33',['iterator',['../classsgpp_1_1base_1_1IndexInSubspaceGenerator_1_1iterator.html',1,'sgpp::base::IndexInSubspaceGenerator::iterator'],['../classsgpp_1_1base_1_1SubspaceGenerator_1_1iterator.html',1,'sgpp::base::SubspaceGenerator::iterator']]]
 ];

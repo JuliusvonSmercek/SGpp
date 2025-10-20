@@ -1,5 +1,10 @@
 var NAVTREEINDEX4 =
 {
+"LaplaceUpPrewavelet_8cpp.html":[10,0,5,1,0,0,2,3,0,4],
+"LaplaceUpPrewavelet_8hpp.html":[10,0,5,1,0,0,2,3,0,5],
+"LassoFunction_8hpp.html":[10,0,7,1,0,0,2,0,4],
+"LatinHypercubeSampleGenerator_8cpp.html":[10,0,6,0,0,0,1,2],
+"LatinHypercubeSampleGenerator_8hpp.html":[10,0,6,0,0,0,1,3],
 "LearnedKnowledgeFormatter_8py.html":[10,0,2,9,2,1,3],
 "LearnedKnowledge_8py.html":[10,0,2,9,2,5],
 "LearnerBaseSP_8cpp.html":[10,0,2,10,0,0,1,11],
@@ -244,10 +249,5 @@ var NAVTREEINDEX4 =
 "NakBsplineModifiedBasisDeriv2_8hpp.html#acf63009b3b464382cff6346cd287026e":[10,0,0,1,0,0,7,0,0,2,25,1],
 "NakBsplineModifiedBasis_8hpp.html":[10,0,0,1,0,0,7,0,0,2,23],
 "NakBsplineModifiedBasis_8hpp.html#aeaeef09d115821a9f5cba93c27c321d9":[10,0,0,1,0,0,7,0,0,2,23,1],
-"NakPBsplineBasis_8hpp.html":[10,0,0,1,0,0,7,0,0,2,26],
-"NakPBsplineBasis_8hpp.html#aa9a5d095d317c6a00687331efe460055":[10,0,0,1,0,0,7,0,0,2,26,1],
-"NakPBsplineGrid_8cpp.html":[10,0,0,1,0,0,5,3,60],
-"NakPBsplineGrid_8hpp.html":[10,0,0,1,0,0,5,3,61],
-"NatafDist_8py.html":[10,0,2,9,3,1,13],
-"NaturalBsplineBasis_8hpp.html":[10,0,0,1,0,0,7,0,0,2,27]
+"NakPBsplineBasis_8hpp.html":[10,0,0,1,0,0,7,0,0,2,26]
 };

@@ -1,0 +1,25 @@
+var classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak =
+[
+    [ "Hyperparameters", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters" ],
+    [ "IterativeGridGeneratorFullAdaptiveRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac5a6a5e3f5d37030b8c8baada827244c", null ],
+    [ "~IterativeGridGeneratorFullAdaptiveRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa76ced0f77a7d68a283a814da03a91c2", null ],
+    [ "generate", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584", null ],
+    [ "getAlpha", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a656e4ba531f906676e8eccd11b822a4f", null ],
+    [ "getHyperparameters", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#afdb07c101c067f4fbcf2488ff13ee657", null ],
+    [ "getInitialLevel", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab5560c551eb54f1c4495e538b9527960", null ],
+    [ "getMaxLevel", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a53209bdfe6f42e1c8592374ce76c9d0c", null ],
+    [ "getUseStoppingCriterion", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a02ec944e3d311930071d221e5e2ab9b0", null ],
+    [ "setGaussianProcess", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a376d22605026646c434444691038d659", null ],
+    [ "setHyperparameters", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ae2b8689e7e3dee0680f9d962567af118", null ],
+    [ "setInitialLevel", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a068db0d3c82a2559cb762dd3ae8b55ef", null ],
+    [ "setMaxLevel", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a9d12a2d01a93cf23340bf742c903b9d7", null ],
+    [ "setUseStoppingCriterion", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ade4519ea7e4d2e8d23af0eef59ae75f1", null ],
+    [ "addPattern", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab0311687571ec4010b1beec91776b2d5", null ],
+    [ "alpha", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a851f6a52a0cf53ba853c704ed5723ef9", null ],
+    [ "evaluate", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a65bb7d7cf3d12462943175c1dd151458", null ],
+    [ "hyperparameters", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac59952f78532e81e505eb256b150e54c", null ],
+    [ "initialLevel", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a39cea70eb737e6eb86eb4cbfacb0a635", null ],
+    [ "maxLevel", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aaad8c0fef60d9222e3a308b14165af93", null ],
+    [ "refineLeftOrRight", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac1a3262136048a85db2517683452ccc2", null ],
+    [ "useStoppingCriterion", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#abe6a35b2005c4c0d4067ab1718835e43", null ]
+];

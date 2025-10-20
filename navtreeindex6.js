@@ -1,5 +1,10 @@
 var NAVTREEINDEX6 =
 {
+"OperationEvalModLinear_8cpp.html":[10,0,0,1,0,0,7,0,114],
+"OperationEvalModLinear_8hpp.html":[10,0,0,1,0,0,7,0,115],
+"OperationEvalModNakBsplineNaive_8cpp.html":[10,0,0,1,0,0,7,0,120],
+"OperationEvalModNakBsplineNaive_8hpp.html":[10,0,0,1,0,0,7,0,121],
+"OperationEvalModPolyClenshawCurtisNaive_8cpp.html":[10,0,0,1,0,0,7,0,124],
 "OperationEvalModPolyClenshawCurtisNaive_8hpp.html":[10,0,0,1,0,0,7,0,125],
 "OperationEvalModPolyNaive_8cpp.html":[10,0,0,1,0,0,7,0,126],
 "OperationEvalModPolyNaive_8hpp.html":[10,0,0,1,0,0,7,0,127],
@@ -244,10 +249,5 @@ var NAVTREEINDEX6 =
 "OperationLaplaceModLinear_8cpp.html":[10,0,5,1,0,0,3,0,36],
 "OperationLaplaceModLinear_8hpp.html":[10,0,5,1,0,0,3,0,37],
 "OperationLaplaceModPolyClenshawCurtis_8cpp.html":[10,0,5,1,0,0,3,0,40],
-"OperationLaplaceModPolyClenshawCurtis_8hpp.html":[10,0,5,1,0,0,3,0,41],
-"OperationLaplaceModPoly_8cpp.html":[10,0,5,1,0,0,3,0,38],
-"OperationLaplaceModPoly_8hpp.html":[10,0,5,1,0,0,3,0,39],
-"OperationLaplacePolyBoundary_8cpp.html":[10,0,5,1,0,0,3,0,44],
-"OperationLaplacePolyBoundary_8hpp.html":[10,0,5,1,0,0,3,0,45],
-"OperationLaplacePolyClenshawCurtisBoundary_8cpp.html":[10,0,5,1,0,0,3,0,48]
+"OperationLaplaceModPolyClenshawCurtis_8hpp.html":[10,0,5,1,0,0,3,0,41]
 };

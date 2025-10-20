@@ -59,5 +59,6 @@ var searchData=
   ['hoeldertableobjective_56',['HoelderTableObjective',['../classsgpp_1_1optimization_1_1test__problems_1_1HoelderTableObjective.html',1,'sgpp::optimization::test_problems']]],
   ['hpoconfig_57',['HPOConfig',['../classsgpp_1_1datadriven_1_1HPOConfig.html',1,'sgpp::datadriven']]],
   ['hyperparameter_58',['HyperParameter',['../classsgpp_1_1datadriven_1_1HyperParameter.html',1,'sgpp::datadriven']]],
-  ['hyperparameteroptimizer_59',['HyperparameterOptimizer',['../classsgpp_1_1datadriven_1_1HyperparameterOptimizer.html',1,'sgpp::datadriven']]]
+  ['hyperparameteroptimizer_59',['HyperparameterOptimizer',['../classsgpp_1_1datadriven_1_1HyperparameterOptimizer.html',1,'sgpp::datadriven']]],
+  ['hyperparameters_60',['Hyperparameters',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html',1,'sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak']]]
 ];

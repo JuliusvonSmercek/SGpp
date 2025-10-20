@@ -55,6 +55,7 @@ var namespacesgpp_1_1optimization =
     [ "HashRefinementMultiple", "classsgpp_1_1optimization_1_1HashRefinementMultiple.html", "classsgpp_1_1optimization_1_1HashRefinementMultiple" ],
     [ "InterpolatedFuzzyInterval", "classsgpp_1_1optimization_1_1InterpolatedFuzzyInterval.html", "classsgpp_1_1optimization_1_1InterpolatedFuzzyInterval" ],
     [ "IterativeGridGenerator", "classsgpp_1_1optimization_1_1IterativeGridGenerator.html", "classsgpp_1_1optimization_1_1IterativeGridGenerator" ],
+    [ "IterativeGridGeneratorFullAdaptiveRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak" ],
     [ "IterativeGridGeneratorFuzzyRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFuzzyRitterNovak.html", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFuzzyRitterNovak" ],
     [ "IterativeGridGeneratorLinearSurplus", "classsgpp_1_1optimization_1_1IterativeGridGeneratorLinearSurplus.html", "classsgpp_1_1optimization_1_1IterativeGridGeneratorLinearSurplus" ],
     [ "IterativeGridGeneratorRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak.html", "classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak" ],
@@ -90,5 +91,6 @@ var namespacesgpp_1_1optimization =
     [ "ResponseSurfaceVector", "classsgpp_1_1optimization_1_1ResponseSurfaceVector.html", "classsgpp_1_1optimization_1_1ResponseSurfaceVector" ],
     [ "SplineResponseSurface", "classsgpp_1_1optimization_1_1SplineResponseSurface.html", "classsgpp_1_1optimization_1_1SplineResponseSurface" ],
     [ "SplineResponseSurfaceVector", "classsgpp_1_1optimization_1_1SplineResponseSurfaceVector.html", "classsgpp_1_1optimization_1_1SplineResponseSurfaceVector" ],
-    [ "TriangularFuzzyInterval", "classsgpp_1_1optimization_1_1TriangularFuzzyInterval.html", "classsgpp_1_1optimization_1_1TriangularFuzzyInterval" ]
+    [ "TriangularFuzzyInterval", "classsgpp_1_1optimization_1_1TriangularFuzzyInterval.html", "classsgpp_1_1optimization_1_1TriangularFuzzyInterval" ],
+    [ "operator<<", "namespacesgpp_1_1optimization.html#a45f7a7f62ffcb3d6b50a6b4055d9b84c", null ]
 ];

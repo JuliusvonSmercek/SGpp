@@ -1,5 +1,10 @@
 var NAVTREEINDEX8 =
 {
+"OperationMultipleEvalSubspaceSimple_8cpp.html#a0ab892f09d0d501b4cba6e0873f85dd9":[10,0,2,10,0,0,5,0,18,1,0,0],
+"OperationMultipleEvalSubspaceSimple_8cpp.html#a0be5f8a1181a3c8ae518ccc7de68c3a5":[10,0,2,10,0,0,5,0,18,1,0,3],
+"OperationMultipleEvalSubspaceSimple_8cpp.html#a3943479bdd9e85dc6f3c262cadf9e862":[10,0,2,10,0,0,5,0,18,1,0,2],
+"OperationMultipleEvalSubspaceSimple_8cpp.html#a71f2eac0c2326a293f0766f2f13121ab":[10,0,2,10,0,0,5,0,18,1,0,1],
+"OperationMultipleEvalSubspaceSimple_8hpp.html":[10,0,2,10,0,0,5,0,18,1,1],
 "OperationMultipleEvalSubspaceSimple__multImpl_8cpp.html":[10,0,2,10,0,0,5,0,18,1,2],
 "OperationMultipleEvalSubspaceSimple__multTransposeImpl_8cpp.html":[10,0,2,10,0,0,5,0,18,1,3],
 "OperationMultipleEval_8hpp.html":[10,0,0,1,0,0,7,0,276],
@@ -244,10 +249,5 @@ var NAVTREEINDEX8 =
 "OperationTestModPoly_8hpp.html":[10,0,2,10,0,0,5,0,21,157],
 "OperationTestModWavelet_8cpp.html":[10,0,2,10,0,0,5,0,21,158],
 "OperationTestModWavelet_8hpp.html":[10,0,2,10,0,0,5,0,21,159],
-"OperationTestPoly_8cpp.html":[10,0,2,10,0,0,5,0,21,160],
-"OperationTestPoly_8hpp.html":[10,0,2,10,0,0,5,0,21,161],
-"OperationTestPrewavelet_8cpp.html":[10,0,2,10,0,0,5,0,21,162],
-"OperationTestPrewavelet_8hpp.html":[10,0,2,10,0,0,5,0,21,163],
-"OperationTest_8hpp.html":[10,0,2,10,0,0,5,0,21,143],
-"OperationTransformation1D_8hpp.html":[10,0,2,10,0,0,5,0,21,164]
+"OperationTestPoly_8cpp.html":[10,0,2,10,0,0,5,0,21,160]
 };

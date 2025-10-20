@@ -12,6 +12,8 @@ var dir_f23bb6f09c9e54f8d9ce513edbf3899b =
     [ "GaussianElimination.hpp", "GaussianElimination_8hpp.html", "GaussianElimination_8hpp" ],
     [ "Gmmpp.cpp", "Gmmpp_8cpp.html", "Gmmpp_8cpp" ],
     [ "Gmmpp.hpp", "Gmmpp_8hpp.html", "Gmmpp_8hpp" ],
+    [ "IterativeGaussianElimination.cpp", "IterativeGaussianElimination_8cpp.html", null ],
+    [ "IterativeGaussianElimination.hpp", "IterativeGaussianElimination_8hpp.html", "IterativeGaussianElimination_8hpp" ],
     [ "SLESolver.hpp", "base_2src_2sgpp_2base_2tools_2sle_2solver_2SLESolver_8hpp.html", "base_2src_2sgpp_2base_2tools_2sle_2solver_2SLESolver_8hpp" ],
     [ "UMFPACK.cpp", "UMFPACK_8cpp.html", "UMFPACK_8cpp" ],
     [ "UMFPACK.hpp", "UMFPACK_8hpp.html", "UMFPACK_8hpp" ]

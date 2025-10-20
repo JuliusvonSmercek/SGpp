@@ -3,6 +3,8 @@ var dir_14e79fe97ddeda96f94fe5a3a36fb1a9 =
     [ "HashRefinementMultiple.hpp", "HashRefinementMultiple_8hpp.html", "HashRefinementMultiple_8hpp" ],
     [ "IterativeGridGenerator.cpp", "IterativeGridGenerator_8cpp.html", null ],
     [ "IterativeGridGenerator.hpp", "IterativeGridGenerator_8hpp.html", "IterativeGridGenerator_8hpp" ],
+    [ "IterativeGridGeneratorFullAdaptiveRitterNovak.cpp", "IterativeGridGeneratorFullAdaptiveRitterNovak_8cpp.html", null ],
+    [ "IterativeGridGeneratorFullAdaptiveRitterNovak.hpp", "IterativeGridGeneratorFullAdaptiveRitterNovak_8hpp.html", "IterativeGridGeneratorFullAdaptiveRitterNovak_8hpp" ],
     [ "IterativeGridGeneratorFuzzyRitterNovak.cpp", "IterativeGridGeneratorFuzzyRitterNovak_8cpp.html", null ],
     [ "IterativeGridGeneratorFuzzyRitterNovak.hpp", "IterativeGridGeneratorFuzzyRitterNovak_8hpp.html", "IterativeGridGeneratorFuzzyRitterNovak_8hpp" ],
     [ "IterativeGridGeneratorLinearSurplus.cpp", "IterativeGridGeneratorLinearSurplus_8cpp.html", null ],

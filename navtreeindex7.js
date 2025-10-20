@@ -1,5 +1,10 @@
 var NAVTREEINDEX7 =
 {
+"OperationLaplaceModPoly_8cpp.html":[10,0,5,1,0,0,3,0,38],
+"OperationLaplaceModPoly_8hpp.html":[10,0,5,1,0,0,3,0,39],
+"OperationLaplacePolyBoundary_8cpp.html":[10,0,5,1,0,0,3,0,44],
+"OperationLaplacePolyBoundary_8hpp.html":[10,0,5,1,0,0,3,0,45],
+"OperationLaplacePolyClenshawCurtisBoundary_8cpp.html":[10,0,5,1,0,0,3,0,48],
 "OperationLaplacePolyClenshawCurtisBoundary_8hpp.html":[10,0,5,1,0,0,3,0,49],
 "OperationLaplacePolyClenshawCurtis_8cpp.html":[10,0,5,1,0,0,3,0,46],
 "OperationLaplacePolyClenshawCurtis_8hpp.html":[10,0,5,1,0,0,3,0,47],
@@ -244,10 +249,5 @@ var NAVTREEINDEX7 =
 "OperationMultipleEvalSubspaceSimpleParameters_8hpp.html":[10,0,2,10,0,0,5,0,18,1,4],
 "OperationMultipleEvalSubspaceSimpleParameters_8hpp.html#a9d70d34494742a192a71f116b7cdf51c":[10,0,2,10,0,0,5,0,18,1,4,1],
 "OperationMultipleEvalSubspaceSimpleParameters_8hpp.html#ab848a0ca31255d248f794a89a8ef77fb":[10,0,2,10,0,0,5,0,18,1,4,0],
-"OperationMultipleEvalSubspaceSimple_8cpp.html":[10,0,2,10,0,0,5,0,18,1,0],
-"OperationMultipleEvalSubspaceSimple_8cpp.html#a0ab892f09d0d501b4cba6e0873f85dd9":[10,0,2,10,0,0,5,0,18,1,0,0],
-"OperationMultipleEvalSubspaceSimple_8cpp.html#a0be5f8a1181a3c8ae518ccc7de68c3a5":[10,0,2,10,0,0,5,0,18,1,0,3],
-"OperationMultipleEvalSubspaceSimple_8cpp.html#a3943479bdd9e85dc6f3c262cadf9e862":[10,0,2,10,0,0,5,0,18,1,0,2],
-"OperationMultipleEvalSubspaceSimple_8cpp.html#a71f2eac0c2326a293f0766f2f13121ab":[10,0,2,10,0,0,5,0,18,1,0,1],
-"OperationMultipleEvalSubspaceSimple_8hpp.html":[10,0,2,10,0,0,5,0,18,1,1]
+"OperationMultipleEvalSubspaceSimple_8cpp.html":[10,0,2,10,0,0,5,0,18,1,0]
 };

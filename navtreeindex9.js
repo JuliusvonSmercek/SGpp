@@ -1,5 +1,10 @@
 var NAVTREEINDEX9 =
 {
+"OperationTestPoly_8hpp.html":[10,0,2,10,0,0,5,0,21,161],
+"OperationTestPrewavelet_8cpp.html":[10,0,2,10,0,0,5,0,21,162],
+"OperationTestPrewavelet_8hpp.html":[10,0,2,10,0,0,5,0,21,163],
+"OperationTest_8hpp.html":[10,0,2,10,0,0,5,0,21,143],
+"OperationTransformation1D_8hpp.html":[10,0,2,10,0,0,5,0,21,164],
 "OperationUPCombinationGrid_8cpp.html":[10,0,1,2,0,0,3,15],
 "OperationUPCombinationGrid_8hpp.html":[10,0,1,2,0,0,3,16],
 "OperationUPFullGrid_8cpp.html":[10,0,1,2,0,0,3,17],
@@ -244,10 +249,5 @@ var NAVTREEINDEX9 =
 "SampleProvider_8hpp.html":[10,0,2,10,0,0,3,3,0,30],
 "Sample_8py.html":[10,0,2,9,3,11,3],
 "SamplerTypes_8hpp.html":[10,0,6,0,0,0,1,8],
-"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceb":[10,0,6,0,0,0,1,8,0],
-"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceba27abb4b8e57a88a6a15db17f673ee25f":[10,0,6,0,0,0,1,8,0,2],
-"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceba512d6102506da4ae0c35312fafcf7376":[10,0,6,0,0,0,1,8,0,0],
-"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceba869ce4fc1889d04090370619057e9c93":[10,0,6,0,0,0,1,8,0,1],
-"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8eccebaaa1015be87dac739ed02e094006ee73a":[10,0,6,0,0,0,1,8,0,3],
-"Sampler_8py.html":[10,0,2,9,3,11,4]
+"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceb":[10,0,6,0,0,0,1,8,0]
 };

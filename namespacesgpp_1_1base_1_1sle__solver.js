@@ -6,6 +6,7 @@ var namespacesgpp_1_1base_1_1sle__solver =
     [ "Eigen", "classsgpp_1_1base_1_1sle__solver_1_1Eigen.html", "classsgpp_1_1base_1_1sle__solver_1_1Eigen" ],
     [ "GaussianElimination", "classsgpp_1_1base_1_1sle__solver_1_1GaussianElimination.html", "classsgpp_1_1base_1_1sle__solver_1_1GaussianElimination" ],
     [ "Gmmpp", "classsgpp_1_1base_1_1sle__solver_1_1Gmmpp.html", "classsgpp_1_1base_1_1sle__solver_1_1Gmmpp" ],
+    [ "IterativeGaussianElimination", "classsgpp_1_1base_1_1sle__solver_1_1IterativeGaussianElimination.html", "classsgpp_1_1base_1_1sle__solver_1_1IterativeGaussianElimination" ],
     [ "SLESolver", "classsgpp_1_1base_1_1sle__solver_1_1SLESolver.html", "classsgpp_1_1base_1_1sle__solver_1_1SLESolver" ],
     [ "UMFPACK", "classsgpp_1_1base_1_1sle__solver_1_1UMFPACK.html", "classsgpp_1_1base_1_1sle__solver_1_1UMFPACK" ],
     [ "EigenMatrix", "namespacesgpp_1_1base_1_1sle__solver.html#acdbc505517e161d3e6b676b62b7c930c", null ],

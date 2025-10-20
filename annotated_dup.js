@@ -591,6 +591,7 @@ var annotated_dup =
           [ "Eigen", "classsgpp_1_1base_1_1sle__solver_1_1Eigen.html", "classsgpp_1_1base_1_1sle__solver_1_1Eigen" ],
           [ "GaussianElimination", "classsgpp_1_1base_1_1sle__solver_1_1GaussianElimination.html", "classsgpp_1_1base_1_1sle__solver_1_1GaussianElimination" ],
           [ "Gmmpp", "classsgpp_1_1base_1_1sle__solver_1_1Gmmpp.html", "classsgpp_1_1base_1_1sle__solver_1_1Gmmpp" ],
+          [ "IterativeGaussianElimination", "classsgpp_1_1base_1_1sle__solver_1_1IterativeGaussianElimination.html", "classsgpp_1_1base_1_1sle__solver_1_1IterativeGaussianElimination" ],
           [ "SLESolver", "classsgpp_1_1base_1_1sle__solver_1_1SLESolver.html", "classsgpp_1_1base_1_1sle__solver_1_1SLESolver" ],
           [ "UMFPACK", "classsgpp_1_1base_1_1sle__solver_1_1UMFPACK.html", "classsgpp_1_1base_1_1sle__solver_1_1UMFPACK" ]
         ] ],
@@ -1714,6 +1715,7 @@ var annotated_dup =
         [ "HashRefinementMultiple", "classsgpp_1_1optimization_1_1HashRefinementMultiple.html", "classsgpp_1_1optimization_1_1HashRefinementMultiple" ],
         [ "InterpolatedFuzzyInterval", "classsgpp_1_1optimization_1_1InterpolatedFuzzyInterval.html", "classsgpp_1_1optimization_1_1InterpolatedFuzzyInterval" ],
         [ "IterativeGridGenerator", "classsgpp_1_1optimization_1_1IterativeGridGenerator.html", "classsgpp_1_1optimization_1_1IterativeGridGenerator" ],
+        [ "IterativeGridGeneratorFullAdaptiveRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak" ],
         [ "IterativeGridGeneratorFuzzyRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFuzzyRitterNovak.html", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFuzzyRitterNovak" ],
         [ "IterativeGridGeneratorLinearSurplus", "classsgpp_1_1optimization_1_1IterativeGridGeneratorLinearSurplus.html", "classsgpp_1_1optimization_1_1IterativeGridGeneratorLinearSurplus" ],
         [ "IterativeGridGeneratorRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak.html", "classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak" ],

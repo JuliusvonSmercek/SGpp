@@ -124,13 +124,14 @@ Inheritance diagram for sgpp::base::sle_solver::SLESolver:</div>
  <div class="center">
   <img src="classsgpp_1_1base_1_1sle__solver_1_1SLESolver.png" usemap="#sgpp::base::sle_5Fsolver::SLESolver_map" alt=""/>
   <map id="sgpp::base::sle_5Fsolver::SLESolver_map" name="sgpp::base::sle_5Fsolver::SLESolver_map">
-<area href="classsgpp_1_1base_1_1sle__solver_1_1Armadillo.html" title="Linear system solver using Armadillo (direct full solver)." alt="sgpp::base::sle_solver::Armadillo" shape="rect" coords="0,56,254,80"/>
-<area href="classsgpp_1_1base_1_1sle__solver_1_1Auto.html" title="Automatic choice of external linear solver." alt="sgpp::base::sle_solver::Auto" shape="rect" coords="264,56,518,80"/>
-<area href="classsgpp_1_1base_1_1sle__solver_1_1BiCGStab.html" title="Linear system solver implementing the iterative BiCGStab method." alt="sgpp::base::sle_solver::BiCGStab" shape="rect" coords="528,56,782,80"/>
-<area href="classsgpp_1_1base_1_1sle__solver_1_1Eigen.html" title="Linear system solver using Eigen (direct full solver)." alt="sgpp::base::sle_solver::Eigen" shape="rect" coords="792,56,1046,80"/>
-<area href="classsgpp_1_1base_1_1sle__solver_1_1GaussianElimination.html" title="Linear system solver implementing the direct Gaussian elimination." alt="sgpp::base::sle_solver::GaussianElimination" shape="rect" coords="1056,56,1310,80"/>
-<area href="classsgpp_1_1base_1_1sle__solver_1_1Gmmpp.html" title="Linear system solver using Gmm++ (iterative sparse solver)." alt="sgpp::base::sle_solver::Gmmpp" shape="rect" coords="1320,56,1574,80"/>
-<area href="classsgpp_1_1base_1_1sle__solver_1_1UMFPACK.html" title="Linear system solver using UMFPACK (direct sparse solver)." alt="sgpp::base::sle_solver::UMFPACK" shape="rect" coords="1584,56,1838,80"/>
+<area href="classsgpp_1_1base_1_1sle__solver_1_1Armadillo.html" title="Linear system solver using Armadillo (direct full solver)." alt="sgpp::base::sle_solver::Armadillo" shape="rect" coords="309,56,608,80"/>
+<area href="classsgpp_1_1base_1_1sle__solver_1_1Auto.html" title="Automatic choice of external linear solver." alt="sgpp::base::sle_solver::Auto" shape="rect" coords="309,112,608,136"/>
+<area href="classsgpp_1_1base_1_1sle__solver_1_1BiCGStab.html" title="Linear system solver implementing the iterative BiCGStab method." alt="sgpp::base::sle_solver::BiCGStab" shape="rect" coords="309,168,608,192"/>
+<area href="classsgpp_1_1base_1_1sle__solver_1_1Eigen.html" title="Linear system solver using Eigen (direct full solver)." alt="sgpp::base::sle_solver::Eigen" shape="rect" coords="309,224,608,248"/>
+<area href="classsgpp_1_1base_1_1sle__solver_1_1GaussianElimination.html" title="Linear system solver implementing the direct Gaussian elimination." alt="sgpp::base::sle_solver::GaussianElimination" shape="rect" coords="309,280,608,304"/>
+<area href="classsgpp_1_1base_1_1sle__solver_1_1Gmmpp.html" title="Linear system solver using Gmm++ (iterative sparse solver)." alt="sgpp::base::sle_solver::Gmmpp" shape="rect" coords="309,336,608,360"/>
+<area href="classsgpp_1_1base_1_1sle__solver_1_1IterativeGaussianElimination.html" title="An incremental linear system solver based on Gaussian elimination." alt="sgpp::base::sle_solver::IterativeGaussianElimination" shape="rect" coords="309,392,608,416"/>
+<area href="classsgpp_1_1base_1_1sle__solver_1_1UMFPACK.html" title="Linear system solver using UMFPACK (direct sparse solver)." alt="sgpp::base::sle_solver::UMFPACK" shape="rect" coords="309,448,608,472"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -316,7 +317,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>whether all went well (false if errors occurred) </dd></dl>
 
-<p>Implemented in <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1Armadillo.html#ade9500515eee12bca6ad0e650e5e7181">sgpp::base::sle_solver::Armadillo</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1Auto.html#adf85b567bab10ab303e3346b82689382">sgpp::base::sle_solver::Auto</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1BiCGStab.html#a33a3e50061a71ea5251285d8ccc25e92">sgpp::base::sle_solver::BiCGStab</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1Eigen.html#a8444afe1c4c712cb8a85df681213ea36">sgpp::base::sle_solver::Eigen</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1GaussianElimination.html#a1ef4de7a64fcb0db77c9958ba82e5d3f">sgpp::base::sle_solver::GaussianElimination</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1Gmmpp.html#abb38c7612096984dec104da68af50e2e">sgpp::base::sle_solver::Gmmpp</a>, and <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1UMFPACK.html#a6cbbd3105161bf35dd9021116f0e8931">sgpp::base::sle_solver::UMFPACK</a>.</p>
+<p>Implemented in <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1Armadillo.html#ade9500515eee12bca6ad0e650e5e7181">sgpp::base::sle_solver::Armadillo</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1Auto.html#adf85b567bab10ab303e3346b82689382">sgpp::base::sle_solver::Auto</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1BiCGStab.html#a33a3e50061a71ea5251285d8ccc25e92">sgpp::base::sle_solver::BiCGStab</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1Eigen.html#a8444afe1c4c712cb8a85df681213ea36">sgpp::base::sle_solver::Eigen</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1GaussianElimination.html#a1ef4de7a64fcb0db77c9958ba82e5d3f">sgpp::base::sle_solver::GaussianElimination</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1Gmmpp.html#abb38c7612096984dec104da68af50e2e">sgpp::base::sle_solver::Gmmpp</a>, <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1IterativeGaussianElimination.html#a385645b1428364854b4669d6802cdf8e">sgpp::base::sle_solver::IterativeGaussianElimination</a>, and <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1UMFPACK.html#a6cbbd3105161bf35dd9021116f0e8931">sgpp::base::sle_solver::UMFPACK</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1optimizer_1_1LevenbergMarquardt.html#a0bb5bd3a26b5c2c4553ac9910c9cd764">sgpp::optimization::optimizer::LevenbergMarquardt::optimize()</a>, <a class="el" href="classsgpp_1_1optimization_1_1optimizer_1_1AdaptiveNewton.html#a44a9a6e8a426d69bdd214e27f8ab7c4f">sgpp::optimization::optimizer::AdaptiveNewton::optimize()</a>, <a class="el" href="classsgpp_1_1optimization_1_1optimizer_1_1Newton.html#ac3edd2216777dc51012188c4bc9b2565">sgpp::optimization::optimizer::Newton::optimize()</a>, and <a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1SLESolver.html#a2d328cea99ee4f7e65babe2e352e61d8">solve()</a>.</p>
 
@@ -331,7 +332,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesgpp.html">sgpp</a></li><li class="navelem"><a class="el" href="namespacesgpp_1_1base.html">base</a></li><li class="navelem"><a class="el" href="namespacesgpp_1_1base_1_1sle__solver.html">sle_solver</a></li><li class="navelem"><a class="el" href="classsgpp_1_1base_1_1sle__solver_1_1SLESolver.html">SLESolver</a></li>
-    <li class="footer">Generated on Mon Oct 13 2025 18:10:57 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Oct 20 2025 16:50:34 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

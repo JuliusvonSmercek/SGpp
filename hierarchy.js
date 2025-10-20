@@ -463,9 +463,11 @@ var hierarchy =
       [ "sgpp::datadriven::BoHyperparameterOptimizer", "classsgpp_1_1datadriven_1_1BoHyperparameterOptimizer.html", null ],
       [ "sgpp::datadriven::HarmonicaHyperparameterOptimizer", "classsgpp_1_1datadriven_1_1HarmonicaHyperparameterOptimizer.html", null ]
     ] ],
+    [ "sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::Hyperparameters", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html", null ],
     [ "sgpp::base::IndexInSubspaceGenerator", "classsgpp_1_1base_1_1IndexInSubspaceGenerator.html", null ],
     [ "sgpp::combigrid::IndexVectorRange", "classsgpp_1_1combigrid_1_1IndexVectorRange.html", null ],
     [ "sgpp::optimization::IterativeGridGenerator", "classsgpp_1_1optimization_1_1IterativeGridGenerator.html", [
+      [ "sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html", null ],
       [ "sgpp::optimization::IterativeGridGeneratorLinearSurplus", "classsgpp_1_1optimization_1_1IterativeGridGeneratorLinearSurplus.html", null ],
       [ "sgpp::optimization::IterativeGridGeneratorRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak.html", [
         [ "sgpp::optimization::IterativeGridGeneratorFuzzyRitterNovak", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFuzzyRitterNovak.html", null ]
@@ -1525,6 +1527,7 @@ var hierarchy =
       [ "sgpp::base::sle_solver::Eigen", "classsgpp_1_1base_1_1sle__solver_1_1Eigen.html", null ],
       [ "sgpp::base::sle_solver::GaussianElimination", "classsgpp_1_1base_1_1sle__solver_1_1GaussianElimination.html", null ],
       [ "sgpp::base::sle_solver::Gmmpp", "classsgpp_1_1base_1_1sle__solver_1_1Gmmpp.html", null ],
+      [ "sgpp::base::sle_solver::IterativeGaussianElimination", "classsgpp_1_1base_1_1sle__solver_1_1IterativeGaussianElimination.html", null ],
       [ "sgpp::base::sle_solver::UMFPACK", "classsgpp_1_1base_1_1sle__solver_1_1UMFPACK.html", null ]
     ] ],
     [ "sgpp::solver::SLESolverConfiguration", "structsgpp_1_1solver_1_1SLESolverConfiguration.html", null ],

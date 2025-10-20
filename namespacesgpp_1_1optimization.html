@@ -109,7 +109,8 @@ $(document).ready(function(){initNavTree('namespacesgpp_1_1optimization.html',''
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">sgpp::optimization Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -164,6 +165,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html">IterativeGridGenerator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class for iterative grid generation methods.  <a href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html">IterativeGridGeneratorFullAdaptiveRitterNovak</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterative grid generation based on a modified, full adaptive Ritter/Novak's refinement criterion.  <a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFuzzyRitterNovak.html">IterativeGridGeneratorFuzzyRitterNovak</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterative grid generation based on Ritter/Novak's refinement criterion like <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak.html" title="Iterative grid generation based on Ritter/Novak&#39;s refinement criterion.">IterativeGridGeneratorRitterNovak</a>, but adapted for the use with fuzzy intervals.  <a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFuzzyRitterNovak.html#details">More...</a><br /></td></tr>
@@ -273,14 +277,48 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1TriangularFuzzyInterval.html">TriangularFuzzyInterval</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triangular fuzzy interval; its membership function linearly increases from 0 to 1, stays 1, and linearly decreases back to 0.  <a href="classsgpp_1_1optimization_1_1TriangularFuzzyInterval.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a45f7a7f62ffcb3d6b50a6b4055d9b84c" id="r_a45f7a7f62ffcb3d6b50a6b4055d9b84c"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesgpp_1_1optimization.html#a45f7a7f62ffcb3d6b50a6b4055d9b84c">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">IterativeGridGeneratorFullAdaptiveRitterNovak::Hyperparameters</a> &amp;hyperparameters)</td></tr>
+<tr class="separator:a45f7a7f62ffcb3d6b50a6b4055d9b84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a45f7a7f62ffcb3d6b50a6b4055d9b84c" name="a45f7a7f62ffcb3d6b50a6b4055d9b84c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45f7a7f62ffcb3d6b50a6b4055d9b84c">&#9670;&#160;</a></span>operator&lt;&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; sgpp::optimization::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">IterativeGridGeneratorFullAdaptiveRitterNovak::Hyperparameters</a> &amp;&#160;</td>
+          <td class="paramname"><em>hyperparameters</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesgpp.html">sgpp</a></li><li class="navelem"><a class="el" href="namespacesgpp_1_1optimization.html">optimization</a></li>
-    <li class="footer">Generated on Mon Oct 13 2025 18:10:58 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Mon Oct 20 2025 16:50:35 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

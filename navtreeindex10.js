@@ -1,5 +1,10 @@
 var NAVTREEINDEX10 =
 {
+"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceba27abb4b8e57a88a6a15db17f673ee25f":[10,0,6,0,0,0,1,8,0,2],
+"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceba512d6102506da4ae0c35312fafcf7376":[10,0,6,0,0,0,1,8,0,0],
+"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceba869ce4fc1889d04090370619057e9c93":[10,0,6,0,0,0,1,8,0,1],
+"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8eccebaaa1015be87dac739ed02e094006ee73a":[10,0,6,0,0,0,1,8,0,3],
+"Sampler_8py.html":[10,0,2,9,3,11,4],
 "ScalarFunctionGradient_8hpp.html":[10,0,0,1,0,0,4,0,7],
 "ScalarFunctionHessian_8hpp.html":[10,0,0,1,0,0,4,0,8],
 "ScalarFunction_8hpp.html":[10,0,0,1,0,0,4,0,6],
@@ -180,10 +185,10 @@ var NAVTREEINDEX10 =
 "TypesSolver_8hpp.html#ad22849377de88089134ecefc2e1f1ed1a5202c6586cac8bee468e86d1ff854231":[10,0,7,1,0,0,10,2,0],
 "TypesSolver_8hpp.html#ad22849377de88089134ecefc2e1f1ed1aeaa40b964d9fa23eb21173c41cf591f4":[10,0,7,1,0,0,10,2,2],
 "Types_8py.html":[10,0,2,9,2,11],
-"UMFPACK_8cpp.html":[10,0,0,1,0,0,8,1,0,13],
-"UMFPACK_8cpp.html#a34b14532d4ee5a967110d6592116be8d":[10,0,0,1,0,0,8,1,0,13,1],
-"UMFPACK_8cpp.html#ac5376853febefe88e3cebe0ef0fdf062":[10,0,0,1,0,0,8,1,0,13,0],
-"UMFPACK_8hpp.html":[10,0,0,1,0,0,8,1,0,14],
+"UMFPACK_8cpp.html":[10,0,0,1,0,0,8,1,0,15],
+"UMFPACK_8cpp.html#a34b14532d4ee5a967110d6592116be8d":[10,0,0,1,0,0,8,1,0,15,1],
+"UMFPACK_8cpp.html#ac5376853febefe88e3cebe0ef0fdf062":[10,0,0,1,0,0,8,1,0,15,0],
+"UMFPACK_8hpp.html":[10,0,0,1,0,0,8,1,0,16],
 "UQBuilder_8py.html":[10,0,2,9,3,13,4],
 "UQSettingAdapter_8py.html":[10,0,2,9,3,13,6],
 "UQSettingFormatter_8py.html":[10,0,2,9,3,13,7],
@@ -244,10 +249,5 @@ var NAVTREEINDEX10 =
 "VisualizerDensityEstimation_8hpp.html":[10,0,2,10,0,0,3,3,4,11],
 "VisualizerDummy_8hpp.html":[10,0,2,10,0,0,3,3,4,12],
 "Visualizer_8cpp.html":[10,0,2,10,0,0,3,3,4,4],
-"Visualizer_8hpp.html":[10,0,2,10,0,0,3,3,4,5],
-"VizualizerDummy_8cpp.html":[10,0,2,10,0,0,3,3,4,13],
-"WaveletBasis_8hpp.html":[10,0,0,1,0,0,7,0,0,2,35],
-"WaveletBasis_8hpp.html#ae1a8a16e2128b411034259aa86dcf72e":[10,0,0,1,0,0,7,0,0,2,35,1],
-"WaveletBoundaryBasis_8hpp.html":[10,0,0,1,0,0,7,0,0,2,36],
-"WaveletBoundaryBasis_8hpp.html#ab25095b7e7daf772d079c0ce5b40b79f":[10,0,0,1,0,0,7,0,0,2,36,1]
+"Visualizer_8hpp.html":[10,0,2,10,0,0,3,3,4,5]
 };
