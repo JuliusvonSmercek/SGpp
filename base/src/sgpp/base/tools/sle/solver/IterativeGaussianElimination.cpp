@@ -172,7 +172,7 @@ DataVector lu_decomposition_solve(const DataMatrix& LU, const std::vector<size_t
   }
 
   // Backward substitution: Ux = y
-  for (int i = N - 1; i >= 0; --i) {
+  for (int i = static_cast<int>(N - 1); i >= 0; --i) {
     for (size_t k = i + 1; k < N; ++k) {
       y[i] -= LU(i, k) * y[k];
     }
