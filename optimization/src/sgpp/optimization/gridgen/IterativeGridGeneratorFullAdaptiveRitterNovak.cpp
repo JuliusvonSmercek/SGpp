@@ -14,8 +14,6 @@
 #include <sgpp/globaldef.hpp>
 #include <sgpp/optimization/gridgen/HashRefinementMultiple.hpp>
 
-// #include <boost/math/distributions/normal.hpp>
-
 #include <algorithm>
 #include <array>
 #include <cassert>
@@ -36,7 +34,7 @@ namespace optimization {
 
 namespace {
 // Type aliases for clarity
-using LeftRightPoint = std::array<sgpp::base::GridPoint, 2>;
+using LeftRightPoint = std::array<base::GridPoint, 2>;
 using CriterionRankSingle = std::vector<std::vector<double>>;
 using CriterionRankLR = std::vector<std::vector<std::array<double, 2>>>;
 using CriterionRanks = std::pair<CriterionRankSingle, CriterionRankLR>;
@@ -160,17 +158,11 @@ LeftRightPoint getRefinableChildren(base::GridStorage& gridStorage, const size_t
 
   HashRefinementMultiple refinement;
   refinement.refineGridpoint1D(gridStorage, gridStorage.getPoint(i), t);
+  assert(oldGridSize + 2 == gridStorage.getSize());
 
   std::array<base::GridPoint, 2> addedPoints;
-  const int numAdded = gridStorage.getSize() - oldGridSize;
-
-  if (1 == numAdded) {
-    addedPoints[0] = addedPoints[1] = gridStorage.getPoint(oldGridSize);
-  } else {
-    assert(2 == numAdded);
-    addedPoints[0] = gridStorage.getPoint(oldGridSize);
-    addedPoints[1] = gridStorage.getPoint(oldGridSize + 1);
-  }
+  addedPoints[0] = gridStorage.getPoint(oldGridSize);
+  addedPoints[1] = gridStorage.getPoint(oldGridSize + 1);
 
   // Backtrack: remove the newly added points to not alter the grid
   while (oldGridSize < gridStorage.getSize()) {
@@ -182,25 +174,25 @@ LeftRightPoint getRefinableChildren(base::GridStorage& gridStorage, const size_t
   return addedPoints;
 }
 
-// bool isSamePoint(const base::HashGridPoint& firstPoint, const base::HashGridPoint& secondPoint) {
-//   if (firstPoint.getDimension() != secondPoint.getDimension()) {
-//     return false;
-//   }
+bool isSamePoint(const base::HashGridPoint& firstPoint, const base::HashGridPoint& secondPoint) {
+  if (firstPoint.getDimension() != secondPoint.getDimension()) {
+    return false;
+  }
 
-//   for (size_t t = 0; t < firstPoint.getDimension(); ++t) {
-//     base::HashGridPoint::level_type firstLevel, secondLevel;
-//     base::HashGridPoint::index_type firstIndex, secondIndex;
+  for (size_t t = 0; t < firstPoint.getDimension(); ++t) {
+    base::HashGridPoint::level_type firstLevel, secondLevel;
+    base::HashGridPoint::index_type firstIndex, secondIndex;
 
-//     firstPoint.get(t, firstLevel, firstIndex);
-//     secondPoint.get(t, secondLevel, secondIndex);
+    firstPoint.get(t, firstLevel, firstIndex);
+    secondPoint.get(t, secondLevel, secondIndex);
 
-//     if (firstLevel != secondLevel || firstIndex != secondIndex) {
-//       return false;
-//     }
-//   }
+    if (firstLevel != secondLevel || firstIndex != secondIndex) {
+      return false;
+    }
+  }
 
-//   return true;
-// }
+  return true;
+}
 
 /**
  * @brief Updates the list of potential children for all refineable grid points.
@@ -216,49 +208,56 @@ void updateRefineableGridPoints(base::GridStorage& gridStorage, const size_t dim
                                 const size_t currentN,
                                 std::vector<std::vector<LeftRightPoint>>& refineableGridPoints,
                                 std::vector<std::vector<std::array<bool, 2>>>& ignore,
-                                base::level_t maxLevel) {
-  // TODO
-  // const double l1 = functionTransform.getOffset() - 1e-6;
-  // const double u1 = (1 - functionTransform.getOffset()) + 1e-6;
+                                base::level_t maxLevel,
+                                const std::vector<std::pair<double, double>>& domain) {
+  for (size_t t = 0; t < dimension; ++t) {
+    const size_t oldN = refineableGridPoints[t].size();
+    refineableGridPoints[t].resize(currentN);
 
-  // for (size_t t = 0; t < dimension; ++t) {
-  //   const size_t oldN = refineableGridPoints[t].size();
-  //   refineableGridPoints[t].resize(currentN);
+    for (size_t i = 0; i < currentN; i++) {
+      bool needUpdate = false;
+      if (oldN <= i) {
+        needUpdate = true;
+      } else {
+        for (size_t q = oldN; q < currentN && !needUpdate; ++q) {
+          for (size_t lr = 0; lr < refineableGridPoints[t][i].size() && !needUpdate; ++lr) {
+            needUpdate = isSamePoint(refineableGridPoints[t][i][lr], gridStorage[q]);
+          }
+        }
+      }
 
-  //   for (size_t i = 0; i < currentN; i++) {
-  //     bool needUpdate = true;  // TODO: should be false
-  //     if (oldN <= i) {
-  //       needUpdate = true;
-  //     } else {
-  //       for (size_t q = oldN; q < currentN && !needUpdate; ++q) {
-  //         for (size_t lr1 = 0; lr1 < refineableGridPoints[t][i].size() && !needUpdate; ++lr1) {
-  //           needUpdate = isSamePoint(refineableGridPoints[t][i][lr1], gridStorage[q]);
-  //         }
-  //       }
-  //     }
+      const LeftRightPoint newPoints = getRefinableChildren(gridStorage, i, t);
+      for (size_t lr = 0; lr < 2; ++lr) {
+        base::DataVector coordinates(dimension);
+        newPoints[lr].getStandardCoordinates(coordinates);
 
-  //     if (needUpdate) {
-  //       refineableGridPoints[t][i] = refineableGridPointDim(gridStorage, i, t);
-  //       for (size_t lr = 0; lr < 2; ++lr) {
-  //         const base::GridPoint& new_point = refineableGridPoints[t][i][lr];
-  //         base::DataVector coordinates(dimension);
-  //         new_point.getStandardCoordinates(coordinates);
+        const bool oldIgnore = ignore[i][t][lr];
+        const base::GridPoint oldPoint = refineableGridPoints[t][i][lr];
 
-  //         ignore[i][t][lr] = maxLevel < new_point.getLevelMax();
+        ignore[i][t][lr] = maxLevel < newPoints[lr].getLevelMax();
+        for (size_t q = 0; q < dimension; ++q) {
+          if (coordinates[q] < domain[q].first || domain[q].second < coordinates[q]) {
+            ignore[i][t][lr] = true;
+            break;
+          }
+        }
 
-  //         for (const double coordinate : coordinates) {
-  //           if (coordinate < l1 || u1 < coordinate) {
-  //             ignore[i][t][lr] = true;
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+        if (!ignore[i][t][lr]) {
+          refineableGridPoints[t][i][lr] = newPoints[lr];
+        }
+
+        if (!needUpdate) {
+          assert(oldIgnore == ignore[i][t][lr] &&
+                 isSamePoint(oldPoint, refineableGridPoints[t][i][lr]));
+        }
+      }
+    }
+  }
 }
 
 /**
- * @brief Evaluates the interpolant's gradient at parent points and value/gradient at child points.
+ * @brief Evaluates the interpolant's gradient at parent points and value/gradient at child
+ * points.
  *
  * @param grid The current grid.
  * @param alpha The current surplus vector.
@@ -271,7 +270,8 @@ std::pair<std::vector<base::DataVector>,
           std::vector<std::vector<std::array<std::pair<double, base::DataVector>, 2>>>>
 evalValues(base::Grid& grid, const base::DataVector& alpha, const size_t currentN,
            const size_t dimension,
-           const std::vector<std::vector<LeftRightPoint>>& refineableGridPoints) {
+           const std::vector<std::vector<LeftRightPoint>>& refineableGridPoints,
+           const std::vector<std::vector<std::array<bool, 2>>>& ignore) {
   const base::GridStorage& gridStorage = grid.getStorage();
 
   std::vector<base::DataVector> functionGradients(currentN, base::DataVector(dimension));
@@ -290,6 +290,10 @@ evalValues(base::Grid& grid, const base::DataVector& alpha, const size_t current
 
     for (size_t t = 0; t < dimension; ++t) {
       for (size_t lr = 0; lr < 2; ++lr) {
+        if (ignore[i][t][lr]) {
+          continue;
+        }
+
         refineableGridPoints[t][i][lr].getStandardCoordinates(coordinates);
         childrenValues[t][i][lr].first = ftGradient.eval(coordinates, gradient);
         childrenValues[t][i][lr].second = gradient;
@@ -459,7 +463,8 @@ double phi(const double z) {
 
 /**
  * @brief Calculates ranks based on Gaussian Process uncertainty.
- * The value is `phi(|mu|/sigma)`, prioritizing points with high uncertainty or mean close to zero.
+ * The value is `phi(|mu|/sigma)`, prioritizing points with high uncertainty or mean close to
+ * zero.
  *
  * @param dimension The grid dimension.
  * @param currentN The current number of grid points.
@@ -489,17 +494,20 @@ CriterionRanks evalRankGaussianProcess(
 
 IterativeGridGeneratorFullAdaptiveRitterNovak::IterativeGridGeneratorFullAdaptiveRitterNovak(
     base::ScalarFunction& f, base::Grid& grid, const size_t N,
-    const IGGFARNHelper::Hyperparameters& hyperparameters, const bool refineLeftOrRight,
+    const IGGFARNHelper::Hyperparameters& hyperparameters,
+    const std::vector<std::pair<double, double>>& domain, const bool refineLeftOrRight,
     const base::level_t initialLevel, const base::level_t maxLevel)
     : IterativeGridGenerator(f, grid, N),
       hyperparameters(hyperparameters),
+      domain(domain),
       initialLevel(initialLevel),
       maxLevel(maxLevel),
       stoppingCriterionValidationPoints(),
       refineLeftOrRight(refineLeftOrRight) {
   this->gpInit = [](const size_t) {};
   this->gpAddPattern = [](const base::DataVector&, double) {};
-  this->gpEvaluate = [](const std::vector<std::vector<std::array<base::GridPoint, 2>>>&) {
+  this->gpEvaluate = [](const std::vector<std::vector<std::array<base::GridPoint, 2>>>&,
+                        const std::vector<std::vector<std::array<bool, 2>>>&) {
     return std::vector<std::vector<std::array<std::pair<double, double>, 2>>>();
   };
 }
@@ -510,8 +518,8 @@ void IterativeGridGeneratorFullAdaptiveRitterNovak::setGaussianProcess(
     const std::function<void(const size_t dimension)>& init,
     const std::function<void(const base::DataVector& x, const double y)>& addPattern,
     const std::function<std::vector<std::vector<std::array<std::pair<double, double>, 2>>>(
-        const std::vector<std::vector<std::array<base::GridPoint, 2>>>& refineableGridPoints)>&
-        evaluate) {
+        const std::vector<std::vector<std::array<base::GridPoint, 2>>>& refineableGridPoints,
+        const std::vector<std::vector<std::array<bool, 2>>>& ignore)>& evaluate) {
   this->gpInit = init;
   this->gpAddPattern = addPattern;
   this->gpEvaluate = evaluate;
@@ -545,6 +553,11 @@ void IterativeGridGeneratorFullAdaptiveRitterNovak::setMaxLevel(base::level_t ma
 
 void IterativeGridGeneratorFullAdaptiveRitterNovak::activateStoppingCriterion(
     const std::vector<base::DataVector>& validationPoints) {
+  if (validationPoints.empty()) {
+    throw std::invalid_argument(
+        "IterativeGridGeneratorFullAdaptiveRitterNovak::activateStoppingCriterion - "
+        "Validation points cannot be empty.");
+  }
   this->stoppingCriterionValidationPoints = validationPoints;
 }
 
@@ -600,18 +613,21 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
     this->gpAddPattern(gridStorage.getPointCoordinates(i), functionValues[i]);
   }
 
-  // std::vector<std::pair<size_t, double>> values;
-  // const auto start = std::chrono::high_resolution_clock::now();
+  const auto start = std::chrono::high_resolution_clock::now();
 
   while (currentN < N) {
     // Status printing
     {
-      char str[10];
-      snprintf(str, sizeof(str), "%.1f%%",
-               static_cast<double>(currentN) / static_cast<double>(N) * 100.0);
-      sgpp::base::Printer::getInstance().printStatusUpdate(std::string(str) +
-                                                           " (N = " + std::to_string(currentN) +
-                                                           ", k = " + std::to_string(k) + ")");
+      const auto current = std::chrono::high_resolution_clock::now();
+      const auto elapsed =
+          std::chrono::duration_cast<std::chrono::milliseconds>(current - start).count();
+
+      std::stringstream sstream;
+      sstream << (static_cast<double>(currentN) / static_cast<double>(N) * 100.0)
+              << "%\t " + std::to_string(currentN) << " / " << N
+              << ",\t elapsed time: " << static_cast<double>(elapsed) / 1000.0 << "s";
+      std::cout << "\r" << sstream.str() << std::endl;
+      base::Printer::getInstance().printStatusUpdate(sstream.str());
     }
 
     // Hierarchize
@@ -627,12 +643,14 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
       break;
     }
 
-    updateRefineableGridPoints(gridStorage, dim, currentN, refineableGridPoints, ignore, maxLevel);
+    updateRefineableGridPoints(gridStorage, dim, currentN, refineableGridPoints, ignore, maxLevel,
+                               this->domain);
 
     const std::vector<std::vector<std::array<std::pair<double, double>, 2>>> uncertaintyGridPoints =
-        gpEvaluate(refineableGridPoints);
+        gpEvaluate(refineableGridPoints, ignore);
 
-    const auto& evalPair = evalValues(grid, this->alpha, currentN, dim, refineableGridPoints);
+    const auto& evalPair =
+        evalValues(grid, this->alpha, currentN, dim, refineableGridPoints, ignore);
     const auto& functionGradients = evalPair.first;
     const auto& childrenValues = evalPair.second;
 
@@ -679,6 +697,7 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
         if (this->refineLeftOrRight) {
           for (size_t lr = 0; lr < 2; ++lr) {
             if (ignore[i][t][lr]) continue;
+
             // Combined refinement criterion
             double g = 1.0;
             for (const auto& weightRankPair : weightedRanks) {
@@ -692,7 +711,8 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
             }
           }
         } else {
-          if (ignore[i][t][0] && ignore[i][t][1]) continue;
+          if (ignore[i][t][0] || ignore[i][t][1]) continue;
+
           // Combined refinement criterion
           double g = 1.0;
           for (const auto& weightRankPair : weightedRanks) {
@@ -755,29 +775,6 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
     // values.push_back(std::make_pair(gridStorage.getSize(), elapsed_seconds.count() + 1));
   }
 
-  // std::ofstream file{"./times.txt"};
-  // file << std::fixed << std::setprecision(3);
-  // double a_guess = 5 / 108.0;
-  // double a_best = a_guess;
-
-  // double total_error = std::numeric_limits<double>::infinity();
-  // for (double a = a_guess / 2; a < 3 * a_guess / 2; a += a_guess / 100.0) {
-  //   double error = 0;
-  //   for (auto item : values) {
-  //     error += std::pow(a * std::pow(item.first / 100.0, 3) + 1 - item.second, 2);
-  //   }
-  //   if (error < total_error) {
-  //     total_error = error;
-  //     a_best = a;
-  //   }
-  // }
-
-  // for (auto item : values) {
-  //   file << "point 0 " << item.first << " " << item.second << std::endl;
-  //   file << "point 1 " << item.first << " " << a_best * std::pow(item.first / 100.0, 3) + 1 <<
-  //   std::endl;
-  // }
-
   // delete superfluous entries in functionValues
   functionValues.resize(currentN);
   fastMatrixSolver.iterativeSolve(hierSLE, functionValues, this->alpha);
@@ -818,12 +815,12 @@ Hyperparameters::Hyperparameters(const double levelDegree, const double threshol
       gradient(gradient),
       secondGradient(secondGradient),
       gaussianProcess(gaussianProcess) {
-  assert(0.0 <= this->levelDegree <= 1.0);
-  assert(0.0 <= this->threshold <= 1.0);
-  assert(0.0 <= this->extendedThreshold <= 1.0);
-  assert(0.0 <= this->gradient <= 1.0);
-  assert(0.0 <= this->secondGradient <= 1.0);
-  assert(0.0 <= this->gaussianProcess <= 1.0);
+  assert(0.0 <= this->levelDegree && this->levelDegree <= 1.0);
+  assert(0.0 <= this->threshold && this->threshold <= 1.0);
+  assert(0.0 <= this->extendedThreshold && this->extendedThreshold <= 1.0);
+  assert(0.0 <= this->gradient && this->gradient <= 1.0);
+  assert(0.0 <= this->secondGradient && this->secondGradient <= 1.0);
+  assert(0.0 <= this->gaussianProcess && this->gaussianProcess <= 1.0);
 
   const double sum = this->levelDegree + this->threshold + this->extendedThreshold +
                      this->gradient + this->secondGradient + this->gaussianProcess;
@@ -865,7 +862,7 @@ std::ostream& operator<<(std::ostream& os, const Hyperparameters& hyperparameter
   return os;
 }
 
-StoppingCriterion::StoppingCriterion(const std::vector<sgpp::base::DataVector>& monteCarloPoints)
+StoppingCriterion::StoppingCriterion(const std::vector<base::DataVector>& monteCarloPoints)
     : monteCarloPoints(monteCarloPoints) {}
 
 StoppingCriterion::~StoppingCriterion() {}
@@ -931,8 +928,8 @@ bool StoppingCriterion::shouldStop(base::Grid& grid, const base::DataVector& alp
 std::tuple<size_t, UncertaintyBound, UncertaintyBound> StoppingCriterion::measure_error(
     const std::vector<base::DataVector>& points, std::vector<double>& surrogate_values,
     std::vector<double>& original_values,
-    const std::function<double(const sgpp::base::DataVector&)>& surrogate_f,
-    const std::function<double(const sgpp::base::DataVector&)>& original_f,
+    const std::function<double(const base::DataVector&)>& surrogate_f,
+    const std::function<double(const base::DataVector&)>& original_f,
     const std::function<bool(const UncertaintyBound&, const UncertaintyBound&, size_t)>&
         early_stop_criterion) {
   const size_t batchSize = 5000;

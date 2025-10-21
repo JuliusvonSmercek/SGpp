@@ -308,7 +308,8 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
    */
   IterativeGridGeneratorFullAdaptiveRitterNovak(
       base::ScalarFunction& f, base::Grid& grid, size_t N,
-      const IGGFARNHelper::Hyperparameters& hyperparameters, bool refineLeftOrRight = true,
+      const IGGFARNHelper::Hyperparameters& hyperparameters,
+      const std::vector<std::pair<double, double>>& domain, bool refineLeftOrRight = true,
       const base::level_t initialLevel = DEFAULT_INITIAL_LEVEL,
       const base::level_t maxLevel = DEFAULT_MAX_LEVEL);
 
@@ -330,8 +331,8 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
       const std::function<void(const size_t dimension)>& init,
       const std::function<void(const base::DataVector& x, double y)>& addPattern,
       const std::function<std::vector<std::vector<std::array<std::pair<double, double>, 2>>>(
-          const std::vector<std::vector<std::array<base::GridPoint, 2>>>& refineableGridPoints)>&
-          evaluate);
+          const std::vector<std::vector<std::array<base::GridPoint, 2>>>& refineableGridPoints,
+          const std::vector<std::vector<std::array<bool, 2>>>& ignore)>& evaluate);
 
   /**
    * Generates the grid adaptively until the maximum number of points `N` is reached
@@ -397,6 +398,8 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
  protected:
   /// Hyperparameters for the adaptive weight function.
   IGGFARNHelper::Hyperparameters hyperparameters;
+  /// Domain bounds for each dimension.
+  std::vector<std::pair<double, double>> domain;
   /// Level of the initial regular sparse grid.
   base::level_t initialLevel;
   /// Maximal level of grid points.
@@ -413,7 +416,8 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
   std::function<void(const base::DataVector& x, double y)> gpAddPattern;
   /// Function to evaluate the Gaussian process at given points.
   std::function<std::vector<std::vector<std::array<std::pair<double, double>, 2>>>(
-      const std::vector<std::vector<std::array<base::GridPoint, 2>>>& refineableGridPoints)>
+      const std::vector<std::vector<std::array<base::GridPoint, 2>>>& refineableGridPoints,
+      const std::vector<std::vector<std::array<bool, 2>>>& ignore)>
       gpEvaluate;
 };
 }  // namespace optimization
