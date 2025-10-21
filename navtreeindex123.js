@@ -1,5 +1,7 @@
 var NAVTREEINDEX123 =
 {
+"examples_java.html":[3,2],
+"examples_java.html#examples_java_module_base":[3,2,0],
 "examples_java.html#examples_java_module_datadriven":[3,2,1],
 "examples_java.html#examples_java_module_optimization":[3,2,2],
 "examples_m.html":[3,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX123 =
 "learner_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97":[10,0,2,6,7,1],
 "learner_8cpp.html#a37eb1e85c1cfcfe4de0e7838c42ad9f2":[10,0,2,6,7,3],
 "learner_8cpp.html#a49786ce3c02f9574fcd3367e66ac1290":[10,0,2,6,7,6],
-"learner_8cpp.html#a7b361c98a02f036947c361f9d53a89e0":[10,0,2,6,7,4],
-"learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58":[10,0,2,6,7,0],
-"learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58a070d0c22e582b55c2f665f65af9630b9":[10,0,2,6,7,0,1]
+"learner_8cpp.html#a7b361c98a02f036947c361f9d53a89e0":[10,0,2,6,7,4]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX115 =
 {
+"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#a5bfc033453dbea4399273cd29a7c0cba":[8,0,14,5,36,2],
+"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#a5bfc033453dbea4399273cd29a7c0cba":[9,0,2,4,36,2],
 "classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#aef19ae301b9c5cf6219bbf32a0656fc1":[8,0,14,5,36,1],
 "classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#aef19ae301b9c5cf6219bbf32a0656fc1":[9,0,2,4,36,1],
 "classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#af1c0b1e7bb7da925f20f93a5c03e09a0":[8,0,14,5,36,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX115 =
 "classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#ad195e85d5979913453edd26d7eea7d9c":[9,0,2,4,64,3],
 "classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#ad195e85d5979913453edd26d7eea7d9c":[8,0,14,5,64,3],
 "classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#af5e0682ae03b0f558fddcfa86c9c32ef":[8,0,14,5,64,0],
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#af5e0682ae03b0f558fddcfa86c9c32ef":[9,0,2,4,64,0],
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#afc9ab4bd0c9d0c38a319fa4c645605ec":[9,0,2,4,64,2],
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#afc9ab4bd0c9d0c38a319fa4c645605ec":[8,0,14,5,64,2]
+"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#af5e0682ae03b0f558fddcfa86c9c32ef":[9,0,2,4,64,0]
 };

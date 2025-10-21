@@ -1,5 +1,7 @@
 var NAVTREEINDEX122 =
 {
+"dir_a3d2d85d90a8082de7bb30acac812dfc.html":[10,0,4,1,0,0,3,0],
+"dir_a412a70d3c8906df8feca37cf42cbae4.html":[10,0,2,9,3,9,3],
 "dir_a45ba08a15e1109ebad7c1b4903995b5.html":[10,0,2,9,3,3],
 "dir_a50e9045ae1f5a8ca4cfa3e4791c9df3.html":[10,0,3,0,0],
 "dir_a52f4d3d586a58b02f3a4ddf0a992157.html":[10,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX122 =
 "examples_cpp.html#examples_cpp_module_combigrid":[3,0,1],
 "examples_cpp.html#examples_cpp_module_datadriven":[3,0,2],
 "examples_cpp.html#examples_cpp_module_optimization":[3,0,3],
-"examples_cpp.html#examples_cpp_module_solver":[3,0,4],
-"examples_java.html":[3,2],
-"examples_java.html#examples_java_module_base":[3,2,0]
+"examples_cpp.html#examples_cpp_module_solver":[3,0,4]
 };

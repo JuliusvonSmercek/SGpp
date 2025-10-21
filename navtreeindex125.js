@@ -1,5 +1,7 @@
 var NAVTREEINDEX125 =
 {
+"namespacepython_1_1classifier.html#a218081b60ecd7960e32aecbf6d09b918":[8,0,12,0,48],
+"namespacepython_1_1classifier.html#a229ff2f2295f5c1e0cf3c4f08d7e22b1":[8,0,12,0,33],
 "namespacepython_1_1classifier.html#a2d735a4fc0c280699c64210a8369b163":[8,0,12,0,32],
 "namespacepython_1_1classifier.html#a31f446fd18e3b0906fcdffa77c64f5d2":[8,0,12,0,7],
 "namespacepython_1_1classifier.html#a343bf9eb241d4941b33dab53347f2db9":[8,0,12,0,29],
@@ -247,7 +249,5 @@ var NAVTREEINDEX125 =
 "namespacepython_1_1uq_1_1analysis_1_1mc_1_1MCAnalysis.html":[8,0,12,12,0,3,0],
 "namespacepython_1_1uq_1_1dists.html":[8,0,12,12,1],
 "namespacepython_1_1uq_1_1dists_1_1Beta.html":[8,0,12,12,1,0],
-"namespacepython_1_1uq_1_1dists_1_1Corr.html":[8,0,12,12,1,1],
-"namespacepython_1_1uq_1_1dists_1_1CorrBeta.html":[8,0,12,12,1,2],
-"namespacepython_1_1uq_1_1dists_1_1DataDist.html":[8,0,12,12,1,3]
+"namespacepython_1_1uq_1_1dists_1_1Corr.html":[8,0,12,12,1,1]
 };

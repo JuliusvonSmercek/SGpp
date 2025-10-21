@@ -1,5 +1,7 @@
 var NAVTREEINDEX133 =
 {
+"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01float_01_4.html":[9,0,2,2,5,2],
+"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01float_01_4.html":[8,0,14,2,8,2],
 "structsgpp_1_1solver_1_1SLESolverConfiguration.html":[8,0,14,7,19],
 "structsgpp_1_1solver_1_1SLESolverConfiguration.html":[9,0,2,6,19],
 "structsgpp_1_1solver_1_1SLESolverConfiguration.html#a18fba493a9d6dfc64b0d710e8e54722d":[8,0,14,7,19,3],

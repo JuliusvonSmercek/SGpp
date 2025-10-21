@@ -1,5 +1,7 @@
 var NAVTREEINDEX131 =
 {
+"structsgpp_1_1base_1_1AdaptivityConfiguration.html#ada609949e413acb999f39906363eeb2d":[9,0,2,0,3,9],
+"structsgpp_1_1base_1_1AdaptivityConfiguration.html#ada609949e413acb999f39906363eeb2d":[8,0,14,0,3,9],
 "structsgpp_1_1base_1_1AdaptivityConfiguration.html#adcdaf4e7774e0c4edca304d6b8d2f1f0":[8,0,14,0,3,11],
 "structsgpp_1_1base_1_1AdaptivityConfiguration.html#adcdaf4e7774e0c4edca304d6b8d2f1f0":[9,0,2,0,3,11],
 "structsgpp_1_1base_1_1AdaptivityConfiguration.html#aeebe0ee91b8c664c6bd61ba27f2e5f34":[9,0,2,0,3,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX131 =
 "structsgpp_1_1datadriven_1_1HashGridPointCompare.html#a72c6be31c61e4c0c243de7dc10286cb5":[8,0,14,2,122,0],
 "structsgpp_1_1datadriven_1_1HashGridPointCompare.html#a72c6be31c61e4c0c243de7dc10286cb5":[9,0,2,2,118,0],
 "structsgpp_1_1datadriven_1_1LearnerConfiguration.html":[9,0,2,2,128],
-"structsgpp_1_1datadriven_1_1LearnerConfiguration.html":[8,0,14,2,132],
-"structsgpp_1_1datadriven_1_1LearnerConfiguration.html#a2e4b681113644984770d6513751c15c5":[9,0,2,2,128,0],
-"structsgpp_1_1datadriven_1_1LearnerConfiguration.html#a2e4b681113644984770d6513751c15c5":[8,0,14,2,132,0]
+"structsgpp_1_1datadriven_1_1LearnerConfiguration.html":[8,0,14,2,132]
 };

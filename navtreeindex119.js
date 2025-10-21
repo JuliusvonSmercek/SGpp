@@ -1,5 +1,7 @@
 var NAVTREEINDEX119 =
 {
+"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#ac39fe632604c84ce8c41421c32c562b9":[9,0,2,5,2,2],
+"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#ac39fe632604c84ce8c41421c32c562b9":[8,0,14,6,2,2],
 "classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#ae5d948dd1d670afc52e0007c802fdf86":[9,0,2,5,2,0],
 "classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#ae5d948dd1d670afc52e0007c802fdf86":[8,0,14,6,2,0],
 "classsgpp_1_1quadrature_1_1OperationQuadratureMCAdvanced.html":[8,0,14,6,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX119 =
 "classsgpp_1_1solver_1_1OperationParabolicPDESolverSystem.html#aac500aa816ebf148f86b2996e35f450d":[8,0,14,7,13,7],
 "classsgpp_1_1solver_1_1OperationParabolicPDESolverSystem.html#aac500aa816ebf148f86b2996e35f450d":[9,0,2,6,13,7],
 "classsgpp_1_1solver_1_1OperationParabolicPDESolverSystem.html#aba561c5847117139e0ff984d355207b7":[8,0,14,7,13,20],
-"classsgpp_1_1solver_1_1OperationParabolicPDESolverSystem.html#aba561c5847117139e0ff984d355207b7":[9,0,2,6,13,20],
-"classsgpp_1_1solver_1_1OperationParabolicPDESolverSystem.html#ac2916a226462e9c0ca546238de3a5928":[9,0,2,6,13,31],
-"classsgpp_1_1solver_1_1OperationParabolicPDESolverSystem.html#ac2916a226462e9c0ca546238de3a5928":[8,0,14,7,13,31]
+"classsgpp_1_1solver_1_1OperationParabolicPDESolverSystem.html#aba561c5847117139e0ff984d355207b7":[9,0,2,6,13,20]
 };

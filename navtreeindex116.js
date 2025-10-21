@@ -1,5 +1,7 @@
 var NAVTREEINDEX116 =
 {
+"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#afc9ab4bd0c9d0c38a319fa4c645605ec":[9,0,2,4,64,2],
+"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#afc9ab4bd0c9d0c38a319fa4c645605ec":[8,0,14,5,64,2],
 "classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html":[9,0,2,4,65],
 "classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html":[8,0,14,5,65],
 "classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html#a904f34c9239a7639162f80811f19e836":[9,0,2,4,65,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX116 =
 "classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afb3683a0f6d6d71dd443b1928561959f":[9,0,2,4,80,6],
 "classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afb3683a0f6d6d71dd443b1928561959f":[8,0,14,5,80,6],
 "classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afcbd4a71ef55c45a33bf845a95326fd1":[9,0,2,4,80,0],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afcbd4a71ef55c45a33bf845a95326fd1":[8,0,14,5,80,0],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html":[9,0,2,4,81],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html":[8,0,14,5,81]
+"classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afcbd4a71ef55c45a33bf845a95326fd1":[8,0,14,5,80,0]
 };

@@ -1,5 +1,7 @@
 var NAVTREEINDEX124 =
 {
+"learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58":[10,0,2,6,7,0],
+"learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58a070d0c22e582b55c2f665f65af9630b9":[10,0,2,6,7,0,1],
 "learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58a0dc58ae2bdfe414fe21af0475304b851":[10,0,2,6,7,0,0],
 "learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58a370bc95fae70e9bcd0497ff9663343a8":[10,0,2,6,7,0,2],
 "learner_8cpp.html#ab3142c3adc20cdcef937e6cea239c4d6":[10,0,2,6,7,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX124 =
 "namespacepython_1_1classifier.html#a150beb9c80370f2f5244e3399545ca0c":[8,0,12,0,44],
 "namespacepython_1_1classifier.html#a1e47851f6949c9041b88b8eaf2495958":[8,0,12,0,5],
 "namespacepython_1_1classifier.html#a1e7afd0fd09bae238b2a17605656c5e4":[8,0,12,0,23],
-"namespacepython_1_1classifier.html#a1fcd5f0a905062d31fc4d3a1e76d7500":[8,0,12,0,0],
-"namespacepython_1_1classifier.html#a218081b60ecd7960e32aecbf6d09b918":[8,0,12,0,48],
-"namespacepython_1_1classifier.html#a229ff2f2295f5c1e0cf3c4f08d7e22b1":[8,0,12,0,33]
+"namespacepython_1_1classifier.html#a1fcd5f0a905062d31fc4d3a1e76d7500":[8,0,12,0,0]
 };

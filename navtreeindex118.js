@@ -1,5 +1,7 @@
 var NAVTREEINDEX118 =
 {
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a90192bdf73abd32f8f33846fcba66311":[9,0,2,4,93,30],
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a90192bdf73abd32f8f33846fcba66311":[8,0,14,5,93,30],
 "classsgpp_1_1pde_1_1UpDownFourOpDims.html#a98fd2ccf4fdae3c4e50c46694edb40f5":[8,0,14,5,93,47],
 "classsgpp_1_1pde_1_1UpDownFourOpDims.html#a98fd2ccf4fdae3c4e50c46694edb40f5":[9,0,2,4,93,47],
 "classsgpp_1_1pde_1_1UpDownFourOpDims.html#aa274020b0e6ddd4a5db2f19e1e3c5f00":[9,0,2,4,93,60],
@@ -247,7 +249,5 @@ var NAVTREEINDEX118 =
 "classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html":[9,0,2,5,2],
 "classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html":[8,0,14,6,2],
 "classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#a1c5f63a969e3baa42ceab2f7f5481b8a":[9,0,2,5,2,1],
-"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#a1c5f63a969e3baa42ceab2f7f5481b8a":[8,0,14,6,2,1],
-"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#ac39fe632604c84ce8c41421c32c562b9":[9,0,2,5,2,2],
-"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#ac39fe632604c84ce8c41421c32c562b9":[8,0,14,6,2,2]
+"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#a1c5f63a969e3baa42ceab2f7f5481b8a":[8,0,14,6,2,1]
 };
