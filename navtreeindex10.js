@@ -1,5 +1,7 @@
 var NAVTREEINDEX10 =
 {
+"SamplerTypes_8hpp.html":[10,0,6,0,0,0,1,8],
+"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceb":[10,0,6,0,0,0,1,8,0],
 "SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceba27abb4b8e57a88a6a15db17f673ee25f":[10,0,6,0,0,0,1,8,0,2],
 "SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceba512d6102506da4ae0c35312fafcf7376":[10,0,6,0,0,0,1,8,0,0],
 "SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceba869ce4fc1889d04090370619057e9c93":[10,0,6,0,0,0,1,8,0,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX10 =
 "VisualizerConfiguration_8hpp.html":[10,0,2,10,0,0,3,3,4,9],
 "VisualizerDensityEstimation_8cpp.html":[10,0,2,10,0,0,3,3,4,10],
 "VisualizerDensityEstimation_8hpp.html":[10,0,2,10,0,0,3,3,4,11],
-"VisualizerDummy_8hpp.html":[10,0,2,10,0,0,3,3,4,12],
-"Visualizer_8cpp.html":[10,0,2,10,0,0,3,3,4,4],
-"Visualizer_8hpp.html":[10,0,2,10,0,0,3,3,4,5]
+"VisualizerDummy_8hpp.html":[10,0,2,10,0,0,3,3,4,12]
 };

@@ -25,7 +25,6 @@ var searchData=
   ['useprior_22',['useprior',['../classsgpp_1_1datadriven_1_1LearnerSGDE.html#a81a028328a6c2b06efa33b819ae2cb5f',1,'sgpp::datadriven::LearnerSGDE::usePrior'],['../classsgpp_1_1datadriven_1_1LearnerSGDEOnOffParallel.html#a41030f900c9842c1b14d7448ee189998',1,'sgpp::datadriven::LearnerSGDEOnOffParallel::usePrior']]],
   ['useprior_5f_23',['usePrior_',['../structsgpp_1_1datadriven_1_1LearnerConfiguration.html#afefbbc63415f8ea8f74a1dbcf579ebc1',1,'sgpp::datadriven::LearnerConfiguration']]],
   ['username_24',['username',['../namespacepython_1_1uq_1_1uq__setting_1_1remote__worker.html#a8aebc3b1ee44a6a377ea15d3dc07c349',1,'python::uq::uq_setting::remote_worker']]],
-  ['usestoppingcriterion_25',['useStoppingCriterion',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#abe6a35b2005c4c0d4067ab1718835e43',1,'sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak']]],
-  ['usevaliddata_26',['useValidData',['../classsgpp_1_1datadriven_1_1LearnerSGD.html#a332c0c35b573a9b4b705651841eb7177',1,'sgpp::datadriven::LearnerSGD']]],
-  ['useverbose_27',['useVerbose',['../classpython_1_1learner_1_1Learner_1_1Learner.html#a34f2fd824f27350959382bf1438fca6e',1,'python::learner::Learner::Learner']]]
+  ['usevaliddata_25',['useValidData',['../classsgpp_1_1datadriven_1_1LearnerSGD.html#a332c0c35b573a9b4b705651841eb7177',1,'sgpp::datadriven::LearnerSGD']]],
+  ['useverbose_26',['useVerbose',['../classpython_1_1learner_1_1Learner_1_1Learner.html#a34f2fd824f27350959382bf1438fca6e',1,'python::learner::Learner::Learner']]]
 ];

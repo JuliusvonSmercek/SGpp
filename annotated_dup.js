@@ -1567,6 +1567,11 @@ var annotated_dup =
         [ "ZeroCrossingRefinementFunctor", "classsgpp_1_1datadriven_1_1ZeroCrossingRefinementFunctor.html", "classsgpp_1_1datadriven_1_1ZeroCrossingRefinementFunctor" ]
       ] ],
       [ "optimization", "namespacesgpp_1_1optimization.html", [
+        [ "IGGFARNHelper", "namespacesgpp_1_1optimization_1_1IGGFARNHelper.html", [
+          [ "Hyperparameters", "classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html", "classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters" ],
+          [ "StoppingCriterion", "classsgpp_1_1optimization_1_1IGGFARNHelper_1_1StoppingCriterion.html", "classsgpp_1_1optimization_1_1IGGFARNHelper_1_1StoppingCriterion" ],
+          [ "UncertaintyBound", "classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html", "classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound" ]
+        ] ],
         [ "optimizer", "namespacesgpp_1_1optimization_1_1optimizer.html", [
           [ "AdaptiveGradientDescent", "classsgpp_1_1optimization_1_1optimizer_1_1AdaptiveGradientDescent.html", "classsgpp_1_1optimization_1_1optimizer_1_1AdaptiveGradientDescent" ],
           [ "AdaptiveNewton", "classsgpp_1_1optimization_1_1optimizer_1_1AdaptiveNewton.html", "classsgpp_1_1optimization_1_1optimizer_1_1AdaptiveNewton" ],

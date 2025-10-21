@@ -35,6 +35,7 @@ var namespacesgpp_1_1optimization =
       [ "writeVector", "namespacesgpp_1_1optimization_1_1file__io.html#aeb105be23f3c1bc3a555b7e2632a8432", null ],
       [ "writeVector", "namespacesgpp_1_1optimization_1_1file__io.html#afbec326086599404100fcd0678c20dbc", null ]
     ] ],
+    [ "IGGFARNHelper", "namespacesgpp_1_1optimization_1_1IGGFARNHelper.html", "namespacesgpp_1_1optimization_1_1IGGFARNHelper" ],
     [ "math", "namespacesgpp_1_1optimization_1_1math.html", [
       [ "hessenbergForm", "namespacesgpp_1_1optimization_1_1math.html#acab38208e48b29c32a5dfce3185ae572", null ],
       [ "householderTransformation", "namespacesgpp_1_1optimization_1_1math.html#affa918e9ed496dc4d4fd59755cce60af", null ],
@@ -91,6 +92,5 @@ var namespacesgpp_1_1optimization =
     [ "ResponseSurfaceVector", "classsgpp_1_1optimization_1_1ResponseSurfaceVector.html", "classsgpp_1_1optimization_1_1ResponseSurfaceVector" ],
     [ "SplineResponseSurface", "classsgpp_1_1optimization_1_1SplineResponseSurface.html", "classsgpp_1_1optimization_1_1SplineResponseSurface" ],
     [ "SplineResponseSurfaceVector", "classsgpp_1_1optimization_1_1SplineResponseSurfaceVector.html", "classsgpp_1_1optimization_1_1SplineResponseSurfaceVector" ],
-    [ "TriangularFuzzyInterval", "classsgpp_1_1optimization_1_1TriangularFuzzyInterval.html", "classsgpp_1_1optimization_1_1TriangularFuzzyInterval" ],
-    [ "operator<<", "namespacesgpp_1_1optimization.html#a45f7a7f62ffcb3d6b50a6b4055d9b84c", null ]
+    [ "TriangularFuzzyInterval", "classsgpp_1_1optimization_1_1TriangularFuzzyInterval.html", "classsgpp_1_1optimization_1_1TriangularFuzzyInterval" ]
 ];

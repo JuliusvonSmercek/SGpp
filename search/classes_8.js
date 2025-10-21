@@ -60,5 +60,5 @@ var searchData=
   ['hpoconfig_57',['HPOConfig',['../classsgpp_1_1datadriven_1_1HPOConfig.html',1,'sgpp::datadriven']]],
   ['hyperparameter_58',['HyperParameter',['../classsgpp_1_1datadriven_1_1HyperParameter.html',1,'sgpp::datadriven']]],
   ['hyperparameteroptimizer_59',['HyperparameterOptimizer',['../classsgpp_1_1datadriven_1_1HyperparameterOptimizer.html',1,'sgpp::datadriven']]],
-  ['hyperparameters_60',['Hyperparameters',['../classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html',1,'sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak']]]
+  ['hyperparameters_60',['Hyperparameters',['../classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html',1,'sgpp::optimization::IGGFARNHelper']]]
 ];

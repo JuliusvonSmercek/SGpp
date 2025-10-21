@@ -114,17 +114,36 @@ $(document).ready(function(){initNavTree('IterativeGridGeneratorFullAdaptiveRitt
   <div class="headertitle"><div class="title">IterativeGridGeneratorFullAdaptiveRitterNovak.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="GridStorage_8hpp.html">sgpp/base/grid/GridStorage.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Grid_8hpp.html">sgpp/base/grid/Grid.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="globaldef_8hpp.html">sgpp/globaldef.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="IterativeGridGenerator_8hpp.html">sgpp/optimization/gridgen/IterativeGridGenerator.hpp</a>&gt;</code><br />
+<code>#include &lt;boost/math/distributions/normal.hpp&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;tuple&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::Hyperparameters</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">sgpp::optimization::IGGFARNHelper::Hyperparameters</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores and normalizes the hyperparameters for the refinement criterion.  <a href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html">sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterative grid generation based on a modified, full adaptive Ritter/Novak's refinement criterion.  <a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterative grid generation based on a modified, fully adaptive Ritter/Novak's refinement criterion.  <a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1StoppingCriterion.html">sgpp::optimization::IGGFARNHelper::StoppingCriterion</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a stopping criterion based on the convergence of the surrogate model.  <a href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1StoppingCriterion.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html">sgpp::optimization::IGGFARNHelper::UncertaintyBound</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to represent a value with uncertainty bounds, typically from sampling.  <a href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -134,11 +153,18 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacesgpp_1_1optimization" id="r_namespacesgpp_1_1optimization"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesgpp_1_1optimization.html">sgpp::optimization</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacesgpp_1_1optimization_1_1IGGFARNHelper" id="r_namespacesgpp_1_1optimization_1_1IGGFARNHelper"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesgpp_1_1optimization_1_1IGGFARNHelper.html">sgpp::optimization::IGGFARNHelper</a></td></tr>
+<tr class="memdesc:namespacesgpp_1_1optimization_1_1IGGFARNHelper"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper classes and functions for the <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html" title="Iterative grid generation based on a modified, fully adaptive Ritter/Novak&#39;s refinement criterion.">IterativeGridGeneratorFullAdaptiveRitterNovak</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a45f7a7f62ffcb3d6b50a6b4055d9b84c" id="r_a45f7a7f62ffcb3d6b50a6b4055d9b84c"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesgpp_1_1optimization.html#a45f7a7f62ffcb3d6b50a6b4055d9b84c">sgpp::optimization::operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">IterativeGridGeneratorFullAdaptiveRitterNovak::Hyperparameters</a> &amp;hyperparameters)</td></tr>
-<tr class="separator:a45f7a7f62ffcb3d6b50a6b4055d9b84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6f3c7ddd03cc6eec5a58f18d542fc46" id="r_ab6f3c7ddd03cc6eec5a58f18d542fc46"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesgpp_1_1optimization_1_1IGGFARNHelper.html#ab6f3c7ddd03cc6eec5a58f18d542fc46">sgpp::optimization::IGGFARNHelper::operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">Hyperparameters</a> &amp;hyperparameters)</td></tr>
+<tr class="memdesc:ab6f3c7ddd03cc6eec5a58f18d542fc46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream operator for printing hyperparameters.  <br /></td></tr>
+<tr class="separator:ab6f3c7ddd03cc6eec5a58f18d542fc46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33940b6fe0a031e45f24603dc9d8edea" id="r_a33940b6fe0a031e45f24603dc9d8edea"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesgpp_1_1optimization_1_1IGGFARNHelper.html#a33940b6fe0a031e45f24603dc9d8edea">sgpp::optimization::IGGFARNHelper::operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html">UncertaintyBound</a> &amp;bounds)</td></tr>
+<tr class="memdesc:a33940b6fe0a031e45f24603dc9d8edea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stream operator for printing uncertainty bounds.  <br /></td></tr>
+<tr class="separator:a33940b6fe0a031e45f24603dc9d8edea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -146,7 +172,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_c08f73a4d66ba0417946990fd98fd29f.html">optimization</a></li><li class="navelem"><a class="el" href="dir_e9792a8cee088ef0127c0d44ae078d27.html">src</a></li><li class="navelem"><a class="el" href="dir_7c3d70ff96a5341e7a8ed1e84797325c.html">sgpp</a></li><li class="navelem"><a class="el" href="dir_cfe86e26c17e128e2405a8000f840574.html">optimization</a></li><li class="navelem"><a class="el" href="dir_14e79fe97ddeda96f94fe5a3a36fb1a9.html">gridgen</a></li><li class="navelem"><a class="el" href="IterativeGridGeneratorFullAdaptiveRitterNovak_8hpp.html">IterativeGridGeneratorFullAdaptiveRitterNovak.hpp</a></li>
-    <li class="footer">Generated on Mon Oct 20 2025 16:50:31 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 21 2025 00:00:00 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

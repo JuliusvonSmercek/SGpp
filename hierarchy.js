@@ -463,7 +463,7 @@ var hierarchy =
       [ "sgpp::datadriven::BoHyperparameterOptimizer", "classsgpp_1_1datadriven_1_1BoHyperparameterOptimizer.html", null ],
       [ "sgpp::datadriven::HarmonicaHyperparameterOptimizer", "classsgpp_1_1datadriven_1_1HarmonicaHyperparameterOptimizer.html", null ]
     ] ],
-    [ "sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::Hyperparameters", "classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html", null ],
+    [ "sgpp::optimization::IGGFARNHelper::Hyperparameters", "classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html", null ],
     [ "sgpp::base::IndexInSubspaceGenerator", "classsgpp_1_1base_1_1IndexInSubspaceGenerator.html", null ],
     [ "sgpp::combigrid::IndexVectorRange", "classsgpp_1_1combigrid_1_1IndexVectorRange.html", null ],
     [ "sgpp::optimization::IterativeGridGenerator", "classsgpp_1_1optimization_1_1IterativeGridGenerator.html", [
@@ -1545,6 +1545,7 @@ var hierarchy =
     [ "sgpp::base::StencilDehierarchisationModLinear", "classsgpp_1_1base_1_1StencilDehierarchisationModLinear.html", null ],
     [ "sgpp::base::StencilHierarchisationLinear", "classsgpp_1_1base_1_1StencilHierarchisationLinear.html", null ],
     [ "sgpp::base::StencilHierarchisationModLinear", "classsgpp_1_1base_1_1StencilHierarchisationModLinear.html", null ],
+    [ "sgpp::optimization::IGGFARNHelper::StoppingCriterion", "classsgpp_1_1optimization_1_1IGGFARNHelper_1_1StoppingCriterion.html", null ],
     [ "sgpp::datadriven::StreamingBSplineOCLKernelImpl< real_type >", "classsgpp_1_1datadriven_1_1StreamingBSplineOCLKernelImpl.html", null ],
     [ "sgpp::datadriven::StreamingBSplineOCLKernelImpl< T >", "classsgpp_1_1datadriven_1_1StreamingBSplineOCLKernelImpl.html", null ],
     [ "sgpp::datadriven::StreamingBSplineOCLKernelSourceBuilder< real_type >", "classsgpp_1_1datadriven_1_1StreamingBSplineOCLKernelSourceBuilder.html", null ],
@@ -1558,6 +1559,7 @@ var hierarchy =
     [ "sgpp::datadriven::TestsetConfiguration", "classsgpp_1_1datadriven_1_1TestsetConfiguration.html", null ],
     [ "json::Token", "classjson_1_1Token.html", null ],
     [ "sgpp::datadriven::TunableParameter", "classsgpp_1_1datadriven_1_1TunableParameter.html", null ],
+    [ "sgpp::optimization::IGGFARNHelper::UncertaintyBound", "classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html", null ],
     [ "sgpp::optimization::optimizer::UnconstrainedOptimizer", "classsgpp_1_1optimization_1_1optimizer_1_1UnconstrainedOptimizer.html", [
       [ "sgpp::optimization::optimizer::AdaptiveGradientDescent", "classsgpp_1_1optimization_1_1optimizer_1_1AdaptiveGradientDescent.html", null ],
       [ "sgpp::optimization::optimizer::AdaptiveNewton", "classsgpp_1_1optimization_1_1optimizer_1_1AdaptiveNewton.html", null ],

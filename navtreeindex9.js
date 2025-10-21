@@ -1,5 +1,7 @@
 var NAVTREEINDEX9 =
 {
+"OperationTestModWavelet_8hpp.html":[10,0,2,10,0,0,5,0,21,159],
+"OperationTestPoly_8cpp.html":[10,0,2,10,0,0,5,0,21,160],
 "OperationTestPoly_8hpp.html":[10,0,2,10,0,0,5,0,21,161],
 "OperationTestPrewavelet_8cpp.html":[10,0,2,10,0,0,5,0,21,162],
 "OperationTestPrewavelet_8hpp.html":[10,0,2,10,0,0,5,0,21,163],
@@ -247,7 +249,5 @@ var NAVTREEINDEX9 =
 "SampleGenerator_8cpp.html":[10,0,6,0,0,0,1,6],
 "SampleGenerator_8hpp.html":[10,0,6,0,0,0,1,7],
 "SampleProvider_8hpp.html":[10,0,2,10,0,0,3,3,0,30],
-"Sample_8py.html":[10,0,2,9,3,11,3],
-"SamplerTypes_8hpp.html":[10,0,6,0,0,0,1,8],
-"SamplerTypes_8hpp.html#a4a0d17759496b89f8d523bfded8ecceb":[10,0,6,0,0,0,1,8,0]
+"Sample_8py.html":[10,0,2,9,3,11,3]
 };

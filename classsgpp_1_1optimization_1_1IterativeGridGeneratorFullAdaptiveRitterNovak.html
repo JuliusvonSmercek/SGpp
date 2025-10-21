@@ -108,7 +108,6 @@ $(document).ready(function(){initNavTree('classsgpp_1_1optimization_1_1Iterative
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
@@ -117,7 +116,7 @@ $(document).ready(function(){initNavTree('classsgpp_1_1optimization_1_1Iterative
 </div><!--header-->
 <div class="contents">
 
-<p>Iterative grid generation based on a modified, full adaptive Ritter/Novak's refinement criterion.  
+<p>Iterative grid generation based on a modified, fully adaptive Ritter/Novak's refinement criterion.  
  <a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#details">More...</a></p>
 
 <p><code>#include &lt;IterativeGridGeneratorFullAdaptiveRitterNovak.hpp&gt;</code></p>
@@ -131,40 +130,39 @@ Inheritance diagram for sgpp::optimization::IterativeGridGeneratorFullAdaptiveRi
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">Hyperparameters</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aa8d28c9a6acc86f4e575b7dc83d13175" id="r_aa8d28c9a6acc86f4e575b7dc83d13175"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa8d28c9a6acc86f4e575b7dc83d13175">activateStoppingCriterion</a> (const std::vector&lt; <a class="el" href="classsgpp_1_1base_1_1DataVector.html">sgpp::base::DataVector</a> &gt; &amp;validationPoints)</td></tr>
+<tr class="memdesc:aa8d28c9a6acc86f4e575b7dc83d13175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the stopping criterion.  <br /></td></tr>
+<tr class="separator:aa8d28c9a6acc86f4e575b7dc83d13175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af49dab9db20e88ebb22b2c35f5310160" id="r_af49dab9db20e88ebb22b2c35f5310160"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af49dab9db20e88ebb22b2c35f5310160">disableStoppingCriterion</a> ()</td></tr>
+<tr class="memdesc:af49dab9db20e88ebb22b2c35f5310160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the stopping criterion.  <br /></td></tr>
+<tr class="separator:af49dab9db20e88ebb22b2c35f5310160"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7290fbd5d15f0ab9344d65ddee43584" id="r_aa7290fbd5d15f0ab9344d65ddee43584"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate</a> () override</td></tr>
-<tr class="memdesc:aa7290fbd5d15f0ab9344d65ddee43584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the grid.  <br /></td></tr>
+<tr class="memdesc:aa7290fbd5d15f0ab9344d65ddee43584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the grid adaptively until the maximum number of points <code>N</code> is reached or a stopping criterion is met.  <br /></td></tr>
 <tr class="separator:aa7290fbd5d15f0ab9344d65ddee43584"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a656e4ba531f906676e8eccd11b822a4f" id="r_a656e4ba531f906676e8eccd11b822a4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a656e4ba531f906676e8eccd11b822a4f">getAlpha</a> () const</td></tr>
-<tr class="separator:a656e4ba531f906676e8eccd11b822a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdb07c101c067f4fbcf2488ff13ee657" id="r_afdb07c101c067f4fbcf2488ff13ee657"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">Hyperparameters</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#afdb07c101c067f4fbcf2488ff13ee657">getHyperparameters</a> () const</td></tr>
-<tr class="separator:afdb07c101c067f4fbcf2488ff13ee657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c849c553f8e4c25a064310383891a70" id="r_a6c849c553f8e4c25a064310383891a70"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a6c849c553f8e4c25a064310383891a70">getAlpha</a> () const</td></tr>
+<tr class="separator:a6c849c553f8e4c25a064310383891a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab83c69d5f750e82a8df232c50122a547" id="r_ab83c69d5f750e82a8df232c50122a547"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">IGGFARNHelper::Hyperparameters</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab83c69d5f750e82a8df232c50122a547">getHyperparameters</a> () const</td></tr>
+<tr class="separator:ab83c69d5f750e82a8df232c50122a547"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5560c551eb54f1c4495e538b9527960" id="r_ab5560c551eb54f1c4495e538b9527960"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab5560c551eb54f1c4495e538b9527960">getInitialLevel</a> () const</td></tr>
 <tr class="separator:ab5560c551eb54f1c4495e538b9527960"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53209bdfe6f42e1c8592374ce76c9d0c" id="r_a53209bdfe6f42e1c8592374ce76c9d0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a53209bdfe6f42e1c8592374ce76c9d0c">getMaxLevel</a> () const</td></tr>
 <tr class="separator:a53209bdfe6f42e1c8592374ce76c9d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02ec944e3d311930071d221e5e2ab9b0" id="r_a02ec944e3d311930071d221e5e2ab9b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a02ec944e3d311930071d221e5e2ab9b0">getUseStoppingCriterion</a> () const</td></tr>
-<tr class="separator:a02ec944e3d311930071d221e5e2ab9b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5a6a5e3f5d37030b8c8baada827244c" id="r_ac5a6a5e3f5d37030b8c8baada827244c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac5a6a5e3f5d37030b8c8baada827244c">IterativeGridGeneratorFullAdaptiveRitterNovak</a> (<a class="el" href="classsgpp_1_1base_1_1ScalarFunction.html">base::ScalarFunction</a> &amp;<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a866bf4ef711e335b2bf92b5169ce82b9">f</a>, <a class="el" href="classsgpp_1_1base_1_1Grid.html">base::Grid</a> &amp;<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#af6cfdbed24f4ff6299e1f0a70f41fbaf">grid</a>, const size_t <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a046905cc43a826a9f03574e849aa5a5b">N</a>, const <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">Hyperparameters</a> <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac59952f78532e81e505eb256b150e54c">hyperparameters</a>, const bool <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#abe6a35b2005c4c0d4067ab1718835e43">useStoppingCriterion</a>, const bool <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac1a3262136048a85db2517683452ccc2">refineLeftOrRight</a>=true, const <a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a> <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a39cea70eb737e6eb86eb4cbfacb0a635">initialLevel</a>=<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#acefc14d80fa548fa9c9eb492601f8f05">DEFAULT_INITIAL_LEVEL</a>, const <a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a> <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aaad8c0fef60d9222e3a308b14165af93">maxLevel</a>=<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af0f8b28d70462ddc1c67e643dac48f54">DEFAULT_MAX_LEVEL</a>)</td></tr>
-<tr class="memdesc:ac5a6a5e3f5d37030b8c8baada827244c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
-<tr class="separator:ac5a6a5e3f5d37030b8c8baada827244c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a376d22605026646c434444691038d659" id="r_a376d22605026646c434444691038d659"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a376d22605026646c434444691038d659">setGaussianProcess</a> (const std::function&lt; void(const <a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a> &amp;x, const double y)&gt; &amp;<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab0311687571ec4010b1beec91776b2d5">addPattern</a>, const std::function&lt; std::vector&lt; std::vector&lt; std::array&lt; std::pair&lt; double, double &gt;, 2 &gt; &gt; &gt;(const std::vector&lt; std::vector&lt; std::array&lt; <a class="el" href="namespacesgpp_1_1base.html#a33a4f2457b9262613d8e2d6dd0d3e788">base::GridPoint</a>, 2 &gt; &gt; &gt; &amp;refineableGridPoints)&gt; &amp;<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a65bb7d7cf3d12462943175c1dd151458">evaluate</a>)</td></tr>
-<tr class="memdesc:a376d22605026646c434444691038d659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Gaussian process functions.  <br /></td></tr>
-<tr class="separator:a376d22605026646c434444691038d659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2b8689e7e3dee0680f9d962567af118" id="r_ae2b8689e7e3dee0680f9d962567af118"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ae2b8689e7e3dee0680f9d962567af118">setHyperparameters</a> (const <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">Hyperparameters</a> <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac59952f78532e81e505eb256b150e54c">hyperparameters</a>)</td></tr>
-<tr class="separator:ae2b8689e7e3dee0680f9d962567af118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1803ef6fb583561a7cf94a7c828140d9" id="r_a1803ef6fb583561a7cf94a7c828140d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a1803ef6fb583561a7cf94a7c828140d9">isStoppingCriterionEnabled</a> () const</td></tr>
+<tr class="separator:a1803ef6fb583561a7cf94a7c828140d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af12e329bcb1bbe4772eba10f848ef626" id="r_af12e329bcb1bbe4772eba10f848ef626"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af12e329bcb1bbe4772eba10f848ef626">IterativeGridGeneratorFullAdaptiveRitterNovak</a> (<a class="el" href="classsgpp_1_1base_1_1ScalarFunction.html">base::ScalarFunction</a> &amp;<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a866bf4ef711e335b2bf92b5169ce82b9">f</a>, <a class="el" href="classsgpp_1_1base_1_1Grid.html">base::Grid</a> &amp;<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#af6cfdbed24f4ff6299e1f0a70f41fbaf">grid</a>, size_t <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a046905cc43a826a9f03574e849aa5a5b">N</a>, const <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">IGGFARNHelper::Hyperparameters</a> &amp;<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a521dfb9aa547ab7aa9d24b56259dbbde">hyperparameters</a>, bool <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac1a3262136048a85db2517683452ccc2">refineLeftOrRight</a>=true, const <a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a> <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a39cea70eb737e6eb86eb4cbfacb0a635">initialLevel</a>=<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#acefc14d80fa548fa9c9eb492601f8f05">DEFAULT_INITIAL_LEVEL</a>, const <a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a> <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aaad8c0fef60d9222e3a308b14165af93">maxLevel</a>=<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af0f8b28d70462ddc1c67e643dac48f54">DEFAULT_MAX_LEVEL</a>)</td></tr>
+<tr class="memdesc:af12e329bcb1bbe4772eba10f848ef626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="separator:af12e329bcb1bbe4772eba10f848ef626"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9e6086e21cc18d5d5f3644e1b99766c" id="r_af9e6086e21cc18d5d5f3644e1b99766c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af9e6086e21cc18d5d5f3644e1b99766c">setGaussianProcess</a> (const std::function&lt; void(const size_t dimension)&gt; &amp;init, const std::function&lt; void(const <a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a> &amp;x, double y)&gt; &amp;addPattern, const std::function&lt; std::vector&lt; std::vector&lt; std::array&lt; std::pair&lt; double, double &gt;, 2 &gt; &gt; &gt;(const std::vector&lt; std::vector&lt; std::array&lt; <a class="el" href="namespacesgpp_1_1base.html#a33a4f2457b9262613d8e2d6dd0d3e788">base::GridPoint</a>, 2 &gt; &gt; &gt; &amp;refineableGridPoints)&gt; &amp;evaluate)</td></tr>
+<tr class="memdesc:af9e6086e21cc18d5d5f3644e1b99766c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the functions for interacting with a Gaussian Process model.  <br /></td></tr>
+<tr class="separator:af9e6086e21cc18d5d5f3644e1b99766c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe70cec5a863990fd4c869715f7f7edb" id="r_afe70cec5a863990fd4c869715f7f7edb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#afe70cec5a863990fd4c869715f7f7edb">setHyperparameters</a> (const <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">IGGFARNHelper::Hyperparameters</a> &amp;<a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a521dfb9aa547ab7aa9d24b56259dbbde">hyperparameters</a>)</td></tr>
+<tr class="separator:afe70cec5a863990fd4c869715f7f7edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a068db0d3c82a2559cb762dd3ae8b55ef" id="r_a068db0d3c82a2559cb762dd3ae8b55ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a068db0d3c82a2559cb762dd3ae8b55ef">setInitialLevel</a> (<a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a> <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a39cea70eb737e6eb86eb4cbfacb0a635">initialLevel</a>)</td></tr>
 <tr class="separator:a068db0d3c82a2559cb762dd3ae8b55ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d12a2d01a93cf23340bf742c903b9d7" id="r_a9d12a2d01a93cf23340bf742c903b9d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a9d12a2d01a93cf23340bf742c903b9d7">setMaxLevel</a> (<a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a> <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aaad8c0fef60d9222e3a308b14165af93">maxLevel</a>)</td></tr>
 <tr class="separator:a9d12a2d01a93cf23340bf742c903b9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade4519ea7e4d2e8d23af0eef59ae75f1" id="r_ade4519ea7e4d2e8d23af0eef59ae75f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ade4519ea7e4d2e8d23af0eef59ae75f1">setUseStoppingCriterion</a> (const bool <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#abe6a35b2005c4c0d4067ab1718835e43">useStoppingCriterion</a>)</td></tr>
-<tr class="separator:ade4519ea7e4d2e8d23af0eef59ae75f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa76ced0f77a7d68a283a814da03a91c2" id="r_aa76ced0f77a7d68a283a814da03a91c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa76ced0f77a7d68a283a814da03a91c2">~IterativeGridGeneratorFullAdaptiveRitterNovak</a> () override</td></tr>
 <tr class="memdesc:aa76ced0f77a7d68a283a814da03a91c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:aa76ced0f77a7d68a283a814da03a91c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,38 +184,41 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:acefc14d80fa548fa9c9eb492601f8f05" id="r_acefc14d80fa548fa9c9eb492601f8f05"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#acefc14d80fa548fa9c9eb492601f8f05">DEFAULT_INITIAL_LEVEL</a> = 3</td></tr>
-<tr class="memdesc:acefc14d80fa548fa9c9eb492601f8f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">default level of initial regular sparse grid  <br /></td></tr>
+<tr class="memdesc:acefc14d80fa548fa9c9eb492601f8f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default level of the initial regular sparse grid.  <br /></td></tr>
 <tr class="separator:acefc14d80fa548fa9c9eb492601f8f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0f8b28d70462ddc1c67e643dac48f54" id="r_af0f8b28d70462ddc1c67e643dac48f54"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af0f8b28d70462ddc1c67e643dac48f54">DEFAULT_MAX_LEVEL</a> = 20</td></tr>
-<tr class="memdesc:af0f8b28d70462ddc1c67e643dac48f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">default maximal level of grid points  <br /></td></tr>
+<tr class="memdesc:af0f8b28d70462ddc1c67e643dac48f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default maximal level of grid points.  <br /></td></tr>
 <tr class="separator:af0f8b28d70462ddc1c67e643dac48f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ab0311687571ec4010b1beec91776b2d5" id="r_ab0311687571ec4010b1beec91776b2d5"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const <a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a> &amp;x, const double y)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab0311687571ec4010b1beec91776b2d5">addPattern</a></td></tr>
-<tr class="memdesc:ab0311687571ec4010b1beec91776b2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to add patterns to Gaussian process  <br /></td></tr>
-<tr class="separator:ab0311687571ec4010b1beec91776b2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a851f6a52a0cf53ba853c704ed5723ef9" id="r_a851f6a52a0cf53ba853c704ed5723ef9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a851f6a52a0cf53ba853c704ed5723ef9">alpha</a></td></tr>
-<tr class="memdesc:a851f6a52a0cf53ba853c704ed5723ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">coefficients of the sparse grid surrogate  <br /></td></tr>
+<tr class="memdesc:a851f6a52a0cf53ba853c704ed5723ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficients of the sparse grid surrogate.  <br /></td></tr>
 <tr class="separator:a851f6a52a0cf53ba853c704ed5723ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65bb7d7cf3d12462943175c1dd151458" id="r_a65bb7d7cf3d12462943175c1dd151458"><td class="memItemLeft" align="right" valign="top">std::function&lt; std::vector&lt; std::vector&lt; std::array&lt; std::pair&lt; double, double &gt;, 2 &gt; &gt; &gt;(const std::vector&lt; std::vector&lt; std::array&lt; <a class="el" href="namespacesgpp_1_1base.html#a33a4f2457b9262613d8e2d6dd0d3e788">base::GridPoint</a>, 2 &gt; &gt; &gt; &amp;refineableGridPoints)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a65bb7d7cf3d12462943175c1dd151458">evaluate</a></td></tr>
-<tr class="memdesc:a65bb7d7cf3d12462943175c1dd151458"><td class="mdescLeft">&#160;</td><td class="mdescRight">function to evaluate the Gaussian process at given points  <br /></td></tr>
-<tr class="separator:a65bb7d7cf3d12462943175c1dd151458"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac59952f78532e81e505eb256b150e54c" id="r_ac59952f78532e81e505eb256b150e54c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">Hyperparameters</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac59952f78532e81e505eb256b150e54c">hyperparameters</a></td></tr>
-<tr class="memdesc:ac59952f78532e81e505eb256b150e54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">hyperparameters for adaptive weight function based on ritter-novak  <br /></td></tr>
-<tr class="separator:ac59952f78532e81e505eb256b150e54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a11c5be88760aaf0751d1bfdf63d6e" id="r_ab7a11c5be88760aaf0751d1bfdf63d6e"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const <a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a> &amp;x, double y)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab7a11c5be88760aaf0751d1bfdf63d6e">gpAddPattern</a></td></tr>
+<tr class="memdesc:ab7a11c5be88760aaf0751d1bfdf63d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to add a pattern to the Gaussian process.  <br /></td></tr>
+<tr class="separator:ab7a11c5be88760aaf0751d1bfdf63d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d220e7a9c5ed8c817092e38359df966" id="r_a3d220e7a9c5ed8c817092e38359df966"><td class="memItemLeft" align="right" valign="top">std::function&lt; std::vector&lt; std::vector&lt; std::array&lt; std::pair&lt; double, double &gt;, 2 &gt; &gt; &gt;(const std::vector&lt; std::vector&lt; std::array&lt; <a class="el" href="namespacesgpp_1_1base.html#a33a4f2457b9262613d8e2d6dd0d3e788">base::GridPoint</a>, 2 &gt; &gt; &gt; &amp;refineableGridPoints)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a3d220e7a9c5ed8c817092e38359df966">gpEvaluate</a></td></tr>
+<tr class="memdesc:a3d220e7a9c5ed8c817092e38359df966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to evaluate the Gaussian process at given points.  <br /></td></tr>
+<tr class="separator:a3d220e7a9c5ed8c817092e38359df966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e8595e88c4332c7d2ee9b7f2b931758" id="r_a3e8595e88c4332c7d2ee9b7f2b931758"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(const size_t dimension)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a3e8595e88c4332c7d2ee9b7f2b931758">gpInit</a></td></tr>
+<tr class="memdesc:a3e8595e88c4332c7d2ee9b7f2b931758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to initialize the Gaussian process.  <br /></td></tr>
+<tr class="separator:a3e8595e88c4332c7d2ee9b7f2b931758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a521dfb9aa547ab7aa9d24b56259dbbde" id="r_a521dfb9aa547ab7aa9d24b56259dbbde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">IGGFARNHelper::Hyperparameters</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a521dfb9aa547ab7aa9d24b56259dbbde">hyperparameters</a></td></tr>
+<tr class="memdesc:a521dfb9aa547ab7aa9d24b56259dbbde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hyperparameters for the adaptive weight function.  <br /></td></tr>
+<tr class="separator:a521dfb9aa547ab7aa9d24b56259dbbde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39cea70eb737e6eb86eb4cbfacb0a635" id="r_a39cea70eb737e6eb86eb4cbfacb0a635"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a39cea70eb737e6eb86eb4cbfacb0a635">initialLevel</a></td></tr>
-<tr class="memdesc:a39cea70eb737e6eb86eb4cbfacb0a635"><td class="mdescLeft">&#160;</td><td class="mdescRight">level of initial regular sparse grid  <br /></td></tr>
+<tr class="memdesc:a39cea70eb737e6eb86eb4cbfacb0a635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Level of the initial regular sparse grid.  <br /></td></tr>
 <tr class="separator:a39cea70eb737e6eb86eb4cbfacb0a635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaad8c0fef60d9222e3a308b14165af93" id="r_aaad8c0fef60d9222e3a308b14165af93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesgpp_1_1base.html#a8843d8bd0b5412e977de307e0f488137">base::level_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aaad8c0fef60d9222e3a308b14165af93">maxLevel</a></td></tr>
-<tr class="memdesc:aaad8c0fef60d9222e3a308b14165af93"><td class="mdescLeft">&#160;</td><td class="mdescRight">maximal level of grid points  <br /></td></tr>
+<tr class="memdesc:aaad8c0fef60d9222e3a308b14165af93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximal level of grid points.  <br /></td></tr>
 <tr class="separator:aaad8c0fef60d9222e3a308b14165af93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1a3262136048a85db2517683452ccc2" id="r_ac1a3262136048a85db2517683452ccc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac1a3262136048a85db2517683452ccc2">refineLeftOrRight</a></td></tr>
-<tr class="memdesc:ac1a3262136048a85db2517683452ccc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether to only refine left or right child in each dimension  <br /></td></tr>
+<tr class="memdesc:ac1a3262136048a85db2517683452ccc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether to refine only the left or right child in each dimension.  <br /></td></tr>
 <tr class="separator:ac1a3262136048a85db2517683452ccc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe6a35b2005c4c0d4067ab1718835e43" id="r_abe6a35b2005c4c0d4067ab1718835e43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#abe6a35b2005c4c0d4067ab1718835e43">useStoppingCriterion</a></td></tr>
-<tr class="memdesc:abe6a35b2005c4c0d4067ab1718835e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether to use the stopping criterion  <br /></td></tr>
-<tr class="separator:abe6a35b2005c4c0d4067ab1718835e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7129d5e5b62794d89ef948f8f22b0877" id="r_a7129d5e5b62794d89ef948f8f22b0877"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classsgpp_1_1base_1_1DataVector.html">sgpp::base::DataVector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a7129d5e5b62794d89ef948f8f22b0877">stoppingCriterionValidationPoints</a></td></tr>
+<tr class="memdesc:a7129d5e5b62794d89ef948f8f22b0877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validation points for the stopping criterion. Empty if disabled.  <br /></td></tr>
+<tr class="separator:a7129d5e5b62794d89ef948f8f22b0877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classsgpp_1_1optimization_1_1IterativeGridGenerator"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classsgpp_1_1optimization_1_1IterativeGridGenerator')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html">sgpp::optimization::IterativeGridGenerator</a></td></tr>
 <tr class="memitem:a866bf4ef711e335b2bf92b5169ce82b9 inherit pro_attribs_classsgpp_1_1optimization_1_1IterativeGridGenerator" id="r_a866bf4ef711e335b2bf92b5169ce82b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsgpp_1_1base_1_1ScalarFunction.html">base::ScalarFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a866bf4ef711e335b2bf92b5169ce82b9">f</a></td></tr>
 <tr class="memdesc:a866bf4ef711e335b2bf92b5169ce82b9 inherit pro_attribs_classsgpp_1_1optimization_1_1IterativeGridGenerator"><td class="mdescLeft">&#160;</td><td class="mdescRight">objective function  <br /></td></tr>
@@ -243,14 +244,14 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a16e24d26a8a67017de5d63e23e44431b inherit pro_methods_classsgpp_1_1optimization_1_1IterativeGridGenerator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Iterative grid generation based on a modified, full adaptive Ritter/Novak's refinement criterion. </p>
-<p>A large number of hyperparameters allow various criteria to be weighted differently. Caution: This class uses <a class="el" href="classsgpp_1_1optimization_1_1HashRefinementMultiple.html" title="Descendant of base::HashRefinement refining without the generation of hierarchical ancestors.">HashRefinementMultiple</a>, so it generates grids that don't meet the "hierarchical
-ancestors" requirement!</p>
+<div class="textblock"><p>Iterative grid generation based on a modified, fully adaptive Ritter/Novak's refinement criterion. </p>
+<p>This generator uses a combination of weighted criteria to decide which grid point to refine. The criteria include the grid point's level, function value (threshold), gradient, and more. A large number of hyperparameters allow these criteria to be weighted differently.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This class uses <a class="el" href="classsgpp_1_1optimization_1_1HashRefinementMultiple.html" title="Descendant of base::HashRefinement refining without the generation of hierarchical ancestors.">HashRefinementMultiple</a>, so it generates grids that may not meet the "hierarchical ancestors" requirement.</dd></dl>
 <p>Literature: Julius von Smercek, Bachelor Thesis `&lsquo;Critical Event Estimation using Gradient-based Refinement Methods for Adaptive Sparse Grids&rsquo;', 2025</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsgpp_1_1optimization_1_1HashRefinementMultiple.html" title="Descendant of base::HashRefinement refining without the generation of hierarchical ancestors.">HashRefinementMultiple</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac5a6a5e3f5d37030b8c8baada827244c" name="ac5a6a5e3f5d37030b8c8baada827244c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5a6a5e3f5d37030b8c8baada827244c">&#9670;&#160;</a></span>IterativeGridGeneratorFullAdaptiveRitterNovak()</h2>
+<a id="af12e329bcb1bbe4772eba10f848ef626" name="af12e329bcb1bbe4772eba10f848ef626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af12e329bcb1bbe4772eba10f848ef626">&#9670;&#160;</a></span>IterativeGridGeneratorFullAdaptiveRitterNovak()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,25 +271,19 @@ ancestors" requirement!</p>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>N</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">Hyperparameters</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">IGGFARNHelper::Hyperparameters</a> &amp;&#160;</td>
           <td class="paramname"><em>hyperparameters</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>useStoppingCriterion</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>refineLeftOrRight</em> = <code>true</code>, </td>
         </tr>
         <tr>
@@ -312,20 +307,21 @@ ancestors" requirement!</p>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
-<p>Do not destruct the grid before this object!</p>
+<p>Do not destruct the grid object before this generator object!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>objective function </td></tr>
-    <tr><td class="paramname">grid</td><td>grid (should be empty) </td></tr>
-    <tr><td class="paramname">N</td><td>maximal number of grid points </td></tr>
-    <tr><td class="paramname">hyperparameters</td><td>hyperparameters for adaptive weight function </td></tr>
-    <tr><td class="paramname">useStoppingCriterion</td><td>whether to use the stopping criterion </td></tr>
-    <tr><td class="paramname">refineLeftOrRight</td><td>whether to only refine left or right child in each dimension, activates the full adaptive approach </td></tr>
-    <tr><td class="paramname">initialLevel</td><td>level of initial regular sparse grid </td></tr>
-    <tr><td class="paramname">maxLevel</td><td>maximal level of grid points </td></tr>
+    <tr><td class="paramname">f</td><td>Objective function. </td></tr>
+    <tr><td class="paramname">grid</td><td>Grid object (should be empty). </td></tr>
+    <tr><td class="paramname">N</td><td>Maximal number of grid points. </td></tr>
+    <tr><td class="paramname">hyperparameters</td><td>Hyperparameters for the adaptive weight function. </td></tr>
+    <tr><td class="paramname">refineLeftOrRight</td><td>Whether to only refine the left or right child in each dimension, activating the "full adaptive" approach. </td></tr>
+    <tr><td class="paramname">initialLevel</td><td>Level of the initial regular sparse grid. </td></tr>
+    <tr><td class="paramname">maxLevel</td><td>Maximal level permitted for any grid point. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab7a11c5be88760aaf0751d1bfdf63d6e">gpAddPattern</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a3d220e7a9c5ed8c817092e38359df966">gpEvaluate</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a3e8595e88c4332c7d2ee9b7f2b931758">gpInit</a>.</p>
 
 </div>
 </div>
@@ -357,6 +353,56 @@ ancestors" requirement!</p>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa8d28c9a6acc86f4e575b7dc83d13175" name="aa8d28c9a6acc86f4e575b7dc83d13175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8d28c9a6acc86f4e575b7dc83d13175">&#9670;&#160;</a></span>activateStoppingCriterion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::activateStoppingCriterion </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classsgpp_1_1base_1_1DataVector.html">sgpp::base::DataVector</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>validationPoints</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Activates the stopping criterion. </p>
+<p>The generation will stop if the surrogate model's predictions stabilize between iterations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">validationPoints</td><td>A set of points used to compare surrogate models. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a7129d5e5b62794d89ef948f8f22b0877">stoppingCriterionValidationPoints</a>.</p>
+
+</div>
+</div>
+<a id="af49dab9db20e88ebb22b2c35f5310160" name="af49dab9db20e88ebb22b2c35f5310160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af49dab9db20e88ebb22b2c35f5310160">&#9670;&#160;</a></span>disableStoppingCriterion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::disableStoppingCriterion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disables the stopping criterion. </p>
+
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a7129d5e5b62794d89ef948f8f22b0877">stoppingCriterionValidationPoints</a>.</p>
+
+</div>
+</div>
 <a id="aa7290fbd5d15f0ab9344d65ddee43584" name="aa7290fbd5d15f0ab9344d65ddee43584"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7290fbd5d15f0ab9344d65ddee43584">&#9670;&#160;</a></span>generate()</h2>
 
@@ -380,48 +426,54 @@ ancestors" requirement!</p>
 </table>
 </div><div class="memdoc">
 
-<p>Generate the grid. </p>
-<dl class="section return"><dt>Returns</dt><dd>true on success, otherwise false </dd></dl>
+<p>Generates the grid adaptively until the maximum number of points <code>N</code> is reached or a stopping criterion is met. </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success, false otherwise. </dd></dl>
 
 <p>Implements <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#aeb1510abb414a4f6e86efdf7d69d3207">sgpp::optimization::IterativeGridGenerator</a>.</p>
 
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a866bf4ef711e335b2bf92b5169ce82b9">sgpp::optimization::IterativeGridGenerator::f</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a30e6ea9d6503fcad902e47bc24d7143d">sgpp::optimization::IterativeGridGenerator::functionValues</a>, <a class="el" href="classsgpp_1_1base_1_1Grid.html#aef696e83f78c80da9332df27369b48b6">sgpp::base::Grid::getGenerator()</a>, <a class="el" href="classsgpp_1_1base_1_1Printer.html#a5cc60c954810dc07092dd0052a6ba000">sgpp::base::Printer::getInstance()</a>, <a class="el" href="classsgpp_1_1base_1_1ScalarFunction.html#adfd8bb3f5f20db98845c45b0e7f8af78">sgpp::base::ScalarFunction::getNumberOfParameters()</a>, <a class="el" href="classsgpp_1_1base_1_1DataVector.html#a4ec9b893255175cc583323968788b1b1">sgpp::base::DataVector::getSize()</a>, <a class="el" href="classsgpp_1_1base_1_1Grid.html#a9de6e7d313016311d8f72a8b0b29bc56">sgpp::base::Grid::getStorage()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#af6cfdbed24f4ff6299e1f0a70f41fbaf">sgpp::optimization::IterativeGridGenerator::grid</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a39cea70eb737e6eb86eb4cbfacb0a635">initialLevel</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a046905cc43a826a9f03574e849aa5a5b">sgpp::optimization::IterativeGridGenerator::N</a>, <a class="el" href="classsgpp_1_1base_1_1Printer.html#a604d55e828b55834d269f9aab2eeac9b">sgpp::base::Printer::printStatusBegin()</a>, <a class="el" href="classsgpp_1_1base_1_1GridGenerator.html#a6382c18ef2719f4e99ff2a82fddd4e7a">sgpp::base::GridGenerator::regular()</a>, and <a class="el" href="classsgpp_1_1base_1_1DataVector.html#a75b0df6e46f9d8a4bdfaaa0636a3d55a">sgpp::base::DataVector::setAll()</a>.</p>
+
 </div>
 </div>
-<a id="a656e4ba531f906676e8eccd11b822a4f" name="a656e4ba531f906676e8eccd11b822a4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a656e4ba531f906676e8eccd11b822a4f">&#9670;&#160;</a></span>getAlpha()</h2>
+<a id="a6c849c553f8e4c25a064310383891a70" name="a6c849c553f8e4c25a064310383891a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c849c553f8e4c25a064310383891a70">&#9670;&#160;</a></span>getAlpha()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a> sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::getAlpha </td>
+          <td class="memname">const <a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a> &amp; sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::getAlpha </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>coefficients of the sparse grid surrogate </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The coefficients (surpluses) of the final sparse grid interpolant. </dd></dl>
+
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a851f6a52a0cf53ba853c704ed5723ef9">alpha</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classpython_1_1uq_1_1analysis_1_1asgc_1_1ASGCKnowledge_1_1ASGCKnowledge.html#a5291c206f5d165763cc0bfb1d1ff20a4">python.uq.analysis.asgc.ASGCKnowledge.ASGCKnowledge::getSparseGridFunction()</a>.</p>
 
 </div>
 </div>
-<a id="afdb07c101c067f4fbcf2488ff13ee657" name="afdb07c101c067f4fbcf2488ff13ee657"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdb07c101c067f4fbcf2488ff13ee657">&#9670;&#160;</a></span>getHyperparameters()</h2>
+<a id="ab83c69d5f750e82a8df232c50122a547" name="ab83c69d5f750e82a8df232c50122a547"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab83c69d5f750e82a8df232c50122a547">&#9670;&#160;</a></span>getHyperparameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">Hyperparameters</a> sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::getHyperparameters </td>
+          <td class="memname">const <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">IGGFARNHelper::Hyperparameters</a> &amp; sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::getHyperparameters </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>used hyperparameters </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The currently used hyperparameters. </dd></dl>
+
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a521dfb9aa547ab7aa9d24b56259dbbde">hyperparameters</a>.</p>
 
 </div>
 </div>
@@ -439,7 +491,9 @@ ancestors" requirement!</p>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>level of initial regular sparse grid </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Level of the initial regular sparse grid. </dd></dl>
+
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a39cea70eb737e6eb86eb4cbfacb0a635">initialLevel</a>.</p>
 
 </div>
 </div>
@@ -457,41 +511,48 @@ ancestors" requirement!</p>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>maximal level of grid points </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Maximal permitted level for grid points. </dd></dl>
+
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aaad8c0fef60d9222e3a308b14165af93">maxLevel</a>.</p>
 
 </div>
 </div>
-<a id="a02ec944e3d311930071d221e5e2ab9b0" name="a02ec944e3d311930071d221e5e2ab9b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02ec944e3d311930071d221e5e2ab9b0">&#9670;&#160;</a></span>getUseStoppingCriterion()</h2>
+<a id="a1803ef6fb583561a7cf94a7c828140d9" name="a1803ef6fb583561a7cf94a7c828140d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1803ef6fb583561a7cf94a7c828140d9">&#9670;&#160;</a></span>isStoppingCriterionEnabled()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::getUseStoppingCriterion </td>
+          <td class="memname">bool sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::isStoppingCriterionEnabled </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>whether to use the stopping criterion </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the stopping criterion is enabled, false otherwise. </dd></dl>
+
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a7129d5e5b62794d89ef948f8f22b0877">stoppingCriterionValidationPoints</a>.</p>
 
 </div>
 </div>
-<a id="a376d22605026646c434444691038d659" name="a376d22605026646c434444691038d659"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a376d22605026646c434444691038d659">&#9670;&#160;</a></span>setGaussianProcess()</h2>
+<a id="af9e6086e21cc18d5d5f3644e1b99766c" name="af9e6086e21cc18d5d5f3644e1b99766c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9e6086e21cc18d5d5f3644e1b99766c">&#9670;&#160;</a></span>setGaussianProcess()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::setGaussianProcess </td>
           <td>(</td>
-          <td class="paramtype">const std::function&lt; void(const <a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a> &amp;x, const double y)&gt; &amp;&#160;</td>
+          <td class="paramtype">const std::function&lt; void(const size_t dimension)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>init</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; void(const <a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a> &amp;x, double y)&gt; &amp;&#160;</td>
           <td class="paramname"><em>addPattern</em>, </td>
         </tr>
         <tr>
@@ -506,26 +567,25 @@ ancestors" requirement!</p>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Set the Gaussian process functions. </p>
+<p>Sets the functions for interacting with a Gaussian Process model. </p>
+<p>This is optional and only needed if the <code>gaussianProcess</code> hyperparameter is non-zero.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addPattern</td><td>function to add patterns to Gaussian process </td></tr>
-    <tr><td class="paramname">evaluate</td><td>function to evaluate the Gaussian process at given points </td></tr>
+    <tr><td class="paramname">init</td><td>Function to initialize the Gaussian process with the problem's dimension. </td></tr>
+    <tr><td class="paramname">addPattern</td><td>Function to add a new training point (coordinate and value) to the GP. </td></tr>
+    <tr><td class="paramname">evaluate</td><td>Function to evaluate the GP at potential new grid points, returning mean and variance. </td></tr>
   </table>
   </dd>
 </dl>
 
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab7a11c5be88760aaf0751d1bfdf63d6e">gpAddPattern</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a3d220e7a9c5ed8c817092e38359df966">gpEvaluate</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a3e8595e88c4332c7d2ee9b7f2b931758">gpInit</a>.</p>
+
 </div>
 </div>
-<a id="ae2b8689e7e3dee0680f9d962567af118" name="ae2b8689e7e3dee0680f9d962567af118"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2b8689e7e3dee0680f9d962567af118">&#9670;&#160;</a></span>setHyperparameters()</h2>
+<a id="afe70cec5a863990fd4c869715f7f7edb" name="afe70cec5a863990fd4c869715f7f7edb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe70cec5a863990fd4c869715f7f7edb">&#9670;&#160;</a></span>setHyperparameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -533,7 +593,7 @@ ancestors" requirement!</p>
         <tr>
           <td class="memname">void sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::setHyperparameters </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">Hyperparameters</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">IGGFARNHelper::Hyperparameters</a> &amp;&#160;</td>
           <td class="paramname"><em>hyperparameters</em></td><td>)</td>
           <td></td>
         </tr>
@@ -541,10 +601,12 @@ ancestors" requirement!</p>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">hyperparameters</td><td>hyperparameters for adaptive weight function </td></tr>
+    <tr><td class="paramname">hyperparameters</td><td>New hyperparameters for the adaptive weight function. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a521dfb9aa547ab7aa9d24b56259dbbde">hyperparameters</a>.</p>
 
 </div>
 </div>
@@ -565,10 +627,12 @@ ancestors" requirement!</p>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initialLevel</td><td>level of initial regular sparse grid </td></tr>
+    <tr><td class="paramname">initialLevel</td><td>New level for the initial regular sparse grid. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a39cea70eb737e6eb86eb4cbfacb0a635">initialLevel</a>.</p>
 
 </div>
 </div>
@@ -589,62 +653,16 @@ ancestors" requirement!</p>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">maxLevel</td><td>maximal level of grid points </td></tr>
+    <tr><td class="paramname">maxLevel</td><td>New maximal level for grid points. </td></tr>
   </table>
   </dd>
 </dl>
 
-</div>
-</div>
-<a id="ade4519ea7e4d2e8d23af0eef59ae75f1" name="ade4519ea7e4d2e8d23af0eef59ae75f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade4519ea7e4d2e8d23af0eef59ae75f1">&#9670;&#160;</a></span>setUseStoppingCriterion()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::setUseStoppingCriterion </td>
-          <td>(</td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>useStoppingCriterion</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">useStoppingCriterion</td><td>whether to use the stopping criterion </td></tr>
-  </table>
-  </dd>
-</dl>
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aaad8c0fef60d9222e3a308b14165af93">maxLevel</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab0311687571ec4010b1beec91776b2d5" name="ab0311687571ec4010b1beec91776b2d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0311687571ec4010b1beec91776b2d5">&#9670;&#160;</a></span>addPattern</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt;void(const <a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a>&amp; x, const double y)&gt; sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::addPattern</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>function to add patterns to Gaussian process </p>
-
-</div>
-</div>
 <a id="a851f6a52a0cf53ba853c704ed5723ef9" name="a851f6a52a0cf53ba853c704ed5723ef9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a851f6a52a0cf53ba853c704ed5723ef9">&#9670;&#160;</a></span>alpha</h2>
 
@@ -665,9 +683,9 @@ ancestors" requirement!</p>
 </table>
 </div><div class="memdoc">
 
-<p>coefficients of the sparse grid surrogate </p>
+<p>Coefficients of the sparse grid surrogate. </p>
 
-<p class="reference">Referenced by <a class="el" href="classpython_1_1learner_1_1Learner_1_1Learner.html#a695d25bd7529f594783dffbf38be879a">python.learner.Learner.Learner::doLearningIteration()</a>, <a class="el" href="classpython_1_1learner_1_1Learner_1_1Learner.html#a8d651060825242948db4d3b15cb12965">python.learner.Learner.Learner::learnData()</a>, <a class="el" href="classpython_1_1learner_1_1Learner_1_1Learner.html#a76e5a2880793c5f2eef7ff5b998c22b2">python.learner.Learner.Learner::learnDataWithTest()</a>, <a class="el" href="classpython_1_1uq_1_1learner_1_1Interpolant_1_1Interpolant.html#afd6bf070f5188aa44417d877c1779ed1">python.uq.learner.Interpolant.Interpolant::learnDataWithTest()</a>, <a class="el" href="classpython_1_1uq_1_1dists_1_1SGDEdist_1_1SGDEdist.html#ae6d6dbeca663d3564dbabfa8b782eeb9">python.uq.dists.SGDEdist.SGDEdist::pdf()</a>, and <a class="el" href="classpython_1_1uq_1_1dists_1_1SGDEdist_1_1SGDEdist.html#a2de6d02cc06f5aceedd2d298cfcef9a0">python.uq.dists.SGDEdist.SGDEdist::toJson()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classpython_1_1learner_1_1Learner_1_1Learner.html#a695d25bd7529f594783dffbf38be879a">python.learner.Learner.Learner::doLearningIteration()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a6c849c553f8e4c25a064310383891a70">getAlpha()</a>, <a class="el" href="classpython_1_1learner_1_1Learner_1_1Learner.html#a8d651060825242948db4d3b15cb12965">python.learner.Learner.Learner::learnData()</a>, <a class="el" href="classpython_1_1learner_1_1Learner_1_1Learner.html#a76e5a2880793c5f2eef7ff5b998c22b2">python.learner.Learner.Learner::learnDataWithTest()</a>, <a class="el" href="classpython_1_1uq_1_1learner_1_1Interpolant_1_1Interpolant.html#afd6bf070f5188aa44417d877c1779ed1">python.uq.learner.Interpolant.Interpolant::learnDataWithTest()</a>, <a class="el" href="classpython_1_1uq_1_1dists_1_1SGDEdist_1_1SGDEdist.html#ae6d6dbeca663d3564dbabfa8b782eeb9">python.uq.dists.SGDEdist.SGDEdist::pdf()</a>, and <a class="el" href="classpython_1_1uq_1_1dists_1_1SGDEdist_1_1SGDEdist.html#a2de6d02cc06f5aceedd2d298cfcef9a0">python.uq.dists.SGDEdist.SGDEdist::toJson()</a>.</p>
 
 </div>
 </div>
@@ -691,7 +709,7 @@ ancestors" requirement!</p>
 </table>
 </div><div class="memdoc">
 
-<p>default level of initial regular sparse grid </p>
+<p>Default level of the initial regular sparse grid. </p>
 
 </div>
 </div>
@@ -715,12 +733,12 @@ ancestors" requirement!</p>
 </table>
 </div><div class="memdoc">
 
-<p>default maximal level of grid points </p>
+<p>Default maximal level of grid points. </p>
 
 </div>
 </div>
-<a id="a65bb7d7cf3d12462943175c1dd151458" name="a65bb7d7cf3d12462943175c1dd151458"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65bb7d7cf3d12462943175c1dd151458">&#9670;&#160;</a></span>evaluate</h2>
+<a id="ab7a11c5be88760aaf0751d1bfdf63d6e" name="ab7a11c5be88760aaf0751d1bfdf63d6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7a11c5be88760aaf0751d1bfdf63d6e">&#9670;&#160;</a></span>gpAddPattern</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -729,7 +747,7 @@ ancestors" requirement!</p>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;std::vector&lt;std::vector&lt;std::array&lt;std::pair&lt;double, double&gt;, 2&gt; &gt; &gt;( const std::vector&lt;std::vector&lt;std::array&lt;<a class="el" href="namespacesgpp_1_1base.html#a33a4f2457b9262613d8e2d6dd0d3e788">base::GridPoint</a>, 2&gt;&gt;&gt;&amp; refineableGridPoints)&gt; sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::evaluate</td>
+          <td class="memname">std::function&lt;void(const <a class="el" href="classsgpp_1_1base_1_1DataVector.html">base::DataVector</a>&amp; x, double y)&gt; sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::gpAddPattern</td>
         </tr>
       </table>
   </td>
@@ -739,12 +757,14 @@ ancestors" requirement!</p>
 </table>
 </div><div class="memdoc">
 
-<p>function to evaluate the Gaussian process at given points </p>
+<p>Function to add a pattern to the Gaussian process. </p>
+
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af12e329bcb1bbe4772eba10f848ef626">IterativeGridGeneratorFullAdaptiveRitterNovak()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af9e6086e21cc18d5d5f3644e1b99766c">setGaussianProcess()</a>.</p>
 
 </div>
 </div>
-<a id="ac59952f78532e81e505eb256b150e54c" name="ac59952f78532e81e505eb256b150e54c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac59952f78532e81e505eb256b150e54c">&#9670;&#160;</a></span>hyperparameters</h2>
+<a id="a3d220e7a9c5ed8c817092e38359df966" name="a3d220e7a9c5ed8c817092e38359df966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d220e7a9c5ed8c817092e38359df966">&#9670;&#160;</a></span>gpEvaluate</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -753,7 +773,7 @@ ancestors" requirement!</p>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_1_1Hyperparameters.html">Hyperparameters</a> sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::hyperparameters</td>
+          <td class="memname">std::function&lt;std::vector&lt;std::vector&lt;std::array&lt;std::pair&lt;double, double&gt;, 2&gt; &gt; &gt;( const std::vector&lt;std::vector&lt;std::array&lt;<a class="el" href="namespacesgpp_1_1base.html#a33a4f2457b9262613d8e2d6dd0d3e788">base::GridPoint</a>, 2&gt;&gt;&gt;&amp; refineableGridPoints)&gt; sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::gpEvaluate</td>
         </tr>
       </table>
   </td>
@@ -763,7 +783,61 @@ ancestors" requirement!</p>
 </table>
 </div><div class="memdoc">
 
-<p>hyperparameters for adaptive weight function based on ritter-novak </p>
+<p>Function to evaluate the Gaussian process at given points. </p>
+
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af12e329bcb1bbe4772eba10f848ef626">IterativeGridGeneratorFullAdaptiveRitterNovak()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af9e6086e21cc18d5d5f3644e1b99766c">setGaussianProcess()</a>.</p>
+
+</div>
+</div>
+<a id="a3e8595e88c4332c7d2ee9b7f2b931758" name="a3e8595e88c4332c7d2ee9b7f2b931758"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e8595e88c4332c7d2ee9b7f2b931758">&#9670;&#160;</a></span>gpInit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;void(const size_t dimension)&gt; sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::gpInit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to initialize the Gaussian process. </p>
+
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af12e329bcb1bbe4772eba10f848ef626">IterativeGridGeneratorFullAdaptiveRitterNovak()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af9e6086e21cc18d5d5f3644e1b99766c">setGaussianProcess()</a>.</p>
+
+</div>
+</div>
+<a id="a521dfb9aa547ab7aa9d24b56259dbbde" name="a521dfb9aa547ab7aa9d24b56259dbbde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a521dfb9aa547ab7aa9d24b56259dbbde">&#9670;&#160;</a></span>hyperparameters</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">IGGFARNHelper::Hyperparameters</a> sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::hyperparameters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Hyperparameters for the adaptive weight function. </p>
+
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab83c69d5f750e82a8df232c50122a547">getHyperparameters()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#afe70cec5a863990fd4c869715f7f7edb">setHyperparameters()</a>.</p>
 
 </div>
 </div>
@@ -787,7 +861,9 @@ ancestors" requirement!</p>
 </table>
 </div><div class="memdoc">
 
-<p>level of initial regular sparse grid </p>
+<p>Level of the initial regular sparse grid. </p>
+
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab5560c551eb54f1c4495e538b9527960">getInitialLevel()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a068db0d3c82a2559cb762dd3ae8b55ef">setInitialLevel()</a>.</p>
 
 </div>
 </div>
@@ -811,9 +887,9 @@ ancestors" requirement!</p>
 </table>
 </div><div class="memdoc">
 
-<p>maximal level of grid points </p>
+<p>Maximal level of grid points. </p>
 
-<p class="reference">Referenced by <a class="el" href="classpython_1_1uq_1_1operations_1_1forcePositivity_1_1localHierarchicalIntersectionSearch_1_1Loc76d2b8af98bc80204fae831fc83c1c6f.html#a7523aafcee0282e8fc036b4c8fe8e64d">python.uq.operations.forcePositivity.localHierarchicalIntersectionSearch.LocalHierarchicalIntersectionCandidates::getMaxLevelOfChildrenUpToMaxLevel()</a>, <a class="el" href="classpython_1_1uq_1_1refinement_1_1AdmissibleSet_1_1AdmissibleSetGenerator.html#a08351d30dad1f94531c0442540682fc6">python.uq.refinement.AdmissibleSet.AdmissibleSetGenerator::insertPoint()</a>, and <a class="el" href="classpython_1_1uq_1_1operations_1_1forcePositivity_1_1operationMakePositiveFast_1_1OperationMakePositiveFast.html#ac71fc9c0fc4de4a849ee112f15400c7f">python.uq.operations.forcePositivity.operationMakePositiveFast.OperationMakePositiveFast::makePositive()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a53209bdfe6f42e1c8592374ce76c9d0c">getMaxLevel()</a>, <a class="el" href="classpython_1_1uq_1_1operations_1_1forcePositivity_1_1localHierarchicalIntersectionSearch_1_1Loc76d2b8af98bc80204fae831fc83c1c6f.html#a7523aafcee0282e8fc036b4c8fe8e64d">python.uq.operations.forcePositivity.localHierarchicalIntersectionSearch.LocalHierarchicalIntersectionCandidates::getMaxLevelOfChildrenUpToMaxLevel()</a>, <a class="el" href="classpython_1_1uq_1_1refinement_1_1AdmissibleSet_1_1AdmissibleSetGenerator.html#a08351d30dad1f94531c0442540682fc6">python.uq.refinement.AdmissibleSet.AdmissibleSetGenerator::insertPoint()</a>, <a class="el" href="classpython_1_1uq_1_1operations_1_1forcePositivity_1_1operationMakePositiveFast_1_1OperationMakePositiveFast.html#ac71fc9c0fc4de4a849ee112f15400c7f">python.uq.operations.forcePositivity.operationMakePositiveFast.OperationMakePositiveFast::makePositive()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a9d12a2d01a93cf23340bf742c903b9d7">setMaxLevel()</a>.</p>
 
 </div>
 </div>
@@ -837,12 +913,12 @@ ancestors" requirement!</p>
 </table>
 </div><div class="memdoc">
 
-<p>whether to only refine left or right child in each dimension </p>
+<p>Whether to refine only the left or right child in each dimension. </p>
 
 </div>
 </div>
-<a id="abe6a35b2005c4c0d4067ab1718835e43" name="abe6a35b2005c4c0d4067ab1718835e43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe6a35b2005c4c0d4067ab1718835e43">&#9670;&#160;</a></span>useStoppingCriterion</h2>
+<a id="a7129d5e5b62794d89ef948f8f22b0877" name="a7129d5e5b62794d89ef948f8f22b0877"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7129d5e5b62794d89ef948f8f22b0877">&#9670;&#160;</a></span>stoppingCriterionValidationPoints</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -851,7 +927,7 @@ ancestors" requirement!</p>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::useStoppingCriterion</td>
+          <td class="memname">std::vector&lt;<a class="el" href="classsgpp_1_1base_1_1DataVector.html">sgpp::base::DataVector</a>&gt; sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::stoppingCriterionValidationPoints</td>
         </tr>
       </table>
   </td>
@@ -861,12 +937,15 @@ ancestors" requirement!</p>
 </table>
 </div><div class="memdoc">
 
-<p>whether to use the stopping criterion </p>
+<p>Validation points for the stopping criterion. Empty if disabled. </p>
+
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa8d28c9a6acc86f4e575b7dc83d13175">activateStoppingCriterion()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af49dab9db20e88ebb22b2c35f5310160">disableStoppingCriterion()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a1803ef6fb583561a7cf94a7c828140d9">isStoppingCriterionEnabled()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>optimization/src/sgpp/optimization/gridgen/<a class="el" href="IterativeGridGeneratorFullAdaptiveRitterNovak_8hpp.html">IterativeGridGeneratorFullAdaptiveRitterNovak.hpp</a></li>
+<li>optimization/src/sgpp/optimization/gridgen/<a class="el" href="IterativeGridGeneratorFullAdaptiveRitterNovak_8cpp.html">IterativeGridGeneratorFullAdaptiveRitterNovak.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -874,7 +953,7 @@ ancestors" requirement!</p>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesgpp.html">sgpp</a></li><li class="navelem"><a class="el" href="namespacesgpp_1_1optimization.html">optimization</a></li><li class="navelem"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html">IterativeGridGeneratorFullAdaptiveRitterNovak</a></li>
-    <li class="footer">Generated on Mon Oct 20 2025 16:50:35 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Tue Oct 21 2025 00:00:05 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
