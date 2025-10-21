@@ -1,5 +1,7 @@
 var NAVTREEINDEX124 =
 {
+"learner_8cpp.html#a49786ce3c02f9574fcd3367e66ac1290":[10,0,2,6,7,6],
+"learner_8cpp.html#a7b361c98a02f036947c361f9d53a89e0":[10,0,2,6,7,4],
 "learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58":[10,0,2,6,7,0],
 "learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58a070d0c22e582b55c2f665f65af9630b9":[10,0,2,6,7,0,1],
 "learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58a0dc58ae2bdfe414fe21af0475304b851":[10,0,2,6,7,0,0],
@@ -151,8 +153,8 @@ var NAVTREEINDEX124 =
 "namespacejson.html#ac296254de68b45e1b9bc6b33e05daac4ad5e4de54911c050245979d940dc65c3a":[8,0,9,8,0],
 "namespacejson.html#ac296254de68b45e1b9bc6b33e05daac4af2cd320b55767434dd48d81b165ea956":[8,0,9,8,8],
 "namespacejson.html#ac296254de68b45e1b9bc6b33e05daac4af65f22e75defc168edfc6444e6aaf4f8":[8,0,9,8,4],
-"namespacemembers.html":[8,1,0,0],
 "namespacemembers.html":[8,1,0],
+"namespacemembers.html":[8,1,0,0],
 "namespacemembers_b.html":[8,1,0,1],
 "namespacemembers_c.html":[8,1,0,2],
 "namespacemembers_d.html":[8,1,0,3],
@@ -160,8 +162,8 @@ var NAVTREEINDEX124 =
 "namespacemembers_enum.html":[8,1,4],
 "namespacemembers_eval.html":[8,1,5],
 "namespacemembers_f.html":[8,1,0,5],
-"namespacemembers_func.html":[8,1,1,0],
 "namespacemembers_func.html":[8,1,1],
+"namespacemembers_func.html":[8,1,1,0],
 "namespacemembers_func_b.html":[8,1,1,1],
 "namespacemembers_func_c.html":[8,1,1,2],
 "namespacemembers_func_d.html":[8,1,1,3],
@@ -201,8 +203,8 @@ var NAVTREEINDEX124 =
 "namespacemembers_type.html":[8,1,3],
 "namespacemembers_u.html":[8,1,0,20],
 "namespacemembers_v.html":[8,1,0,21],
-"namespacemembers_vars.html":[8,1,2,0],
 "namespacemembers_vars.html":[8,1,2],
+"namespacemembers_vars.html":[8,1,2,0],
 "namespacemembers_vars_b.html":[8,1,2,1],
 "namespacemembers_vars_c.html":[8,1,2,2],
 "namespacemembers_vars_d.html":[8,1,2,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX124 =
 "namespacepython_1_1classifier.html":[8,0,12,0],
 "namespacepython_1_1classifier.html#a034d01c6ea70a746dcec6c971959657e":[8,0,12,0,47],
 "namespacepython_1_1classifier.html#a150beb9c80370f2f5244e3399545ca0c":[8,0,12,0,44],
-"namespacepython_1_1classifier.html#a1e47851f6949c9041b88b8eaf2495958":[8,0,12,0,5],
-"namespacepython_1_1classifier.html#a1e7afd0fd09bae238b2a17605656c5e4":[8,0,12,0,23],
-"namespacepython_1_1classifier.html#a1fcd5f0a905062d31fc4d3a1e76d7500":[8,0,12,0,0]
+"namespacepython_1_1classifier.html#a1e47851f6949c9041b88b8eaf2495958":[8,0,12,0,5]
 };

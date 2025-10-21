@@ -118,8 +118,10 @@ var NAVTREEINDEX122 =
 "evaluateConsistency_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[10,0,2,6,5,0],
 "evaluateConsistency_8cpp.html#a700a5cb87b8679b7d1369f4ae3e5015d":[10,0,2,6,5,1],
 "example_LTwoDotTest_py.html":[3,1,24],
+"example_RitterNovakExample_cpp.html":[3,0,31],
 "example_SGDEMinerFromConfigFile_py.html":[5],
 "example__LTwoDotTest__py_8doxy.html":[10,0,5,0,0,0],
+"example__RitterNovakExample__cpp_8doxy.html":[10,0,4,0,0,7],
 "example__benchmark__gridInteraction__cpp_8doxy.html":[10,0,0,0,0,2],
 "example__combigrid__adaptive__cpp_8doxy.html":[10,0,1,0,0,0],
 "example__combigrid__adaptive__py_8doxy.html":[10,0,1,0,0,1],
@@ -163,7 +165,7 @@ var NAVTREEINDEX122 =
 "example__refinement__cpp_8doxy.html":[10,0,0,0,0,17],
 "example__refinement__java_8doxy.html":[10,0,0,0,0,18],
 "example__refinement__py_8doxy.html":[10,0,0,0,0,19],
-"example__splineResponseSurface__example__py_8doxy.html":[10,0,4,0,0,7],
+"example__splineResponseSurface__example__py_8doxy.html":[10,0,4,0,0,8],
 "example__subspaceRefinement__py_8doxy.html":[10,0,0,0,0,20],
 "example__test__Rosenblatt__py_8doxy.html":[10,0,2,1,0,13],
 "example__tutorial__cpp_8doxy.html":[10,0,0,0,0,21],
@@ -184,7 +186,7 @@ var NAVTREEINDEX122 =
 "example_detectPlatformConfiguration_cpp.html":[3,0,8],
 "example_examplePCE_cpp.html":[3,0,20],
 "example_example_learnerSGDE_java.html":[3,2,5],
-"example_fistaExample_cpp.html":[3,0,31],
+"example_fistaExample_cpp.html":[3,0,32],
 "example_fuzzy_cpp.html":[3,0,29],
 "example_fuzzy_py.html":[3,1,21],
 "example_generalisedGridsest_py.html":[3,1,16],
@@ -247,7 +249,5 @@ var NAVTREEINDEX122 =
 "examples_cpp.html":[3,0],
 "examples_cpp.html#examples_cpp_module_base":[3,0,0],
 "examples_cpp.html#examples_cpp_module_combigrid":[3,0,1],
-"examples_cpp.html#examples_cpp_module_datadriven":[3,0,2],
-"examples_cpp.html#examples_cpp_module_optimization":[3,0,3],
-"examples_cpp.html#examples_cpp_module_solver":[3,0,4]
+"examples_cpp.html#examples_cpp_module_datadriven":[3,0,2]
 };

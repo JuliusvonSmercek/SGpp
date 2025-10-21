@@ -1,5 +1,7 @@
 var NAVTREEINDEX126 =
 {
+"namespacepython_1_1uq_1_1dists_1_1Beta.html":[8,0,12,12,1,0],
+"namespacepython_1_1uq_1_1dists_1_1Corr.html":[8,0,12,12,1,1],
 "namespacepython_1_1uq_1_1dists_1_1CorrBeta.html":[8,0,12,12,1,2],
 "namespacepython_1_1uq_1_1dists_1_1DataDist.html":[8,0,12,12,1,3],
 "namespacepython_1_1uq_1_1dists_1_1Dist.html":[8,0,12,12,1,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX126 =
 "namespacepython_1_1uq_1_1quadrature_1_1bilinearform.html":[8,0,12,12,11,0],
 "namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1BilinearGaussQuadratureStrategy.html":[8,0,12,12,11,0,2],
 "namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1BilinearQuadratureStrategy.html":[8,0,12,12,11,0,3],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1DiscreteBilinearScipyQuadratureStrategy.html":[8,0,12,12,11,0,4],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1PiecewiseConstantQuadratureStrategy.html":[8,0,12,12,11,0,5],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1SparseGridQuadratureStrategy.html":[8,0,12,12,11,0,6]
+"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1DiscreteBilinearScipyQuadratureStrategy.html":[8,0,12,12,11,0,4]
 };

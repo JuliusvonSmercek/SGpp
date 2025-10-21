@@ -1,5 +1,7 @@
 var NAVTREEINDEX123 =
 {
+"examples_cpp.html#examples_cpp_module_optimization":[3,0,3],
+"examples_cpp.html#examples_cpp_module_solver":[3,0,4],
 "examples_java.html":[3,2],
 "examples_java.html#examples_java_module_base":[3,2,0],
 "examples_java.html#examples_java_module_datadriven":[3,2,1],
@@ -61,8 +63,8 @@ var NAVTREEINDEX123 =
 "full__grid_8py.html#a0fa0fe2e9bc77560f00c7ff9d3b7bbe1":[10,0,2,9,3,9,6,2],
 "full__grid_8py.html#a57029d0ba0a191ba77c0692a5f61ab96":[10,0,2,9,3,9,6,1],
 "full__grid_8py.html#a9c76ad1815896e979e034178700568ee":[10,0,2,9,3,9,6,0],
-"functions.html":[9,2,0,0],
 "functions.html":[9,2,0],
+"functions.html":[9,2,0,0],
 "functions_a.html":[9,2,0,1],
 "functions_b.html":[9,2,0,2],
 "functions_c.html":[9,2,0,3],
@@ -71,8 +73,8 @@ var NAVTREEINDEX123 =
 "functions_enum.html":[9,2,4],
 "functions_eval.html":[9,2,5],
 "functions_f.html":[9,2,0,6],
-"functions_func.html":[9,2,1],
 "functions_func.html":[9,2,1,0],
+"functions_func.html":[9,2,1],
 "functions_func_a.html":[9,2,1,1],
 "functions_func_b.html":[9,2,1,2],
 "functions_func_c.html":[9,2,1,3],
@@ -117,8 +119,8 @@ var NAVTREEINDEX123 =
 "functions_type.html":[9,2,3],
 "functions_u.html":[9,2,0,21],
 "functions_v.html":[9,2,0,22],
-"functions_vars.html":[9,2,2,0],
 "functions_vars.html":[9,2,2],
+"functions_vars.html":[9,2,2,0],
 "functions_vars_a.html":[9,2,2,1],
 "functions_vars_b.html":[9,2,2,2],
 "functions_vars_c.html":[9,2,2,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX123 =
 "learner_2Regressor_8py.html":[10,0,2,9,2,8],
 "learner_8cpp.html":[10,0,2,6,7],
 "learner_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97":[10,0,2,6,7,1],
-"learner_8cpp.html#a37eb1e85c1cfcfe4de0e7838c42ad9f2":[10,0,2,6,7,3],
-"learner_8cpp.html#a49786ce3c02f9574fcd3367e66ac1290":[10,0,2,6,7,6],
-"learner_8cpp.html#a7b361c98a02f036947c361f9d53a89e0":[10,0,2,6,7,4]
+"learner_8cpp.html#a37eb1e85c1cfcfe4de0e7838c42ad9f2":[10,0,2,6,7,3]
 };

@@ -11,6 +11,6 @@ var searchData=
   ['configuration_20of_20opencl_20platforms_8',['Detect the configuration of OpenCL platforms',['../example_detectPlatformConfiguration_cpp.html',1,'examples_cpp']]],
   ['constrained_20optimization_9',['Constrained Optimization',['../example_constrainedOptimization_cpp.html',1,'examples_cpp']]],
   ['copyright_10',['Copyright',['../copyright.html',1,'']]],
-  ['cpp_11',['cpp',['../example_benchmark_gridInteraction_cpp.html',1,'benchmark_gridInteraction.cpp'],['../example_examplePCE_cpp.html',1,'examplePCE.cpp'],['../example_new_sgde_cpp.html',1,'new_sgde.cpp'],['../example_optimize_kde_bandwidth_cpp.html',1,'optimize_kde_bandwidth.cpp']]],
+  ['cpp_11',['cpp',['../example_benchmark_gridInteraction_cpp.html',1,'benchmark_gridInteraction.cpp'],['../example_examplePCE_cpp.html',1,'examplePCE.cpp'],['../example_new_sgde_cpp.html',1,'new_sgde.cpp'],['../example_optimize_kde_bandwidth_cpp.html',1,'optimize_kde_bandwidth.cpp'],['../example_RitterNovakExample_cpp.html',1,'RitterNovakExample.cpp']]],
   ['cpp_20start_20here_12',['tutorial.cpp (Start Here)',['../example_tutorial_cpp.html',1,'examples_cpp']]]
 ];

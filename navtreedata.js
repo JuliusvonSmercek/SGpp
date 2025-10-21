@@ -82,6 +82,7 @@ var NAVTREE =
         [ "Constrained Optimization", "example_constrainedOptimization_cpp.html", null ],
         [ "Fuzzy Extension Principle (C++)", "example_fuzzy_cpp.html", null ],
         [ "Optimization Example (C++)", "example_optimization_cpp.html", null ],
+        [ "RitterNovakExample.cpp", "example_RitterNovakExample_cpp.html", null ],
         [ "FISTA Solver", "example_fistaExample_cpp.html", null ]
       ] ],
       [ "Python Examples", "examples_py.html", [
@@ -293,17 +294,17 @@ var NAVTREEINDEX =
 "classsgpp_1_1solver_1_1OperationParabolicPDESolverSystem.html#ac2916a226462e9c0ca546238de3a5928",
 "create__scripts_8py.html#a02fbfe3ecf3645e8f60299ef52f46f27",
 "dir_a3d2d85d90a8082de7bb30acac812dfc.html",
-"examples_java.html",
-"learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58",
-"namespacepython_1_1classifier.html#a218081b60ecd7960e32aecbf6d09b918",
-"namespacepython_1_1uq_1_1dists_1_1CorrBeta.html",
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1UniformQuadratureStrategy.html",
-"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bda8d92d8af321ea1ce4f12019bcc6c3880",
-"namespacesgpp_1_1datadriven.html#ad622a0a106238178faf9e1477bbf2026ae5564829e2f85f6a6873a9d5c4f26d09",
-"parabolasimple_8py.html#a0b8b47c4524277eedb4935793e053396",
-"structsgpp_1_1base_1_1AdaptivityConfiguration.html#ada609949e413acb999f39906363eeb2d",
-"structsgpp_1_1datadriven_1_1LearnerConfiguration.html#a2e4b681113644984770d6513751c15c5",
-"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01float_01_4.html"
+"examples_cpp.html#examples_cpp_module_optimization",
+"learner_8cpp.html#a49786ce3c02f9574fcd3367e66ac1290",
+"namespacepython_1_1classifier.html#a1e7afd0fd09bae238b2a17605656c5e4",
+"namespacepython_1_1uq_1_1dists_1_1Beta.html",
+"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1PiecewiseConstantQuadratureStrategy.html",
+"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bda65397176ad1ca12c2f975218a30f357f",
+"namespacesgpp_1_1datadriven.html#ad622a0a106238178faf9e1477bbf2026acd8caad89e74cf65635c4b62d7f29093",
+"parabola_8py.html#afbe69b83dea8cfa393cb2e4e82dc87b4",
+"structsgpp_1_1base_1_1AdaptivityConfiguration.html#ad02e78bb38d48fffe908de2ecf652141",
+"structsgpp_1_1datadriven_1_1LearnerConfiguration.html",
+"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01double_01_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
