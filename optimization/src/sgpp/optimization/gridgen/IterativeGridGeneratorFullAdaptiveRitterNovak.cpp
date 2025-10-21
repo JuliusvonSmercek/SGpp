@@ -623,6 +623,7 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
           std::chrono::duration_cast<std::chrono::milliseconds>(current - start).count();
 
       std::stringstream sstream;
+      sstream << std::fixed << std::setprecision(2);
       sstream << (static_cast<double>(currentN) / static_cast<double>(N) * 100.0)
               << "%\t " + std::to_string(currentN) << " / " << N
               << ",\t elapsed time: " << static_cast<double>(elapsed) / 1000.0 << "s";
