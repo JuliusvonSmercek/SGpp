@@ -25,8 +25,8 @@ namespace sle_solver {
  * it efficiently updates the existing decomposition rather than recomputing it from scratch.
  *
  * @warning The solver has no way of measuring whether numerical errors accumulate. However, if a
- * zero entry occurs, the solver automatically performs a complete recalculation to ensure
- * stability.
+ * singularity is detected (pivot < tolerance) during an update, the solver automatically
+ * performs a complete recalculation from scratch to ensure stability.
  */
 class IterativeGaussianElimination : public SLESolver {
  public:
@@ -57,8 +57,12 @@ class IterativeGaussianElimination : public SLESolver {
    * Solves the linear system Ax = b using an incremental LU decomposition.
    *
    * If the system matrix A has grown since the last call, the solver will update
-   * its internal LU decomposition. If the update fails due to numerical instability, a full
-   * decomposition is computed.
+   * its internal LU decomposition. If the update fails due to numerical instability
+   * (singularity detected), a full decomposition is computed from scratch.
+   *
+   * @warning This implementation assumes that the existing (old) part of the
+   * system matrix does not change between calls. If it does change, or if the
+   * system shrinks, a full re-solve is automatically triggered.
    *
    * @param      system  The linear system to be solved (provides the matrix A).
    * @param      b       The right-hand side vector.

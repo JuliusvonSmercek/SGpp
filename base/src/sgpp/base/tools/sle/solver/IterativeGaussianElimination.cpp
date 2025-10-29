@@ -3,18 +3,22 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
-#include <sgpp/base/tools/Printer.hpp>
 #include <sgpp/base/tools/sle/solver/IterativeGaussianElimination.hpp>
+
+#include <sgpp/base/tools/Printer.hpp>
 #include <sgpp/globaldef.hpp>
 
 #include <algorithm>
 #include <cmath>
 #include <numeric>
 #include <utility>
+#include <vector>
 
 namespace sgpp {
 namespace base {
 namespace sle_solver {
+
+constexpr const double IterativeGaussianElimination::DEGENERATION_TOLERANCE;
 
 namespace {
 // Use full pivoting for maximum numerical stability.
@@ -38,9 +42,13 @@ bool iterative_lu_decomposition(DataMatrix& A, std::vector<size_t>& pivotRow,
                                 const double tolerance) {
   const size_t N = A.getNcols();
 
+  // Update new rows/cols based on old LU factors
   for (size_t i = 0; i < oldn; ++i) {
+    if (std::abs(A(i, i)) < tolerance) {
+      return false;  // Singularity in old pivot, should theoretically not happen.
+    }
     for (size_t k = oldn; k < N; ++k) {
-      A(k, i) /= A(i, i);
+      A(k, i) /= A(i, i);  // Calculate L-factors for new rows
 
       for (size_t j = i + 1; j < oldn; ++j) {
         A(k, j) -= A(k, i) * A(i, j);
@@ -53,11 +61,13 @@ bool iterative_lu_decomposition(DataMatrix& A, std::vector<size_t>& pivotRow,
     }
   }
 
+  // Perform standard LU decomposition on the new bottom-right (N-oldn)x(N-oldn) submatrix
   for (size_t k = oldn; k < N - 1; ++k) {
     double maxA = 0.0;
     size_t imax = k;
     size_t jmax = k;
 
+    // Find pivot
     for (size_t i = k; i < N; ++i) {
       if (FULL_PIVOTING) {
         for (size_t j = k; j < N; ++j) {
@@ -81,12 +91,14 @@ bool iterative_lu_decomposition(DataMatrix& A, std::vector<size_t>& pivotRow,
       return false;  // Matrix is singular.
     }
 
+    // Row pivot
     if (imax != k) {
       std::swap(pivotRow[k], pivotRow[imax]);
       for (size_t i = 0; i < N; ++i) {
         std::swap(A(k, i), A(imax, i));
       }
     }
+    // Column pivot
     if (jmax != k) {
       std::swap(pivotCol[k], pivotCol[jmax]);
       for (size_t j = 0; j < N; ++j) {
@@ -95,9 +107,11 @@ bool iterative_lu_decomposition(DataMatrix& A, std::vector<size_t>& pivotRow,
     }
 
     if (std::abs(A(k, k)) < tolerance) {
-      return false;  // Pivoting led to a zero pivot, matrix is singular.
+      // This should not happen if maxA >= tolerance, but as a safeguard:
+      return false;  // Matrix is singular.
     }
 
+    // Elimination step
     for (size_t i = k + 1; i < N; ++i) {
       A(i, k) /= A(k, k);
       for (size_t j = k + 1; j < N; ++j) {
@@ -112,6 +126,9 @@ bool iterative_lu_decomposition(DataMatrix& A, std::vector<size_t>& pivotRow,
 /**
  * @brief Prepares the LU matrix and pivot vectors for an iterative decomposition.
  *
+ * This function copies the new (permuted) entries from the full matrix A
+ * into the L-shaped new region of the LU matrix.
+ *
  * @param A         The full, updated source matrix.
  * @param LU        The matrix to prepare (will contain old LU + new raw data).
  * @param oldn      The size of the existing decomposition.
@@ -125,20 +142,24 @@ bool lu_decomposition_update(const DataMatrix& A, DataMatrix& LU, const size_t o
                              const double tolerance) {
   const size_t N = A.getNcols();
 
+  // Extend pivot vectors and initialize new indices
   size_t oldPivotSize = pivotRow.size();
   pivotRow.resize(N);
   if (oldPivotSize < N) {
-    std::iota(pivotRow.begin() + oldPivotSize, pivotRow.end(), oldPivotSize);
+    std::iota(pivotRow.begin() + static_cast<long>(oldPivotSize), pivotRow.end(), oldPivotSize);
   }
 
   oldPivotSize = pivotCol.size();
   pivotCol.resize(N);
   if (oldPivotSize < N) {
-    std::iota(pivotCol.begin() + oldPivotSize, pivotCol.end(), oldPivotSize);
+    std::iota(pivotCol.begin() + static_cast<long>(oldPivotSize), pivotCol.end(), oldPivotSize);
   }
 
+  // Resize LU matrix, preserving old n x n part
   LU.resizeQuadratic(N);
-  // Copy new data from A into LU, applying old pivot permutations.
+
+  // Copy new data from A into LU, applying old pivot permutations to indices
+  // We fill the new "L-shaped" region of LU
   for (size_t i = 0; i < N; ++i) {
     for (size_t j = oldn; j < N; ++j) {
       LU(i, j) = A(pivotRow[i], pivotCol[j]);
@@ -171,15 +192,18 @@ DataVector lu_decomposition_solve(const DataMatrix& LU, const std::vector<size_t
     }
   }
 
-  // Backward substitution: Ux = y
-  for (int i = static_cast<int>(N - 1); i >= 0; --i) {
-    for (size_t k = i + 1; k < N; ++k) {
-      y[i] -= LU(i, k) * y[k];
+  // Backward substitution: U(Q^T x) = y
+  // (y is used to store the intermediate and final permuted solution)
+  if (N > 0) {
+    for (int i = static_cast<int>(N - 1); i >= 0; --i) {
+      for (size_t k = i + 1; k < N; ++k) {
+        y[i] -= LU(i, k) * y[k];
+      }
+      y[i] /= LU(i, i);
     }
-    y[i] /= LU(i, i);
   }
 
-  // Undo column permutations: x = Q*x_perm
+  // Undo column permutations: x = Q * (Q^T x)
   DataVector x(N);
   for (size_t i = 0; i < N; ++i) {
     x[pivotCol[i]] = y[i];
@@ -198,7 +222,7 @@ bool IterativeGaussianElimination::iterativeSolve(SLE& system, DataVector& b, Da
       "Solving linear system (Iterative Gaussian elimination)...");
 
   // old size of the system
-  const size_t oldn = A.getNcols();
+  size_t oldn = A.getNcols();
   // size of the system
   const size_t n = system.getDimension();
 
@@ -207,19 +231,43 @@ bool IterativeGaussianElimination::iterativeSolve(SLE& system, DataVector& b, Da
     return false;
   } else if (0 == n) {
     x.resize(0);
+    A.resize(0, 0);  // Clear internal state
+    LU.resize(0, 0);
+    pivotRow.clear();
+    pivotCol.clear();
     Printer::getInstance().printStatusEnd();
     return true;
   }
 
+  // Check if the old part of the matrix (oldn x oldn) has changed.
+  bool oldPartChanged = false;
+  if (oldn > 0 && oldn <= n) {  // Check oldn is valid
+    for (size_t i = 0; i < oldn; ++i) {
+      for (size_t j = 0; j < oldn; ++j) {
+        if (system.getMatrixEntry(i, j) != A(i, j)) {
+          oldPartChanged = true;
+          break;
+        }
+      }
+      if (oldPartChanged) break;
+    }
+  } else if (n < oldn) {
+    // System shrank, which this incremental solver doesn't support.
+    oldPartChanged = true;
+  }
+
+  if (oldPartChanged) {
+    Printer::getInstance().printStatusUpdate(
+        "Warning: Matrix changed or shrank. Forcing full re-solve.");
+    oldn = 0;  // Force full re-solve
+    LU.resize(0, 0);
+    pivotRow.clear();
+    pivotCol.clear();
+  }
+
   // Update internal copy of the system matrix A.
-  // The old part of the matrix is assumed to be unchanged for efficiency.
   A.resizeQuadratic(n);
   for (size_t i = 0; i < n; ++i) {
-    for (size_t j = 0; j < oldn; j++) {
-      if (system.getMatrixEntry(i, j) != A(i, j) || system.getMatrixEntry(j, i) != A(j, i)) {
-        Printer::getInstance().printStatusEnd("Error: Matrix is different than last time.");
-      }
-    }
     for (size_t j = oldn; j < n; ++j) {
       A(i, j) = system.getMatrixEntry(i, j);
       if (i != j) {
@@ -231,15 +279,22 @@ bool IterativeGaussianElimination::iterativeSolve(SLE& system, DataVector& b, Da
   bool success = lu_decomposition_update(A, LU, oldn, pivotRow, pivotCol, DEGENERATION_TOLERANCE);
 
   if (!success) {
-    Printer::getInstance().printStatusUpdate("Iterative update failed. Re-solving from scratch...");
-    // Resetting LU and pivot information by passing oldn=0, which re-initializes everything.
+    Printer::getInstance().printStatusUpdate(
+        "Iterative update failed (singularity detected). Re-solving from scratch...");
+    // Resetting state and re-solving by passing oldn=0.
+    // A is already fully populated, so we just need to re-run the update
+    // function which will trigger a full decomposition.
+    pivotRow.clear();
+    pivotCol.clear();
+    LU.resize(0, 0);  // Clear LU to be safe
     success = lu_decomposition_update(A, LU, 0, pivotRow, pivotCol, DEGENERATION_TOLERANCE);
   }
 
   if (success) {
     x = lu_decomposition_solve(LU, pivotRow, pivotCol, b);
   } else {
-    Printer::getInstance().printStatusUpdate("Error: Matrix is singular. Could not solve the system.");
+    Printer::getInstance().printStatusUpdate(
+        "Error: Matrix is singular. Could not solve the system.");
   }
 
   Printer::getInstance().printStatusEnd();

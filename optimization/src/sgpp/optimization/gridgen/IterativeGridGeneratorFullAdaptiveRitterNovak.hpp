@@ -107,7 +107,7 @@ class UncertaintyBound {
    * @param samples Number of positive samples.
    * @param N       Total number of samples.
    */
-  UncertaintyBound(size_t samples, size_t N);
+  UncertaintyBound(const size_t samples, const size_t N);
 
   /**
    * @brief Divides this uncertainty bound by another. Used for relative error estimation.
@@ -184,90 +184,6 @@ class StoppingCriterion {
    */
   bool shouldStop(base::Grid& grid, const base::DataVector& alpha);
 };
-
-// --- Implementations of helper classes ---
-
-namespace {
-// Confidence level for Wilson score interval
-constexpr double accuracy = 0.999;
-
-/**
- * @brief Computes the quantile of the standard normal distribution (inverse of the CDF).
- * @param p Probability (must be in (0, 1)).
- * @return The corresponding z-score.
- */
-static double inverse_phi(double p) {
-  boost::math::normal_distribution<> normal_dist(0.0, 1.0);
-  return boost::math::quantile(normal_dist, p);
-}
-
-/**
- * @brief Calculates the Wilson score confidence interval for a binomial proportion.
- * It is more reliable than the Wald interval, especially for p near 0 or 1.
- *
- * @param p     Observed proportion.
- * @param N     Total number of samples.
- * @param gamma Confidence level (e.g., 0.999).
- * @return A pair containing the lower and upper bounds of the confidence interval.
- */
-static std::pair<double, double> confidence_interval_wilson(double p, size_t N, double gamma) {
-  assert(0.0 <= p && p <= 1.0);
-  assert(0.0 <= gamma && gamma <= 1.0);
-  assert(0 < N);
-
-  const double alpha = 1.0 - gamma;
-  const double c = inverse_phi(1.0 - alpha / 2.0);
-  const double cSquared = c * c;
-
-  const double denominator = 2.0 * (static_cast<double>(N) + cSquared);
-  const double numerator_center = 2.0 * static_cast<double>(N) * p + cSquared;
-  const double numerator_margin =
-      c * std::sqrt(cSquared + 4.0 * static_cast<double>(N) * p * (1.0 - p));
-
-  const double lower = (numerator_center - numerator_margin) / denominator;
-  const double upper = (numerator_center + numerator_margin) / denominator;
-
-  return std::make_pair(std::max(0.0, lower), std::min(1.0, upper));
-}
-}  // namespace
-
-inline UncertaintyBound::UncertaintyBound(double lower, double value, double upper, double coV)
-    : _lower(lower), _value(value), _upper(upper), _coV(coV) {}
-
-inline UncertaintyBound::UncertaintyBound() : UncertaintyBound(0.0, 0.0, 0.0, 0.0) {}
-
-inline UncertaintyBound::UncertaintyBound(const size_t samples, const size_t N)
-    : _value(static_cast<double>(samples) / static_cast<double>(N)) {
-  assert(samples <= N);
-  assert(0 < N);
-
-  // For a Bernoulli distribution, the coefficient of variation is sqrt((1-p)/(p*N)).
-  // If p is 0, CoV is infinite. We return 1.0 as a placeholder.
-  this->_coV =
-      (0.0 == this->_value) ? 1.0 : std::sqrt((1.0 - _value) / (_value * static_cast<double>(N)));
-  std::tie(this->_lower, this->_upper) = confidence_interval_wilson(this->_value, N, accuracy);
-}
-
-inline UncertaintyBound UncertaintyBound::div(const UncertaintyBound& other) const {
-  // Division by zero is handled by returning a safe but potentially wide interval.
-  const double lower = (0.0 == other._upper) ? 0.0 : this->_lower / other._upper;
-  const double value = (0.0 == other._value) ? 1.0 : this->_value / other._value;
-  const double upper = (0.0 == other._lower) ? 1.0 : this->_upper / other._lower;
-
-  return UncertaintyBound(lower, value, upper, -1.0);  // CoV not meaningful after division
-}
-
-inline double UncertaintyBound::lower() const { return _lower; }
-inline double UncertaintyBound::value() const { return _value; }
-inline double UncertaintyBound::upper() const { return _upper; }
-inline double UncertaintyBound::coV() const { return _coV; }
-
-inline std::ostream& operator<<(std::ostream& os, const UncertaintyBound& bounds) {
-  os << "[" << 100.0 * bounds.lower() << "%, " << 100.0 * bounds.value() << "%, "
-     << 100.0 * bounds.upper() << "%]";
-  return os;
-}
-
 }  // namespace IGGFARNHelper
 
 /**
@@ -294,13 +210,14 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
   static const base::level_t DEFAULT_MAX_LEVEL = 20;
 
   /**
-   * Constructor.
+   * @brief Constructor.
    * Do not destruct the grid object before this generator object!
    *
    * @param f                 Objective function.
    * @param grid              Grid object (should be empty).
    * @param N                 Maximal number of grid points.
    * @param hyperparameters   Hyperparameters for the adaptive weight function.
+   * @param domain            Domain for each dimension
    * @param refineLeftOrRight Whether to only refine the left or right child in each dimension,
    * activating the "full adaptive" approach.
    * @param initialLevel      Level of the initial regular sparse grid.
@@ -314,17 +231,17 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
       const base::level_t maxLevel = DEFAULT_MAX_LEVEL);
 
   /**
-   * Destructor.
+   * @brief Destructor.
    */
   ~IterativeGridGeneratorFullAdaptiveRitterNovak() override;
 
   /**
-   * Sets the functions for interacting with a Gaussian Process model.
+   * @brief Sets the functions for interacting with a Gaussian Process model.
    * This is optional and only needed if the `gaussianProcess` hyperparameter is non-zero.
    *
-   * @param init        Function to initialize the Gaussian process with the problem's dimension.
-   * @param addPattern  Function to add a new training point (coordinate and value) to the GP.
-   * @param evaluate    Function to evaluate the GP at potential new grid points, returning
+   * @param init       Function to initialize the Gaussian process with the problem's dimension.
+   * @param addPattern Function to add a new training point (coordinate and value) to the GP.
+   * @param evaluate   Function to evaluate the GP at potential new grid points, returning
    * mean and variance.
    */
   void setGaussianProcess(
@@ -335,7 +252,7 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
           const std::vector<std::vector<std::array<bool, 2>>>& ignore)>& evaluate);
 
   /**
-   * Generates the grid adaptively until the maximum number of points `N` is reached
+   * @brief Generates the grid adaptively until the maximum number of points `N` is reached
    * or a stopping criterion is met.
    *
    * @return True on success, false otherwise.
@@ -373,7 +290,7 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
   void setMaxLevel(base::level_t maxLevel);
 
   /**
-   * Activates the stopping criterion.
+   * @brief Activates the stopping criterion.
    * The generation will stop if the surrogate model's predictions stabilize between iterations.
    *
    * @param validationPoints A set of points used to compare surrogate models.
@@ -381,7 +298,7 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
   void activateStoppingCriterion(const std::vector<sgpp::base::DataVector>& validationPoints);
 
   /**
-   * Disables the stopping criterion.
+   * @brief Disables the stopping criterion.
    */
   void disableStoppingCriterion();
 

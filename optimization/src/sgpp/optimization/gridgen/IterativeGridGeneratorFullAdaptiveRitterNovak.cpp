@@ -18,9 +18,7 @@
 #include <array>
 #include <cassert>
 #include <cmath>
-#include <cstdio>
-#include <cstring>
-#include <iterator>
+#include <iomanip>  // For std::setprecision
 #include <limits>
 #include <numeric>
 #include <sstream>
@@ -38,6 +36,48 @@ using LeftRightPoint = std::array<base::GridPoint, 2>;
 using CriterionRankSingle = std::vector<std::vector<double>>;
 using CriterionRankLR = std::vector<std::vector<std::array<double, 2>>>;
 using CriterionRanks = std::pair<CriterionRankSingle, CriterionRankLR>;
+
+// Confidence level for Wilson score interval
+constexpr double accuracy = 0.999;
+
+/**
+ * @brief Computes the quantile of the standard normal distribution (inverse of the CDF).
+ * @param p Probability (must be in (0, 1)).
+ * @return The corresponding z-score.
+ */
+static double inverse_phi(double p) {
+  boost::math::normal_distribution<> normal_dist(0.0, 1.0);
+  return boost::math::quantile(normal_dist, p);
+}
+
+/**
+ * @brief Calculates the Wilson score confidence interval for a binomial proportion.
+ * It is more reliable than the Wald interval, especially for p near 0 or 1.
+ *
+ * @param p     Observed proportion.
+ * @param N     Total number of samples.
+ * @param gamma Confidence level (e.g., 0.999).
+ * @return A pair containing the lower and upper bounds of the confidence interval.
+ */
+static std::pair<double, double> confidence_interval_wilson(double p, size_t N, double gamma) {
+  assert(0.0 <= p && p <= 1.0);
+  assert(0.0 <= gamma && gamma <= 1.0);
+  assert(0 < N);
+
+  const double alpha = 1.0 - gamma;
+  const double c = inverse_phi(1.0 - alpha / 2.0);
+  const double cSquared = c * c;
+
+  const double denominator = 2.0 * (static_cast<double>(N) + cSquared);
+  const double numerator_center = 2.0 * static_cast<double>(N) * p + cSquared;
+  const double numerator_margin =
+      c * std::sqrt(cSquared + 4.0 * static_cast<double>(N) * p * (1.0 - p));
+
+  const double lower = (numerator_center - numerator_margin) / denominator;
+  const double upper = (numerator_center + numerator_margin) / denominator;
+
+  return std::make_pair(std::max(0.0, lower), std::min(1.0, upper));
+}
 
 /**
  * @brief Creates an empty rank matrix for single-value criteria.
@@ -203,6 +243,7 @@ bool isSamePoint(const base::HashGridPoint& firstPoint, const base::HashGridPoin
  * @param refineableGridPoints The matrix of child points to update.
  * @param ignore A matrix to flag children that should be ignored (e.g., max level exceeded).
  * @param maxLevel The maximum allowed grid level.
+ * @param domain The domain of the function.
  */
 void updateRefineableGridPoints(base::GridStorage& gridStorage, const size_t dimension,
                                 const size_t currentN,
@@ -231,23 +272,24 @@ void updateRefineableGridPoints(base::GridStorage& gridStorage, const size_t dim
         base::DataVector coordinates(dimension);
         newPoints[lr].getStandardCoordinates(coordinates);
 
-        const bool oldIgnore = ignore[i][t][lr];
-        const base::GridPoint oldPoint = refineableGridPoints[t][i][lr];
+        const bool oldIgnore = (i < oldN) ? ignore[t][i][lr] : false;
+        const base::GridPoint oldPoint =
+            (i < oldN) ? refineableGridPoints[t][i][lr] : base::GridPoint(dimension);
 
-        ignore[i][t][lr] = maxLevel < newPoints[lr].getLevelMax();
+        ignore[t][i][lr] = maxLevel < newPoints[lr].getLevelMax();
         for (size_t q = 0; q < dimension; ++q) {
           if (coordinates[q] < domain[q].first || domain[q].second < coordinates[q]) {
-            ignore[i][t][lr] = true;
+            ignore[t][i][lr] = true;
             break;
           }
         }
 
-        if (!ignore[i][t][lr]) {
+        if (!ignore[t][i][lr]) {
           refineableGridPoints[t][i][lr] = newPoints[lr];
         }
 
         if (!needUpdate) {
-          assert(oldIgnore == ignore[i][t][lr] &&
+          assert(oldIgnore == ignore[t][i][lr] &&
                  isSamePoint(oldPoint, refineableGridPoints[t][i][lr]));
         }
       }
@@ -264,6 +306,7 @@ void updateRefineableGridPoints(base::GridStorage& gridStorage, const size_t dim
  * @param currentN The current number of grid points.
  * @param dimension The grid dimension.
  * @param refineableGridPoints The matrix of child points to evaluate.
+ * @param ignore A matrix flagging children that should be ignore.
  * @return A pair containing (gradients at parents, {value, gradient} at children).
  */
 std::pair<std::vector<base::DataVector>,
@@ -290,7 +333,7 @@ evalValues(base::Grid& grid, const base::DataVector& alpha, const size_t current
 
     for (size_t t = 0; t < dimension; ++t) {
       for (size_t lr = 0; lr < 2; ++lr) {
-        if (ignore[i][t][lr]) {
+        if (ignore[t][i][lr]) {
           continue;
         }
 
@@ -352,7 +395,7 @@ CriterionRanks evalRankLevelDegree(const base::GridStorage& gridStorage, const s
   for (size_t t = 0; t < dimension; ++t) {
     for (size_t i = 0; i < currentN; ++i) {
       for (size_t lr = 0; lr < 2; ++lr) {
-        rankLR[t][i][lr] = levelSum[t][i] + static_cast<double>(degree[i][t][lr]);
+        rankLR[t][i][lr] = levelSum[t][i] + static_cast<double>(degree[t][i][lr]);
       }
       rankSingle[t][i] = std::min(rankLR[t][i][0], rankLR[t][i][1]);
     }
@@ -584,15 +627,17 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
   grid.getGenerator().regular(initialLevel);
   size_t currentN = gridStorage.getSize();
 
-  functionValues.resize(std::max(N, currentN));
+  // Resize functionValues to max grid size
+  const size_t maxGridSize = std::max(N, currentN);
+  functionValues.resize(maxGridSize);
   functionValues.setAll(0.0);
 
-  // degree[i][t] counts refinements of point i in dimension t
+  // degree[t][i] counts refinements of point i in dimension t
   std::vector<std::vector<std::array<size_t, 2>>> degree(
-      functionValues.getSize(), std::vector<std::array<size_t, 2>>(dim, {{0, 0}}));
-  // ignore[i][t] flags points that cannot be refined further
+      dim, std::vector<std::array<size_t, 2>>(maxGridSize, {{0, 0}}));
+  // ignore[t][i] flags points that cannot be refined further
   std::vector<std::vector<std::array<bool, 2>>> ignore(
-      functionValues.getSize(), std::vector<std::array<bool, 2>>(dim, {{false, false}}));
+      dim, std::vector<std::array<bool, 2>>(maxGridSize, {{false, false}}));
 
   // Evaluate f on initial grid points
   evalFunction();
@@ -627,7 +672,6 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
       sstream << (static_cast<double>(currentN) / static_cast<double>(N) * 100.0)
               << "%\t " + std::to_string(currentN) << " / " << N
               << ",\t elapsed time: " << static_cast<double>(elapsed) / 1000.0 << "s";
-      std::cout << "\r" << sstream.str() << std::endl;
       base::Printer::getInstance().printStatusUpdate(sstream.str());
     }
 
@@ -697,7 +741,7 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
       for (size_t t = 0; t < dim; ++t) {
         if (this->refineLeftOrRight) {
           for (size_t lr = 0; lr < 2; ++lr) {
-            if (ignore[i][t][lr]) continue;
+            if (ignore[t][i][lr]) continue;
 
             // Combined refinement criterion
             double g = 1.0;
@@ -712,7 +756,7 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
             }
           }
         } else {
-          if (ignore[i][t][0] || ignore[i][t][1]) continue;
+          if (ignore[t][i][0] || ignore[t][i][1]) continue;
 
           // Combined refinement criterion
           double g = 1.0;
@@ -729,21 +773,15 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
       }
     }
 
-    // std::cout << "best refinement: " << bestRefinement.value << "\t\t" << bestRefinement.index
-    // << "\t\t"
-    //           << bestRefinement.leftRight << "\t\t" << bestRefinement.dimension << std::endl;
-
     // Refine the best point
     for (size_t lr = 0; lr < 2; ++lr) {
-      if (!ignore[bestRefinement.index][bestRefinement.dimension][lr] &&
+      if (!ignore[bestRefinement.dimension][bestRefinement.index][lr] &&
           (!this->refineLeftOrRight || bestRefinement.leftRight == lr)) {
-        ++degree[bestRefinement.index][bestRefinement.dimension][lr];
+        ++degree[bestRefinement.dimension][bestRefinement.index][lr];
         gridStorage.insert(
             refineableGridPoints[bestRefinement.dimension][bestRefinement.index][lr]);
       }
     }
-
-    // std::cout << "refined " << currentN << " vs " << gridStorage.getSize() << std::endl;
 
     // new grid size
     const size_t newN = gridStorage.getSize();
@@ -769,11 +807,6 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
     // next round
     currentN = newN;
     k++;
-
-    // const auto end = std::chrono::high_resolution_clock::now();
-    // const std::chrono::duration<double> elapsed_seconds = end - start;
-
-    // values.push_back(std::make_pair(gridStorage.getSize(), elapsed_seconds.count() + 1));
   }
 
   // delete superfluous entries in functionValues
@@ -788,7 +821,7 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
   std::vector<size_t> refinementCounter(dim, 0);
   for (size_t t = 0; t < dim; ++t) {
     for (size_t i = 0; i < currentN; ++i) {
-      refinementCounter[t] += degree[i][t][0] + degree[i][t][1];
+      refinementCounter[t] += degree[t][i][0] + degree[t][i][1];
     }
     totalRefinements += refinementCounter[t];
   }
@@ -806,6 +839,44 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
 }
 
 namespace IGGFARNHelper {
+
+// Definition of function from header
+UncertaintyBound::UncertaintyBound(double lower, double value, double upper, double coV)
+    : _lower(lower), _value(value), _upper(upper), _coV(coV) {}
+
+UncertaintyBound::UncertaintyBound() : UncertaintyBound(0.0, 0.0, 0.0, 0.0) {}
+
+UncertaintyBound::UncertaintyBound(const size_t samples, const size_t N)
+    : _value(static_cast<double>(samples) / static_cast<double>(N)) {
+  assert(samples <= N);
+  assert(0 < N);
+
+  // For a Bernoulli distribution, the coefficient of variation is sqrt((1-p)/(p*N)).
+  // If p is 0, CoV is infinite. We return 1.0 as a placeholder.
+  this->_coV =
+      (0.0 == this->_value) ? 1.0 : std::sqrt((1.0 - _value) / (_value * static_cast<double>(N)));
+  std::tie(this->_lower, this->_upper) = confidence_interval_wilson(this->_value, N, accuracy);
+}
+
+UncertaintyBound UncertaintyBound::div(const UncertaintyBound& other) const {
+  // Division by zero is handled by returning a safe but potentially wide interval.
+  const double lower = (0.0 == other._upper) ? 0.0 : this->_lower / other._upper;
+  const double value = (0.0 == other._value) ? 1.0 : this->_value / other._value;
+  const double upper = (0.0 == other._lower) ? 1.0 : this->_upper / other._lower;
+
+  return UncertaintyBound(lower, value, upper, -1.0);  // CoV not meaningful after division
+}
+
+double UncertaintyBound::lower() const { return _lower; }
+double UncertaintyBound::value() const { return _value; }
+double UncertaintyBound::upper() const { return _upper; }
+double UncertaintyBound::coV() const { return _coV; }
+
+std::ostream& operator<<(std::ostream& os, const UncertaintyBound& bounds) {
+  os << "[" << 100.0 * bounds.lower() << "%, " << 100.0 * bounds.value() << "%, "
+     << 100.0 * bounds.upper() << "%]";
+  return os;
+}
 
 Hyperparameters::Hyperparameters(const double levelDegree, const double threshold,
                                  const double extendedThreshold, const double gradient,
@@ -875,9 +946,9 @@ bool StoppingCriterion::shouldStop(base::Grid& grid, const base::DataVector& alp
 
   // Find an older grid to compare against that has a sufficiently different number of points
   int old_grid_index = static_cast<int>(last_grid_values.size()) - 2;
-  while (0 <= old_grid_index &&
-         std::get<0>(last_grid_values[old_grid_index]) + stopping_criterion_count_difference >
-             grid.getSize()) {
+  while (0 <= old_grid_index && std::get<0>(last_grid_values[static_cast<size_t>(old_grid_index)]) +
+                                        stopping_criterion_count_difference >
+                                    grid.getSize()) {
     --old_grid_index;
   }
 
@@ -889,7 +960,8 @@ bool StoppingCriterion::shouldStop(base::Grid& grid, const base::DataVector& alp
     // The `&& should_stop` in the loop condition ensures this: if any comparison fails to
     // signal convergence, the loop terminates and the function returns false.
     bool should_stop = true;
-    for (size_t i = old_grid_index; i < last_grid_values.size() - 1 && should_stop; ++i) {
+    for (size_t i = static_cast<size_t>(old_grid_index);
+         i < last_grid_values.size() - 1 && should_stop; ++i) {
       auto& old_grid_tuple = last_grid_values[i];
       base::InterpolantScalarFunction ft_old(*std::get<2>(old_grid_tuple),
                                              std::get<3>(old_grid_tuple));

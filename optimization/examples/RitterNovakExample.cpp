@@ -8,11 +8,12 @@
 // module.
 
 // define if a gaussian process library, like libgp, is available
-#define GAUSSIAN_PROCESS_AVAILABLE
+// #define GAUSSIAN_PROCESS_AVAILABLE
 #ifdef GAUSSIAN_PROCESS_AVAILABLE
 #include <gp.h>
 #include <rprop.h>
 #endif
+
 
 #include <sgpp/base/tools/sle/solver/Auto.hpp>
 #include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
@@ -151,7 +152,7 @@ void gridGenerationFullAdaptiveRitterNovak() {
   const size_t dimension = 2;
   const size_t bSplineDegree = 3;
   const size_t maxGridPoints = 50;
-  const size_t stoppingCriterionMonteCarloPointCount = 50'000;
+  const size_t stoppingCriterionMonteCarloPointCount = 50000;
   const bool useStoppingCriterion = true;
   std::unique_ptr<sgpp::base::ScalarFunction> function =
       std::make_unique<sgpp::optimization::test_problems::RastriginObjective>(dimension);
@@ -247,7 +248,7 @@ void gridGenerationFullAdaptiveRitterNovak() {
           for (size_t i = 0; i < refineableGridPoints[t].size(); ++i) {
             result[t][i] = std::array<std::pair<double, double>, 2>();
             for (size_t lr = 0; lr < 2; ++lr) {
-              if (ignore[i][t][lr]) {
+              if (ignore[t][i][lr]) {
                 continue;
               }
 
