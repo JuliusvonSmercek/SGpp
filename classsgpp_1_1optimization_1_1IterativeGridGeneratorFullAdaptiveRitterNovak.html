@@ -323,6 +323,7 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">grid</td><td>Grid object (should be empty). </td></tr>
     <tr><td class="paramname">N</td><td>Maximal number of grid points. </td></tr>
     <tr><td class="paramname">hyperparameters</td><td>Hyperparameters for the adaptive weight function. </td></tr>
+    <tr><td class="paramname">domain</td><td>Domain for each dimension </td></tr>
     <tr><td class="paramname">refineLeftOrRight</td><td>Whether to only refine the left or right child in each dimension, activating the "full adaptive" approach. </td></tr>
     <tr><td class="paramname">initialLevel</td><td>Level of the initial regular sparse grid. </td></tr>
     <tr><td class="paramname">maxLevel</td><td>Maximal level permitted for any grid point. </td></tr>
@@ -440,7 +441,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#aeb1510abb414a4f6e86efdf7d69d3207">sgpp::optimization::IterativeGridGenerator</a>.</p>
 
-<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a866bf4ef711e335b2bf92b5169ce82b9">sgpp::optimization::IterativeGridGenerator::f</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a30e6ea9d6503fcad902e47bc24d7143d">sgpp::optimization::IterativeGridGenerator::functionValues</a>, <a class="el" href="classsgpp_1_1base_1_1Grid.html#aef696e83f78c80da9332df27369b48b6">sgpp::base::Grid::getGenerator()</a>, <a class="el" href="classsgpp_1_1base_1_1Printer.html#a5cc60c954810dc07092dd0052a6ba000">sgpp::base::Printer::getInstance()</a>, <a class="el" href="classsgpp_1_1base_1_1ScalarFunction.html#adfd8bb3f5f20db98845c45b0e7f8af78">sgpp::base::ScalarFunction::getNumberOfParameters()</a>, <a class="el" href="classsgpp_1_1base_1_1DataVector.html#a4ec9b893255175cc583323968788b1b1">sgpp::base::DataVector::getSize()</a>, <a class="el" href="classsgpp_1_1base_1_1Grid.html#a9de6e7d313016311d8f72a8b0b29bc56">sgpp::base::Grid::getStorage()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#af6cfdbed24f4ff6299e1f0a70f41fbaf">sgpp::optimization::IterativeGridGenerator::grid</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a39cea70eb737e6eb86eb4cbfacb0a635">initialLevel</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a046905cc43a826a9f03574e849aa5a5b">sgpp::optimization::IterativeGridGenerator::N</a>, <a class="el" href="classsgpp_1_1base_1_1Printer.html#a604d55e828b55834d269f9aab2eeac9b">sgpp::base::Printer::printStatusBegin()</a>, <a class="el" href="classsgpp_1_1base_1_1GridGenerator.html#a6382c18ef2719f4e99ff2a82fddd4e7a">sgpp::base::GridGenerator::regular()</a>, and <a class="el" href="classsgpp_1_1base_1_1DataVector.html#a75b0df6e46f9d8a4bdfaaa0636a3d55a">sgpp::base::DataVector::setAll()</a>.</p>
+<p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a7a49f1cc87ecf924b774b2460a6e2eb2">domain</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a3dfddda1f8c7cbef1ffdb41d454f1850">sgpp::optimization::IterativeGridGenerator::evalFunction()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a866bf4ef711e335b2bf92b5169ce82b9">sgpp::optimization::IterativeGridGenerator::f</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a30e6ea9d6503fcad902e47bc24d7143d">sgpp::optimization::IterativeGridGenerator::functionValues</a>, <a class="el" href="AugmentedLagrangian_8cpp.html#a39d87577cea594685acd774aa77528bd">g</a>, <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html#ab89e8222360cfdcf5b57a510ddd5c5da">sgpp::optimization::IGGFARNHelper::Hyperparameters::getExtendedThreshold()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html#a280c4a241b1e4fa220e64a2443415de3">sgpp::optimization::IGGFARNHelper::Hyperparameters::getGaussianProcess()</a>, <a class="el" href="classsgpp_1_1base_1_1Grid.html#aef696e83f78c80da9332df27369b48b6">sgpp::base::Grid::getGenerator()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html#aa3301f1e132a321f85eccc91705564ab">sgpp::optimization::IGGFARNHelper::Hyperparameters::getGradient()</a>, <a class="el" href="classsgpp_1_1base_1_1Printer.html#a5cc60c954810dc07092dd0052a6ba000">sgpp::base::Printer::getInstance()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html#a597cad55891174fdcbccf6c70f0158d3">sgpp::optimization::IGGFARNHelper::Hyperparameters::getLevelDegree()</a>, <a class="el" href="classsgpp_1_1base_1_1ScalarFunction.html#adfd8bb3f5f20db98845c45b0e7f8af78">sgpp::base::ScalarFunction::getNumberOfParameters()</a>, <a class="el" href="classsgpp_1_1base_1_1HashGridStorage.html#af2ddd3d2e665d43706d194e3019ccf79">sgpp::base::HashGridStorage::getPointCoordinates()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html#ae8db0559f403748e2c5953ea698dffd0">sgpp::optimization::IGGFARNHelper::Hyperparameters::getSecondGradient()</a>, <a class="el" href="classsgpp_1_1base_1_1Grid.html#a9de6e7d313016311d8f72a8b0b29bc56">sgpp::base::Grid::getStorage()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html#a5ce513767f47cbd46af160c063aebc00">sgpp::optimization::IGGFARNHelper::Hyperparameters::getThreshold()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab7a11c5be88760aaf0751d1bfdf63d6e">gpAddPattern</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab45d9ed287f84a9289c031f7ec5a73e5">gpEvaluate</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a3e8595e88c4332c7d2ee9b7f2b931758">gpInit</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#af6cfdbed24f4ff6299e1f0a70f41fbaf">sgpp::optimization::IterativeGridGenerator::grid</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a521dfb9aa547ab7aa9d24b56259dbbde">hyperparameters</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a39cea70eb737e6eb86eb4cbfacb0a635">initialLevel</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a1803ef6fb583561a7cf94a7c828140d9">isStoppingCriterionEnabled()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aaad8c0fef60d9222e3a308b14165af93">maxLevel</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a046905cc43a826a9f03574e849aa5a5b">sgpp::optimization::IterativeGridGenerator::N</a>, <a class="el" href="classsgpp_1_1base_1_1Printer.html#a604d55e828b55834d269f9aab2eeac9b">sgpp::base::Printer::printStatusBegin()</a>, <a class="el" href="classsgpp_1_1base_1_1Printer.html#a7af976475445bc6ff38fa6240e36de98">sgpp::base::Printer::printStatusEnd()</a>, <a class="el" href="classsgpp_1_1base_1_1Printer.html#a61848fef8d14665b42c00a50d80b65b7">sgpp::base::Printer::printStatusUpdate()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ac1a3262136048a85db2517683452ccc2">refineLeftOrRight</a>, <a class="el" href="classsgpp_1_1base_1_1GridGenerator.html#a6382c18ef2719f4e99ff2a82fddd4e7a">sgpp::base::GridGenerator::regular()</a>, <a class="el" href="classsgpp_1_1base_1_1DataVector.html#a75b0df6e46f9d8a4bdfaaa0636a3d55a">sgpp::base::DataVector::setAll()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a7129d5e5b62794d89ef948f8f22b0877">stoppingCriterionValidationPoints</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGenerator.html#a16e24d26a8a67017de5d63e23e44431b">sgpp::optimization::IterativeGridGenerator::undoRefinement()</a>.</p>
 
 </div>
 </div>
@@ -543,6 +544,8 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if the stopping criterion is enabled, false otherwise. </dd></dl>
 
 <p class="reference">References <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a7129d5e5b62794d89ef948f8f22b0877">stoppingCriterionValidationPoints</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate()</a>.</p>
 
 </div>
 </div>
@@ -768,6 +771,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Domain bounds for each dimension. </p>
 
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate()</a>.</p>
+
 </div>
 </div>
 <a id="ab7a11c5be88760aaf0751d1bfdf63d6e" name="ab7a11c5be88760aaf0751d1bfdf63d6e"></a>
@@ -792,7 +797,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Function to add a pattern to the Gaussian process. </p>
 
-<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a32ab4d5163d1bfe7b4cda5b11ee754dc">IterativeGridGeneratorFullAdaptiveRitterNovak()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a21db4431fbc648eb8d482516f0af7ffd">setGaussianProcess()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a32ab4d5163d1bfe7b4cda5b11ee754dc">IterativeGridGeneratorFullAdaptiveRitterNovak()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a21db4431fbc648eb8d482516f0af7ffd">setGaussianProcess()</a>.</p>
 
 </div>
 </div>
@@ -818,7 +823,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Function to evaluate the Gaussian process at given points. </p>
 
-<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a32ab4d5163d1bfe7b4cda5b11ee754dc">IterativeGridGeneratorFullAdaptiveRitterNovak()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a21db4431fbc648eb8d482516f0af7ffd">setGaussianProcess()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a32ab4d5163d1bfe7b4cda5b11ee754dc">IterativeGridGeneratorFullAdaptiveRitterNovak()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a21db4431fbc648eb8d482516f0af7ffd">setGaussianProcess()</a>.</p>
 
 </div>
 </div>
@@ -844,7 +849,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Function to initialize the Gaussian process. </p>
 
-<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a32ab4d5163d1bfe7b4cda5b11ee754dc">IterativeGridGeneratorFullAdaptiveRitterNovak()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a21db4431fbc648eb8d482516f0af7ffd">setGaussianProcess()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a32ab4d5163d1bfe7b4cda5b11ee754dc">IterativeGridGeneratorFullAdaptiveRitterNovak()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a21db4431fbc648eb8d482516f0af7ffd">setGaussianProcess()</a>.</p>
 
 </div>
 </div>
@@ -870,7 +875,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Hyperparameters for the adaptive weight function. </p>
 
-<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab83c69d5f750e82a8df232c50122a547">getHyperparameters()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#afe70cec5a863990fd4c869715f7f7edb">setHyperparameters()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ab83c69d5f750e82a8df232c50122a547">getHyperparameters()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#afe70cec5a863990fd4c869715f7f7edb">setHyperparameters()</a>.</p>
 
 </div>
 </div>
@@ -922,7 +927,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Maximal level of grid points. </p>
 
-<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a53209bdfe6f42e1c8592374ce76c9d0c">getMaxLevel()</a>, <a class="el" href="classpython_1_1uq_1_1operations_1_1forcePositivity_1_1localHierarchicalIntersectionSearch_1_1Loc76d2b8af98bc80204fae831fc83c1c6f.html#a7523aafcee0282e8fc036b4c8fe8e64d">python.uq.operations.forcePositivity.localHierarchicalIntersectionSearch.LocalHierarchicalIntersectionCandidates::getMaxLevelOfChildrenUpToMaxLevel()</a>, <a class="el" href="classpython_1_1uq_1_1refinement_1_1AdmissibleSet_1_1AdmissibleSetGenerator.html#a08351d30dad1f94531c0442540682fc6">python.uq.refinement.AdmissibleSet.AdmissibleSetGenerator::insertPoint()</a>, <a class="el" href="classpython_1_1uq_1_1operations_1_1forcePositivity_1_1operationMakePositiveFast_1_1OperationMakePositiveFast.html#ac71fc9c0fc4de4a849ee112f15400c7f">python.uq.operations.forcePositivity.operationMakePositiveFast.OperationMakePositiveFast::makePositive()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a9d12a2d01a93cf23340bf742c903b9d7">setMaxLevel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a53209bdfe6f42e1c8592374ce76c9d0c">getMaxLevel()</a>, <a class="el" href="classpython_1_1uq_1_1operations_1_1forcePositivity_1_1localHierarchicalIntersectionSearch_1_1Loc76d2b8af98bc80204fae831fc83c1c6f.html#a7523aafcee0282e8fc036b4c8fe8e64d">python.uq.operations.forcePositivity.localHierarchicalIntersectionSearch.LocalHierarchicalIntersectionCandidates::getMaxLevelOfChildrenUpToMaxLevel()</a>, <a class="el" href="classpython_1_1uq_1_1refinement_1_1AdmissibleSet_1_1AdmissibleSetGenerator.html#a08351d30dad1f94531c0442540682fc6">python.uq.refinement.AdmissibleSet.AdmissibleSetGenerator::insertPoint()</a>, <a class="el" href="classpython_1_1uq_1_1operations_1_1forcePositivity_1_1operationMakePositiveFast_1_1OperationMakePositiveFast.html#ac71fc9c0fc4de4a849ee112f15400c7f">python.uq.operations.forcePositivity.operationMakePositiveFast.OperationMakePositiveFast::makePositive()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a9d12a2d01a93cf23340bf742c903b9d7">setMaxLevel()</a>.</p>
 
 </div>
 </div>
@@ -948,6 +953,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Whether to refine only the left or right child in each dimension. </p>
 
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate()</a>.</p>
+
 </div>
 </div>
 <a id="a7129d5e5b62794d89ef948f8f22b0877" name="a7129d5e5b62794d89ef948f8f22b0877"></a>
@@ -972,7 +979,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Validation points for the stopping criterion. Empty if disabled. </p>
 
-<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa8d28c9a6acc86f4e575b7dc83d13175">activateStoppingCriterion()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af49dab9db20e88ebb22b2c35f5310160">disableStoppingCriterion()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a1803ef6fb583561a7cf94a7c828140d9">isStoppingCriterionEnabled()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa8d28c9a6acc86f4e575b7dc83d13175">activateStoppingCriterion()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#af49dab9db20e88ebb22b2c35f5310160">disableStoppingCriterion()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#aa7290fbd5d15f0ab9344d65ddee43584">generate()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#a1803ef6fb583561a7cf94a7c828140d9">isStoppingCriterionEnabled()</a>.</p>
 
 </div>
 </div>
@@ -986,7 +993,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesgpp.html">sgpp</a></li><li class="navelem"><a class="el" href="namespacesgpp_1_1optimization.html">optimization</a></li><li class="navelem"><a class="el" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html">IterativeGridGeneratorFullAdaptiveRitterNovak</a></li>
-    <li class="footer">Generated on Tue Oct 28 2025 14:47:52 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Oct 29 2025 03:53:38 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

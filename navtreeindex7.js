@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"OperationLaplaceModLinear_8hpp.html":[10,0,5,1,0,0,3,0,37],
 "OperationLaplaceModPolyClenshawCurtis_8cpp.html":[10,0,5,1,0,0,3,0,40],
 "OperationLaplaceModPolyClenshawCurtis_8hpp.html":[10,0,5,1,0,0,3,0,41],
 "OperationLaplaceModPoly_8cpp.html":[10,0,5,1,0,0,3,0,38],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "OperationMultipleEvalSubspaceCombined__multTransposeImpl_8cpp.html":[10,0,2,10,0,0,5,0,18,0,4],
 "OperationMultipleEvalSubspaceCombined__prepareSubspaceIterator_8cpp.html":[10,0,2,10,0,0,5,0,18,0,5],
 "OperationMultipleEvalSubspaceCombined__uncachedMultTransposeInner_8cpp.html":[10,0,2,10,0,0,5,0,18,0,6],
-"OperationMultipleEvalSubspaceSimpleParameters_8hpp.html":[10,0,2,10,0,0,5,0,18,1,4],
-"OperationMultipleEvalSubspaceSimpleParameters_8hpp.html#a9d70d34494742a192a71f116b7cdf51c":[10,0,2,10,0,0,5,0,18,1,4,1]
+"OperationMultipleEvalSubspaceSimpleParameters_8hpp.html":[10,0,2,10,0,0,5,0,18,1,4]
 };

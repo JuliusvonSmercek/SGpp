@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"NakBsplineModifiedBasis_8hpp.html":[10,0,0,1,0,0,7,0,0,2,23],
 "NakBsplineModifiedBasis_8hpp.html#aeaeef09d115821a9f5cba93c27c321d9":[10,0,0,1,0,0,7,0,0,2,23,1],
 "NakPBsplineBasis_8hpp.html":[10,0,0,1,0,0,7,0,0,2,26],
 "NakPBsplineBasis_8hpp.html#aa9a5d095d317c6a00687331efe460055":[10,0,0,1,0,0,7,0,0,2,26,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "OperationEvalModBsplineNaive_8hpp.html":[10,0,0,1,0,0,7,0,111],
 "OperationEvalModFundamentalSplineNaive_8cpp.html":[10,0,0,1,0,0,7,0,112],
 "OperationEvalModFundamentalSplineNaive_8hpp.html":[10,0,0,1,0,0,7,0,113],
-"OperationEvalModLinearClenshawCurtisNaive_8cpp.html":[10,0,0,1,0,0,7,0,116],
-"OperationEvalModLinearClenshawCurtisNaive_8hpp.html":[10,0,0,1,0,0,7,0,117]
+"OperationEvalModLinearClenshawCurtisNaive_8cpp.html":[10,0,0,1,0,0,7,0,116]
 };

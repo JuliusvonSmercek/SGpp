@@ -1,5 +1,8 @@
 var NAVTREEINDEX127 =
 {
+"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1BilinearGaussQuadratureStrategy.html":[8,0,12,12,11,0,2],
+"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1BilinearQuadratureStrategy.html":[8,0,12,12,11,0,3],
+"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1DiscreteBilinearScipyQuadratureStrategy.html":[8,0,12,12,11,0,4],
 "namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1PiecewiseConstantQuadratureStrategy.html":[8,0,12,12,11,0,5],
 "namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1SparseGridQuadratureStrategy.html":[8,0,12,12,11,0,6],
 "namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1UniformQuadratureStrategy.html":[8,0,12,12,11,0,7],
@@ -246,8 +249,5 @@ var NAVTREEINDEX127 =
 "namespacesgpp_1_1base.html#a4066f2ba8be120a496d7d6202530e36e":[8,0,14,0,528],
 "namespacesgpp_1_1base.html#a44e65000ae8b58709cc953d1f4873b1a":[8,0,14,0,573],
 "namespacesgpp_1_1base.html#a483acd26a8b2ffb2fe355198f46d3033":[8,0,14,0,571],
-"namespacesgpp_1_1base.html#a487786731efe94c23716943233f35f4c":[8,0,14,0,539],
-"namespacesgpp_1_1base.html#a62c4aae76549a46278a02f2d19a091e9":[8,0,14,0,563],
-"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bd":[8,0,14,0,582],
-"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bda0b87d66b88c72957dfea8c9605016442":[8,0,14,0,582,4]
+"namespacesgpp_1_1base.html#a487786731efe94c23716943233f35f4c":[8,0,14,0,539]
 };

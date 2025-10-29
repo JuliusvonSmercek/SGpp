@@ -1,5 +1,6 @@
 var NAVTREEINDEX122 =
 {
+"dir_a36cb6e10a5fc103584463a67ba88be8.html":[10,0,3,1],
 "dir_a3d2d85d90a8082de7bb30acac812dfc.html":[10,0,4,1,0,0,3,0],
 "dir_a412a70d3c8906df8feca37cf42cbae4.html":[10,0,2,9,3,9,3],
 "dir_a45ba08a15e1109ebad7c1b4903995b5.html":[10,0,2,9,3,3],
@@ -119,9 +120,11 @@ var NAVTREEINDEX122 =
 "evaluateConsistency_8cpp.html#a700a5cb87b8679b7d1369f4ae3e5015d":[10,0,2,6,5,1],
 "example_LTwoDotTest_py.html":[3,1,24],
 "example_RitterNovakExample_cpp.html":[3,0,31],
+"example_RitterNovakHyperparameterOptimisation_cpp.html":[3,0,32],
 "example_SGDEMinerFromConfigFile_py.html":[5],
 "example__LTwoDotTest__py_8doxy.html":[10,0,5,0,0,0],
 "example__RitterNovakExample__cpp_8doxy.html":[10,0,4,0,0,7],
+"example__RitterNovakHyperparameterOptimisation__cpp_8doxy.html":[10,0,4,0,0,8],
 "example__benchmark__gridInteraction__cpp_8doxy.html":[10,0,0,0,0,2],
 "example__combigrid__adaptive__cpp_8doxy.html":[10,0,1,0,0,0],
 "example__combigrid__adaptive__py_8doxy.html":[10,0,1,0,0,1],
@@ -165,7 +168,7 @@ var NAVTREEINDEX122 =
 "example__refinement__cpp_8doxy.html":[10,0,0,0,0,17],
 "example__refinement__java_8doxy.html":[10,0,0,0,0,18],
 "example__refinement__py_8doxy.html":[10,0,0,0,0,19],
-"example__splineResponseSurface__example__py_8doxy.html":[10,0,4,0,0,8],
+"example__splineResponseSurface__example__py_8doxy.html":[10,0,4,0,0,9],
 "example__subspaceRefinement__py_8doxy.html":[10,0,0,0,0,20],
 "example__test__Rosenblatt__py_8doxy.html":[10,0,2,1,0,13],
 "example__tutorial__cpp_8doxy.html":[10,0,0,0,0,21],
@@ -186,7 +189,7 @@ var NAVTREEINDEX122 =
 "example_detectPlatformConfiguration_cpp.html":[3,0,8],
 "example_examplePCE_cpp.html":[3,0,20],
 "example_example_learnerSGDE_java.html":[3,2,5],
-"example_fistaExample_cpp.html":[3,0,32],
+"example_fistaExample_cpp.html":[3,0,33],
 "example_fuzzy_cpp.html":[3,0,29],
 "example_fuzzy_py.html":[3,1,21],
 "example_generalisedGridsest_py.html":[3,1,16],
@@ -246,8 +249,5 @@ var NAVTREEINDEX122 =
 "examples__java_8doxy.html":[10,0,0,0,0,28],
 "examples__m_8doxy.html":[10,0,0,0,0,29],
 "examples__py_8doxy.html":[10,0,0,0,0,30],
-"examples_cpp.html":[3,0],
-"examples_cpp.html#examples_cpp_module_base":[3,0,0],
-"examples_cpp.html#examples_cpp_module_combigrid":[3,0,1],
-"examples_cpp.html#examples_cpp_module_datadriven":[3,0,2]
+"examples_cpp.html":[3,0]
 };

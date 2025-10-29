@@ -121,11 +121,12 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="line"><span class="comment">// module.</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// define if a gaussian process library, like libgp, is available</span></div>
-<div class="line"><span class="preprocessor">#define GAUSSIAN_PROCESS_AVAILABLE</span></div>
+<div class="line"><span class="comment">// #define GAUSSIAN_PROCESS_AVAILABLE</span></div>
 <div class="line"><span class="preprocessor">#ifdef GAUSSIAN_PROCESS_AVAILABLE</span></div>
 <div class="line"><span class="preprocessor">#include &lt;gp.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;rprop.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Auto_8hpp.html">sgpp/base/tools/sle/solver/Auto.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="HierarchisationSLE_8hpp.html">sgpp/base/tools/sle/system/HierarchisationSLE.hpp</a>&gt;</span></div>
@@ -240,7 +241,7 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="line">  <span class="keyword">const</span> <span class="keywordtype">size_t</span> dimension = 2;</div>
 <div class="line">  <span class="keyword">const</span> <span class="keywordtype">size_t</span> bSplineDegree = 3;</div>
 <div class="line">  <span class="keyword">const</span> <span class="keywordtype">size_t</span> maxGridPoints = 50;</div>
-<div class="line">  <span class="keyword">const</span> <span class="keywordtype">size_t</span> stoppingCriterionMonteCarloPointCount = 50&#39;000;</div>
+<div class="line">  <span class="keyword">const</span> <span class="keywordtype">size_t</span> stoppingCriterionMonteCarloPointCount = 50000;</div>
 <div class="line">  <span class="keyword">const</span> <span class="keywordtype">bool</span> useStoppingCriterion = <span class="keyword">true</span>;</div>
 <div class="line">  std::unique_ptr&lt;sgpp::base::ScalarFunction&gt; function =</div>
 <div class="line">      std::make_unique&lt;sgpp::optimization::test_problems::RastriginObjective&gt;(dimension);</div>
@@ -336,7 +337,7 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="line">          <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; <a class="code hl_variable" href="namespacepython_1_1statsfileInfo.html#a9a8efd87cb6a3ce6e2172b480821c70c">i</a> &lt; refineableGridPoints[t].size(); ++<a class="code hl_variable" href="namespacepython_1_1statsfileInfo.html#a9a8efd87cb6a3ce6e2172b480821c70c">i</a>) {</div>
 <div class="line">            result[t][<a class="code hl_variable" href="namespacepython_1_1statsfileInfo.html#a9a8efd87cb6a3ce6e2172b480821c70c">i</a>] = std::array&lt;std::pair&lt;double, double&gt;, 2&gt;();</div>
 <div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> lr = 0; lr &lt; 2; ++lr) {</div>
-<div class="line">              <span class="keywordflow">if</span> (ignore[i][t][lr]) {</div>
+<div class="line">              <span class="keywordflow">if</span> (ignore[t][i][lr]) {</div>
 <div class="line">                <span class="keywordflow">continue</span>;</div>
 <div class="line">              }</div>
 <div class="line"> </div>
@@ -409,7 +410,7 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="ttc" id="aclasssgpp_1_1base_1_1sle__solver_1_1Auto_html"><div class="ttname"><a href="classsgpp_1_1base_1_1sle__solver_1_1Auto.html">sgpp::base::sle_solver::Auto</a></div><div class="ttdoc">Automatic choice of external linear solver.</div><div class="ttdef"><b>Definition</b> Auto.hpp:20</div></div>
 <div class="ttc" id="aclasssgpp_1_1base_1_1sle__solver_1_1Auto_html_adf85b567bab10ab303e3346b82689382"><div class="ttname"><a href="classsgpp_1_1base_1_1sle__solver_1_1Auto.html#adf85b567bab10ab303e3346b82689382">sgpp::base::sle_solver::Auto::solve</a></div><div class="ttdeci">bool solve(SLE &amp;system, DataVector &amp;b, DataVector &amp;x) const override</div><div class="ttdef"><b>Definition</b> Auto.cpp:47</div></div>
 <div class="ttc" id="aclasssgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">sgpp::optimization::IGGFARNHelper::Hyperparameters</a></div><div class="ttdoc">Stores and normalizes the hyperparameters for the refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorFullAdaptiveRitterNovak.hpp:37</div></div>
-<div class="ttc" id="aclasssgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html">sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak</a></div><div class="ttdoc">Iterative grid generation based on a modified, fully adaptive Ritter/Novak's refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorFullAdaptiveRitterNovak.hpp:289</div></div>
+<div class="ttc" id="aclasssgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html">sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak</a></div><div class="ttdoc">Iterative grid generation based on a modified, fully adaptive Ritter/Novak's refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorFullAdaptiveRitterNovak.hpp:205</div></div>
 <div class="ttc" id="aclasssgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak.html">sgpp::optimization::IterativeGridGeneratorRitterNovak</a></div><div class="ttdoc">Iterative grid generation based on Ritter/Novak's refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorRitterNovak.hpp:31</div></div>
 <div class="ttc" id="adensityMultiplication_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="densityMultiplication_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> densityMultiplication.cpp:22</div></div>
 <div class="ttc" id="amultHPX_8cpp_html_ae871abe991ec98e4b1c09a6eaa9f1ddc"><div class="ttname"><a href="multHPX_8cpp.html#ae871abe991ec98e4b1c09a6eaa9f1ddc">grid</a></div><div class="ttdeci">std::unique_ptr&lt; sgpp::base::Grid &gt; grid(nullptr)</div></div>
@@ -424,7 +425,7 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="examples.html">Usage Examples</a></li><li class="navelem"><a class="el" href="examples_cpp.html">C++ Examples</a></li>
-    <li class="footer">Generated on Tue Oct 28 2025 14:47:47 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Oct 29 2025 03:53:34 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -199,6 +199,7 @@ var NAVTREEINDEX3 =
 "IterativeGaussianElimination_8cpp.html":[10,0,0,1,0,0,8,1,0,12],
 "IterativeGaussianElimination_8hpp.html":[10,0,0,1,0,0,8,1,0,13],
 "IterativeGridGeneratorFullAdaptiveRitterNovak_8cpp.html":[10,0,4,1,0,0,2,3],
+"IterativeGridGeneratorFullAdaptiveRitterNovak_8cpp.html#a33940b6fe0a031e45f24603dc9d8edea":[10,0,4,1,0,0,2,3,1],
 "IterativeGridGeneratorFullAdaptiveRitterNovak_8cpp.html#ab6f3c7ddd03cc6eec5a58f18d542fc46":[10,0,4,1,0,0,2,3,0],
 "IterativeGridGeneratorFullAdaptiveRitterNovak_8hpp.html":[10,0,4,1,0,0,2,4],
 "IterativeGridGeneratorFullAdaptiveRitterNovak_8hpp.html#a33940b6fe0a031e45f24603dc9d8edea":[10,0,4,1,0,0,2,4,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "LaplaceEnhancedDownBBLinear_8hpp.html":[10,0,5,1,0,0,2,0,1,0,1],
 "LaplaceEnhancedUpBBLinearBoundary_8cpp.html":[10,0,5,1,0,0,2,0,0,0,2],
 "LaplaceEnhancedUpBBLinearBoundary_8hpp.html":[10,0,5,1,0,0,2,0,0,0,3],
-"LaplaceEnhancedUpBBLinear_8cpp.html":[10,0,5,1,0,0,2,0,1,0,2],
-"LaplaceEnhancedUpBBLinear_8hpp.html":[10,0,5,1,0,0,2,0,1,0,3]
+"LaplaceEnhancedUpBBLinear_8cpp.html":[10,0,5,1,0,0,2,0,1,0,2]
 };

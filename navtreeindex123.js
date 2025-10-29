@@ -1,5 +1,8 @@
 var NAVTREEINDEX123 =
 {
+"examples_cpp.html#examples_cpp_module_base":[3,0,0],
+"examples_cpp.html#examples_cpp_module_combigrid":[3,0,1],
+"examples_cpp.html#examples_cpp_module_datadriven":[3,0,2],
 "examples_cpp.html#examples_cpp_module_optimization":[3,0,3],
 "examples_cpp.html#examples_cpp_module_solver":[3,0,4],
 "examples_java.html":[3,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX123 =
 "kernelTuner_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627":[10,0,2,6,6,0],
 "learner_2LearnerBuilder_8py.html":[10,0,2,9,2,7],
 "learner_2Learner_8py.html":[10,0,2,9,2,6],
-"learner_2Regressor_8py.html":[10,0,2,9,2,8],
-"learner_8cpp.html":[10,0,2,6,7],
-"learner_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97":[10,0,2,6,7,1],
-"learner_8cpp.html#a37eb1e85c1cfcfe4de0e7838c42ad9f2":[10,0,2,6,7,3]
+"learner_2Regressor_8py.html":[10,0,2,9,2,8]
 };

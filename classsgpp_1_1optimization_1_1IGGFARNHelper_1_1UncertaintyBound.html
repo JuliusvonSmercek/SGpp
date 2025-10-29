@@ -131,12 +131,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4a83f6ae54189922fbdf2066b06f3729" id="r_a4a83f6ae54189922fbdf2066b06f3729"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#a4a83f6ae54189922fbdf2066b06f3729">UncertaintyBound</a> ()</td></tr>
 <tr class="memdesc:a4a83f6ae54189922fbdf2066b06f3729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor, initializes to zero.  <br /></td></tr>
 <tr class="separator:a4a83f6ae54189922fbdf2066b06f3729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1f55fb3ca0d96149f5a9996e473107d" id="r_aa1f55fb3ca0d96149f5a9996e473107d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#aa1f55fb3ca0d96149f5a9996e473107d">UncertaintyBound</a> (const size_t samples, const size_t N)</td></tr>
+<tr class="memdesc:aa1f55fb3ca0d96149f5a9996e473107d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct from a number of positive samples out of a total number of samples.  <br /></td></tr>
+<tr class="separator:aa1f55fb3ca0d96149f5a9996e473107d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa911db5f48631d14a542ad0b25587429" id="r_aa911db5f48631d14a542ad0b25587429"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#aa911db5f48631d14a542ad0b25587429">UncertaintyBound</a> (double <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#a6cb91bca9e01e63db59555472e4efb2e">lower</a>, double <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#a693506ebad30d99f8f9c80b82de2d691">value</a>, double <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#ae648aa7b9b01c3719a09066e5d81e285">upper</a>, double <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#a85aec538131e6518e1b3d6f5f0ecc078">coV</a>)</td></tr>
 <tr class="memdesc:aa911db5f48631d14a542ad0b25587429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct from explicit lower, value, upper, and CoV.  <br /></td></tr>
 <tr class="separator:aa911db5f48631d14a542ad0b25587429"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ab7959e1d393271b9eab95efec193f4" id="r_a1ab7959e1d393271b9eab95efec193f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#a1ab7959e1d393271b9eab95efec193f4">UncertaintyBound</a> (size_t samples, size_t N)</td></tr>
-<tr class="memdesc:a1ab7959e1d393271b9eab95efec193f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct from a number of positive samples out of a total number of samples.  <br /></td></tr>
-<tr class="separator:a1ab7959e1d393271b9eab95efec193f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae648aa7b9b01c3719a09066e5d81e285" id="r_ae648aa7b9b01c3719a09066e5d81e285"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#ae648aa7b9b01c3719a09066e5d81e285">upper</a> () const</td></tr>
 <tr class="separator:ae648aa7b9b01c3719a09066e5d81e285"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a693506ebad30d99f8f9c80b82de2d691" id="r_a693506ebad30d99f8f9c80b82de2d691"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#a693506ebad30d99f8f9c80b82de2d691">value</a> () const</td></tr>
@@ -150,9 +150,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">sgpp::optimization::IGGFARNHelper::UncertaintyBound::UncertaintyBound </td>
@@ -184,11 +181,6 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Construct from explicit lower, value, upper, and CoV. </p>
@@ -209,9 +201,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">sgpp::optimization::IGGFARNHelper::UncertaintyBound::UncertaintyBound </td>
@@ -220,11 +209,6 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Default constructor, initializes to zero. </p>
@@ -233,25 +217,22 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1ab7959e1d393271b9eab95efec193f4" name="a1ab7959e1d393271b9eab95efec193f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ab7959e1d393271b9eab95efec193f4">&#9670;&#160;</a></span>UncertaintyBound() <span class="overload">[3/3]</span></h2>
+<a id="aa1f55fb3ca0d96149f5a9996e473107d" name="aa1f55fb3ca0d96149f5a9996e473107d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1f55fb3ca0d96149f5a9996e473107d">&#9670;&#160;</a></span>UncertaintyBound() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">sgpp::optimization::IGGFARNHelper::UncertaintyBound::UncertaintyBound </td>
           <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype">const size_t&#160;</td>
           <td class="paramname"><em>samples</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype">const size_t&#160;</td>
           <td class="paramname"><em>N</em>&#160;</td>
         </tr>
         <tr>
@@ -260,11 +241,6 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Construct from a number of positive samples out of a total number of samples. </p>
@@ -285,9 +261,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double sgpp::optimization::IGGFARNHelper::UncertaintyBound::coV </td>
@@ -296,11 +269,6 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -310,9 +278,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html">UncertaintyBound</a> sgpp::optimization::IGGFARNHelper::UncertaintyBound::div </td>
@@ -322,11 +287,6 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Divides this uncertainty bound by another. </p>
@@ -350,9 +310,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double sgpp::optimization::IGGFARNHelper::UncertaintyBound::lower </td>
@@ -361,11 +318,6 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#ad1ebfd78634b3c2a1acb395d054e1a97">div()</a>, <a class="el" href="namespacesgpp_1_1optimization_1_1IGGFARNHelper.html#a33940b6fe0a031e45f24603dc9d8edea">sgpp::optimization::IGGFARNHelper::operator&lt;&lt;()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1StoppingCriterion.html#a132b4d2e6646fb4948368d31de06ffa8">sgpp::optimization::IGGFARNHelper::StoppingCriterion::shouldStop()</a>.</p>
@@ -377,9 +329,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double sgpp::optimization::IGGFARNHelper::UncertaintyBound::upper </td>
@@ -388,11 +337,6 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#ad1ebfd78634b3c2a1acb395d054e1a97">div()</a>, <a class="el" href="namespacesgpp_1_1optimization_1_1IGGFARNHelper.html#a33940b6fe0a031e45f24603dc9d8edea">sgpp::optimization::IGGFARNHelper::operator&lt;&lt;()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1StoppingCriterion.html#a132b4d2e6646fb4948368d31de06ffa8">sgpp::optimization::IGGFARNHelper::StoppingCriterion::shouldStop()</a>.</p>
@@ -404,9 +348,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">double sgpp::optimization::IGGFARNHelper::UncertaintyBound::value </td>
@@ -415,19 +356,15 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="reference">Referenced by <a class="el" href="classpython_1_1data_1_1DataEntry_1_1DataEntry.html#af509e320050e9ff7229b787d82403e55">python.data.DataEntry.DataEntry::__init__()</a>, <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html#ad1ebfd78634b3c2a1acb395d054e1a97">div()</a>, <a class="el" href="classpython_1_1data_1_1DataEntry_1_1DataEntry.html#a28ae324c5a4006b74df8ecd619f81f0c">python.data.DataEntry.DataEntry::getValue()</a>, <a class="el" href="namespacesgpp_1_1optimization_1_1IGGFARNHelper.html#a33940b6fe0a031e45f24603dc9d8edea">sgpp::optimization::IGGFARNHelper::operator&lt;&lt;()</a>, and <a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1StoppingCriterion.html#a132b4d2e6646fb4948368d31de06ffa8">sgpp::optimization::IGGFARNHelper::StoppingCriterion::shouldStop()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>optimization/src/sgpp/optimization/gridgen/<a class="el" href="IterativeGridGeneratorFullAdaptiveRitterNovak_8hpp.html">IterativeGridGeneratorFullAdaptiveRitterNovak.hpp</a></li>
+<li>optimization/src/sgpp/optimization/gridgen/<a class="el" href="IterativeGridGeneratorFullAdaptiveRitterNovak_8cpp.html">IterativeGridGeneratorFullAdaptiveRitterNovak.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -435,7 +372,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesgpp.html">sgpp</a></li><li class="navelem"><a class="el" href="namespacesgpp_1_1optimization.html">optimization</a></li><li class="navelem"><a class="el" href="namespacesgpp_1_1optimization_1_1IGGFARNHelper.html">IGGFARNHelper</a></li><li class="navelem"><a class="el" href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1UncertaintyBound.html">UncertaintyBound</a></li>
-    <li class="footer">Generated on Tue Oct 28 2025 14:47:52 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Wed Oct 29 2025 03:53:39 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

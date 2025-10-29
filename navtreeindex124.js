@@ -1,5 +1,8 @@
 var NAVTREEINDEX124 =
 {
+"learner_8cpp.html":[10,0,2,6,7],
+"learner_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97":[10,0,2,6,7,1],
+"learner_8cpp.html#a37eb1e85c1cfcfe4de0e7838c42ad9f2":[10,0,2,6,7,3],
 "learner_8cpp.html#a49786ce3c02f9574fcd3367e66ac1290":[10,0,2,6,7,6],
 "learner_8cpp.html#a7b361c98a02f036947c361f9d53a89e0":[10,0,2,6,7,4],
 "learner_8cpp.html#a8d4de72b320fa113a4cd4775d5ce2d58":[10,0,2,6,7,0],
@@ -153,8 +156,8 @@ var NAVTREEINDEX124 =
 "namespacejson.html#ac296254de68b45e1b9bc6b33e05daac4ad5e4de54911c050245979d940dc65c3a":[8,0,9,8,0],
 "namespacejson.html#ac296254de68b45e1b9bc6b33e05daac4af2cd320b55767434dd48d81b165ea956":[8,0,9,8,8],
 "namespacejson.html#ac296254de68b45e1b9bc6b33e05daac4af65f22e75defc168edfc6444e6aaf4f8":[8,0,9,8,4],
-"namespacemembers.html":[8,1,0],
 "namespacemembers.html":[8,1,0,0],
+"namespacemembers.html":[8,1,0],
 "namespacemembers_b.html":[8,1,0,1],
 "namespacemembers_c.html":[8,1,0,2],
 "namespacemembers_d.html":[8,1,0,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX124 =
 "namespaceparabolasimple.html#ac1ff8a834717dc7439757e420f7ce4c9":[8,0,11,6],
 "namespaceparabolasimple.html#ad22eb6c1c831137d868ec65796a574df":[8,0,11,3],
 "namespacepython.html":[8,0,12],
-"namespacepython_1_1classifier.html":[8,0,12,0],
-"namespacepython_1_1classifier.html#a034d01c6ea70a746dcec6c971959657e":[8,0,12,0,47],
-"namespacepython_1_1classifier.html#a150beb9c80370f2f5244e3399545ca0c":[8,0,12,0,44],
-"namespacepython_1_1classifier.html#a1e47851f6949c9041b88b8eaf2495958":[8,0,12,0,5]
+"namespacepython_1_1classifier.html":[8,0,12,0]
 };

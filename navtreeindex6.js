@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"OperationEvalModLinearClenshawCurtisNaive_8hpp.html":[10,0,0,1,0,0,7,0,117],
 "OperationEvalModLinearNaive_8cpp.html":[10,0,0,1,0,0,7,0,118],
 "OperationEvalModLinearNaive_8hpp.html":[10,0,0,1,0,0,7,0,119],
 "OperationEvalModLinear_8cpp.html":[10,0,0,1,0,0,7,0,114],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "OperationLaplaceModBsplineClenshawCurtis_8hpp.html":[10,0,5,1,0,0,3,0,35],
 "OperationLaplaceModBspline_8cpp.html":[10,0,5,1,0,0,3,0,32],
 "OperationLaplaceModBspline_8hpp.html":[10,0,5,1,0,0,3,0,33],
-"OperationLaplaceModLinear_8cpp.html":[10,0,5,1,0,0,3,0,36],
-"OperationLaplaceModLinear_8hpp.html":[10,0,5,1,0,0,3,0,37]
+"OperationLaplaceModLinear_8cpp.html":[10,0,5,1,0,0,3,0,36]
 };

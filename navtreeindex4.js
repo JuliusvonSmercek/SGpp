@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"LaplaceEnhancedUpBBLinear_8hpp.html":[10,0,5,1,0,0,2,0,1,0,3],
 "LaplaceUpGradientPrewavelet_8cpp.html":[10,0,5,1,0,0,2,3,0,2],
 "LaplaceUpGradientPrewavelet_8hpp.html":[10,0,5,1,0,0,2,3,0,3],
 "LaplaceUpPrewavelet_8cpp.html":[10,0,5,1,0,0,2,3,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "NakBsplineModifiedBasisDeriv1_8hpp.html":[10,0,0,1,0,0,7,0,0,2,24],
 "NakBsplineModifiedBasisDeriv1_8hpp.html#a3a298a45f0ba17dc9d5d0351569b825e":[10,0,0,1,0,0,7,0,0,2,24,1],
 "NakBsplineModifiedBasisDeriv2_8hpp.html":[10,0,0,1,0,0,7,0,0,2,25],
-"NakBsplineModifiedBasisDeriv2_8hpp.html#acf63009b3b464382cff6346cd287026e":[10,0,0,1,0,0,7,0,0,2,25,1],
-"NakBsplineModifiedBasis_8hpp.html":[10,0,0,1,0,0,7,0,0,2,23]
+"NakBsplineModifiedBasisDeriv2_8hpp.html#acf63009b3b464382cff6346cd287026e":[10,0,0,1,0,0,7,0,0,2,25,1]
 };

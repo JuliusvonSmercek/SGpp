@@ -1,5 +1,8 @@
 var NAVTREEINDEX126 =
 {
+"namespacepython_1_1uq_1_1analysis_1_1mc.html":[8,0,12,12,0,3],
+"namespacepython_1_1uq_1_1analysis_1_1mc_1_1MCAnalysis.html":[8,0,12,12,0,3,0],
+"namespacepython_1_1uq_1_1dists.html":[8,0,12,12,1],
 "namespacepython_1_1uq_1_1dists_1_1Beta.html":[8,0,12,12,1,0],
 "namespacepython_1_1uq_1_1dists_1_1Corr.html":[8,0,12,12,1,1],
 "namespacepython_1_1uq_1_1dists_1_1CorrBeta.html":[8,0,12,12,1,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX126 =
 "namespacepython_1_1uq_1_1plot_1_1scatterplot.html#a8972bd6ad6cf798c6075a65d641fb77f":[8,0,12,12,10,5,0],
 "namespacepython_1_1uq_1_1quadrature.html":[8,0,12,12,11],
 "namespacepython_1_1uq_1_1quadrature_1_1HashQuadrature.html":[8,0,12,12,11,2],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform.html":[8,0,12,12,11,0],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1BilinearGaussQuadratureStrategy.html":[8,0,12,12,11,0,2],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1BilinearQuadratureStrategy.html":[8,0,12,12,11,0,3],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1DiscreteBilinearScipyQuadratureStrategy.html":[8,0,12,12,11,0,4]
+"namespacepython_1_1uq_1_1quadrature_1_1bilinearform.html":[8,0,12,12,11,0]
 };
