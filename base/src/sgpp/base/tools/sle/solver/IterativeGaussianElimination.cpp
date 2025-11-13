@@ -146,13 +146,13 @@ bool lu_decomposition_update(const DataMatrix& A, DataMatrix& LU, const size_t o
   size_t oldPivotSize = pivotRow.size();
   pivotRow.resize(N);
   if (oldPivotSize < N) {
-    std::iota(pivotRow.begin() + static_cast<long>(oldPivotSize), pivotRow.end(), oldPivotSize);
+    std::iota(pivotRow.begin() + static_cast<size_t>(oldPivotSize), pivotRow.end(), oldPivotSize);
   }
 
   oldPivotSize = pivotCol.size();
   pivotCol.resize(N);
   if (oldPivotSize < N) {
-    std::iota(pivotCol.begin() + static_cast<long>(oldPivotSize), pivotCol.end(), oldPivotSize);
+    std::iota(pivotCol.begin() + static_cast<size_t>(oldPivotSize), pivotCol.end(), oldPivotSize);
   }
 
   // Resize LU matrix, preserving old n x n part

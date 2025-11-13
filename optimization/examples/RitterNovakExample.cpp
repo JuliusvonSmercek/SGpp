@@ -7,13 +7,12 @@
 // and IterativeGridGeneratorFullAdaptiveRitterNovak from the SGpp optimization
 // module.
 
-// define if a gaussian process library, like libgp, is available
-// #define GAUSSIAN_PROCESS_AVAILABLE
-#ifdef GAUSSIAN_PROCESS_AVAILABLE
-#include <gp.h>
-#include <rprop.h>
-#endif
-
+// To fully enable this example, ensure that the following dependencies are installed (otherwise you
+// will get a slightly limited functionality):
+// 1. [libgp](https://github.com/mblum/libgp#building-and-testing)
+// 2. [BayesOpt](https://rmcantin.github.io/bayesopt/html/install.html)
+// Additionally, compile SGpp with the `USE_LIBGP` and `USE_BAYESOPT` options enabled.
+// Note: Before compiling SGpp, verify that libgp and BayesOpt are installed system-wide.
 
 #include <sgpp/base/tools/sle/solver/Auto.hpp>
 #include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
@@ -138,7 +137,6 @@ void gridGenerationFullAdaptiveRitterNovakMinimal() {
   std::cout << "------------------------------------------------------" << std::endl;
 }
 
-#ifdef GAUSSIAN_PROCESS_AVAILABLE
 /**
  * @brief Demonstrates IterativeGridGeneratorFullAdaptiveRitterNovak
  * with a Gaussian Process surrogate model and a stopping criterion.
@@ -189,87 +187,6 @@ void gridGenerationFullAdaptiveRitterNovak() {
     gridGen.activateStoppingCriterion(validationPoints);
   }
 
-  // gp must be available in the outer scope for the lambdas
-  std::unique_ptr<libgp::GaussianProcess> gp;
-  gridGen.setGaussianProcess(
-      // --- GP Initialization Lambda ---
-      [&](const size_t dim) {
-        assert(dim == dimension);
-        // initialize Gaussian process for 2-D input using the squared exponential
-        // covariance function with additive white noise.
-        // Define the covariance function (kernel)
-        // libgp uses a string format: CovSum( CovMatern3iso, CovNoise )
-        // CovMatern3iso: Matern kernel with smoothness 3/2
-        // CovNoise: White noise kernel
-        gp =
-            std::make_unique<libgp::GaussianProcess>(dimension, "CovSum( CovMatern3iso, CovNoise)");
-
-        // How quickly the function changes
-        const double length_scale = 0.05;
-        // Overall variance of the function
-        const double signal_variance = 1.0;
-        // Assumed noise in the observations
-        const double noise_variance = 1e-3;
-
-        Eigen::VectorXd params(gp->covf().get_param_dim());
-        // Use log-values for hyperparameters in libgp
-        params << std::log(length_scale), std::log(signal_variance), std::log(noise_variance);
-
-        // These are initial guesses - ideally, they should be optimized!
-        gp->covf().set_loghyper(params);
-
-        std::cout << "Using Kernel: " << gp->covf().to_string() << std::endl;
-        std::cout << "Initial hyperparameters: [" << length_scale << ", " << signal_variance << ", "
-                  << noise_variance << "]" << std::endl;
-      },
-      // --- GP Add Pattern Lambda ---
-      [&](const sgpp::base::DataVector& x, const double y) { gp->add_pattern(x.data(), y); },
-      // --- GP Prediction Lambda ---
-      [&](const std::vector<std::vector<std::array<sgpp::base::GridPoint, 2>>>&
-              refineableGridPoints,
-          const std::vector<std::vector<std::array<bool, 2>>>& ignore)
-          -> std::vector<std::vector<std::array<std::pair<double, double>, 2>>> {
-        // Optimize hyperparameters (e.g., using RProp)
-        libgp::RProp rProp;
-        rProp.init();
-        // Maximize log-likelihood, 5 iterations, no verbosity
-        rProp.maximize(&*gp, 5, false);
-
-        // Optional: Reset noise variance after optimization
-        Eigen::VectorXd params{gp->covf().get_loghyper()};
-        params[2] = std::log(1e-3);
-        gp->covf().set_loghyper(params);
-
-        std::vector<std::vector<std::array<std::pair<double, double>, 2>>> result(
-            refineableGridPoints.size());
-
-        for (size_t t = 0; t < refineableGridPoints.size(); ++t) {
-          result[t].resize(refineableGridPoints[t].size());
-          for (size_t i = 0; i < refineableGridPoints[t].size(); ++i) {
-            result[t][i] = std::array<std::pair<double, double>, 2>();
-            for (size_t lr = 0; lr < 2; ++lr) {
-              if (ignore[t][i][lr]) {
-                continue;
-              }
-
-              sgpp::base::DataVector new_point(dimension);
-              refineableGridPoints[t][i][lr].getStandardCoordinates(new_point);
-
-              const double predicted_mean = gp->f(new_point.data());
-              // Warning: somehow predicted_variance can be small negative
-              //          -> numerical instabilities?
-              // Use std::abs to prevent sqrt(negative) which results in NaN.
-              const double predicted_variance = std::abs(gp->var(new_point.data()));
-              const double predicted_stddev = std::sqrt(predicted_variance);
-
-              result[t][i][lr] = std::make_pair(predicted_mean, predicted_stddev);
-            }
-          }
-        }
-
-        return result;
-      });
-
   if (!gridGen.generate()) {
     throw std::runtime_error("Grid generation failed, exiting");
   }
@@ -286,7 +203,6 @@ void gridGenerationFullAdaptiveRitterNovak() {
   }
   std::cout << "------------------------------------------------------" << std::endl;
 }
-#endif
 
 /**
  * @brief Main function to run the grid generation examples.
@@ -295,13 +211,10 @@ int main(int argc, const char* argv[]) {
   try {
     gridGenerationRitterNovak();
     gridGenerationFullAdaptiveRitterNovakMinimal();
-#ifdef GAUSSIAN_PROCESS_AVAILABLE
+    std::cout
+        << "Note: the last example requires SGpp compiled with USE_LIBGP. Otherwise it will fail"
+        << std::endl;
     gridGenerationFullAdaptiveRitterNovak();
-#else
-    std::cout << "Note: GAUSSIAN_PROCESS_AVAILABLE not defined." << std::endl;
-    std::cout << "Skipping gridGenerationFullAdaptiveRitterNovak() example." << std::endl;
-    std::cout << "------------------------------------------------------" << std::endl;
-#endif
   } catch (const std::exception& e) {
     std::cerr << "An exception occurred: " << e.what() << std::endl;
     return 1;

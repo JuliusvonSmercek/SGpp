@@ -7,12 +7,15 @@
 // and IterativeGridGeneratorFullAdaptiveRitterNovak from the SGpp optimization
 // module.
 
-// define if a gaussian process library, like libgp and bayesopt is available
-// #define LIBS_AVAILABLE
-#ifdef LIBS_AVAILABLE
-#include <gp.h>
-#include <rprop.h>
+// To fully enable this example, ensure that the following dependencies are installed (otherwise you
+// will get a slightly limited functionality):
+// 1. [libgp](https://github.com/mblum/libgp#building-and-testing)
+// 2. [BayesOpt](https://rmcantin.github.io/bayesopt/html/install.html)
+// Additionally, compile SGpp with the `USE_LIBGP` and `USE_BAYESOPT` options enabled.
+// Note: Before compiling SGpp, verify that libgp and BayesOpt are installed system-wide.
 
+// define if a bayesopt is available for hyperparameter optimization
+#ifdef USE_BAYESOPT
 #include <bayesopt/bayesopt.hpp>
 #endif
 
@@ -20,7 +23,6 @@
 #include <sgpp/base/datatypes/DataVector.hpp>
 #include <sgpp/base/function/scalar/ScalarFunction.hpp>
 #include <sgpp/base/grid/Grid.hpp>
-#include <sgpp/base/grid/GridStorage.hpp>
 #include <sgpp/base/operation/BaseOpFactory.hpp>
 #include <sgpp/base/tools/Printer.hpp>
 #include <sgpp/base/tools/sle/solver/Auto.hpp>
@@ -56,7 +58,7 @@ using sgpp::optimization::IGGFARNHelper::Hyperparameters;
 using sgpp::optimization::IGGFARNHelper::operator<<;
 using sgpp::optimization::IGGFARNHelper::UncertaintyBound;
 
-#ifdef LIBS_AVAILABLE
+#ifdef USE_BAYESOPT
 /**
  * @brief A wrapper class to adapt a std::function to the bayesopt::ContinuousModel interface.
  *
@@ -232,7 +234,6 @@ std::pair<UncertaintyBound, UncertaintyBound> single_run(
 
   std::unique_ptr<sgpp::base::Grid> grid(
       sgpp::base::Grid::createBsplineGrid(dimension, bSplineDegree));
-  sgpp::base::GridStorage& gridStorage = grid->getStorage();
 
   std::vector<std::pair<double, double>> domain(dimension);
   for (size_t t = 0; t < dimension; ++t) {
@@ -240,83 +241,6 @@ std::pair<UncertaintyBound, UncertaintyBound> single_run(
   }
   sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak gridGen(
       *function, *grid, maxGridPoints, hyperparameters, domain);
-
-  // gp must be available in the outer scope for the lambdas to capture
-  std::unique_ptr<libgp::GaussianProcess> gp;
-  gridGen.setGaussianProcess(
-      // --- GP Initialization Lambda ---
-      [&](const size_t dim) {
-        assert(dim == dimension);
-        // initialize Gaussian process for n-D input using the squared exponential
-        // covariance function with additive white noise.
-        // Define the covariance function (kernel)
-        // libgp uses a string format: CovSum( CovMatern3iso, CovNoise )
-        // CovMatern3iso: Matern kernel with smoothness 3/2
-        // CovNoise: White noise kernel
-        gp =
-            std::make_unique<libgp::GaussianProcess>(dimension, "CovSum( CovMatern3iso, CovNoise)");
-
-        // How quickly the function changes
-        const double length_scale = 0.05;
-        // Overall variance of the function
-        const double signal_variance = 1.0;
-        // Assumed noise in the observations
-        const double noise_variance = 1e-3;
-
-        Eigen::VectorXd params(gp->covf().get_param_dim());
-        // Use log-values for hyperparameters in libgp
-        params << std::log(length_scale), std::log(signal_variance), std::log(noise_variance);
-
-        // These are initial guesses - ideally, they should be optimized!
-        gp->covf().set_loghyper(params);
-      },
-      // --- GP Add Pattern Lambda ---
-      [&](const sgpp::base::DataVector& x, const double y) { gp->add_pattern(x.data(), y); },
-      // --- GP Prediction Lambda ---
-      [&](const std::vector<std::vector<std::array<sgpp::base::GridPoint, 2>>>&
-              refineableGridPoints,
-          const std::vector<std::vector<std::array<bool, 2>>>& ignore)
-          -> std::vector<std::vector<std::array<std::pair<double, double>, 2>>> {
-        // Optimize hyperparameters (e.g., using RProp)
-        libgp::RProp rProp;
-        rProp.init();
-        // Maximize log-likelihood, 5 iterations, no verbosity
-        rProp.maximize(&*gp, 5, false);
-
-        // Optional: Reset noise variance after optimization
-        Eigen::VectorXd params{gp->covf().get_loghyper()};
-        params[2] = std::log(1e-3);
-        gp->covf().set_loghyper(params);
-
-        std::vector<std::vector<std::array<std::pair<double, double>, 2>>> result(
-            refineableGridPoints.size());
-
-        for (size_t t = 0; t < refineableGridPoints.size(); ++t) {
-          result[t].resize(refineableGridPoints[t].size());
-          for (size_t i = 0; i < refineableGridPoints[t].size(); ++i) {
-            result[t][i] = std::array<std::pair<double, double>, 2>();
-            for (size_t lr = 0; lr < 2; ++lr) {
-              if (ignore[t][i][lr]) {
-                continue;
-              }
-
-              sgpp::base::DataVector new_point(dimension);
-              refineableGridPoints[t][i][lr].getStandardCoordinates(new_point);
-
-              const double predicted_mean = gp->f(new_point.data());
-              // Warning: predicted_variance can be small negative
-              //          -> numerical instabilities?
-              // Use std::max(0.0, ...) to prevent sqrt(negative) which results in NaN.
-              const double predicted_variance = std::max(0.0, gp->var(new_point.data()));
-              const double predicted_stddev = std::sqrt(predicted_variance);
-
-              result[t][i][lr] = std::make_pair(predicted_mean, predicted_stddev);
-            }
-          }
-        }
-
-        return result;
-      });
 
   if (!gridGen.generate()) {
     throw std::runtime_error("Grid generation failed, exiting");
@@ -363,7 +287,8 @@ std::pair<double, UncertaintyBound> inversePfcalculation(
   }
 
   // Calculate the index corresponding to the pf quantile
-  const size_t pf_count = static_cast<size_t>(std::round(pf * (points.size() - 1)));
+  const size_t pf_count =
+      static_cast<size_t>(std::round(pf * (static_cast<double>(points.size()) - 1)));
 
   std::vector<double> values;
   values.reserve(points.size());
@@ -559,13 +484,16 @@ void calculateOptimalHyperparameters() {
 int main(int argc, const char* argv[]) {
   // Silence verbose output from SG++
   sgpp::base::Printer::getInstance().setVerbosity(0);
+  std::cout << "Note: For full functionality, please define USE_BAYESOPT and compile SGpp with "
+               "USE_LIBGP (otherwise you can also change the code to not use gaussian processes)"
+            << std::endl;
   try {
-#ifdef LIBS_AVAILABLE
+#ifdef USE_BAYESOPT
     calculateOptimalHyperparameters();
 #else
-    std::cout << "Note: LIBS_AVAILABLE not defined." << std::endl;
+    std::cout << "Note: USE_BAYESOPT not defined." << std::endl;
     std::cout << "Skipping calculateOptimalHyperparameters() example." << std::endl;
-    std::cout << "This example requires the external libraries libgp and bayesopt." << std::endl;
+    std::cout << "This example requires the external library bayesopt." << std::endl;
     std::cout << "------------------------------------------------------" << std::endl;
 #endif
   } catch (const std::exception& e) {

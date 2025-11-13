@@ -27,6 +27,11 @@
 #include <utility>
 #include <vector>
 
+#ifdef USE_LIBGP
+#include <gp.h>
+#include <rprop.h>
+#endif
+
 namespace sgpp {
 namespace optimization {
 
@@ -41,13 +46,49 @@ using CriterionRanks = std::pair<CriterionRankSingle, CriterionRankLR>;
 constexpr double accuracy = 0.999;
 
 /**
+ * @brief CDF of the standard normal distribution.
+ * @param z The z-score.
+ * @return P(Z <= z).
+ */
+double phi(const double z) { return 0.5 * (1.0 + std::erf(z / std::sqrt(2.0))); }
+
+/**
  * @brief Computes the quantile of the standard normal distribution (inverse of the CDF).
  * @param p Probability (must be in (0, 1)).
  * @return The corresponding z-score.
  */
-static double inverse_phi(double p) {
-  boost::math::normal_distribution<> normal_dist(0.0, 1.0);
-  return boost::math::quantile(normal_dist, p);
+static double inverse_phi(const double p) {
+  if (p <= 0.0) {
+    return -std::numeric_limits<double>::infinity();
+  } else if (p >= 1.0) {
+    return std::numeric_limits<double>::infinity();
+  }
+
+  const double tolerance_p = 1e-12;
+
+  double low_z = -10.0;           // = inverse_phi(tolerance_p)
+  double high_z = 10.0;           // = inverse_phi(1 - tolerance_p)
+  const int max_iterations = 50;  // static_cast<int>(std::ceil(std::log2((high_z - low_z) /
+                                  // tolerance_p))) + 5; // 5 safety puffer
+
+  double mid_z;
+  for (int i = 0; i < max_iterations; ++i) {
+    mid_z = low_z + (high_z - low_z) / 2.0;  // prevent overflow
+
+    const double diff_p = phi(mid_z) - p;
+    if (std::abs(diff_p) < tolerance_p) {
+      return mid_z;
+    }
+
+    if (diff_p < 0) {
+      low_z = mid_z;
+    } else {
+      high_z = mid_z;
+    }
+  }
+
+  throw std::runtime_error(
+      "inverse_phi: Failed to converge to a solution within the maximum number of iterations.");
 }
 
 /**
@@ -360,7 +401,7 @@ evalValues(base::Grid& grid, const base::DataVector& alpha, const size_t current
 CriterionRanks evalRankLevelDegree(const base::GridStorage& gridStorage, const size_t dimension,
                                    const size_t currentN,
                                    const std::vector<std::vector<std::array<size_t, 2>>>& degree) {
-  // level_sum[i] is the 1-norm of the level vector of the i-th grid point.
+  // levelSum[i] is the 1-norm of the level vector of the i-th grid point.
   // Intuition: Don't refine points which are already highly refined (iff level is high),
   // therefore `levelSum` is independent from the refined dimension
   const bool useL2Norm = false;
@@ -494,23 +535,104 @@ CriterionRanks evalRankGradientDeviation(
   return toRank(fXGradientDeviation);
 }
 
-/**
- * @brief CDF of the standard normal distribution.
- * @param z The z-score.
- * @return P(Z <= z).
- */
-double phi(const double z) {
-  boost::math::normal_distribution<> normal_dist(0.0, 1.0);
-  return boost::math::cdf(normal_dist, z);
+#ifdef USE_LIBGP
+void initializeGaussianProcess(std::unique_ptr<libgp::GaussianProcess>& gp,
+                               const size_t dimension) {
+  // Define the covariance function (kernel)
+  // libgp uses a string format:
+  // - CovSum: Adds subsequent kernels.
+  // - CovMatern3iso: Matern kernel with smoothness 3/2 (isotropic).
+  // - CovNoise: White noise kernel.
+  std::string covf_str = "CovSum( CovMatern3iso, CovNoise )";
+  gp = std::make_unique<libgp::GaussianProcess>(dimension, covf_str);
+
+  // How quickly the function changes
+  const double length_scale = 0.05;
+  // Overall variance of the function
+  const double signal_variance = 1.0;
+  // Assumed noise in the observations
+  const double noise_variance = 1e-3;
+
+  // libgp requires hyperparameters to be set in log-space.
+  Eigen::VectorXd params(gp->covf().get_param_dim());
+  params << std::log(length_scale), std::log(signal_variance), std::log(noise_variance);
+
+  // These are initial guesses - ideally, they should be optimized!
+  gp->covf().set_loghyper(params);
+
+  base::Printer::getInstance().printStatusUpdate("Using Kernel: " + gp->covf().to_string());
+  std::stringstream ss;
+  ss << "Initial hyperparameters: [" << length_scale << ", " << signal_variance << ", "
+     << noise_variance << "]";
+  base::Printer::getInstance().printStatusUpdate(ss.str());
+}
+
+std::vector<std::vector<std::array<std::pair<double, double>, 2>>> evaluateGaussianProcess(
+    std::unique_ptr<libgp::GaussianProcess>& gp,
+    const std::vector<std::vector<std::array<base::GridPoint, 2>>>& refineableGridPoints,
+    const std::vector<std::vector<std::array<bool, 2>>>& ignore, const size_t dimension) {
+  // Optimize hyperparameters (e.g., using RProp)
+  libgp::RProp rProp;
+  rProp.init();
+  // Maximize log-likelihood, 5 iterations, no verbosity
+  rProp.maximize(&*gp, 5, false);
+
+  // Assume, that the noise parameter is always at index 2, which corresponds to the order in
+  // initializeGaussianProcess: (length_scale, signal_variance, noise_variance).
+  // If the kernel string is changed, this index WILL be wrong.
+  static const size_t kNoiseParamIndex = 2;
+  const double kResetNoiseVariance = 1e-3;
+
+  Eigen::VectorXd params{gp->covf().get_loghyper()};
+  // Check if params vector is large enough, to avoid out-of-bounds access
+  if (params.size() > static_cast<Eigen::Index>(kNoiseParamIndex)) {
+    params[kNoiseParamIndex] = std::log(kResetNoiseVariance);
+    gp->covf().set_loghyper(params);
+  } else {
+    throw std::runtime_error(
+        "Error: Could not reset noise variance. Hyperparameter vector size is " +
+        std::to_string(params.size()) + ", but index " + std::to_string(kNoiseParamIndex) +
+        " was expected.");
+  }
+
+  std::vector<std::vector<std::array<std::pair<double, double>, 2>>> result(
+      refineableGridPoints.size());
+  base::DataVector new_point(dimension);
+
+  for (size_t t = 0; t < refineableGridPoints.size(); ++t) {
+    result[t].resize(refineableGridPoints[t].size());
+    for (size_t i = 0; i < refineableGridPoints[t].size(); ++i) {
+      result[t][i] = std::array<std::pair<double, double>, 2>();
+      for (size_t lr = 0; lr < 2; ++lr) {
+        if (ignore[t][i][lr]) {
+          continue;
+        }
+
+        refineableGridPoints[t][i][lr].getStandardCoordinates(new_point);
+
+        const double predicted_mean = gp->f(new_point.data());
+
+        // Warning: `gp->var` can return small negative values due to numerical instabilities. Use
+        // std::abs to prevent sqrt(negative) which results in NaN.
+        const double predicted_variance = std::abs(gp->var(new_point.data()));
+        const double predicted_stddev = std::sqrt(predicted_variance);
+
+        result[t][i][lr] = std::make_pair(predicted_mean, predicted_stddev);
+      }
+    }
+  }
+
+  return result;
 }
 
 /**
  * @brief Calculates ranks based on Gaussian Process uncertainty.
- * The value is `phi(|mu|/sigma)`, prioritizing points with high uncertainty or mean close to
- * zero.
  *
- * @param dimension The grid dimension.
- * @param currentN The current number of grid points.
+ * The value is computed as `phi(|mu|/sigma)`. This prioritizes points with high uncertainty or a
+ * mean close to zero.
+ *
+ * @param dimension             The grid dimension.
+ * @param currentN              The current number of grid points.
  * @param uncertaintyGridPoints The GP mean and standard deviation at child points.
  * @return A pair of rank matrices.
  */
@@ -525,7 +647,8 @@ CriterionRanks evalRankGaussianProcess(
       for (size_t lr = 0; lr < 2; ++lr) {
         const double mean = uncertaintyGridPoints[t][i][lr].first;
         const double stddev = uncertaintyGridPoints[t][i][lr].second;
-        // If stddev is zero, uncertainty is minimal. Rank it high (value 1.0) to avoid selection.
+        // If stddev is effectively zero, uncertainty is minimal. Rank it high (value 1.0) to avoid
+        // selection
         fXGpZScore[t][i][lr] = (stddev < 1e-9) ? 1.0 : phi(std::abs(mean) / stddev);
       }
     }
@@ -533,6 +656,7 @@ CriterionRanks evalRankGaussianProcess(
 
   return toRank(fXGpZScore);
 }
+#endif
 }  // namespace
 
 IterativeGridGeneratorFullAdaptiveRitterNovak::IterativeGridGeneratorFullAdaptiveRitterNovak(
@@ -546,27 +670,9 @@ IterativeGridGeneratorFullAdaptiveRitterNovak::IterativeGridGeneratorFullAdaptiv
       initialLevel(initialLevel),
       maxLevel(maxLevel),
       stoppingCriterionValidationPoints(),
-      refineLeftOrRight(refineLeftOrRight) {
-  this->gpInit = [](const size_t) {};
-  this->gpAddPattern = [](const base::DataVector&, double) {};
-  this->gpEvaluate = [](const std::vector<std::vector<std::array<base::GridPoint, 2>>>&,
-                        const std::vector<std::vector<std::array<bool, 2>>>&) {
-    return std::vector<std::vector<std::array<std::pair<double, double>, 2>>>();
-  };
-}
+      refineLeftOrRight(refineLeftOrRight) {}
 
 IterativeGridGeneratorFullAdaptiveRitterNovak::~IterativeGridGeneratorFullAdaptiveRitterNovak() {}
-
-void IterativeGridGeneratorFullAdaptiveRitterNovak::setGaussianProcess(
-    const std::function<void(const size_t dimension)>& init,
-    const std::function<void(const base::DataVector& x, const double y)>& addPattern,
-    const std::function<std::vector<std::vector<std::array<std::pair<double, double>, 2>>>(
-        const std::vector<std::vector<std::array<base::GridPoint, 2>>>& refineableGridPoints,
-        const std::vector<std::vector<std::array<bool, 2>>>& ignore)>& evaluate) {
-  this->gpInit = init;
-  this->gpAddPattern = addPattern;
-  this->gpEvaluate = evaluate;
-}
 
 const IGGFARNHelper::Hyperparameters&
 IterativeGridGeneratorFullAdaptiveRitterNovak::getHyperparameters() const {
@@ -597,9 +703,7 @@ void IterativeGridGeneratorFullAdaptiveRitterNovak::setMaxLevel(base::level_t ma
 void IterativeGridGeneratorFullAdaptiveRitterNovak::activateStoppingCriterion(
     const std::vector<base::DataVector>& validationPoints) {
   if (validationPoints.empty()) {
-    throw std::invalid_argument(
-        "IterativeGridGeneratorFullAdaptiveRitterNovak::activateStoppingCriterion - "
-        "Validation points cannot be empty.");
+    throw std::runtime_error("Validation points cannot be empty.");
   }
   this->stoppingCriterionValidationPoints = validationPoints;
 }
@@ -653,12 +757,16 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
   base::HierarchisationSLE hierSLE(grid);
   std::vector<std::vector<LeftRightPoint>> refineableGridPoints(dim);
 
-  this->gpInit(dim);
+#ifdef USE_LIBGP
+  std::unique_ptr<libgp::GaussianProcess> gp;
+  initializeGaussianProcess(gp, dim);
   for (size_t i = 0; i < currentN; ++i) {
-    this->gpAddPattern(gridStorage.getPointCoordinates(i), functionValues[i]);
+    gp->add_pattern(gridStorage.getPointCoordinates(i).data(), functionValues[i]);
   }
+#endif
 
   const auto start = std::chrono::high_resolution_clock::now();
+  const double epsilon = 1e-9;  // For float comparison
 
   while (currentN < N) {
     // Status printing
@@ -679,9 +787,7 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
     base::DataVector functionValuesCurrent(functionValues);
     functionValuesCurrent.resize(currentN);
     if (!fastMatrixSolver.iterativeSolve(hierSLE, functionValuesCurrent, this->alpha)) {
-      throw std::runtime_error(
-          "IterativeGridGeneratorFullAdaptiveRitterNovak::generate - "
-          "Could not solve linear system for hierarchisation.");
+      throw std::runtime_error("Hierarchisation failed during adaptive grid generation.");
     }
 
     if (stoppingCriterion && stoppingCriterion->shouldStop(this->grid, this->alpha)) {
@@ -691,9 +797,6 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
     updateRefineableGridPoints(gridStorage, dim, currentN, refineableGridPoints, ignore, maxLevel,
                                this->domain);
 
-    const std::vector<std::vector<std::array<std::pair<double, double>, 2>>> uncertaintyGridPoints =
-        gpEvaluate(refineableGridPoints, ignore);
-
     const auto& evalPair =
         evalValues(grid, this->alpha, currentN, dim, refineableGridPoints, ignore);
     const auto& functionGradients = evalPair.first;
@@ -702,31 +805,37 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
     // Calculate all rank criteria
     std::vector<std::pair<double, CriterionRanks>> weightedRanks;
 
-    if (0.0 != this->hyperparameters.getLevelDegree()) {
+    if (std::abs(this->hyperparameters.getLevelDegree()) > epsilon) {
       weightedRanks.push_back({this->hyperparameters.getLevelDegree(),
                                evalRankLevelDegree(gridStorage, dim, currentN, degree)});
     }
-    if (0.0 != this->hyperparameters.getThreshold()) {
+    if (std::abs(this->hyperparameters.getThreshold()) > epsilon) {
       weightedRanks.push_back({this->hyperparameters.getThreshold(),
                                evalRankThreshold(this->functionValues, dim, currentN)});
     }
-    if (0.0 != this->hyperparameters.getExtendedThreshold()) {
+    if (std::abs(this->hyperparameters.getExtendedThreshold()) > epsilon) {
       weightedRanks.push_back({this->hyperparameters.getExtendedThreshold(),
                                evalRankExtendedThreshold(dim, currentN, childrenValues)});
     }
-    if (0.0 != this->hyperparameters.getGradient()) {
+    if (std::abs(this->hyperparameters.getGradient()) > epsilon) {
       weightedRanks.push_back({this->hyperparameters.getGradient(),
                                evalRankGradient(dim, currentN, functionGradients)});
     }
-    if (0.0 != this->hyperparameters.getSecondGradient()) {
+    if (std::abs(this->hyperparameters.getSecondGradient()) > epsilon) {
       weightedRanks.push_back(
           {this->hyperparameters.getSecondGradient(),
            evalRankGradientDeviation(dim, currentN, functionGradients, childrenValues)});
     }
-    if (0.0 != this->hyperparameters.getGaussianProcess()) {
-      assert(!uncertaintyGridPoints.empty());
+    if (std::abs(this->hyperparameters.getGaussianProcess()) > epsilon) {
+#ifdef USE_LIBGP
+      const std::vector<std::vector<std::array<std::pair<double, double>, 2>>>
+          uncertaintyGridPoints = evaluateGaussianProcess(gp, refineableGridPoints, ignore, dim);
       weightedRanks.push_back({this->hyperparameters.getGaussianProcess(),
                                evalRankGaussianProcess(dim, currentN, uncertaintyGridPoints)});
+#else
+      throw std::runtime_error(
+          "Gaussian Process functionality is not enabled. Please define USE_LIBGP.");
+#endif
     }
 
     // Determine the best refinement
@@ -800,9 +909,11 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
     // Evaluate function at new points
     evalFunction(currentN);
 
+#ifdef USE_LIBGP
     for (size_t i = currentN; i < newN; ++i) {
-      gpAddPattern(gridStorage.getPointCoordinates(i), functionValues[i]);
+      gp->add_pattern(gridStorage.getPointCoordinates(i).data(), functionValues[i]);
     }
+#endif
 
     // next round
     currentN = newN;
@@ -859,10 +970,11 @@ UncertaintyBound::UncertaintyBound(const size_t samples, const size_t N)
 }
 
 UncertaintyBound UncertaintyBound::div(const UncertaintyBound& other) const {
+  const double epsilon = 1e-9;
   // Division by zero is handled by returning a safe but potentially wide interval.
-  const double lower = (0.0 == other._upper) ? 0.0 : this->_lower / other._upper;
-  const double value = (0.0 == other._value) ? 1.0 : this->_value / other._value;
-  const double upper = (0.0 == other._lower) ? 1.0 : this->_upper / other._lower;
+  const double lower = (std::abs(other._upper) < epsilon) ? 0.0 : this->_lower / other._upper;
+  const double value = (std::abs(other._value) < epsilon) ? 1.0 : this->_value / other._value;
+  const double upper = (std::abs(other._lower) < epsilon) ? 1.0 : this->_upper / other._lower;
 
   return UncertaintyBound(lower, value, upper, -1.0);  // CoV not meaningful after division
 }

@@ -9,8 +9,6 @@
 #include <sgpp/globaldef.hpp>
 #include <sgpp/optimization/gridgen/IterativeGridGenerator.hpp>
 
-#include <boost/math/distributions/normal.hpp>
-
 #include <algorithm>
 #include <array>
 #include <cassert>
@@ -236,22 +234,6 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
   ~IterativeGridGeneratorFullAdaptiveRitterNovak() override;
 
   /**
-   * @brief Sets the functions for interacting with a Gaussian Process model.
-   * This is optional and only needed if the `gaussianProcess` hyperparameter is non-zero.
-   *
-   * @param init       Function to initialize the Gaussian process with the problem's dimension.
-   * @param addPattern Function to add a new training point (coordinate and value) to the GP.
-   * @param evaluate   Function to evaluate the GP at potential new grid points, returning
-   * mean and variance.
-   */
-  void setGaussianProcess(
-      const std::function<void(const size_t dimension)>& init,
-      const std::function<void(const base::DataVector& x, double y)>& addPattern,
-      const std::function<std::vector<std::vector<std::array<std::pair<double, double>, 2>>>(
-          const std::vector<std::vector<std::array<base::GridPoint, 2>>>& refineableGridPoints,
-          const std::vector<std::vector<std::array<bool, 2>>>& ignore)>& evaluate);
-
-  /**
    * @brief Generates the grid adaptively until the maximum number of points `N` is reached
    * or a stopping criterion is met.
    *
@@ -327,15 +309,6 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
   bool refineLeftOrRight;
   /// Coefficients of the sparse grid surrogate.
   base::DataVector alpha;
-  /// Function to initialize the Gaussian process.
-  std::function<void(const size_t dimension)> gpInit;
-  /// Function to add a pattern to the Gaussian process.
-  std::function<void(const base::DataVector& x, double y)> gpAddPattern;
-  /// Function to evaluate the Gaussian process at given points.
-  std::function<std::vector<std::vector<std::array<std::pair<double, double>, 2>>>(
-      const std::vector<std::vector<std::array<base::GridPoint, 2>>>& refineableGridPoints,
-      const std::vector<std::vector<std::array<bool, 2>>>& ignore)>
-      gpEvaluate;
 };
 }  // namespace optimization
 }  // namespace sgpp
