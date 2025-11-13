@@ -239,8 +239,6 @@ const bool ARMADILLO_ENABLED;
 const bool EIGEN_ENABLED;
 const bool GMMPP_ENABLED;
 const bool UMFPACK_ENABLED;
-const bool LIBGP_ENABLED;
-const bool BYESOPT_ENABLED;
 
 %{
 #ifdef USE_ARMADILLO
@@ -265,18 +263,6 @@ const bool BYESOPT_ENABLED;
     const bool UMFPACK_ENABLED = true;
 #else
     const bool UMFPACK_ENABLED = false;
-#endif
-
-#ifdef USE_LIBGP
-    const bool LIBGP_ENABLED = true;
-#else
-    const bool LIBGP_ENABLED = false;
-#endif
-
-#ifdef USE_BYESOPT
-    const bool BYESOPT_ENABLED = true;
-#else
-    const bool BYESOPT_ENABLED = false;
 #endif
 %}
 
