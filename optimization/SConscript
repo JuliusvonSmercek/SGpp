@@ -4,6 +4,7 @@
 # sgpp.sparsegrids.org
 
 
+import os
 import Helper
 import ModuleHelper
 
@@ -13,7 +14,8 @@ moduleDependencies = ["sgppbase"]
 additionalDependencies = []
 
 # otherwise libgp won't find eigen
-env.AppendUnique(CPPPATH=['/usr/include/eigen3'])
+if os.path.isdir('/usr/include/eigen3'):
+  env.AppendUnique(CPPPATH=['/usr/include/eigen3'])
 
 Helper.checkForLibrary(config, env, additionalDependencies,
     "BayesOpt", "USE_BAYESOPT", "bayesopt/bayesopt.hpp", ["bayesopt", "nlopt", "m"])
