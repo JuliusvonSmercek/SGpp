@@ -498,7 +498,6 @@ int main(int argc, const char* argv[]) {
 #endif
   } catch (const std::exception& e) {
     std::cerr << "An exception occurred: " << e.what() << std::endl;
-    return 1;
   }
   return 0;
 }
