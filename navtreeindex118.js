@@ -1,13 +1,5 @@
 var NAVTREEINDEX118 =
 {
-"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a8f2ebb69b88487dc8c04c2d5ab8594ad":[9,0,2,4,93,10],
-"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a90192bdf73abd32f8f33846fcba66311":[8,0,14,5,93,30],
-"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a90192bdf73abd32f8f33846fcba66311":[9,0,2,4,93,30],
-"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a98fd2ccf4fdae3c4e50c46694edb40f5":[9,0,2,4,93,47],
-"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a98fd2ccf4fdae3c4e50c46694edb40f5":[8,0,14,5,93,47],
-"classsgpp_1_1pde_1_1UpDownFourOpDims.html#aa274020b0e6ddd4a5db2f19e1e3c5f00":[8,0,14,5,93,60],
-"classsgpp_1_1pde_1_1UpDownFourOpDims.html#aa274020b0e6ddd4a5db2f19e1e3c5f00":[9,0,2,4,93,60],
-"classsgpp_1_1pde_1_1UpDownFourOpDims.html#aa75d30b04e9cbc12963f76dc8f9eace7":[8,0,14,5,93,16],
 "classsgpp_1_1pde_1_1UpDownFourOpDims.html#aa75d30b04e9cbc12963f76dc8f9eace7":[9,0,2,4,93,16],
 "classsgpp_1_1pde_1_1UpDownFourOpDims.html#aa81d46dc3282c65f31d6fd50c1fdc2ed":[8,0,14,5,93,36],
 "classsgpp_1_1pde_1_1UpDownFourOpDims.html#aa81d46dc3282c65f31d6fd50c1fdc2ed":[9,0,2,4,93,36],
@@ -249,5 +241,13 @@ var NAVTREEINDEX118 =
 "classsgpp_1_1quadrature_1_1LatinHypercubeSampleGenerator.html#aebf6194ed0940a7c5e5f53668a2cb658":[8,0,14,6,1,2],
 "classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html":[8,0,14,6,2],
 "classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html":[9,0,2,5,2],
-"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#a1c5f63a969e3baa42ceab2f7f5481b8a":[9,0,2,5,2,1]
+"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#a1c5f63a969e3baa42ceab2f7f5481b8a":[9,0,2,5,2,1],
+"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#a1c5f63a969e3baa42ceab2f7f5481b8a":[8,0,14,6,2,1],
+"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#ac39fe632604c84ce8c41421c32c562b9":[9,0,2,5,2,2],
+"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#ac39fe632604c84ce8c41421c32c562b9":[8,0,14,6,2,2],
+"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#ae5d948dd1d670afc52e0007c802fdf86":[9,0,2,5,2,0],
+"classsgpp_1_1quadrature_1_1NaiveSampleGenerator.html#ae5d948dd1d670afc52e0007c802fdf86":[8,0,14,6,2,0],
+"classsgpp_1_1quadrature_1_1OperationQuadratureMCAdvanced.html":[9,0,2,5,3],
+"classsgpp_1_1quadrature_1_1OperationQuadratureMCAdvanced.html":[8,0,14,6,3],
+"classsgpp_1_1quadrature_1_1OperationQuadratureMCAdvanced.html#a0349f80f2c79ffa9f4c3f99015fff388":[8,0,14,6,3,16]
 };

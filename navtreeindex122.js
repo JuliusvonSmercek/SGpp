@@ -1,13 +1,5 @@
 var NAVTREEINDEX122 =
 {
-"dir_a36cb6e10a5fc103584463a67ba88be8.html":[10,0,3,1],
-"dir_a3d2d85d90a8082de7bb30acac812dfc.html":[10,0,4,1,0,0,3,0],
-"dir_a412a70d3c8906df8feca37cf42cbae4.html":[10,0,2,9,3,9,3],
-"dir_a45ba08a15e1109ebad7c1b4903995b5.html":[10,0,2,9,3,3],
-"dir_a50e9045ae1f5a8ca4cfa3e4791c9df3.html":[10,0,3,0,0],
-"dir_a52f4d3d586a58b02f3a4ddf0a992157.html":[10,0,3],
-"dir_a56c1b9037df26d4703d12ae2a85a280.html":[10,0,4,1,0,0,6],
-"dir_a58097cb39f1462d195fab71fe19077d.html":[10,0,1,2],
 "dir_a60e00882f2e7c50319188abee4dd250.html":[10,0,1],
 "dir_a8158b117a2c2d174e2e380fb81bf525.html":[10,0,2,0,1],
 "dir_a996f7824db4bb5c9b836cecd0058c78.html":[10,0,2,10,0,0,5,0,21],
@@ -249,5 +241,13 @@ var NAVTREEINDEX122 =
 "examples__java_8doxy.html":[10,0,0,0,0,28],
 "examples__m_8doxy.html":[10,0,0,0,0,29],
 "examples__py_8doxy.html":[10,0,0,0,0,30],
-"examples_cpp.html":[3,0]
+"examples_cpp.html":[3,0],
+"examples_cpp.html#examples_cpp_module_base":[3,0,0],
+"examples_cpp.html#examples_cpp_module_combigrid":[3,0,1],
+"examples_cpp.html#examples_cpp_module_datadriven":[3,0,2],
+"examples_cpp.html#examples_cpp_module_optimization":[3,0,3],
+"examples_cpp.html#examples_cpp_module_solver":[3,0,4],
+"examples_java.html":[3,2],
+"examples_java.html#examples_java_module_base":[3,2,0],
+"examples_java.html#examples_java_module_datadriven":[3,2,1]
 };

@@ -120,13 +120,12 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="line"><span class="comment">// and IterativeGridGeneratorFullAdaptiveRitterNovak from the SGpp optimization</span></div>
 <div class="line"><span class="comment">// module.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// define if a gaussian process library, like libgp, is available</span></div>
-<div class="line"><span class="comment">// #define GAUSSIAN_PROCESS_AVAILABLE</span></div>
-<div class="line"><span class="preprocessor">#ifdef GAUSSIAN_PROCESS_AVAILABLE</span></div>
-<div class="line"><span class="preprocessor">#include &lt;gp.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;rprop.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"> </div>
+<div class="line"><span class="comment">// To fully enable this example, ensure that the following dependencies are installed (otherwise you</span></div>
+<div class="line"><span class="comment">// will get a slightly limited functionality):</span></div>
+<div class="line"><span class="comment">// 1. [libgp](https://github.com/mblum/libgp#building-and-testing)</span></div>
+<div class="line"><span class="comment">// 2. [BayesOpt](https://rmcantin.github.io/bayesopt/html/install.html)</span></div>
+<div class="line"><span class="comment">// Additionally, compile SGpp with the `USE_LIBGP` and `USE_BAYESOPT` options enabled.</span></div>
+<div class="line"><span class="comment">// Note: Before compiling SGpp, verify that libgp and BayesOpt are installed system-wide.</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Auto_8hpp.html">sgpp/base/tools/sle/solver/Auto.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="HierarchisationSLE_8hpp.html">sgpp/base/tools/sle/system/HierarchisationSLE.hpp</a>&gt;</span></div>
@@ -235,7 +234,6 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------------&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#ifdef GAUSSIAN_PROCESS_AVAILABLE</span></div>
 <div class="line"><span class="keywordtype">void</span> gridGenerationFullAdaptiveRitterNovak() {</div>
 <div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;--- Running gridGenerationFullAdaptiveRitterNovak (GP) ---&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">  <span class="keyword">const</span> <span class="keywordtype">size_t</span> dimension = 2;</div>
@@ -278,87 +276,6 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="line">    gridGen.activateStoppingCriterion(validationPoints);</div>
 <div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">  <span class="comment">// gp must be available in the outer scope for the lambdas</span></div>
-<div class="line">  std::unique_ptr&lt;libgp::GaussianProcess&gt; gp;</div>
-<div class="line">  gridGen.setGaussianProcess(</div>
-<div class="line">      <span class="comment">// --- GP Initialization Lambda ---</span></div>
-<div class="line">      [&amp;](<span class="keyword">const</span> <span class="keywordtype">size_t</span> dim) {</div>
-<div class="line">        assert(dim == dimension);</div>
-<div class="line">        <span class="comment">// initialize Gaussian process for 2-D input using the squared exponential</span></div>
-<div class="line">        <span class="comment">// covariance function with additive white noise.</span></div>
-<div class="line">        <span class="comment">// Define the covariance function (kernel)</span></div>
-<div class="line">        <span class="comment">// libgp uses a string format: CovSum( CovMatern3iso, CovNoise )</span></div>
-<div class="line">        <span class="comment">// CovMatern3iso: Matern kernel with smoothness 3/2</span></div>
-<div class="line">        <span class="comment">// CovNoise: White noise kernel</span></div>
-<div class="line">        gp =</div>
-<div class="line">            std::make_unique&lt;libgp::GaussianProcess&gt;(dimension, <span class="stringliteral">&quot;CovSum( CovMatern3iso, CovNoise)&quot;</span>);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// How quickly the function changes</span></div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> length_scale = 0.05;</div>
-<div class="line">        <span class="comment">// Overall variance of the function</span></div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> signal_variance = 1.0;</div>
-<div class="line">        <span class="comment">// Assumed noise in the observations</span></div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">double</span> noise_variance = 1e-3;</div>
-<div class="line"> </div>
-<div class="line">        Eigen::VectorXd params(gp-&gt;covf().get_param_dim());</div>
-<div class="line">        <span class="comment">// Use log-values for hyperparameters in libgp</span></div>
-<div class="line">        params &lt;&lt; std::log(length_scale), std::log(signal_variance), std::log(noise_variance);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// These are initial guesses - ideally, they should be optimized!</span></div>
-<div class="line">        gp-&gt;covf().set_loghyper(params);</div>
-<div class="line"> </div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Using Kernel: &quot;</span> &lt;&lt; gp-&gt;covf().to_string() &lt;&lt; std::endl;</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Initial hyperparameters: [&quot;</span> &lt;&lt; length_scale &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; signal_variance &lt;&lt; <span class="stringliteral">&quot;, &quot;</span></div>
-<div class="line">                  &lt;&lt; noise_variance &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">      },</div>
-<div class="line">      <span class="comment">// --- GP Add Pattern Lambda ---</span></div>
-<div class="line">      [&amp;](<span class="keyword">const</span> <a class="code hl_class" href="classsgpp_1_1base_1_1DataVector.html">sgpp::base::DataVector</a>&amp; x, <span class="keyword">const</span> <span class="keywordtype">double</span> y) { gp-&gt;add_pattern(x.data(), y); },</div>
-<div class="line">      <span class="comment">// --- GP Prediction Lambda ---</span></div>
-<div class="line">      [&amp;](<span class="keyword">const</span> std::vector&lt;std::vector&lt;std::array&lt;sgpp::base::GridPoint, 2&gt;&gt;&gt;&amp;</div>
-<div class="line">              refineableGridPoints,</div>
-<div class="line">          <span class="keyword">const</span> std::vector&lt;std::vector&lt;std::array&lt;bool, 2&gt;&gt;&gt;&amp; ignore)</div>
-<div class="line">          -&gt; std::vector&lt;std::vector&lt;std::array&lt;std::pair&lt;double, double&gt;, 2&gt;&gt;&gt; {</div>
-<div class="line">        <span class="comment">// Optimize hyperparameters (e.g., using RProp)</span></div>
-<div class="line">        libgp::RProp rProp;</div>
-<div class="line">        rProp.init();</div>
-<div class="line">        <span class="comment">// Maximize log-likelihood, 5 iterations, no verbosity</span></div>
-<div class="line">        rProp.maximize(&amp;*gp, 5, <span class="keyword">false</span>);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Optional: Reset noise variance after optimization</span></div>
-<div class="line">        Eigen::VectorXd params{gp-&gt;covf().get_loghyper()};</div>
-<div class="line">        params[2] = std::log(1e-3);</div>
-<div class="line">        gp-&gt;covf().set_loghyper(params);</div>
-<div class="line"> </div>
-<div class="line">        std::vector&lt;std::vector&lt;std::array&lt;std::pair&lt;double, double&gt;, 2&gt;&gt;&gt; result(</div>
-<div class="line">            refineableGridPoints.size());</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> t = 0; t &lt; refineableGridPoints.size(); ++t) {</div>
-<div class="line">          result[t].resize(refineableGridPoints[t].size());</div>
-<div class="line">          <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; <a class="code hl_variable" href="namespacepython_1_1statsfileInfo.html#a9a8efd87cb6a3ce6e2172b480821c70c">i</a> &lt; refineableGridPoints[t].size(); ++<a class="code hl_variable" href="namespacepython_1_1statsfileInfo.html#a9a8efd87cb6a3ce6e2172b480821c70c">i</a>) {</div>
-<div class="line">            result[t][<a class="code hl_variable" href="namespacepython_1_1statsfileInfo.html#a9a8efd87cb6a3ce6e2172b480821c70c">i</a>] = std::array&lt;std::pair&lt;double, double&gt;, 2&gt;();</div>
-<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> lr = 0; lr &lt; 2; ++lr) {</div>
-<div class="line">              <span class="keywordflow">if</span> (ignore[t][i][lr]) {</div>
-<div class="line">                <span class="keywordflow">continue</span>;</div>
-<div class="line">              }</div>
-<div class="line"> </div>
-<div class="line">              <a class="code hl_class" href="classsgpp_1_1base_1_1DataVector.html">sgpp::base::DataVector</a> new_point(dimension);</div>
-<div class="line">              refineableGridPoints[t][<a class="code hl_variable" href="namespacepython_1_1statsfileInfo.html#a9a8efd87cb6a3ce6e2172b480821c70c">i</a>][lr].getStandardCoordinates(new_point);</div>
-<div class="line"> </div>
-<div class="line">              <span class="keyword">const</span> <span class="keywordtype">double</span> predicted_mean = gp-&gt;f(new_point.data());</div>
-<div class="line">              <span class="comment">// Warning: somehow predicted_variance can be small negative</span></div>
-<div class="line">              <span class="comment">//          -&gt; numerical instabilities?</span></div>
-<div class="line">              <span class="comment">// Use std::abs to prevent sqrt(negative) which results in NaN.</span></div>
-<div class="line">              <span class="keyword">const</span> <span class="keywordtype">double</span> predicted_variance = std::abs(gp-&gt;var(new_point.data()));</div>
-<div class="line">              <span class="keyword">const</span> <span class="keywordtype">double</span> predicted_stddev = std::sqrt(predicted_variance);</div>
-<div class="line"> </div>
-<div class="line">              result[t][<a class="code hl_variable" href="namespacepython_1_1statsfileInfo.html#a9a8efd87cb6a3ce6e2172b480821c70c">i</a>][lr] = std::make_pair(predicted_mean, predicted_stddev);</div>
-<div class="line">            }</div>
-<div class="line">          }</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">return</span> result;</div>
-<div class="line">      });</div>
-<div class="line"> </div>
 <div class="line">  <span class="keywordflow">if</span> (!gridGen.generate()) {</div>
 <div class="line">    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Grid generation failed, exiting&quot;</span>);</div>
 <div class="line">  }</div>
@@ -375,19 +292,15 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="line">  }</div>
 <div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------------&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">}</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="densityMultiplication_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>* argv[]) {</div>
 <div class="line">  <span class="keywordflow">try</span> {</div>
 <div class="line">    gridGenerationRitterNovak();</div>
 <div class="line">    gridGenerationFullAdaptiveRitterNovakMinimal();</div>
-<div class="line"><span class="preprocessor">#ifdef GAUSSIAN_PROCESS_AVAILABLE</span></div>
+<div class="line">    std::cout</div>
+<div class="line">        &lt;&lt; <span class="stringliteral">&quot;Note: the last example requires SGpp compiled with USE_LIBGP. Otherwise it will fail&quot;</span></div>
+<div class="line">        &lt;&lt; std::endl;</div>
 <div class="line">    gridGenerationFullAdaptiveRitterNovak();</div>
-<div class="line"><span class="preprocessor">#else</span></div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Note: GAUSSIAN_PROCESS_AVAILABLE not defined.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Skipping gridGenerationFullAdaptiveRitterNovak() example.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;------------------------------------------------------&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line">  } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
 <div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;An exception occurred: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
 <div class="line">    <span class="keywordflow">return</span> 1;</div>
@@ -409,8 +322,8 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="ttc" id="aclasssgpp_1_1base_1_1HierarchisationSLE_html"><div class="ttname"><a href="classsgpp_1_1base_1_1HierarchisationSLE.html">sgpp::base::HierarchisationSLE</a></div><div class="ttdoc">Linear system of the hierarchization in a sparse grid.</div><div class="ttdef"><b>Definition</b> HierarchisationSLE.hpp:74</div></div>
 <div class="ttc" id="aclasssgpp_1_1base_1_1sle__solver_1_1Auto_html"><div class="ttname"><a href="classsgpp_1_1base_1_1sle__solver_1_1Auto.html">sgpp::base::sle_solver::Auto</a></div><div class="ttdoc">Automatic choice of external linear solver.</div><div class="ttdef"><b>Definition</b> Auto.hpp:20</div></div>
 <div class="ttc" id="aclasssgpp_1_1base_1_1sle__solver_1_1Auto_html_adf85b567bab10ab303e3346b82689382"><div class="ttname"><a href="classsgpp_1_1base_1_1sle__solver_1_1Auto.html#adf85b567bab10ab303e3346b82689382">sgpp::base::sle_solver::Auto::solve</a></div><div class="ttdeci">bool solve(SLE &amp;system, DataVector &amp;b, DataVector &amp;x) const override</div><div class="ttdef"><b>Definition</b> Auto.cpp:47</div></div>
-<div class="ttc" id="aclasssgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">sgpp::optimization::IGGFARNHelper::Hyperparameters</a></div><div class="ttdoc">Stores and normalizes the hyperparameters for the refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorFullAdaptiveRitterNovak.hpp:37</div></div>
-<div class="ttc" id="aclasssgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html">sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak</a></div><div class="ttdoc">Iterative grid generation based on a modified, fully adaptive Ritter/Novak's refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorFullAdaptiveRitterNovak.hpp:205</div></div>
+<div class="ttc" id="aclasssgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">sgpp::optimization::IGGFARNHelper::Hyperparameters</a></div><div class="ttdoc">Stores and normalizes the hyperparameters for the refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorFullAdaptiveRitterNovak.hpp:35</div></div>
+<div class="ttc" id="aclasssgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html">sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak</a></div><div class="ttdoc">Iterative grid generation based on a modified, fully adaptive Ritter/Novak's refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorFullAdaptiveRitterNovak.hpp:203</div></div>
 <div class="ttc" id="aclasssgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak.html">sgpp::optimization::IterativeGridGeneratorRitterNovak</a></div><div class="ttdoc">Iterative grid generation based on Ritter/Novak's refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorRitterNovak.hpp:31</div></div>
 <div class="ttc" id="adensityMultiplication_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="densityMultiplication_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> densityMultiplication.cpp:22</div></div>
 <div class="ttc" id="amultHPX_8cpp_html_ae871abe991ec98e4b1c09a6eaa9f1ddc"><div class="ttname"><a href="multHPX_8cpp.html#ae871abe991ec98e4b1c09a6eaa9f1ddc">grid</a></div><div class="ttdeci">std::unique_ptr&lt; sgpp::base::Grid &gt; grid(nullptr)</div></div>
@@ -425,7 +338,7 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="examples.html">Usage Examples</a></li><li class="navelem"><a class="el" href="examples_cpp.html">C++ Examples</a></li>
-    <li class="footer">Generated on Wed Oct 29 2025 03:53:34 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Thu Nov 13 2025 22:59:46 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

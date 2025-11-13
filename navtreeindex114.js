@@ -1,13 +1,5 @@
 var NAVTREEINDEX114 =
 {
-"classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#a7d840dc4272115801585d4e1c41fdd2c":[9,0,2,4,19,3],
-"classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#a97b67dcc0bbcbe90bddcac16ca205f22":[8,0,14,5,19,8],
-"classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#a97b67dcc0bbcbe90bddcac16ca205f22":[9,0,2,4,19,8],
-"classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#a9916f636e46c1f83efcfe55b29513d4a":[8,0,14,5,19,9],
-"classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#a9916f636e46c1f83efcfe55b29513d4a":[9,0,2,4,19,9],
-"classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#abc243c671c3d90386801a538f8eeba93":[9,0,2,4,19,0],
-"classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#abc243c671c3d90386801a538f8eeba93":[8,0,14,5,19,0],
-"classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#ad3f44dd8482a248f349e0d62635d124e":[8,0,14,5,19,1],
 "classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#ad3f44dd8482a248f349e0d62635d124e":[9,0,2,4,19,1],
 "classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#ae3b4beba5f86c952b043aaab5c32348d":[9,0,2,4,19,2],
 "classsgpp_1_1pde_1_1OperationEllipticPDESolverSystemDirichlet.html#ae3b4beba5f86c952b043aaab5c32348d":[8,0,14,5,19,2],
@@ -249,5 +241,13 @@ var NAVTREEINDEX114 =
 "classsgpp_1_1pde_1_1OperationLaplaceModLinear.html#ab77bf4cf8a3a1beb3d503bdceebe64d5":[9,0,2,4,35,2],
 "classsgpp_1_1pde_1_1OperationLaplaceModLinear.html#afbe6c5aad9ed6956b08373dfad7f754e":[8,0,14,5,35,1],
 "classsgpp_1_1pde_1_1OperationLaplaceModLinear.html#afbe6c5aad9ed6956b08373dfad7f754e":[9,0,2,4,35,1],
-"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html":[9,0,2,4,36]
+"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html":[9,0,2,4,36],
+"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html":[8,0,14,5,36],
+"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#a5bfc033453dbea4399273cd29a7c0cba":[8,0,14,5,36,2],
+"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#a5bfc033453dbea4399273cd29a7c0cba":[9,0,2,4,36,2],
+"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#aef19ae301b9c5cf6219bbf32a0656fc1":[8,0,14,5,36,1],
+"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#aef19ae301b9c5cf6219bbf32a0656fc1":[9,0,2,4,36,1],
+"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#af1c0b1e7bb7da925f20f93a5c03e09a0":[9,0,2,4,36,0],
+"classsgpp_1_1pde_1_1OperationLaplaceModPoly.html#af1c0b1e7bb7da925f20f93a5c03e09a0":[8,0,14,5,36,0],
+"classsgpp_1_1pde_1_1OperationLaplaceModPolyClenshawCurtis.html":[9,0,2,4,37]
 };

@@ -1,13 +1,5 @@
 var NAVTREEINDEX127 =
 {
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1BilinearGaussQuadratureStrategy.html":[8,0,12,12,11,0,2],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1BilinearQuadratureStrategy.html":[8,0,12,12,11,0,3],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1DiscreteBilinearScipyQuadratureStrategy.html":[8,0,12,12,11,0,4],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1PiecewiseConstantQuadratureStrategy.html":[8,0,12,12,11,0,5],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1SparseGridQuadratureStrategy.html":[8,0,12,12,11,0,6],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1UniformQuadratureStrategy.html":[8,0,12,12,11,0,7],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1bilinear__form.html":[8,0,12,12,11,0,0],
-"namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1bilinear__form.html#a0e6b6e193baea2974787d735f3c341d5":[8,0,12,12,11,0,0,2],
 "namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1bilinear__form.html#ab802da3af85f345a44901a2316f89799":[8,0,12,12,11,0,0,1],
 "namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1bilinear__form.html#aed056e51927014261ffef91f76327042":[8,0,12,12,11,0,0,0],
 "namespacepython_1_1uq_1_1quadrature_1_1bilinearform_1_1bilinear__form__admissible__set.html":[8,0,12,12,11,0,1],
@@ -249,5 +241,13 @@ var NAVTREEINDEX127 =
 "namespacesgpp_1_1base.html#a4066f2ba8be120a496d7d6202530e36e":[8,0,14,0,528],
 "namespacesgpp_1_1base.html#a44e65000ae8b58709cc953d1f4873b1a":[8,0,14,0,573],
 "namespacesgpp_1_1base.html#a483acd26a8b2ffb2fe355198f46d3033":[8,0,14,0,571],
-"namespacesgpp_1_1base.html#a487786731efe94c23716943233f35f4c":[8,0,14,0,539]
+"namespacesgpp_1_1base.html#a487786731efe94c23716943233f35f4c":[8,0,14,0,539],
+"namespacesgpp_1_1base.html#a62c4aae76549a46278a02f2d19a091e9":[8,0,14,0,563],
+"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bd":[8,0,14,0,582],
+"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bda0b87d66b88c72957dfea8c9605016442":[8,0,14,0,582,4],
+"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bda65397176ad1ca12c2f975218a30f357f":[8,0,14,0,582,3],
+"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bda7bfe08bb2235d1ff0dc89a4a4411804a":[8,0,14,0,582,6],
+"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bda8d92d8af321ea1ce4f12019bcc6c3880":[8,0,14,0,582,2],
+"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bda960b44c579bc2f6818d2daaf9e4c16f0":[8,0,14,0,582,1],
+"namespacesgpp_1_1base.html#a64916dd79050cf0b9094d35bc94007bdaa4ef7dc8a562f95768dd2bfc4d97ec8f":[8,0,14,0,582,5]
 };

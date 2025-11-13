@@ -1,13 +1,5 @@
 var NAVTREEINDEX117 =
 {
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afcbd4a71ef55c45a33bf845a95326fd1":[9,0,2,4,80,0],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html":[9,0,2,4,81],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html":[8,0,14,5,81],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#a02048b9864fec3936ea72567a15d23a7":[9,0,2,4,81,0],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#a02048b9864fec3936ea72567a15d23a7":[8,0,14,5,81,0],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#a54f9019b6e5dea684ff5ccb0b7cb4c85":[8,0,14,5,81,2],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#a54f9019b6e5dea684ff5ccb0b7cb4c85":[9,0,2,4,81,2],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#aa5727e45e9a5ca7e401ab59066e4228a":[8,0,14,5,81,1],
 "classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#aa5727e45e9a5ca7e401ab59066e4228a":[9,0,2,4,81,1],
 "classsgpp_1_1pde_1_1PhiPhiDownBBLinearStretched.html":[8,0,14,5,82],
 "classsgpp_1_1pde_1_1PhiPhiDownBBLinearStretched.html":[9,0,2,4,82],
@@ -249,5 +241,13 @@ var NAVTREEINDEX117 =
 "classsgpp_1_1pde_1_1UpDownFourOpDims.html#a85c9006f48f8ff48d07bfcc5f904e40f":[9,0,2,4,93,50],
 "classsgpp_1_1pde_1_1UpDownFourOpDims.html#a8d8508a8f2cc70c20a0f37542bd8013b":[9,0,2,4,93,59],
 "classsgpp_1_1pde_1_1UpDownFourOpDims.html#a8d8508a8f2cc70c20a0f37542bd8013b":[8,0,14,5,93,59],
-"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a8f2ebb69b88487dc8c04c2d5ab8594ad":[8,0,14,5,93,10]
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a8f2ebb69b88487dc8c04c2d5ab8594ad":[8,0,14,5,93,10],
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a8f2ebb69b88487dc8c04c2d5ab8594ad":[9,0,2,4,93,10],
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a90192bdf73abd32f8f33846fcba66311":[8,0,14,5,93,30],
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a90192bdf73abd32f8f33846fcba66311":[9,0,2,4,93,30],
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a98fd2ccf4fdae3c4e50c46694edb40f5":[9,0,2,4,93,47],
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#a98fd2ccf4fdae3c4e50c46694edb40f5":[8,0,14,5,93,47],
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#aa274020b0e6ddd4a5db2f19e1e3c5f00":[8,0,14,5,93,60],
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#aa274020b0e6ddd4a5db2f19e1e3c5f00":[9,0,2,4,93,60],
+"classsgpp_1_1pde_1_1UpDownFourOpDims.html#aa75d30b04e9cbc12963f76dc8f9eace7":[8,0,14,5,93,16]
 };

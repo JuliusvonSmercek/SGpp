@@ -1,13 +1,5 @@
 var NAVTREEINDEX116 =
 {
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#af5e0682ae03b0f558fddcfa86c9c32ef":[9,0,2,4,64,0],
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#afc9ab4bd0c9d0c38a319fa4c645605ec":[9,0,2,4,64,2],
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtis.html#afc9ab4bd0c9d0c38a319fa4c645605ec":[8,0,14,5,64,2],
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html":[9,0,2,4,65],
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html":[8,0,14,5,65],
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html#a904f34c9239a7639162f80811f19e836":[9,0,2,4,65,0],
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html#a904f34c9239a7639162f80811f19e836":[8,0,14,5,65,0],
-"classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html#aad76acbee6d776d8d0ca14f49e09c009":[9,0,2,4,65,3],
 "classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html#aad76acbee6d776d8d0ca14f49e09c009":[8,0,14,5,65,3],
 "classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html#ae05ca73495ff1ab5ec6ab8d7314ba1fb":[9,0,2,4,65,2],
 "classsgpp_1_1pde_1_1OperationMatrixLTwoDotExplicitPolyClenshawCurtisBoundary.html#ae05ca73495ff1ab5ec6ab8d7314ba1fb":[8,0,14,5,65,2],
@@ -249,5 +241,13 @@ var NAVTREEINDEX116 =
 "classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#ac88f2f123a7486d77024eb4ff46a19f5":[9,0,2,4,80,7],
 "classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afb3683a0f6d6d71dd443b1928561959f":[9,0,2,4,80,6],
 "classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afb3683a0f6d6d71dd443b1928561959f":[8,0,14,5,80,6],
-"classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afcbd4a71ef55c45a33bf845a95326fd1":[8,0,14,5,80,0]
+"classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afcbd4a71ef55c45a33bf845a95326fd1":[8,0,14,5,80,0],
+"classsgpp_1_1pde_1_1PhiPhiDownBBLinear.html#afcbd4a71ef55c45a33bf845a95326fd1":[9,0,2,4,80,0],
+"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html":[9,0,2,4,81],
+"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html":[8,0,14,5,81],
+"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#a02048b9864fec3936ea72567a15d23a7":[9,0,2,4,81,0],
+"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#a02048b9864fec3936ea72567a15d23a7":[8,0,14,5,81,0],
+"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#a54f9019b6e5dea684ff5ccb0b7cb4c85":[8,0,14,5,81,2],
+"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#a54f9019b6e5dea684ff5ccb0b7cb4c85":[9,0,2,4,81,2],
+"classsgpp_1_1pde_1_1PhiPhiDownBBLinearBoundary.html#aa5727e45e9a5ca7e401ab59066e4228a":[8,0,14,5,81,1]
 };

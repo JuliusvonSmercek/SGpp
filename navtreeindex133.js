@@ -1,13 +1,5 @@
 var NAVTREEINDEX133 =
 {
-"structsgpp_1_1datadriven_1_1VisualizationParameters.html#ad97f12fb2f4eec7203a96bdc409c4e72":[9,0,2,2,336,4],
-"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType.html":[8,0,14,2,8,0],
-"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType.html":[9,0,2,2,5,0],
-"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01double_01_4.html":[9,0,2,2,5,1],
-"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01double_01_4.html":[8,0,14,2,8,1],
-"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01float_01_4.html":[9,0,2,2,5,2],
-"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01float_01_4.html":[8,0,14,2,8,2],
-"structsgpp_1_1solver_1_1SLESolverConfiguration.html":[8,0,14,7,19],
 "structsgpp_1_1solver_1_1SLESolverConfiguration.html":[9,0,2,6,19],
 "structsgpp_1_1solver_1_1SLESolverConfiguration.html#a18fba493a9d6dfc64b0d710e8e54722d":[9,0,2,6,19,3],
 "structsgpp_1_1solver_1_1SLESolverConfiguration.html#a18fba493a9d6dfc64b0d710e8e54722d":[8,0,14,7,19,3],

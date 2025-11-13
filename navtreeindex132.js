@@ -1,13 +1,5 @@
 var NAVTREEINDEX132 =
 {
-"structsgpp_1_1datadriven_1_1HashGridPointCompare.html":[9,0,2,2,118],
-"structsgpp_1_1datadriven_1_1HashGridPointCompare.html#a72c6be31c61e4c0c243de7dc10286cb5":[9,0,2,2,118,0],
-"structsgpp_1_1datadriven_1_1HashGridPointCompare.html#a72c6be31c61e4c0c243de7dc10286cb5":[8,0,14,2,122,0],
-"structsgpp_1_1datadriven_1_1LearnerConfiguration.html":[8,0,14,2,132],
-"structsgpp_1_1datadriven_1_1LearnerConfiguration.html":[9,0,2,2,128],
-"structsgpp_1_1datadriven_1_1LearnerConfiguration.html#a2e4b681113644984770d6513751c15c5":[9,0,2,2,128,0],
-"structsgpp_1_1datadriven_1_1LearnerConfiguration.html#a2e4b681113644984770d6513751c15c5":[8,0,14,2,132,0],
-"structsgpp_1_1datadriven_1_1LearnerConfiguration.html#afefbbc63415f8ea8f74a1dbcf579ebc1":[9,0,2,2,128,1],
 "structsgpp_1_1datadriven_1_1LearnerConfiguration.html#afefbbc63415f8ea8f74a1dbcf579ebc1":[8,0,14,2,132,1],
 "structsgpp_1_1datadriven_1_1LearnerTiming.html":[8,0,14,2,140],
 "structsgpp_1_1datadriven_1_1LearnerTiming.html":[9,0,2,2,136],
@@ -249,5 +241,13 @@ var NAVTREEINDEX132 =
 "structsgpp_1_1datadriven_1_1VisualizationParameters.html#a7e763b6752234e33eb6055b585902f15":[9,0,2,2,336,2],
 "structsgpp_1_1datadriven_1_1VisualizationParameters.html#a9922af7f3851ab4a867a44f409072d64":[8,0,14,2,340,3],
 "structsgpp_1_1datadriven_1_1VisualizationParameters.html#a9922af7f3851ab4a867a44f409072d64":[9,0,2,2,336,3],
-"structsgpp_1_1datadriven_1_1VisualizationParameters.html#ad97f12fb2f4eec7203a96bdc409c4e72":[8,0,14,2,340,4]
+"structsgpp_1_1datadriven_1_1VisualizationParameters.html#ad97f12fb2f4eec7203a96bdc409c4e72":[8,0,14,2,340,4],
+"structsgpp_1_1datadriven_1_1VisualizationParameters.html#ad97f12fb2f4eec7203a96bdc409c4e72":[9,0,2,2,336,4],
+"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType.html":[8,0,14,2,8,0],
+"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType.html":[9,0,2,2,5,0],
+"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01double_01_4.html":[9,0,2,2,5,1],
+"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01double_01_4.html":[8,0,14,2,8,1],
+"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01float_01_4.html":[9,0,2,2,5,2],
+"structsgpp_1_1datadriven_1_1streamingBSplineOCL_1_1getType_3_01float_01_4.html":[8,0,14,2,8,2],
+"structsgpp_1_1solver_1_1SLESolverConfiguration.html":[8,0,14,7,19]
 };

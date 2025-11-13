@@ -1,13 +1,5 @@
 var NAVTREEINDEX131 =
 {
-"structsgpp_1_1base_1_1AdaptivityConfiguration.html#ac34fe1e3913a826e645ee7315e8c7ea8":[9,0,2,0,3,5],
-"structsgpp_1_1base_1_1AdaptivityConfiguration.html#acd6fb0fb029690ee7d835c28677137e2":[8,0,14,0,3,2],
-"structsgpp_1_1base_1_1AdaptivityConfiguration.html#acd6fb0fb029690ee7d835c28677137e2":[9,0,2,0,3,2],
-"structsgpp_1_1base_1_1AdaptivityConfiguration.html#ad02e78bb38d48fffe908de2ecf652141":[9,0,2,0,3,16],
-"structsgpp_1_1base_1_1AdaptivityConfiguration.html#ad02e78bb38d48fffe908de2ecf652141":[8,0,14,0,3,16],
-"structsgpp_1_1base_1_1AdaptivityConfiguration.html#ada609949e413acb999f39906363eeb2d":[8,0,14,0,3,9],
-"structsgpp_1_1base_1_1AdaptivityConfiguration.html#ada609949e413acb999f39906363eeb2d":[9,0,2,0,3,9],
-"structsgpp_1_1base_1_1AdaptivityConfiguration.html#adcdaf4e7774e0c4edca304d6b8d2f1f0":[9,0,2,0,3,11],
 "structsgpp_1_1base_1_1AdaptivityConfiguration.html#adcdaf4e7774e0c4edca304d6b8d2f1f0":[8,0,14,0,3,11],
 "structsgpp_1_1base_1_1AdaptivityConfiguration.html#aeebe0ee91b8c664c6bd61ba27f2e5f34":[9,0,2,0,3,3],
 "structsgpp_1_1base_1_1AdaptivityConfiguration.html#aeebe0ee91b8c664c6bd61ba27f2e5f34":[8,0,14,0,3,3],
@@ -249,5 +241,13 @@ var NAVTREEINDEX131 =
 "structsgpp_1_1datadriven_1_1GeometryConfiguration.html#a29feb2c57bdca757ab452b1fb8a32612":[8,0,14,2,116,0],
 "structsgpp_1_1datadriven_1_1GeometryConfiguration.html#a86358b800818488a47c8f581be094403":[9,0,2,2,112,1],
 "structsgpp_1_1datadriven_1_1GeometryConfiguration.html#a86358b800818488a47c8f581be094403":[8,0,14,2,116,1],
-"structsgpp_1_1datadriven_1_1HashGridPointCompare.html":[8,0,14,2,122]
+"structsgpp_1_1datadriven_1_1HashGridPointCompare.html":[8,0,14,2,122],
+"structsgpp_1_1datadriven_1_1HashGridPointCompare.html":[9,0,2,2,118],
+"structsgpp_1_1datadriven_1_1HashGridPointCompare.html#a72c6be31c61e4c0c243de7dc10286cb5":[9,0,2,2,118,0],
+"structsgpp_1_1datadriven_1_1HashGridPointCompare.html#a72c6be31c61e4c0c243de7dc10286cb5":[8,0,14,2,122,0],
+"structsgpp_1_1datadriven_1_1LearnerConfiguration.html":[8,0,14,2,132],
+"structsgpp_1_1datadriven_1_1LearnerConfiguration.html":[9,0,2,2,128],
+"structsgpp_1_1datadriven_1_1LearnerConfiguration.html#a2e4b681113644984770d6513751c15c5":[9,0,2,2,128,0],
+"structsgpp_1_1datadriven_1_1LearnerConfiguration.html#a2e4b681113644984770d6513751c15c5":[8,0,14,2,132,0],
+"structsgpp_1_1datadriven_1_1LearnerConfiguration.html#afefbbc63415f8ea8f74a1dbcf579ebc1":[9,0,2,2,128,1]
 };
