@@ -366,7 +366,6 @@ void omp_set_num_threads(int num_threads);
 %include "optimization/src/sgpp/optimization/gridgen/IterativeGridGeneratorLinearSurplus.hpp"
 %include "optimization/src/sgpp/optimization/gridgen/IterativeGridGeneratorRitterNovak.hpp"
 %include "optimization/src/sgpp/optimization/gridgen/IterativeGridGeneratorFuzzyRitterNovak.hpp"
-// %include "optimization/src/sgpp/optimization/gridgen/IterativeGridGeneratorFullAdaptiveRitterNovak.hpp"
 %include "optimization/src/sgpp/optimization/gridgen/IterativeGridGeneratorLinearSurplus.hpp"
 %include "optimization/src/sgpp/optimization/gridgen/IterativeGridGeneratorSOO.hpp"
 
@@ -463,21 +462,3 @@ void omp_set_num_threads(int num_threads);
 %template(OptFileIOWriteVector)      sgpp::optimization::file_io::writeVector<double>;
 %template(OptFileIOReadVector)       sgpp::optimization::file_io::readVector<double>;
 %template(OptFuzzyIntervalVector)    std::vector<sgpp::optimization::FuzzyInterval*>;
-
-// global variables for the support of libgp and bayesopt libraries (set at compile-time)
-const bool USE_LIBGP;
-const bool USE_BAYESOPT;
-
-%{
-#ifdef USE_LIBGP
-    const bool LIBGP_ENABLED = true;
-#else
-    const bool LIBGP_ENABLED = false;
-#endif
-
-#ifdef USE_BAYESOPT
-    const bool BAYESOPT_ENABLED = true;
-#else
-    const bool BAYESOPT_ENABLED = false;
-#endif
-%}
