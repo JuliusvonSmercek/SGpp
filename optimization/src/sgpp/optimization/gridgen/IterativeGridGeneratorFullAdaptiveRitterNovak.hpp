@@ -206,6 +206,11 @@ class IterativeGridGeneratorFullAdaptiveRitterNovak : public IterativeGridGenera
   static const base::level_t DEFAULT_INITIAL_LEVEL = 3;
   /// Default maximal level of grid points.
   static const base::level_t DEFAULT_MAX_LEVEL = 20;
+#ifdef USE_LIBGP
+  static const bool LIBGP_AVAILABLE = true;
+#else
+  static const bool LIBGP_AVAILABLE = false;
+#endif
 
   /**
    * @brief Constructor.

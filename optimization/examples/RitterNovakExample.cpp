@@ -211,10 +211,13 @@ int main(int argc, const char* argv[]) {
   try {
     gridGenerationRitterNovak();
     gridGenerationFullAdaptiveRitterNovakMinimal();
-    std::cout
-        << "Note: the last example requires SGpp compiled with USE_LIBGP. Otherwise it will fail"
-        << std::endl;
-    gridGenerationFullAdaptiveRitterNovak();
+    if (sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::LIBGP_AVAILABLE) {
+      gridGenerationFullAdaptiveRitterNovak();
+    } else {
+      std::cout << "Skipping gridGenerationFullAdaptiveRitterNovak (GP) example since SGpp was not "
+                   "compiled with USE_LIBGP."
+                << std::endl;
+    }
   } catch (const std::exception& e) {
     std::cerr << "An exception occurred: " << e.what() << std::endl;
     return 1;
