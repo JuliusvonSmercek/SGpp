@@ -24,7 +24,7 @@ var searchData=
   ['rastrigin_2ecpp_21',['Rastrigin.cpp',['../Rastrigin_8cpp.html',1,'']]],
   ['rastrigin_2ehpp_22',['Rastrigin.hpp',['../Rastrigin_8hpp.html',1,'']]],
   ['rastriginobjective_23',['rastriginobjective',['../classsgpp_1_1optimization_1_1test__problems_1_1RastriginObjective.html#af93ae44b219753e0c035aacd72ca2399',1,'sgpp::optimization::test_problems::RastriginObjective::RastriginObjective()'],['../classsgpp_1_1optimization_1_1test__problems_1_1RastriginObjective.html',1,'sgpp::optimization::test_problems::RastriginObjective']]],
-  ['raw_24',['raw',['../classpython_1_1uq_1_1uq__setting_1_1UQSetting_1_1UQSampleType.html#a0754b4ffbfe0107d253ab2b0f93b0353',1,'python.uq.uq_setting.UQSetting.UQSampleType.RAW'],['../classpython_1_1uq_1_1uq__setting_1_1samplingresult_1_1Samplingresult.html#a65a4306df3d7d79382ae9816c99a5b0f',1,'python.uq.uq_setting.samplingresult.Samplingresult.raw']]],
+  ['raw_24',['raw',['../classpython_1_1uq_1_1uq__setting_1_1samplingresult_1_1Samplingresult.html#a65a4306df3d7d79382ae9816c99a5b0f',1,'python.uq.uq_setting.samplingresult.Samplingresult.raw'],['../classpython_1_1uq_1_1uq__setting_1_1UQSetting_1_1UQSampleType.html#a0754b4ffbfe0107d253ab2b0f93b0353',1,'python.uq.uq_setting.UQSetting.UQSampleType.RAW']]],
   ['rawscores_25',['rawScores',['../classsgpp_1_1datadriven_1_1BayesianOptimization.html#ad507c16829aa68283f1f3548eb0349c6',1,'sgpp::datadriven::BayesianOptimization']]],
   ['rbrace_26',['RBRACE',['../namespacejson.html#ac296254de68b45e1b9bc6b33e05daac4a7907975edd3cb3611c6808f3ea6bd290',1,'json']]],
   ['rbracket_27',['RBRACKET',['../namespacejson.html#ac296254de68b45e1b9bc6b33e05daac4a270adbd249f9997adc3208e92a57e066',1,'json']]],

@@ -297,10 +297,13 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="line">  <span class="keywordflow">try</span> {</div>
 <div class="line">    gridGenerationRitterNovak();</div>
 <div class="line">    gridGenerationFullAdaptiveRitterNovakMinimal();</div>
-<div class="line">    std::cout</div>
-<div class="line">        &lt;&lt; <span class="stringliteral">&quot;Note: the last example requires SGpp compiled with USE_LIBGP. Otherwise it will fail&quot;</span></div>
-<div class="line">        &lt;&lt; std::endl;</div>
-<div class="line">    gridGenerationFullAdaptiveRitterNovak();</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ad8f11e5db92dfb55129da11696f506d9">sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::LIBGP_AVAILABLE</a>) {</div>
+<div class="line">      gridGenerationFullAdaptiveRitterNovak();</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;Skipping gridGenerationFullAdaptiveRitterNovak (GP) example since SGpp was not &quot;</span></div>
+<div class="line">                   <span class="stringliteral">&quot;compiled with USE_LIBGP.&quot;</span></div>
+<div class="line">                &lt;&lt; std::endl;</div>
+<div class="line">    }</div>
 <div class="line">  } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
 <div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;An exception occurred: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
 <div class="line">    <span class="keywordflow">return</span> 1;</div>
@@ -324,6 +327,7 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div class="ttc" id="aclasssgpp_1_1base_1_1sle__solver_1_1Auto_html_adf85b567bab10ab303e3346b82689382"><div class="ttname"><a href="classsgpp_1_1base_1_1sle__solver_1_1Auto.html#adf85b567bab10ab303e3346b82689382">sgpp::base::sle_solver::Auto::solve</a></div><div class="ttdeci">bool solve(SLE &amp;system, DataVector &amp;b, DataVector &amp;x) const override</div><div class="ttdef"><b>Definition</b> Auto.cpp:47</div></div>
 <div class="ttc" id="aclasssgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IGGFARNHelper_1_1Hyperparameters.html">sgpp::optimization::IGGFARNHelper::Hyperparameters</a></div><div class="ttdoc">Stores and normalizes the hyperparameters for the refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorFullAdaptiveRitterNovak.hpp:35</div></div>
 <div class="ttc" id="aclasssgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html">sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak</a></div><div class="ttdoc">Iterative grid generation based on a modified, fully adaptive Ritter/Novak's refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorFullAdaptiveRitterNovak.hpp:203</div></div>
+<div class="ttc" id="aclasssgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak_html_ad8f11e5db92dfb55129da11696f506d9"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorFullAdaptiveRitterNovak.html#ad8f11e5db92dfb55129da11696f506d9">sgpp::optimization::IterativeGridGeneratorFullAdaptiveRitterNovak::LIBGP_AVAILABLE</a></div><div class="ttdeci">static const bool LIBGP_AVAILABLE</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorFullAdaptiveRitterNovak.hpp:210</div></div>
 <div class="ttc" id="aclasssgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak_html"><div class="ttname"><a href="classsgpp_1_1optimization_1_1IterativeGridGeneratorRitterNovak.html">sgpp::optimization::IterativeGridGeneratorRitterNovak</a></div><div class="ttdoc">Iterative grid generation based on Ritter/Novak's refinement criterion.</div><div class="ttdef"><b>Definition</b> IterativeGridGeneratorRitterNovak.hpp:31</div></div>
 <div class="ttc" id="adensityMultiplication_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="densityMultiplication_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> densityMultiplication.cpp:22</div></div>
 <div class="ttc" id="amultHPX_8cpp_html_ae871abe991ec98e4b1c09a6eaa9f1ddc"><div class="ttname"><a href="multHPX_8cpp.html#ae871abe991ec98e4b1c09a6eaa9f1ddc">grid</a></div><div class="ttdeci">std::unique_ptr&lt; sgpp::base::Grid &gt; grid(nullptr)</div></div>
@@ -338,7 +342,7 @@ $(document).ready(function(){initNavTree('example_RitterNovakExample_cpp.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="examples.html">Usage Examples</a></li><li class="navelem"><a class="el" href="examples_cpp.html">C++ Examples</a></li>
-    <li class="footer">Generated on Fri Nov 14 2025 01:52:20 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated on Fri Nov 14 2025 02:24:39 for SG++-Doxygen-Documentation by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>
