@@ -6,8 +6,9 @@
 #ifndef CONJUGATEGRADIENTS_HPP
 #define CONJUGATEGRADIENTS_HPP
 
-#include <sgpp/solver/sle/common/SLESolver.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
+
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
 

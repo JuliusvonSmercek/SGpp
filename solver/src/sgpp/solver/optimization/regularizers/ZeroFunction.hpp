@@ -7,6 +7,7 @@
 #define ZEROFUNCTION_HPP
 
 #include <sgpp/base/datatypes/DataVector.hpp>
+
 #include <sgpp/solver/optimization/regularizers/RegularizationFunction.hpp>
 
 namespace sgpp {

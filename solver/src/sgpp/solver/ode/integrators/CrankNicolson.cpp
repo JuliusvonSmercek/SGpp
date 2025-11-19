@@ -4,6 +4,7 @@
 // sgpp.sparsegrids.org
 
 #include <sgpp/base/grid/common/DirichletUpdateVector.hpp>
+
 #include <sgpp/solver/ode/integrators/CrankNicolson.hpp>
 
 #include <sgpp/globaldef.hpp>
@@ -49,7 +50,7 @@ void CrankNicolson::solve(SLESolver& LinearSystemSolver,
 
       if (i < this->nMaxIterations - 1) {
         myScreen->update(static_cast<size_t>((static_cast<double>(i + 1) * 100.0) /
-            static_cast<double>(this->nMaxIterations)),
+                                             static_cast<double>(this->nMaxIterations)),
                          soutput.str());
       } else {
         myScreen->update(100, soutput.str());

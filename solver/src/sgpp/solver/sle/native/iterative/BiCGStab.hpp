@@ -6,9 +6,10 @@
 #ifndef BICGSTAB_HPP
 #define BICGSTAB_HPP
 
-#include <sgpp/solver/sle/common/SLESolver.hpp>
-#include <sgpp/base/operation/hash/OperationMatrix.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
+#include <sgpp/base/operation/hash/OperationMatrix.hpp>
+
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
 

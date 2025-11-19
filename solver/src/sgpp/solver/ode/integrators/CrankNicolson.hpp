@@ -7,6 +7,7 @@
 #define CRANKNICOLSON_HPP
 
 #include <sgpp/base/application/ScreenOutput.hpp>
+
 #include <sgpp/solver/ode/ODESolver.hpp>
 
 #include <sgpp/globaldef.hpp>

@@ -7,6 +7,7 @@
 #define RIDGEFUNCTION_HPP
 
 #include <sgpp/base/datatypes/DataVector.hpp>
+
 #include <sgpp/solver/optimization/regularizers/RegularizationFunction.hpp>
 
 namespace sgpp {
@@ -18,7 +19,7 @@ namespace solver {
  */
 class RidgeFunction : public RegularizationFunction {
  public:
-    /**
+  /**
    * @brief RidgeFunction
    * @param lambda controls the regularization strength.
    */

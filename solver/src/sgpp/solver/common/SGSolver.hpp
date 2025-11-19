@@ -7,6 +7,7 @@
 #define SGSOLVER_HPP
 
 #include <sgpp/solver/sle/common/TypesSolver.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #include <cstddef>

@@ -6,8 +6,8 @@
 #ifndef CONJUGATEGRADIENTSSP_HPP
 #define CONJUGATEGRADIENTSSP_HPP
 
-#include <sgpp/base/operation/hash/OperationMatrixSP.hpp>
 #include <sgpp/base/datatypes/DataVectorSP.hpp>
+#include <sgpp/base/operation/hash/OperationMatrixSP.hpp>
 
 #include <sgpp/solver/sle/common/SLESolverSP.hpp>
 

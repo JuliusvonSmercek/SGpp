@@ -4,6 +4,7 @@
 // sgpp.sparsegrids.org
 
 #include <sgpp/solver/sle/native/iterative/BiCGStab.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #include <cmath>

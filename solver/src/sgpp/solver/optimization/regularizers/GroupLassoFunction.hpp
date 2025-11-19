@@ -8,10 +8,11 @@
 
 #include <sgpp/base/datatypes/DataVector.hpp>
 #include <sgpp/base/grid/GridStorage.hpp>
+
 #include <sgpp/solver/optimization/regularizers/RegularizationFunction.hpp>
 
-#include <cmath>
 #include <algorithm>
+#include <cmath>
 #include <numeric>
 #include <tuple>
 #include <unordered_map>
@@ -35,7 +36,7 @@ namespace solver {
 
 class GroupLassoFunction : public RegularizationFunction {
  public:
-    /**
+  /**
    * @brief GroupLassoFunction
    * @param lambda controls the regularization strength.
    * @param gridStorage is the grid storage.
@@ -109,7 +110,7 @@ class GroupLassoFunction : public RegularizationFunction {
     }
 
     return std::pair<std::vector<double>, std::vector<size_t>>(std::move(norms),
-                                                                    std::move(groupSizes));
+                                                               std::move(groupSizes));
   }
 
   void calculateGroupIndices(const sgpp::base::DataVector& weights) {

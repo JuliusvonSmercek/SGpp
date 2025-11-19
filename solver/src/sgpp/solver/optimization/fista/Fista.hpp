@@ -20,13 +20,13 @@ namespace sgpp {
 namespace solver {
 
 /**
-* @brief Fast Iterative Shrinkage Tresholding Algorithm is a solver for least-squares problems.
-* @details
-* It can solve all problems that are seperable in a least-squares part and a convex,
-* not necessarily smooth other function.
-* The other function is a template argument.
-* FISTA is an optimal first order method for this problem class.
-*/
+ * @brief Fast Iterative Shrinkage Tresholding Algorithm is a solver for least-squares problems.
+ * @details
+ * It can solve all problems that are seperable in a least-squares part and a convex,
+ * not necessarily smooth other function.
+ * The other function is a template argument.
+ * FISTA is an optimal first order method for this problem class.
+ */
 template <typename F>
 class Fista : public FistaBase {
   static_assert(std::is_base_of<RegularizationFunction, F>::value,
@@ -89,7 +89,7 @@ class Fista : public FistaBase {
       curMSE = evalResidual(errors);
       do {
         L *= eta;
-        weights = evalProxGrad(y, gradient, L);              // do the step!
+        weights = evalProxGrad(y, gradient, L);  // do the step!
       } while (isNotLipschitz(weights, y, op, classes, L));  // F(prox) < Q_L(prox, weights)
 
       momentum = 0.5 * (1 + std::sqrt(1 + 4 * momentum * momentum));

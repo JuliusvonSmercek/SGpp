@@ -3,9 +3,10 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
-#include <sgpp/solver/pde/OperationParabolicPDESolverSystem.hpp>
 #include <sgpp/base/exception/algorithm_exception.hpp>
 #include <sgpp/base/operation/BaseOpFactory.hpp>
+
+#include <sgpp/solver/pde/OperationParabolicPDESolverSystem.hpp>
 
 #include <sgpp/globaldef.hpp>
 

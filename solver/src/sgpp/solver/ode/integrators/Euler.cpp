@@ -3,27 +3,25 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
+#include <sgpp/base/exception/solver_exception.hpp>
 #include <sgpp/base/grid/common/DirichletUpdateVector.hpp>
-#include <sgpp/solver/ode/integrators/Euler.hpp>
 #include <sgpp/base/operation/hash/OperationEval.hpp>
 #include <sgpp/base/tools/GridPrinter.hpp>
-#include <sgpp/base/exception/solver_exception.hpp>
+
+#include <sgpp/solver/ode/integrators/Euler.hpp>
 
 #include <sgpp/globaldef.hpp>
 
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 namespace sgpp {
 namespace solver {
 
 Euler::Euler(std::string Mode, size_t imax, double timestepSize, bool generateAnimation,
              sgpp::base::ScreenOutput* screen)
-    : ODESolver(imax, timestepSize),
-      bAnimation(generateAnimation),
-      ExMode(Mode),
-      myScreen(screen) {
+    : ODESolver(imax, timestepSize), bAnimation(generateAnimation), ExMode(Mode), myScreen(screen) {
   this->residuum = 0.0;
 
   if (Mode != "ExEul" && Mode != "ImEul") {
@@ -86,7 +84,7 @@ void Euler::solve(SLESolver& LinearSystemSolver,
 
       if (i < this->nMaxIterations - 1) {
         myScreen->update(static_cast<size_t>((static_cast<double>(i + 1) * 100.0) /
-            static_cast<double>(this->nMaxIterations)),
+                                             static_cast<double>(this->nMaxIterations)),
                          soutput.str());
       } else {
         myScreen->update(100, soutput.str());
