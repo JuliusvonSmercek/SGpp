@@ -14,7 +14,7 @@
 #include <sgpp/datadriven/algorithm/DMSystemMatrixBase.hpp>
 #include <sgpp/datadriven/datamining/modules/fitting/FitterConfigurationLeastSquares.hpp>
 #include <sgpp/datadriven/operation/hash/DatadrivenOperationCommon.hpp>
-#include <sgpp/solver/SLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 
 using sgpp::solver::SLESolver;
 using sgpp::base::DataMatrix;

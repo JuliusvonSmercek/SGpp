@@ -13,8 +13,8 @@
 #include <sgpp/base/tools/GridPrinter.hpp>
 #include <sgpp/datadriven/application/LearnerBase.hpp>
 #include <sgpp/globaldef.hpp>
-#include <sgpp/solver/sle/BiCGStab.hpp>
-#include <sgpp/solver/sle/ConjugateGradients.hpp>
+#include <sgpp/solver/sle/native/iterative/BiCGStab.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
 
 #include <iostream>
 #include <string>

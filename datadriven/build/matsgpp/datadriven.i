@@ -4,7 +4,7 @@
 // sgpp.sparsegrids.org
 
 %{
-#include <sgpp/solver/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
 %}
 
 // base class is not exported from the configuration

@@ -18,13 +18,13 @@
 #include <sgpp/datadriven/algorithm/DMSystemMatrix.hpp>
 #include <sgpp/datadriven/application/RegressionLearner.hpp>
 #include <sgpp/pde/operation/PdeOpFactory.hpp>
-#include <sgpp/solver/sle/BiCGStab.hpp>
-#include <sgpp/solver/sle/ConjugateGradients.hpp>
-#include <sgpp/solver/sle/fista/ElasticNetFunction.hpp>
-#include <sgpp/solver/sle/fista/Fista.hpp>
-#include <sgpp/solver/sle/fista/GroupLassoFunction.hpp>
-#include <sgpp/solver/sle/fista/LassoFunction.hpp>
-#include <sgpp/solver/sle/fista/RidgeFunction.hpp>
+#include <sgpp/solver/sle/native/iterative/BiCGStab.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
+#include <sgpp/solver/optimization/regularizers/ElasticNetFunction.hpp>
+#include <sgpp/solver/optimization/fista/Fista.hpp>
+#include <sgpp/solver/optimization/regularizers/GroupLassoFunction.hpp>
+#include <sgpp/solver/optimization/regularizers/LassoFunction.hpp>
+#include <sgpp/solver/optimization/regularizers/RidgeFunction.hpp>
 #include <vector>
 
 namespace sgpp {

@@ -7,7 +7,7 @@
 
 #include <sgpp/base/datatypes/DataMatrix.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
-#include <sgpp/solver/SGSolver.hpp>
+#include <sgpp/solver/common/SGSolver.hpp>
 
 namespace sgpp {
 namespace datadriven {

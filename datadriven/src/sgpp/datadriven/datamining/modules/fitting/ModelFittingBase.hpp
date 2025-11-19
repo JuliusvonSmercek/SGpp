@@ -14,8 +14,8 @@
 #include <sgpp/datadriven/datamining/modules/fitting/FitterConfiguration.hpp>
 #include <sgpp/datadriven/scalapack/BlacsProcessGrid.hpp>
 #include <sgpp/datadriven/tools/Dataset.hpp>
-#include <sgpp/solver/SLESolver.hpp>
-#include <sgpp/solver/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
 
 #include <sgpp/base/exception/application_exception.hpp>
 

@@ -7,18 +7,18 @@
 %rename(SolverModuleBiCGStab)           sgpp::solver::BiCGStab;
 
 // The Good, i.e. without any modifications
-%include "solver/src/sgpp/solver/SGSolver.hpp"
-%include "solver/src/sgpp/solver/SLESolver.hpp"
-%include "solver/src/sgpp/solver/ODESolver.hpp"
+%include "solver/src/sgpp/solver/common/SGSolver.hpp"
+%include "solver/src/sgpp/solver/sle/common/SLESolver.hpp"
+%include "solver/src/sgpp/solver/ode/ODESolver.hpp"
 %feature("director") ConjugateGradients;
-%include "solver/src/sgpp/solver/sle/ConjugateGradients.hpp"
-%include "solver/src/sgpp/solver/sle/BiCGStab.hpp"
-%include "solver/src/sgpp/solver/ode/Euler.hpp"
-%include "solver/src/sgpp/solver/ode/CrankNicolson.hpp"
-%include "solver/src/sgpp/solver/TypesSolver.hpp"
-%include "solver/src/sgpp/solver/SLESolverTypeParser.hpp"
+%include "solver/src/sgpp/solver/sle/native/iterative/ConjugateGradients.hpp"
+%include "solver/src/sgpp/solver/sle/native/iterative/BiCGStab.hpp"
+%include "solver/src/sgpp/solver/ode/integrators/Euler.hpp"
+%include "solver/src/sgpp/solver/ode/integrators/CrankNicolson.hpp"
+%include "solver/src/sgpp/solver/sle/common/TypesSolver.hpp"
+%include "solver/src/sgpp/solver/sle/common/SLESolverTypeParser.hpp"
 
-%include "solver/src/sgpp/solver/operation/hash/OperationParabolicPDESolverSystem.hpp"
+%include "solver/src/sgpp/solver/pde/OperationParabolicPDESolverSystem.hpp"
 
 %apply std::string *INPUT { std::string& istr };
 

@@ -7,7 +7,7 @@
 
 #include <sgpp/globaldef.hpp>
 #include <sgpp/base/grid/Grid.hpp>
-#include <sgpp/solver/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
 #include <sgpp/base/tools/json/JSON.hpp>
 
 #include <string>

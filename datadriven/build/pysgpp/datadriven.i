@@ -13,7 +13,7 @@
 %shared_ptr(sgpp::datadriven::KDEMaximumLikelihoodCrossValidation)
 
 %{
-#include <sgpp/solver/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
 %}
 
 // base class is not exported from the configuration

@@ -34,8 +34,8 @@
 #include <sgpp/datadriven/datamining/modules/scoring/ScorerMetricTypeParser.hpp>
 #include <sgpp/datadriven/datamining/modules/visualization/VisualizationTypesParser.hpp>
 
-#include <sgpp/solver/TypesSolver.hpp>
-#include <sgpp/solver/SLESolverTypeParser.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/SLESolverTypeParser.hpp>
 
 #include <string>
 #include <vector>

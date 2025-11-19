@@ -16,9 +16,9 @@
 #include <sgpp/datadriven/algorithm/DMSystemMatrixBase.hpp>
 #include <sgpp/datadriven/configuration/RegularizationConfiguration.hpp>
 #include <sgpp/globaldef.hpp>
-#include <sgpp/solver/SLESolver.hpp>
-#include <sgpp/solver/TypesSolver.hpp>
-#include <sgpp/solver/sle/fista/FistaBase.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
+#include <sgpp/solver/optimization/fista/FistaBase.hpp>
 #include <utility>
 #include <vector>
 

@@ -14,8 +14,8 @@
 #include <sgpp/base/tools/GridPrinter.hpp>
 #include <sgpp/base/tools/PrecisionConverter.hpp>
 
-#include <sgpp/solver/sle/BiCGStabSP.hpp>
-#include <sgpp/solver/sle/ConjugateGradientsSP.hpp>
+#include <sgpp/solver/sle/native/iterative/BiCGStabSP.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradientsSP.hpp>
 
 #include <sgpp/datadriven/application/LearnerBaseSP.hpp>
 

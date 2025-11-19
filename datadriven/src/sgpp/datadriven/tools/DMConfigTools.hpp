@@ -15,7 +15,7 @@
 #include <sgpp/datadriven/configuration/MatrixDecompositionTypeParser.hpp>
 #include <sgpp/datadriven/configuration/RegularizationTypeParser.hpp>
 
-#include <sgpp/solver/SLESolverTypeParser.hpp>
+#include <sgpp/solver/sle/common/SLESolverTypeParser.hpp>
 
 namespace sgpp {
 namespace datadriven {

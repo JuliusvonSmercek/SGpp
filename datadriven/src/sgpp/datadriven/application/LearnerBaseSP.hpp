@@ -10,7 +10,7 @@
 #include <sgpp/base/datatypes/DataMatrixSP.hpp>
 #include <sgpp/base/tools/PrecisionConverter.hpp>
 
-#include <sgpp/solver/SLESolverSP.hpp>
+#include <sgpp/solver/sle/common/SLESolverSP.hpp>
 
 #include <sgpp/datadriven/algorithm/DMSystemMatrixBaseSP.hpp>
 #include <sgpp/datadriven/tools/TypesDatadriven.hpp>

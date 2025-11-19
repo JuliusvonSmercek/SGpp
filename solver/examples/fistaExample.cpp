@@ -14,10 +14,10 @@
 #include <sgpp/base/datatypes/DataMatrix.hpp>
 #include <sgpp/base/grid/Grid.hpp>
 #include <sgpp/base/operation/BaseOpFactory.hpp>
-#include <sgpp/solver/sle/fista/Fista.hpp>
-#include <sgpp/solver/sle/fista/ZeroFunction.hpp>
-#include <sgpp/solver/sle/fista/LassoFunction.hpp>
-#include <sgpp/solver/sle/fista/ElasticNetFunction.hpp>
+#include <sgpp/solver/optimization/fista/Fista.hpp>
+#include <sgpp/solver/optimization/regularizers/ZeroFunction.hpp>
+#include <sgpp/solver/optimization/regularizers/LassoFunction.hpp>
+#include <sgpp/solver/optimization/regularizers/ElasticNetFunction.hpp>
 
 #include <cmath>
 #include <vector>
