@@ -160,24 +160,24 @@ BOOST_AUTO_TEST_CASE(TestSLESolvers) {
   const size_t m = 4;
 
   // default solvers
-  std::vector<std::unique_ptr<sgpp::solver::MySLESolver>> solvers;
-  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::MyBiCGStab()));
+  std::vector<std::unique_ptr<sgpp::solver::SLESolver>> solvers;
+  solvers.push_back(std::unique_ptr<sgpp::solver::SLESolver>(new sgpp::solver::MyBiCGStab()));
   solvers.push_back(
-      std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::GaussianElimination()));
-  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::Auto()));
+      std::unique_ptr<sgpp::solver::SLESolver>(new sgpp::solver::GaussianElimination()));
+  solvers.push_back(std::unique_ptr<sgpp::solver::SLESolver>(new sgpp::solver::Auto()));
 
   // additional solvers if sgpp::opt was compiled with them
 #ifdef USE_ARMADILLO
-  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::Armadillo()));
+  solvers.push_back(std::unique_ptr<sgpp::solver::SLESolver>(new sgpp::solver::Armadillo()));
 #endif /* USE_ARMADILLO */
 #ifdef USE_EIGEN
-  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::Eigen()));
+  solvers.push_back(std::unique_ptr<sgpp::solver::SLESolver>(new sgpp::solver::Eigen()));
 #endif /* USE_EIGEN */
 #ifdef USE_GMMPP
-  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::Gmmpp()));
+  solvers.push_back(std::unique_ptr<sgpp::solver::SLESolver>(new sgpp::solver::Gmmpp()));
 #endif /* USE_GMMPP */
 #ifdef USE_UMFPACK
-  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::UMFPACK()));
+  solvers.push_back(std::unique_ptr<sgpp::solver::SLESolver>(new sgpp::solver::UMFPACK()));
 #endif /* USE_UMFPACK */
 
   // test getters/setters

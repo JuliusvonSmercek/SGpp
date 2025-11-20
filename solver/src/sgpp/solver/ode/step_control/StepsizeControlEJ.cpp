@@ -33,7 +33,7 @@ StepsizeControlEJ::StepsizeControlEJ(std::string odesolver, size_t nTimesteps, d
 
 StepsizeControlEJ::~StepsizeControlEJ() {}
 
-void StepsizeControlEJ::predictor(SLESolver& LinearSystemSolver,
+void StepsizeControlEJ::predictor(IterativeSLESolver& LinearSystemSolver,
                                   sgpp::solver::OperationParabolicPDESolverSystem& System,
                                   double tmp_timestepsize, sgpp::base::DataVector& dv,
                                   sgpp::base::DataVector& corr, sgpp::base::DataVector* rhs) {
@@ -43,7 +43,7 @@ void StepsizeControlEJ::predictor(SLESolver& LinearSystemSolver,
   dv.add(corr);
 }
 
-void StepsizeControlEJ::corrector(SLESolver& LinearSystemSolver,
+void StepsizeControlEJ::corrector(IterativeSLESolver& LinearSystemSolver,
                                   sgpp::solver::OperationParabolicPDESolverSystem& System,
                                   double tmp_timestepsize, sgpp::base::DataVector& dv,
                                   sgpp::base::DataVector* rhs) {

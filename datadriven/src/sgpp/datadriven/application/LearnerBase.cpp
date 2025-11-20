@@ -164,7 +164,7 @@ LearnerTiming LearnerBase::train(sgpp::base::DataMatrix& trainDataset,
     throw base::application_exception("error: couldn't create DMSystem");
   }
 
-  std::unique_ptr<sgpp::solver::SLESolver> myCG;
+  std::unique_ptr<sgpp::solver::IterativeSLESolver> myCG;
 
   if (SolverConfigRefine.type_ == sgpp::solver::SLESolverType::CG) {
     myCG = std::make_unique<sgpp::solver::ConjugateGradients>(SolverConfigRefine.maxIterations_,

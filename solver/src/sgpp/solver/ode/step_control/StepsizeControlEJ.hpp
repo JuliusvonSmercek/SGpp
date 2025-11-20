@@ -27,12 +27,12 @@ namespace solver {
  */
 class StepsizeControlEJ : public StepsizeControl {
  private:
-  virtual void predictor(SLESolver& LinearSystemSolver,
+  virtual void predictor(IterativeSLESolver& LinearSystemSolver,
                          sgpp::solver::OperationParabolicPDESolverSystem& System,
                          double tmp_timestepsize, sgpp::base::DataVector& dv,
                          sgpp::base::DataVector& corr, sgpp::base::DataVector* rhs);
 
-  virtual void corrector(SLESolver& LinearSystemSolver,
+  virtual void corrector(IterativeSLESolver& LinearSystemSolver,
                          sgpp::solver::OperationParabolicPDESolverSystem& System,
                          double tmp_timestepsize, sgpp::base::DataVector& dv,
                          sgpp::base::DataVector* rhs);

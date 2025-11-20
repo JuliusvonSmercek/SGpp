@@ -31,7 +31,7 @@
 #include <sgpp/solver/sle/external/Auto.hpp>
 #include <sgpp/solver/sle/external/Eigen.hpp>
 #include <sgpp/solver/sle/native/direct/GaussianElimination.hpp>
-#include <sgpp/solver/sle/common/MySLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 #include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
 #include <sgpp/optimization/function/scalar/ResponseSurface.hpp>
 #include <sgpp/optimization/gridgen/IterativeGridGeneratorRitterNovak.hpp>

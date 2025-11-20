@@ -3,55 +3,76 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
-#ifndef SLESOLVER_HPP
-#define SLESOLVER_HPP
+#pragma once
 
+#include <sgpp/base/datatypes/DataMatrix.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
-#include <sgpp/base/operation/hash/OperationMatrix.hpp>
-
-#include <sgpp/solver/common/SGSolver.hpp>
-
-#ifndef DEFAULT_RES_THRESHOLD
-#define DEFAULT_RES_THRESHOLD -1.0
-#endif
+#include <sgpp/base/grid/sle/SLE.hpp>
 
 #include <sgpp/globaldef.hpp>
+
+#include <vector>
 
 namespace sgpp {
 namespace solver {
 
-class SLESolver : public SGSolver {
+/**
+ * Abstract class for solving systems of linear equations.
+ */
+class SLESolver {
  public:
   /**
-   * Std-Constructor
-   *
-   * @param imax number of maximum executed iterations
-   * @param epsilon the final error in the iterative solver
+   * Constructor.
    */
-  SLESolver(size_t imax, double epsilon) : SGSolver(imax, epsilon) {}
+  SLESolver() {}
 
   /**
-   * Std-Destructor
+   * Destructor.
    */
   virtual ~SLESolver() {}
 
   /**
-   * Pure virtual Function that defines a solve method for an iterative solver
+   * Pure virtual method for a solving linear system.
    *
-   * @param SystemMatrix reference to an sgpp::base::OperationMatrix Object that implements the
-   * matrix vector multiplication
-   * @param alpha the sparse grid's coefficients which have to be determined
-   * @param b the right hand side of the system of linear equations
-   * @param reuse identifies if the alphas, stored in alpha at calling time, should be reused
-   * @param verbose prints information during execution of the solver
-   * @param max_threshold additional abort criteria for solver, default value is 10^-9!
+   * @param       system  system to be solved
+   * @param       b       right-hand side
+   * @param[out]  x       solution to the system
+   * @return              whether all went well
+   *                      (false if errors occurred)
    */
-  virtual void solve(sgpp::base::OperationMatrix& SystemMatrix, sgpp::base::DataVector& alpha,
-                     sgpp::base::DataVector& b, bool reuse = false, bool verbose = false,
-                     double max_threshold = DEFAULT_RES_THRESHOLD) = 0;
-};
+  virtual bool solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const = 0;
 
+  /**
+   * Virtual method for solving multiple linear systems with
+   * different right-hand sides.
+   * Defaults to calling the solve() method for a single
+   * right-hand side multiple times.
+   *
+   * @param       system  system to be solved
+   * @param       B       matrix of right-hand sides
+   * @param[out]  X       matrix of solutions to the systems
+   * @return              whether all went well
+   *                      (false if errors occurred)
+   */
+  virtual bool solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) const {
+    const size_t n = system.getDimension();
+    const size_t m = B.getNcols();
+    base::DataVector b(n);
+    base::DataVector x(n);
+    X.resize(n, m);
+
+    for (size_t i = 0; i < m; i++) {
+      B.getColumn(i, b);
+
+      if (solve(system, b, x)) {
+        X.setColumn(i, x);
+      } else {
+        return false;
+      }
+    }
+
+    return true;
+  }
+};
 }  // namespace solver
 }  // namespace sgpp
-
-#endif /* SLESOLVER_HPP */

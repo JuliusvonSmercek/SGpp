@@ -32,7 +32,7 @@ StepsizeControlH::StepsizeControlH(std::string odesolver, size_t imax, double ti
 
 StepsizeControlH::~StepsizeControlH() {}
 
-void StepsizeControlH::predictor(SLESolver& LinearSystemSolver,
+void StepsizeControlH::predictor(IterativeSLESolver& LinearSystemSolver,
                                  sgpp::solver::OperationParabolicPDESolverSystem& System,
                                  double tmp_timestepsize, sgpp::base::DataVector& dv,
                                  sgpp::base::DataVector& corr, sgpp::base::DataVector* rhs) {
@@ -53,7 +53,7 @@ void StepsizeControlH::predictor(SLESolver& LinearSystemSolver,
   System.abortTimestep();
 }
 
-void StepsizeControlH::corrector(SLESolver& LinearSystemSolver,
+void StepsizeControlH::corrector(IterativeSLESolver& LinearSystemSolver,
                                  sgpp::solver::OperationParabolicPDESolverSystem& System,
                                  double tmp_timestepsize, sgpp::base::DataVector& dv,
                                  sgpp::base::DataVector* rhs) {

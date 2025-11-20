@@ -12,7 +12,7 @@
 namespace sgpp {
 namespace solver {
 
-BiCGStab::BiCGStab(size_t imax, double epsilon) : SLESolver(imax, epsilon) {}
+BiCGStab::BiCGStab(size_t imax, double epsilon) : IterativeSLESolver(imax, epsilon) {}
 
 BiCGStab::~BiCGStab() {}
 

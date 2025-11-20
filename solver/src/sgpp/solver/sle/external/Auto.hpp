@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <sgpp/solver/sle/common/MySLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
 
@@ -17,7 +17,7 @@ namespace solver {
 /**
  * Automatic choice of external linear solver.
  */
-class Auto : public MySLESolver {
+class Auto : public SLESolver {
  public:
   /// maximal matrix dimension to allow use of full solvers
   static const size_t MAX_DIM_FOR_FULL = 30000;

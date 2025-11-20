@@ -8,16 +8,16 @@
 
 #include <sgpp/base/datatypes/DataVector.hpp>
 
-#include <sgpp/solver/common/SGSolver.hpp>
+#include <sgpp/solver/common/IterativeSGSolver.hpp>
 #include <sgpp/solver/pde/OperationParabolicPDESolverSystem.hpp>
-#include <sgpp/solver/sle/common/SLESolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
 
 namespace sgpp {
 namespace solver {
 
-class ODESolver : public SGSolver {
+class ODESolver : public IterativeSGSolver {
  public:
   /**
    * Std-Constructor
@@ -25,7 +25,7 @@ class ODESolver : public SGSolver {
    * @param imax number of maximum executed iterations
    * @param timestepSize the size of one timestep
    */
-  ODESolver(size_t imax, double timestepSize) : SGSolver(imax, timestepSize) {}
+  ODESolver(size_t imax, double timestepSize) : IterativeSGSolver(imax, timestepSize) {}
 
   /**
    * Std-Destructor
@@ -42,7 +42,7 @@ class ODESolver : public SGSolver {
    * @param bIdentifyLastStep set this to true to tell System the last step
    * @param verbose prints information during execution of the solver
    */
-  virtual void solve(SLESolver& LinearSystemSolver,
+  virtual void solve(IterativeSLESolver& LinearSystemSolver,
                      sgpp::solver::OperationParabolicPDESolverSystem& System,
                      bool bIdentifyLastStep = false, bool verbose = false) = 0;
 };

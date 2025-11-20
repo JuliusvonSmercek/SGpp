@@ -31,7 +31,7 @@ Euler::Euler(std::string Mode, size_t imax, double timestepSize, bool generateAn
 
 Euler::~Euler() {}
 
-void Euler::solve(SLESolver& LinearSystemSolver,
+void Euler::solve(IterativeSLESolver& LinearSystemSolver,
                   sgpp::solver::OperationParabolicPDESolverSystem& System, bool bIdentifyLastStep,
                   bool verbose) {
   size_t allIter = 0;

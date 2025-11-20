@@ -20,7 +20,7 @@ CrankNicolson::CrankNicolson(size_t nTimesteps, double timestepSize,
 
 CrankNicolson::~CrankNicolson() {}
 
-void CrankNicolson::solve(SLESolver& LinearSystemSolver,
+void CrankNicolson::solve(IterativeSLESolver& LinearSystemSolver,
                           sgpp::solver::OperationParabolicPDESolverSystem& System,
                           bool bIdentifyLastStep, bool verbose) {
   size_t allIter = 0;

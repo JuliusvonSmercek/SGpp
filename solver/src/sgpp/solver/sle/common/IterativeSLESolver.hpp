@@ -3,13 +3,13 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
-#ifndef SLESOLVERSP_HPP
-#define SLESOLVERSP_HPP
+#ifndef SLESOLVER_HPP
+#define SLESOLVER_HPP
 
-#include <sgpp/base/datatypes/DataVectorSP.hpp>
-#include <sgpp/base/operation/hash/OperationMatrixSP.hpp>
+#include <sgpp/base/datatypes/DataVector.hpp>
+#include <sgpp/base/operation/hash/OperationMatrix.hpp>
 
-#include <sgpp/solver/common/SGSolverSP.hpp>
+#include <sgpp/solver/common/IterativeSGSolver.hpp>
 
 #ifndef DEFAULT_RES_THRESHOLD
 #define DEFAULT_RES_THRESHOLD -1.0
@@ -20,7 +20,7 @@
 namespace sgpp {
 namespace solver {
 
-class SLESolverSP : public SGSolverSP {
+class IterativeSLESolver : public IterativeSGSolver {
  public:
   /**
    * Std-Constructor
@@ -28,12 +28,12 @@ class SLESolverSP : public SGSolverSP {
    * @param imax number of maximum executed iterations
    * @param epsilon the final error in the iterative solver
    */
-  SLESolverSP(size_t imax, float epsilon) : SGSolverSP(imax, epsilon) {}
+  IterativeSLESolver(size_t imax, double epsilon) : IterativeSGSolver(imax, epsilon) {}
 
   /**
    * Std-Destructor
    */
-  virtual ~SLESolverSP() {}
+  virtual ~IterativeSLESolver() {}
 
   /**
    * Pure virtual Function that defines a solve method for an iterative solver
@@ -46,9 +46,9 @@ class SLESolverSP : public SGSolverSP {
    * @param verbose prints information during execution of the solver
    * @param max_threshold additional abort criteria for solver, default value is 10^-9!
    */
-  virtual void solve(sgpp::base::OperationMatrixSP& SystemMatrix, sgpp::base::DataVectorSP& alpha,
-                     sgpp::base::DataVectorSP& b, bool reuse = false, bool verbose = false,
-                     float max_threshold = DEFAULT_RES_THRESHOLD) = 0;
+  virtual void solve(sgpp::base::OperationMatrix& SystemMatrix, sgpp::base::DataVector& alpha,
+                     sgpp::base::DataVector& b, bool reuse = false, bool verbose = false,
+                     double max_threshold = DEFAULT_RES_THRESHOLD) = 0;
 };
 
 }  // namespace solver

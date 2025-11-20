@@ -26,7 +26,7 @@ AdamsBashforth::AdamsBashforth(size_t imax, double timestepSize, sgpp::base::Scr
 
 AdamsBashforth::~AdamsBashforth() {}
 
-void AdamsBashforth::solve(SLESolver& LinearSystemSolver,
+void AdamsBashforth::solve(IterativeSLESolver& LinearSystemSolver,
                            sgpp::solver::OperationParabolicPDESolverSystem& System,
                            bool bIdentifyLastStep, bool verbose) {
   size_t allIter = 0;

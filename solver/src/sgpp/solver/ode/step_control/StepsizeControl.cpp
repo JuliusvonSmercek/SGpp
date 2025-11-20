@@ -91,7 +91,7 @@ double StepsizeControl::maxNorm(sgpp::solver::OperationParabolicPDESolverSystem&
 
   return max;
 }
-void StepsizeControl::solve(SLESolver& LinearSystemSolver,
+void StepsizeControl::solve(IterativeSLESolver& LinearSystemSolver,
                             sgpp::solver::OperationParabolicPDESolverSystem& System,
                             bool bIdentifyLastStep, bool verbose) {
   size_t allIter = 0;

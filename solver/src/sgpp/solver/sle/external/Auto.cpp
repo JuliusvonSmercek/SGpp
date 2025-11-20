@@ -34,8 +34,8 @@ namespace solver {
  * @param solvers   vector of solvers
  * @param supports  map indicating which solvers are supported
  */
-void addSLESolver(MySLESolver* solver, std::vector<MySLESolver*>& solvers,
-                  const std::map<MySLESolver*, bool>& supports) {
+void addSLESolver(SLESolver* solver, std::vector<SLESolver*>& solvers,
+                  const std::map<SLESolver*, bool>& supports) {
   // add solver if it's supported and not already in the vector
   if ((supports.at(solver)) &&
       (std::find(solvers.begin(), solvers.end(), solver) == solvers.end())) {
@@ -69,7 +69,7 @@ bool Auto::solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) co
   MyBiCGStab solverBiCGStab;
   GaussianElimination solverGaussianElimination;
 
-  std::map<MySLESolver*, bool> supports;
+  std::map<SLESolver*, bool> supports;
 
   // by default, only MyBiCGStab and GaussianElimination supported
   supports[&solverArmadillo] = false;
@@ -97,7 +97,7 @@ bool Auto::solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) co
 
   // solvers to be used, the solver which should be tried first
   // should be the first element
-  std::vector<MySLESolver*> solvers;
+  std::vector<SLESolver*> solvers;
   const size_t n = system.getDimension();
 
   if (supports[&solverUMFPACK] || supports[&solverGmmpp]) {

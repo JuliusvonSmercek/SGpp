@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <sgpp/solver/sle/common/MySLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
 
@@ -17,7 +17,7 @@ namespace solver {
 /**
  * Linear system solver using Armadillo (direct full solver).
  */
-class Armadillo : public MySLESolver {
+class Armadillo : public SLESolver {
  public:
   /**
    * Destructor.

@@ -35,7 +35,7 @@ VarTimestep::VarTimestep(std::string pred, std::string corr, size_t imax, double
 
 VarTimestep::~VarTimestep() {}
 
-void VarTimestep::predictor(SLESolver& LinearSystemSolver,
+void VarTimestep::predictor(IterativeSLESolver& LinearSystemSolver,
                             sgpp::solver::OperationParabolicPDESolverSystem& System,
                             double tmp_timestepsize, sgpp::base::DataVector& dv,
                             sgpp::base::DataVector& corr, sgpp::base::DataVector* rhs) {
@@ -58,7 +58,7 @@ void VarTimestep::predictor(SLESolver& LinearSystemSolver,
   System.abortTimestep();
 }
 
-void VarTimestep::corrector(SLESolver& LinearSystemSolver,
+void VarTimestep::corrector(IterativeSLESolver& LinearSystemSolver,
                             sgpp::solver::OperationParabolicPDESolverSystem& System,
                             double tmp_timestepsize, sgpp::base::DataVector& dv,
                             sgpp::base::DataVector* rhs) {

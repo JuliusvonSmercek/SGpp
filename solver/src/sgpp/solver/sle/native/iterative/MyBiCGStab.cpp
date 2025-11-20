@@ -19,7 +19,7 @@ MyBiCGStab::MyBiCGStab()
     : MyBiCGStab(DEFAULT_MAX_IT_COUNT, DEFAULT_TOLERANCE, base::DataVector(0)) {}
 
 MyBiCGStab::MyBiCGStab(size_t maxItCount, double tolerance, const base::DataVector& x0)
-    : MySLESolver(), N(maxItCount), tol(tolerance), x0(x0) {}
+    : SLESolver(), N(maxItCount), tol(tolerance), x0(x0) {}
 
 MyBiCGStab::~MyBiCGStab() {}
 

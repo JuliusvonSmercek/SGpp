@@ -3,12 +3,12 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
-%rename(SolverModuleSLESolver)          sgpp::solver::SLESolver;
+%rename(SolverModuleSLESolver)          sgpp::solver::IterativeSLESolver;
 %rename(SolverModuleBiCGStab)           sgpp::solver::BiCGStab;
 
 // The Good, i.e. without any modifications
-%include "solver/src/sgpp/solver/common/SGSolver.hpp"
-%include "solver/src/sgpp/solver/sle/common/SLESolver.hpp"
+%include "solver/src/sgpp/solver/common/IterativeSGSolver.hpp"
+%include "solver/src/sgpp/solver/sle/common/IterativeSLESolver.hpp"
 %include "solver/src/sgpp/solver/ode/ODESolver.hpp"
 %feature("director") ConjugateGradients;
 %include "solver/src/sgpp/solver/sle/native/iterative/ConjugateGradients.hpp"
@@ -20,7 +20,7 @@
 
 %include "solver/src/sgpp/solver/pde/OperationParabolicPDESolverSystem.hpp"
 
-%include "solver/src/sgpp/solver/sle/common/MySLESolver.hpp"
+%include "solver/src/sgpp/solver/sle/common/SLESolver.hpp"
 %include "solver/src/sgpp/solver/sle/external/Armadillo.hpp"
 %rename(AutoSLESolver) sgpp::solver::Auto;
 %include "solver/src/sgpp/solver/sle/external/Auto.hpp"

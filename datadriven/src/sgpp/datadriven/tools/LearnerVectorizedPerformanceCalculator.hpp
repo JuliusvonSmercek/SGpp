@@ -8,7 +8,7 @@
 
 #include <sgpp/base/grid/Grid.hpp>
 
-#include <sgpp/solver/sle/common/SLESolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
 

@@ -24,11 +24,11 @@ namespace solver {
  */
 class StepsizeControlH : public StepsizeControl {
  private:
-  void predictor(SLESolver& LinearSystemSolver,
+  void predictor(IterativeSLESolver& LinearSystemSolver,
                  sgpp::solver::OperationParabolicPDESolverSystem& System, double tmp_timestepsize,
                  sgpp::base::DataVector& dv, sgpp::base::DataVector& corr,
                  sgpp::base::DataVector* rhs);
-  void corrector(SLESolver& LinearSystemSolver,
+  void corrector(IterativeSLESolver& LinearSystemSolver,
                  sgpp::solver::OperationParabolicPDESolverSystem& System, double tmp_timestepsize,
                  sgpp::base::DataVector& dv, sgpp::base::DataVector* rhs);
 

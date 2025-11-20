@@ -162,7 +162,7 @@ LearnerTiming LearnerBaseSP::train(sgpp::base::DataMatrixSP& trainDataset,
   // check if System was created
   if (DMSystem == nullptr) return result;
 
-  sgpp::solver::SLESolverSP* myCG;
+  sgpp::solver::IterativeSLESolverSP* myCG;
 
   if (SolverConfigRefine.type_ == sgpp::solver::SLESolverType::CG) {
     myCG = new sgpp::solver::ConjugateGradientsSP(SolverConfigRefine.maxIterations_,

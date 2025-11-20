@@ -34,7 +34,7 @@ LevenbergMarquardt::LevenbergMarquardt(const base::VectorFunction& phi,
                                        const base::VectorFunctionGradient& phiGradient,
                                        size_t maxItCount, double tolerance, double damping,
                                        double acceptanceThreshold, double effectivenessThreshold,
-                                       const solver::MySLESolver& sleSolver)
+                                       const solver::SLESolver& sleSolver)
     : LeastSquaresOptimizer(phi, maxItCount),
       tol(tolerance),
       mu0(damping),

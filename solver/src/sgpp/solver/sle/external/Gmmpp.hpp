@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <sgpp/solver/sle/common/MySLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
 
@@ -17,7 +17,7 @@ namespace solver {
 /**
  * Linear system solver using Gmm++ (iterative sparse solver).
  */
-class Gmmpp : public MySLESolver {
+class Gmmpp : public SLESolver {
  public:
   /**
    * Destructor.

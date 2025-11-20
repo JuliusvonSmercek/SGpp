@@ -16,7 +16,7 @@
 #include <sgpp/datadriven/algorithm/DMSystemMatrixBase.hpp>
 #include <sgpp/datadriven/configuration/RegularizationConfiguration.hpp>
 #include <sgpp/globaldef.hpp>
-#include <sgpp/solver/sle/common/SLESolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
 #include <sgpp/solver/sle/common/TypesSolver.hpp>
 #include <sgpp/solver/optimization/fista/FistaBase.hpp>
 #include <utility>
@@ -38,8 +38,8 @@ class RegressionLearner {
    public:
     enum class solverCategory { cg, fista, none } type = solverCategory::none;
     Solver() {}
-    explicit Solver(std::unique_ptr<sgpp::solver::SLESolver>&& s) {  // NOLINT(build/c++11)
-      new (&solverCG) std::unique_ptr<sgpp::solver::SLESolver>{std::move(s)};
+    explicit Solver(std::unique_ptr<sgpp::solver::IterativeSLESolver>&& s) {  // NOLINT(build/c++11)
+      new (&solverCG) std::unique_ptr<sgpp::solver::IterativeSLESolver>{std::move(s)};
       type = solverCategory::cg;
     }
     explicit Solver(std::unique_ptr<sgpp::solver::FistaBase>&& s) {  // NOLINT(build/c++11)
@@ -95,7 +95,7 @@ class RegressionLearner {
     ~Solver() {
       switch (type) {
         case solverCategory::cg:
-          solverCG.~unique_ptr<sgpp::solver::SLESolver>();
+          solverCG.~unique_ptr<sgpp::solver::IterativeSLESolver>();
           break;
         case solverCategory::fista:
           solverFista.~unique_ptr<sgpp::solver::FistaBase>();
@@ -108,7 +108,7 @@ class RegressionLearner {
 
    private:
     union {
-      std::unique_ptr<sgpp::solver::SLESolver> solverCG;
+      std::unique_ptr<sgpp::solver::IterativeSLESolver> solverCG;
       std::unique_ptr<sgpp::solver::FistaBase> solverFista;
     };
   };

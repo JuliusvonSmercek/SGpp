@@ -38,7 +38,7 @@ AdaptiveNewton::AdaptiveNewton(const base::ScalarFunction& f,
                                double tolerance, double stepSizeIncreaseFactor,
                                double stepSizeDecreaseFactor, double dampingIncreaseFactor,
                                double dampingDecreaseFactor, double lineSearchAccuracy,
-                               const solver::MySLESolver& sleSolver)
+                               const solver::SLESolver& sleSolver)
     : UnconstrainedOptimizer(f, nullptr, &fHessian, maxItCount),
       theta(tolerance),
       rhoAlphaPlus(stepSizeIncreaseFactor),

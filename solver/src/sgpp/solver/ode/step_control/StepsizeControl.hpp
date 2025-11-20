@@ -37,11 +37,11 @@ class StepsizeControl : public ODESolver {
   /// epsilon for the step size control
   double myEps;
 
-  virtual void predictor(SLESolver& LinearSystemSolver,
+  virtual void predictor(IterativeSLESolver& LinearSystemSolver,
                          sgpp::solver::OperationParabolicPDESolverSystem& System,
                          double tmp_timestepsize, sgpp::base::DataVector& dv,
                          sgpp::base::DataVector& corr, sgpp::base::DataVector* rhs) = 0;
-  virtual void corrector(SLESolver& LinearSystemSolver,
+  virtual void corrector(IterativeSLESolver& LinearSystemSolver,
                          sgpp::solver::OperationParabolicPDESolverSystem& System,
                          double tmp_timestepsize, sgpp::base::DataVector& dv,
                          sgpp::base::DataVector* rhs) = 0;
@@ -82,7 +82,7 @@ class StepsizeControl : public ODESolver {
    */
   virtual ~StepsizeControl();
 
-  void solve(SLESolver& LinearSystemSolver, sgpp::solver::OperationParabolicPDESolverSystem& System,
+  void solve(IterativeSLESolver& LinearSystemSolver, sgpp::solver::OperationParabolicPDESolverSystem& System,
              bool bIdentifyLastStep = false, bool verbose = false);
 };
 

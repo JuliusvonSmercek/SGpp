@@ -204,7 +204,7 @@ void SplineResponseSurface::calculateInterpolationCoefficients() {
     /**
      * For spline basis use SLE
      **/
-    std::unique_ptr<sgpp::solver::MySLESolver> sleSolver;
+    std::unique_ptr<sgpp::solver::SLESolver> sleSolver;
 #ifdef USE_EIGEN
     // sgpp::solver::Eigen sleSolver;
     sleSolver.reset(new sgpp::solver::Eigen());

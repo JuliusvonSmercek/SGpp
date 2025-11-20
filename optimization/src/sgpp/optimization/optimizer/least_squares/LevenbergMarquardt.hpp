@@ -69,7 +69,7 @@ class LevenbergMarquardt : public LeastSquaresOptimizer {
   LevenbergMarquardt(const base::VectorFunction& phi,
                      const base::VectorFunctionGradient& phiGradient, size_t maxItCount,
                      double tolerance, double initialDamping, double acceptanceThreshold,
-                     double effectivenessThreshold, const solver::MySLESolver& sleSolver);
+                     double effectivenessThreshold, const solver::SLESolver& sleSolver);
 
   /**
    * Copy constructor.
@@ -149,7 +149,7 @@ class LevenbergMarquardt : public LeastSquaresOptimizer {
   /// default linear solver
   const solver::GaussianElimination defaultSleSolver;
   /// linear solver
-  const solver::MySLESolver& sleSolver;
+  const solver::SLESolver& sleSolver;
 };
 }  // namespace optimizer
 }  // namespace optimization

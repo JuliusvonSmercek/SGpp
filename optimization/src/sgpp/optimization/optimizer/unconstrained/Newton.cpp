@@ -37,7 +37,7 @@ Newton::Newton(const base::ScalarFunction& f, const base::ScalarFunctionHessian&
 
 Newton::Newton(const base::ScalarFunction& f, const base::ScalarFunctionHessian& fHessian,
                size_t max_it_count, double beta, double gamma, double tolerance, double epsilon,
-               double alpha1, double alpha2, double p, const solver::MySLESolver& sleSolver)
+               double alpha1, double alpha2, double p, const solver::SLESolver& sleSolver)
     : UnconstrainedOptimizer(f, nullptr, &fHessian, max_it_count),
       beta(beta),
       gamma(gamma),

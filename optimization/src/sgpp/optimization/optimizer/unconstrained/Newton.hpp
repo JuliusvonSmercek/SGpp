@@ -10,7 +10,7 @@
 
 #include <sgpp/base/function/scalar/ScalarFunctionHessian.hpp>
 #include <sgpp/solver/sle/native/direct/GaussianElimination.hpp>
-#include <sgpp/solver/sle/common/MySLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 #include <sgpp/optimization/optimizer/unconstrained/UnconstrainedOptimizer.hpp>
 
 #include <cstddef>
@@ -85,7 +85,7 @@ class Newton : public UnconstrainedOptimizer {
    */
   Newton(const base::ScalarFunction& f, const base::ScalarFunctionHessian& fHessian,
          size_t maxItCount, double beta, double gamma, double tolerance, double epsilon,
-         double alpha1, double alpha2, double p, const solver::MySLESolver& sleSolver);
+         double alpha1, double alpha2, double p, const solver::SLESolver& sleSolver);
 
   /**
    * Copy constructor.
@@ -194,7 +194,7 @@ class Newton : public UnconstrainedOptimizer {
   /// default linear solver
   const solver::GaussianElimination defaultSleSolver;
   /// linear solver
-  const solver::MySLESolver& sleSolver;
+  const solver::SLESolver& sleSolver;
 };
 }  // namespace optimizer
 }  // namespace optimization

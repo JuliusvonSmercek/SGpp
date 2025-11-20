@@ -9,7 +9,7 @@
 #include <sgpp/base/datatypes/DataVectorSP.hpp>
 #include <sgpp/base/operation/hash/OperationMatrixSP.hpp>
 
-#include <sgpp/solver/sle/common/SLESolverSP.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolverSP.hpp>
 
 #include <sgpp/globaldef.hpp>
 
@@ -18,7 +18,7 @@
 namespace sgpp {
 namespace solver {
 
-class BiCGStabSP : public SLESolverSP {
+class BiCGStabSP : public IterativeSLESolverSP {
  public:
   /**
    * Std-Constructor

@@ -8,7 +8,7 @@
 
 #include <sgpp/base/datatypes/DataVector.hpp>
 
-#include <sgpp/solver/sle/common/SLESolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
 
@@ -17,7 +17,7 @@
 namespace sgpp {
 namespace solver {
 
-class ConjugateGradients : public SLESolver {
+class ConjugateGradients : public IterativeSLESolver {
  public:
   /**
    * Std-Constructor

@@ -14,9 +14,9 @@
 #include <sgpp/datadriven/algorithm/DMSystemMatrixBase.hpp>
 #include <sgpp/datadriven/datamining/modules/fitting/FitterConfigurationLeastSquares.hpp>
 #include <sgpp/datadriven/operation/hash/DatadrivenOperationCommon.hpp>
-#include <sgpp/solver/sle/common/SLESolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
 
-using sgpp::solver::SLESolver;
+using sgpp::solver::IterativeSLESolver;
 using sgpp::base::DataMatrix;
 using sgpp::base::Grid;
 using sgpp::base::DataVector;
@@ -139,7 +139,7 @@ class ModelFittingLeastSquares : public ModelFittingBaseSingleGrid {
   /**
    * based on the current dataset and grid, assemble a system of linear equations and solve for the
    * hierarchical surplus vector alpha.
-   * @param solverConfig: Configuration of the SLESolver (refinement, or final solver).
+   * @param solverConfig: Configuration of the IterativeSLESolver (refinement, or final solver).
    * @param alpha: Reference to a data vector where hierarchical surpluses will be stored into. Make
    * sure the vector size is equal to the amount of grid points.
    */

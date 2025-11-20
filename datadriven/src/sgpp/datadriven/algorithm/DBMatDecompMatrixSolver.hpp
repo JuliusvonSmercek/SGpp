@@ -7,12 +7,12 @@
 
 #include <sgpp/base/datatypes/DataMatrix.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
-#include <sgpp/solver/common/SGSolver.hpp>
+#include <sgpp/solver/common/IterativeSGSolver.hpp>
 
 namespace sgpp {
 namespace datadriven {
 
-class DBMatDecompMatrixSolver : public sgpp::solver::SGSolver {
+class DBMatDecompMatrixSolver : public sgpp::solver::IterativeSGSolver {
  public:
   DBMatDecompMatrixSolver();
 };

@@ -14,7 +14,7 @@ namespace sgpp {
 namespace solver {
 
 ConjugateGradientsSP::ConjugateGradientsSP(size_t imax, float epsilon)
-    : SLESolverSP(imax, epsilon) {}
+    : IterativeSLESolverSP(imax, epsilon) {}
 
 ConjugateGradientsSP::~ConjugateGradientsSP() {}
 

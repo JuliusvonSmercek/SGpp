@@ -42,7 +42,7 @@ class AdamsBashforth : public ODESolver {
    */
   virtual ~AdamsBashforth();
 
-  virtual void solve(SLESolver& LinearSystemSolver,
+  virtual void solve(IterativeSLESolver& LinearSystemSolver,
                      sgpp::solver::OperationParabolicPDESolverSystem& System,
                      bool bIdentifyLastStep = false, bool verbose = false);
 };

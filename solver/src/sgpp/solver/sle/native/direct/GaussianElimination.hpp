@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <sgpp/solver/sle/common/MySLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 
 #include <cstddef>
 
@@ -15,7 +15,7 @@ namespace solver {
 /**
  * Linear system solver implementing the direct Gaussian elimination.
  */
-class GaussianElimination : public MySLESolver {
+class GaussianElimination : public SLESolver {
  public:
   /**
    * Destructor.

@@ -19,7 +19,7 @@
 
 #include <sgpp/solver/pde/OperationParabolicPDESolverSystem.hpp>
 
-#include <sgpp/solver/sle/common/MySLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 #include <sgpp/solver/sle/common/SLESolverTypeParser.hpp>
 #include <sgpp/solver/sle/common/TypesSolver.hpp>
 

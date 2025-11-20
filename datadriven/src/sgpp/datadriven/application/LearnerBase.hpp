@@ -8,7 +8,7 @@
 #include <sgpp/base/grid/Grid.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
 #include <sgpp/base/datatypes/DataMatrix.hpp>
-#include <sgpp/solver/sle/common/SLESolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
 #include <sgpp/datadriven/algorithm/DMSystemMatrixBase.hpp>
 #include <sgpp/datadriven/tools/TypesDatadriven.hpp>
 #include <sgpp/globaldef.hpp>

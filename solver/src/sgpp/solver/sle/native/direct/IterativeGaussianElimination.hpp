@@ -7,7 +7,7 @@
 
 #include <sgpp/base/datatypes/DataMatrix.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
-#include <sgpp/solver/sle/common/MySLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 
 #include <cstddef>
 #include <stdexcept>
@@ -27,7 +27,7 @@ namespace solver {
  * singularity is detected (pivot < tolerance) during an update, the solver automatically
  * performs a complete recalculation from scratch to ensure stability.
  */
-class IterativeGaussianElimination : public MySLESolver {
+class IterativeGaussianElimination : public SLESolver {
  public:
   /// Tolerance to detect near-zero pivots, which could indicate matrix degeneration.
   constexpr static const double DEGENERATION_TOLERANCE = 1e-9;

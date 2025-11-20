@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <sgpp/solver/sle/common/MySLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
 
@@ -19,7 +19,7 @@ namespace solver {
 /**
  * Linear system solver using UMFPACK (direct sparse solver).
  */
-class UMFPACK : public MySLESolver {
+class UMFPACK : public SLESolver {
  public:
   /**
    * Destructor.

@@ -6,7 +6,7 @@
 #pragma once
 
 #include <sgpp/base/datatypes/DataVector.hpp>
-#include <sgpp/solver/sle/common/MySLESolver.hpp>
+#include <sgpp/solver/sle/common/SLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
 
@@ -19,7 +19,7 @@ namespace solver {
 /**
  * Linear system solver implementing the iterative MyBiCGStab method.
  */
-class MyBiCGStab : public MySLESolver {
+class MyBiCGStab : public SLESolver {
  public:
   /// default maximal number of iterations
   static const size_t DEFAULT_MAX_IT_COUNT = 1000;

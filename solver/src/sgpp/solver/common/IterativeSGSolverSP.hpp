@@ -3,8 +3,8 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
-#ifndef SGSOLVER_HPP
-#define SGSOLVER_HPP
+#ifndef SGSOLVERSP_HPP
+#define SGSOLVERSP_HPP
 
 #include <sgpp/solver/sle/common/TypesSolver.hpp>
 
@@ -19,16 +19,16 @@ namespace solver {
  * Abstract class that defines a solver used in Sparse Grids
  * Applications
  */
-class SGSolver {
+class IterativeSGSolverSP {
  protected:
   /// Number of Iterations needed for the solve
   size_t nIterations;
   /// Number of maximum iterations for cg
   size_t nMaxIterations;
   /// residuum
-  double residuum;
+  float residuum;
   /// epsilon needed in the, e.g. final error in the iterative solver, or a timestep
-  double myEpsilon;
+  float myEpsilon;
 
  public:
   /**
@@ -37,7 +37,7 @@ class SGSolver {
    * @param nMaximumIterations number of maximum executed iterations
    * @param epsilon the final error in the iterative solver, or the size of one timestep
    */
-  SGSolver(size_t nMaximumIterations, double epsilon)
+  IterativeSGSolverSP(size_t nMaximumIterations, float epsilon)
       : nMaxIterations(nMaximumIterations), myEpsilon(epsilon) {
     nIterations = 0;
     residuum = 0.0;
@@ -46,7 +46,7 @@ class SGSolver {
   /**
    * Std-Destructor
    */
-  virtual ~SGSolver() {}
+  virtual ~IterativeSGSolverSP() {}
 
   /**
    * function that returns the number of needed solve steps
@@ -60,7 +60,7 @@ class SGSolver {
    *
    * @return the residuum
    */
-  double getResiduum() { return residuum; }
+  float getResiduum() { return residuum; }
 
   /**
    * resets the number of maximum iterations
@@ -70,21 +70,21 @@ class SGSolver {
   void setMaxIterations(size_t nIterations) { nMaxIterations = nIterations; }
 
   /**
-   * resets the epsilon, that is used in the SGSolver
+   * resets the epsilon, that is used in the IterativeSGSolver
    *
    * @param eps the new value of epsilon
    */
-  void setEpsilon(double eps) { myEpsilon = eps; }
+  void setEpsilon(float eps) { myEpsilon = eps; }
 
   /**
-   * gets the the epsilon, that is used in the SGSolver
+   * gets the the epsilon, that is used in the IterativeSGSolver
    *
    * @return the epsilon, used in the solver
    */
-  double getEpsilon() { return myEpsilon; }
+  float getEpsilon() { return myEpsilon; }
 };
 
 }  // namespace solver
 }  // namespace sgpp
 
-#endif /* SGSOLVER_HPP */
+#endif /* SGSOLVERSP_HPP */
