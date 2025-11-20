@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <sgpp/base/tools/sle/system/SLE.hpp>
+#include <sgpp/base/grid/sle/SLE.hpp>
 #include <sgpp/globaldef.hpp>
 
 #include <memory>

@@ -11,9 +11,9 @@
 #include <sgpp/base/grid/type/NakBsplineExtendedGrid.hpp>
 #include <sgpp/base/tools/Printer.hpp>
 #include <sgpp/base/tools/RandomNumberGenerator.hpp>
-//#include <sgpp/base/tools/sle/solver/Armadillo.hpp>
-#include <sgpp/base/tools/sle/solver/Auto.hpp>
-#include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
+//#include <sgpp/solver/sle/external/Armadillo.hpp>
+#include <sgpp/solver/sle/external/Auto.hpp>
+#include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
 
 BOOST_AUTO_TEST_SUITE(TestBasis)
 
@@ -49,8 +49,8 @@ void interpolate(size_t degree, size_t level, sgpp::base::WrapperScalarFunction 
   }
   alpha.resizeZero(gridStorage.getSize());
   sgpp::base::HierarchisationSLE hierSLE(*grid);
-  // sgpp::base::sle_solver::Armadillo sleSolver;
-  sgpp::base::sle_solver::Auto sleSolver;
+  // sgpp::solver::Armadillo sleSolver;
+  sgpp::solver::Auto sleSolver;
   if (!sleSolver.solve(hierSLE, f_values, alpha)) {
     std::cout << "Solving failed.\n";
     return;

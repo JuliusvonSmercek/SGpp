@@ -291,8 +291,8 @@ void SplineResponseSurfaceVector::calculateInterpolationCoefficients(bool verbos
     functionValues.setRow(i, evaluations);
   }
 
-  // sgpp::base::sle_solver::Armadillo sleSolver;
-  sgpp::base::sle_solver::Eigen sleSolver;
+  // sgpp::solver::Armadillo sleSolver;
+  sgpp::solver::Eigen sleSolver;
   sgpp::base::Printer::getInstance().setVerbosity(-1);
   sgpp::base::HierarchisationSLE hierSLE(*grid);
   if (!sleSolver.solve(hierSLE, functionValues, coefficients)) {

@@ -14,8 +14,9 @@
 #include <sgpp/base/tools/DistributionUniform.hpp>
 #include <sgpp/base/tools/DistributionsVector.hpp>
 #include <sgpp/base/tools/GridPrinter.hpp>
-#include <sgpp/base/tools/sle/solver/Eigen.hpp>
-#include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
+#include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
+
+#include <sgpp/solver/sle/external/Eigen.hpp>
 
 #include <algorithm>
 #include <cmath>

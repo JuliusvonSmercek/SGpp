@@ -5,24 +5,24 @@
 
 #pragma once
 
-#include <sgpp/base/tools/sle/solver/SLESolver.hpp>
+#include <sgpp/solver/sle/common/MySLESolver.hpp>
 
 #include <sgpp/globaldef.hpp>
+
 #include <vector>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 /**
- * Linear system solver using Armadillo (direct full solver).
+ * Linear system solver using Eigen (direct full solver).
  */
-class Armadillo : public SLESolver {
+class Eigen : public MySLESolver {
  public:
   /**
    * Destructor.
    */
-  ~Armadillo() override;
+  ~Eigen() override;
 
   /**
    * @param       system  system to be solved
@@ -31,7 +31,7 @@ class Armadillo : public SLESolver {
    * @return              whether all went well
    *                      (false if errors occurred)
    */
-  bool solve(SLE& system, DataVector& b, DataVector& x) const override;
+  bool solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const override;
 
   /**
    * @param       system  system to be solved
@@ -40,8 +40,7 @@ class Armadillo : public SLESolver {
    * @return              whether all went well
    *                      (false if errors occurred)
    */
-  bool solve(SLE& system, DataMatrix& B, DataMatrix& X) const override;
+  bool solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) const override;
 };
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

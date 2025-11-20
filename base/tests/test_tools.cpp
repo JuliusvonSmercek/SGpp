@@ -8,7 +8,7 @@
 
 #include <sgpp/base/tools/Printer.hpp>
 #include <sgpp/base/tools/RandomNumberGenerator.hpp>
-#include <sgpp/base/tools/sle/system/FullSLE.hpp>
+#include <sgpp/base/grid/sle/FullSLE.hpp>
 
 #include <string>
 #include <vector>

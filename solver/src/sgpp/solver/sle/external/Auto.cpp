@@ -4,14 +4,16 @@
 // sgpp.sparsegrids.org
 
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/solver/Armadillo.hpp>
-#include <sgpp/base/tools/sle/solver/Auto.hpp>
-#include <sgpp/base/tools/sle/solver/BiCGStab.hpp>
-#include <sgpp/base/tools/sle/solver/Eigen.hpp>
-#include <sgpp/base/tools/sle/solver/GaussianElimination.hpp>
-#include <sgpp/base/tools/sle/solver/IterativeGaussianElimination.hpp>
-#include <sgpp/base/tools/sle/solver/Gmmpp.hpp>
-#include <sgpp/base/tools/sle/solver/UMFPACK.hpp>
+
+#include <sgpp/solver/sle/external/Armadillo.hpp>
+#include <sgpp/solver/sle/external/Auto.hpp>
+#include <sgpp/solver/sle/external/Eigen.hpp>
+#include <sgpp/solver/sle/external/Gmmpp.hpp>
+#include <sgpp/solver/sle/external/UMFPACK.hpp>
+#include <sgpp/solver/sle/native/direct/GaussianElimination.hpp>
+#include <sgpp/solver/sle/native/direct/IterativeGaussianElimination.hpp>
+#include <sgpp/solver/sle/native/iterative/MyBiCGStab.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #include <algorithm>
@@ -21,8 +23,7 @@
 #include <vector>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 /**
  * Add a solver to the vector of solvers, if the solver is supported
@@ -33,8 +34,8 @@ namespace sle_solver {
  * @param solvers   vector of solvers
  * @param supports  map indicating which solvers are supported
  */
-void addSLESolver(SLESolver* solver, std::vector<SLESolver*>& solvers,
-                  const std::map<SLESolver*, bool>& supports) {
+void addSLESolver(MySLESolver* solver, std::vector<MySLESolver*>& solvers,
+                  const std::map<MySLESolver*, bool>& supports) {
   // add solver if it's supported and not already in the vector
   if ((supports.at(solver)) &&
       (std::find(solvers.begin(), solvers.end(), solver) == solvers.end())) {
@@ -44,9 +45,9 @@ void addSLESolver(SLESolver* solver, std::vector<SLESolver*>& solvers,
 
 Auto::~Auto() {}
 
-bool Auto::solve(SLE& system, DataVector& b, DataVector& x) const {
-  DataMatrix B(b.getPointer(), b.getSize(), 1);
-  DataMatrix X(B.getNrows(), B.getNcols());
+bool Auto::solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const {
+  base::DataMatrix B(b.getPointer(), b.getSize(), 1);
+  base::DataMatrix X(B.getNrows(), B.getNcols());
 
   // call version for multiple RHSs
   if (solve(system, B, X)) {
@@ -58,19 +59,19 @@ bool Auto::solve(SLE& system, DataVector& b, DataVector& x) const {
   }
 }
 
-bool Auto::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
-  Printer::getInstance().printStatusBegin("Solving linear system (automatic method)...");
+bool Auto::solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) const {
+  base::Printer::getInstance().printStatusBegin("Solving linear system (automatic method)...");
 
   Armadillo solverArmadillo;
   Eigen solverEigen;
   UMFPACK solverUMFPACK;
   Gmmpp solverGmmpp;
-  BiCGStab solverBiCGStab;
+  MyBiCGStab solverBiCGStab;
   GaussianElimination solverGaussianElimination;
 
-  std::map<SLESolver*, bool> supports;
+  std::map<MySLESolver*, bool> supports;
 
-  // by default, only BiCGStab and GaussianElimination supported
+  // by default, only MyBiCGStab and GaussianElimination supported
   supports[&solverArmadillo] = false;
   supports[&solverEigen] = false;
   supports[&solverUMFPACK] = false;
@@ -96,7 +97,7 @@ bool Auto::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
 
   // solvers to be used, the solver which should be tried first
   // should be the first element
-  std::vector<SLESolver*> solvers;
+  std::vector<MySLESolver*> solvers;
   const size_t n = system.getDimension();
 
   if (supports[&solverUMFPACK] || supports[&solverGmmpp]) {
@@ -107,7 +108,7 @@ bool Auto::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
     size_t nnz = 0;
     size_t inc = static_cast<size_t>(ESTIMATE_NNZ_ROWS_SAMPLE_SIZE * static_cast<double>(n)) + 1;
 
-    Printer::getInstance().printStatusUpdate("estimating sparsity pattern");
+    base::Printer::getInstance().printStatusUpdate("estimating sparsity pattern");
 
     for (size_t i = 0; i < n; i += inc) {
       nrows++;
@@ -127,8 +128,8 @@ bool Auto::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
     {
       char str[10];
       snprintf(str, sizeof(str), "%.1f%%", nnzRatio * 100.0);
-      Printer::getInstance().printStatusUpdate("estimated nnz ratio: " + std::string(str));
-      Printer::getInstance().printStatusNewLine();
+      base::Printer::getInstance().printStatusUpdate("estimated nnz ratio: " + std::string(str));
+      base::Printer::getInstance().printStatusNewLine();
     }
 
     if (nnzRatio <= MAX_NNZ_RATIO_FOR_SPARSE) {
@@ -157,11 +158,11 @@ bool Auto::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
     bool result = solvers[i]->solve(system, B, X);
 
     if (result) {
-      Printer::getInstance().printStatusEnd();
+      base::Printer::getInstance().printStatusEnd();
       return true;
     } else if ((solvers[i] == &solverGmmpp) && (n > MAX_DIM_FOR_FULL)) {
       // don't use full solvers and return approximative solution
-      Printer::getInstance().printStatusEnd(
+      base::Printer::getInstance().printStatusEnd(
           "warning: using non-converged solution of iterative "
           "solver, residual can be large "
           "(matrix too large to try other solvers)");
@@ -169,9 +170,8 @@ bool Auto::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
     }
   }
 
-  Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
+  base::Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
   return false;
 }
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

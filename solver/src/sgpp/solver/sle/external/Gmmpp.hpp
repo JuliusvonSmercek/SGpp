@@ -5,23 +5,24 @@
 
 #pragma once
 
-#include <sgpp/base/tools/sle/solver/SLESolver.hpp>
+#include <sgpp/solver/sle/common/MySLESolver.hpp>
 
-#include <cstddef>
+#include <sgpp/globaldef.hpp>
+
+#include <vector>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 /**
- * Linear system solver implementing the direct Gaussian elimination.
+ * Linear system solver using Gmm++ (iterative sparse solver).
  */
-class GaussianElimination : public SLESolver {
+class Gmmpp : public MySLESolver {
  public:
   /**
    * Destructor.
    */
-  ~GaussianElimination() override;
+  ~Gmmpp() override;
 
   /**
    * @param       system  system to be solved
@@ -30,8 +31,7 @@ class GaussianElimination : public SLESolver {
    * @return              whether all went well
    *                      (false if errors occurred)
    */
-  bool solve(SLE& system, DataVector& b, DataVector& x) const override;
+  bool solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const override;
 };
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

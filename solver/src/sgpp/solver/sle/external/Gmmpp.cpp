@@ -3,9 +3,10 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
+#include <sgpp/base/grid/sle/CloneableSLE.hpp>
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/solver/Gmmpp.hpp>
-#include <sgpp/base/tools/sle/system/CloneableSLE.hpp>
+#include <sgpp/solver/sle/external/Gmmpp.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #ifdef USE_GMMPP
@@ -19,8 +20,7 @@
 #include <vector>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 #ifdef USE_GMMPP
 /**
@@ -29,7 +29,7 @@ namespace sle_solver {
  * @param iter  iteration information
  */
 void callback(const gmm::iteration& iter) {
-  Printer::getInstance().printStatusUpdate(
+  base::Printer::getInstance().printStatusUpdate(
       "solving with Gmm++ (k = " + std::to_string(iter.get_iteration()) +
       ", residual norm = " + std::to_string(iter.get_res()) + ")");
 }
@@ -40,7 +40,7 @@ void callback(const gmm::iteration& iter) {
  * @param[out]  x   solution of the linear system
  * @return          whether all went well (false if errors occurred)
  */
-bool solveInternal(const gmm::csr_matrix<double>& A, DataVector& b, DataVector& x) {
+bool solveInternal(const gmm::csr_matrix<double>& A, base::DataVector& b, base::DataVector& x) {
   // allow warnings
   gmm::warning_level::level(1);
   const size_t n = b.getSize();
@@ -48,11 +48,11 @@ bool solveInternal(const gmm::csr_matrix<double>& A, DataVector& b, DataVector& 
   std::vector<double> xVec(n, 0.0);
 
   // ILU preconditioning
-  Printer::getInstance().printStatusUpdate("constructing preconditioner");
+  base::Printer::getInstance().printStatusUpdate("constructing preconditioner");
   gmm::ilu_precond<gmm::csr_matrix<double>> P(A);
 
-  Printer::getInstance().printStatusNewLine();
-  Printer::getInstance().printStatusUpdate("solving with Gmm++");
+  base::Printer::getInstance().printStatusNewLine();
+  base::Printer::getInstance().printStatusUpdate("solving with Gmm++");
 
   gmm::iteration iter(1e-6, 0, 10000);
   iter.set_callback(&callback);
@@ -65,42 +65,42 @@ bool solveInternal(const gmm::csr_matrix<double>& A, DataVector& b, DataVector& 
 
     if (iter.converged() && (res < 1e3)) {
       // GMRES converged
-      x = DataVector(xVec);
-      Printer::getInstance().printStatusUpdate(
+      x = base::DataVector(xVec);
+      base::Printer::getInstance().printStatusUpdate(
           "solving with Gmm++ (k = " + std::to_string(iter.get_iteration()) +
           ", residual norm = " + std::to_string(res) + ")");
-      Printer::getInstance().printStatusEnd();
+      base::Printer::getInstance().printStatusEnd();
       return true;
     } else {
       // GMRES didn't converge ==> try again without preconditioner
       gmm::identity_matrix P;
 
-      Printer::getInstance().printStatusNewLine();
-      Printer::getInstance().printStatusUpdate(
+      base::Printer::getInstance().printStatusNewLine();
+      base::Printer::getInstance().printStatusUpdate(
           "solving with preconditioner failed, trying again without one");
-      Printer::getInstance().printStatusNewLine();
+      base::Printer::getInstance().printStatusNewLine();
 
       // call GMRES again
       gmm::gmres(A, xVec, bVec, P, 50, iter);
       res = iter.get_res();
 
       if (iter.converged() && (res < 1e3)) {
-        x = DataVector(xVec);
-        Printer::getInstance().printStatusUpdate(
+        x = base::DataVector(xVec);
+        base::Printer::getInstance().printStatusUpdate(
             "solving with Gmm++ (k = " + std::to_string(iter.get_iteration()) +
             ", residual norm = " + std::to_string(res) + ")");
-        Printer::getInstance().printStatusEnd();
+        base::Printer::getInstance().printStatusEnd();
         return true;
       } else {
-        Printer::getInstance().printStatusEnd(
+        base::Printer::getInstance().printStatusEnd(
             "error: Could not solve linear system, "
             "method didn't converge");
         return false;
       }
     }
   } catch (std::exception& e) {
-    Printer::getInstance().printStatusEnd("error: Could not solve linear system, what(): " +
-                                          std::string(e.what()));
+    base::Printer::getInstance().printStatusEnd("error: Could not solve linear system, what(): " +
+                                                std::string(e.what()));
     return false;
   }
 }
@@ -108,9 +108,9 @@ bool solveInternal(const gmm::csr_matrix<double>& A, DataVector& b, DataVector& 
 
 Gmmpp::~Gmmpp() {}
 
-bool Gmmpp::solve(SLE& system, DataVector& b, DataVector& x) const {
+bool Gmmpp::solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const {
 #ifdef USE_GMMPP
-  Printer::getInstance().printStatusBegin("Solving linear system (Gmm++)...");
+  base::Printer::getInstance().printStatusBegin("Solving linear system (Gmm++)...");
 
   const size_t n = system.getDimension();
   size_t nnz = 0;
@@ -123,12 +123,12 @@ bool Gmmpp::solve(SLE& system, DataVector& b, DataVector& x) const {
 // parallelize only if the system is cloneable
 #pragma omp parallel if (system.isCloneable()) shared(system, A, nnz, rowsDone, n) default(none)
     {
-      SLE* system2 = &system;
+      base::SLE* system2 = &system;
 #ifdef _OPENMP
-      std::unique_ptr<CloneableSLE> clonedSLE;
+      std::unique_ptr<base::CloneableSLE> clonedSLE;
 
       if (system.isCloneable() && (omp_get_max_threads() > 1)) {
-        dynamic_cast<CloneableSLE&>(system).clone(clonedSLE);
+        dynamic_cast<base::CloneableSLE&>(system).clone(clonedSLE);
         system2 = clonedSLE.get();
       }
 
@@ -157,9 +157,9 @@ bool Gmmpp::solve(SLE& system, DataVector& b, DataVector& x) const {
         if (rowsDone % 100 == 0) {
           char str[10];
           snprintf(str, sizeof(str), "%.1f%%",
-                 static_cast<double>(rowsDone) / static_cast<double>(n) * 100.0);
-          Printer::getInstance().printStatusUpdate("constructing sparse matrix (" +
-                                                   std::string(str) + ")");
+                   static_cast<double>(rowsDone) / static_cast<double>(n) * 100.0);
+          base::Printer::getInstance().printStatusUpdate("constructing sparse matrix (" +
+                                                         std::string(str) + ")");
         }
       }
     }
@@ -169,27 +169,26 @@ bool Gmmpp::solve(SLE& system, DataVector& b, DataVector& x) const {
     gmm::copy(A, A2);
   }
 
-  Printer::getInstance().printStatusUpdate("constructing sparse matrix (100.0%)");
-  Printer::getInstance().printStatusNewLine();
+  base::Printer::getInstance().printStatusUpdate("constructing sparse matrix (100.0%)");
+  base::Printer::getInstance().printStatusNewLine();
 
   // print ratio of nonzero entries
   {
     char str[10];
     double nnz_ratio = static_cast<double>(nnz) / (static_cast<double>(n) * static_cast<double>(n));
     snprintf(str, sizeof(str), "%.1f%%", nnz_ratio * 100.0);
-    Printer::getInstance().printStatusUpdate("nnz ratio: " + std::string(str));
-    Printer::getInstance().printStatusNewLine();
+    base::Printer::getInstance().printStatusUpdate("nnz ratio: " + std::string(str));
+    base::Printer::getInstance().printStatusNewLine();
   }
 
   x.resize(n);
   bool result = solveInternal(A2, b, x);
   return result;
 #else
-  std::cerr << "Error in sle_solver::Gmmpp::solve: "
+  std::cerr << "Error in solver::Gmmpp::solve: "
             << "SG++ was compiled without Gmm++ support!\n";
   return false;
 #endif /* USE_GMMPP */
 }
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

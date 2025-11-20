@@ -3,9 +3,10 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
+#include <sgpp/base/grid/sle/CloneableSLE.hpp>
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/solver/UMFPACK.hpp>
-#include <sgpp/base/tools/sle/system/CloneableSLE.hpp>
+#include <sgpp/solver/sle/external/UMFPACK.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #ifdef USE_UMFPACK
@@ -19,8 +20,7 @@
 #include <vector>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 #ifdef USE_UMFPACK
 #if SUITESPARSE_MAIN_VERSION >= 4
@@ -39,7 +39,7 @@ typedef UF_long sslong;
  * @return              whether all went well (false if errors occurred)
  */
 bool solveInternal(void* numeric, const std::vector<sslong>& Ap, const std::vector<sslong>& Ai,
-                   const std::vector<double>& Ax, DataVector& b, DataVector& x) {
+                   const std::vector<double>& Ax, base::DataVector& b, base::DataVector& x) {
   const size_t n = b.getSize();
 
   x.resize(n);
@@ -53,9 +53,9 @@ bool solveInternal(void* numeric, const std::vector<sslong>& Ap, const std::vect
 
 UMFPACK::~UMFPACK() {}
 
-bool UMFPACK::solve(SLE& system, DataVector& b, DataVector& x) const {
-  DataMatrix B(b.getPointer(), b.getSize(), 1);
-  DataMatrix X(B.getNrows(), B.getNcols());
+bool UMFPACK::solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const {
+  base::DataMatrix B(b.getPointer(), b.getSize(), 1);
+  base::DataMatrix X(B.getNrows(), B.getNcols());
 
   // call version for multiple RHSs
   if (solve(system, B, X)) {
@@ -67,9 +67,9 @@ bool UMFPACK::solve(SLE& system, DataVector& b, DataVector& x) const {
   }
 }
 
-bool UMFPACK::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
+bool UMFPACK::solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) const {
 #ifdef USE_UMFPACK
-  Printer::getInstance().printStatusBegin("Solving linear system (UMFPACK)...");
+  base::Printer::getInstance().printStatusBegin("Solving linear system (UMFPACK)...");
 
   const size_t n = system.getDimension();
 
@@ -81,14 +81,14 @@ bool UMFPACK::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
 
 // parallelize only if the system is cloneable
 #pragma omp parallel if (system.isCloneable()) \
-shared(system, Ti, Tj, Tx, nnz, rowsDone, n) default(none)
+    shared(system, Ti, Tj, Tx, nnz, rowsDone, n) default(none)
   {
-    SLE* system2 = &system;
+    base::SLE* system2 = &system;
 #ifdef _OPENMP
-    std::unique_ptr<CloneableSLE> clonedSLE;
+    std::unique_ptr<base::CloneableSLE> clonedSLE;
 
     if (system.isCloneable() && (omp_get_max_threads() > 1)) {
-      dynamic_cast<CloneableSLE&>(system).clone(clonedSLE);
+      dynamic_cast<base::CloneableSLE&>(system).clone(clonedSLE);
       system2 = clonedSLE.get();
     }
 
@@ -120,8 +120,8 @@ shared(system, Ti, Tj, Tx, nnz, rowsDone, n) default(none)
         char str[10];
         snprintf(str, sizeof(str), "%.1f%%",
                  static_cast<double>(rowsDone) / static_cast<double>(n) * 100.0);
-        Printer::getInstance().printStatusUpdate("constructing sparse matrix (" +
-                                                 std::string(str) + ")");
+        base::Printer::getInstance().printStatusUpdate("constructing sparse matrix (" +
+                                                       std::string(str) + ")");
       }
     }
 
@@ -134,16 +134,16 @@ shared(system, Ti, Tj, Tx, nnz, rowsDone, n) default(none)
     }
   }
 
-  Printer::getInstance().printStatusUpdate("constructing sparse matrix (100.0%)");
-  Printer::getInstance().printStatusNewLine();
+  base::Printer::getInstance().printStatusUpdate("constructing sparse matrix (100.0%)");
+  base::Printer::getInstance().printStatusNewLine();
 
   // print ratio of nonzero entries
   {
     char str[10];
     double nnz_ratio = static_cast<double>(nnz) / (static_cast<double>(n) * static_cast<double>(n));
     snprintf(str, sizeof(str), "%.1f%%", nnz_ratio * 100.0);
-    Printer::getInstance().printStatusUpdate("nnz ratio: " + std::string(str));
-    Printer::getInstance().printStatusNewLine();
+    base::Printer::getInstance().printStatusUpdate("nnz ratio: " + std::string(str));
+    base::Printer::getInstance().printStatusNewLine();
   }
 
   std::vector<sslong> Ap(n + 1, 0);
@@ -162,14 +162,14 @@ shared(system, Ti, Tj, Tx, nnz, rowsDone, n) default(none)
       TjArray[k] = static_cast<sslong>(Tj[k]);
     }
 
-    Printer::getInstance().printStatusUpdate("step 1: umfpack_dl_triplet_to_col");
+    base::Printer::getInstance().printStatusUpdate("step 1: umfpack_dl_triplet_to_col");
 
     result = umfpack_dl_triplet_to_col(static_cast<sslong>(n), static_cast<sslong>(n),
                                        static_cast<sslong>(nnz), &TiArray[0], &TjArray[0], &Tx[0],
                                        &Ap[0], &Ai[0], &Ax[0], nullptr);
 
     if (result != UMFPACK_OK) {
-      Printer::getInstance().printStatusEnd(
+      base::Printer::getInstance().printStatusEnd(
           "error: Could not convert to CCS via "
           "umfpack_dl_triplet_to_col, error code " +
           std::to_string(result));
@@ -179,29 +179,29 @@ shared(system, Ti, Tj, Tx, nnz, rowsDone, n) default(none)
 
   void *symbolic, *numeric;
 
-  Printer::getInstance().printStatusNewLine();
-  Printer::getInstance().printStatusUpdate("step 2: umfpack_dl_symbolic");
+  base::Printer::getInstance().printStatusNewLine();
+  base::Printer::getInstance().printStatusUpdate("step 2: umfpack_dl_symbolic");
 
   // call umfpack_dl_symbolic
   result = umfpack_dl_symbolic(static_cast<sslong>(n), static_cast<sslong>(n), &Ap[0], &Ai[0],
                                &Ax[0], &symbolic, nullptr, nullptr);
 
   if (result != UMFPACK_OK) {
-    Printer::getInstance().printStatusEnd(
+    base::Printer::getInstance().printStatusEnd(
         "error: Could solve via umfpack_dl_symbolic, "
         "error code " +
         std::to_string(result));
     return false;
   }
 
-  Printer::getInstance().printStatusNewLine();
-  Printer::getInstance().printStatusUpdate("step 3: umfpack_dl_numeric");
+  base::Printer::getInstance().printStatusNewLine();
+  base::Printer::getInstance().printStatusUpdate("step 3: umfpack_dl_numeric");
 
   // call umfpack_dl_numeric
   result = umfpack_dl_numeric(&Ap[0], &Ai[0], &Ax[0], symbolic, &numeric, nullptr, nullptr);
 
   if (result != UMFPACK_OK) {
-    Printer::getInstance().printStatusEnd(
+    base::Printer::getInstance().printStatusEnd(
         "error: Could solve via umfpack_dl_numeric, "
         "error code " +
         std::to_string(result));
@@ -211,27 +211,27 @@ shared(system, Ti, Tj, Tx, nnz, rowsDone, n) default(none)
 
   umfpack_dl_free_symbolic(&symbolic);
 
-  DataVector x(n);
-  DataVector b(n);
+  base::DataVector x(n);
+  base::DataVector b(n);
   X.resize(n, B.getNcols());
 
   // call umfpack_dl_solve for each RHS
   for (size_t i = 0; i < B.getNcols(); i++) {
     B.getColumn(i, b);
-    Printer::getInstance().printStatusNewLine();
+    base::Printer::getInstance().printStatusNewLine();
 
     if (B.getNcols() == 1) {
-      Printer::getInstance().printStatusUpdate("step 4: umfpack_dl_solve");
+      base::Printer::getInstance().printStatusUpdate("step 4: umfpack_dl_solve");
     } else {
-      Printer::getInstance().printStatusUpdate("step 4: umfpack_dl_solve (RHS " +
-                                               std::to_string(i + 1) + " of " +
-                                               std::to_string(B.getNcols()) + ")");
+      base::Printer::getInstance().printStatusUpdate("step 4: umfpack_dl_solve (RHS " +
+                                                     std::to_string(i + 1) + " of " +
+                                                     std::to_string(B.getNcols()) + ")");
     }
 
     if (solveInternal(numeric, Ap, Ai, Ax, b, x)) {
       X.setColumn(i, x);
     } else {
-      Printer::getInstance().printStatusEnd(
+      base::Printer::getInstance().printStatusEnd(
           "error: Could solve via umfpack_dl_solve, "
           "error code " +
           std::to_string(result));
@@ -241,15 +241,14 @@ shared(system, Ti, Tj, Tx, nnz, rowsDone, n) default(none)
   }
 
   umfpack_dl_free_numeric(&numeric);
-  Printer::getInstance().printStatusEnd();
+  base::Printer::getInstance().printStatusEnd();
 
   return true;
 #else
-  std::cerr << "Error in sle_solver::UMFPACK::solve: "
+  std::cerr << "Error in solver::UMFPACK::solve: "
             << "SG++ was compiled without UMFPACK support!\n";
   return false;
 #endif /* USE_UMFPACK */
 }
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

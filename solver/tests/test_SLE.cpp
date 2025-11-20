@@ -8,17 +8,18 @@
 
 #include <sgpp/base/function/scalar/InterpolantScalarFunction.hpp>
 #include <sgpp/base/function/scalar/ScalarFunction.hpp>
+#include <sgpp/base/grid/sle/FullSLE.hpp>
+#include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
 #include <sgpp/base/tools/Printer.hpp>
 #include <sgpp/base/tools/RandomNumberGenerator.hpp>
-#include <sgpp/base/tools/sle/solver/Armadillo.hpp>
-#include <sgpp/base/tools/sle/solver/Auto.hpp>
-#include <sgpp/base/tools/sle/solver/BiCGStab.hpp>
-#include <sgpp/base/tools/sle/solver/Eigen.hpp>
-#include <sgpp/base/tools/sle/solver/GaussianElimination.hpp>
-#include <sgpp/base/tools/sle/solver/Gmmpp.hpp>
-#include <sgpp/base/tools/sle/solver/UMFPACK.hpp>
-#include <sgpp/base/tools/sle/system/FullSLE.hpp>
-#include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
+
+#include <sgpp/solver/sle/external/Armadillo.hpp>
+#include <sgpp/solver/sle/external/Auto.hpp>
+#include <sgpp/solver/sle/external/Eigen.hpp>
+#include <sgpp/solver/sle/external/Gmmpp.hpp>
+#include <sgpp/solver/sle/external/UMFPACK.hpp>
+#include <sgpp/solver/sle/native/direct/GaussianElimination.hpp>
+#include <sgpp/solver/sle/native/iterative/MyBiCGStab.hpp>
 
 #include <cmath>
 #include <limits>
@@ -152,42 +153,36 @@ void testSLESolution(const sgpp::base::DataMatrix& A, sgpp::base::DataVector& x,
 }
 
 BOOST_AUTO_TEST_CASE(TestSLESolvers) {
-  // Test sgpp::base::sle_solver with sgpp::base::FullSLE.
+  // Test sgpp::solver with sgpp::base::FullSLE.
   Printer::getInstance().setVerbosity(-1);
   RandomNumberGenerator::getInstance().setSeed(42);
 
   const size_t m = 4;
 
   // default solvers
-  std::vector<std::unique_ptr<sgpp::base::sle_solver::SLESolver>> solvers;
+  std::vector<std::unique_ptr<sgpp::solver::MySLESolver>> solvers;
+  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::MyBiCGStab()));
   solvers.push_back(
-      std::unique_ptr<sgpp::base::sle_solver::SLESolver>(new sgpp::base::sle_solver::BiCGStab()));
-  solvers.push_back(std::unique_ptr<sgpp::base::sle_solver::SLESolver>(
-      new sgpp::base::sle_solver::GaussianElimination()));
-  solvers.push_back(
-      std::unique_ptr<sgpp::base::sle_solver::SLESolver>(new sgpp::base::sle_solver::Auto()));
+      std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::GaussianElimination()));
+  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::Auto()));
 
   // additional solvers if sgpp::opt was compiled with them
 #ifdef USE_ARMADILLO
-  solvers.push_back(
-      std::unique_ptr<sgpp::base::sle_solver::SLESolver>(new sgpp::base::sle_solver::Armadillo()));
+  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::Armadillo()));
 #endif /* USE_ARMADILLO */
 #ifdef USE_EIGEN
-  solvers.push_back(
-      std::unique_ptr<sgpp::base::sle_solver::SLESolver>(new sgpp::base::sle_solver::Eigen()));
+  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::Eigen()));
 #endif /* USE_EIGEN */
 #ifdef USE_GMMPP
-  solvers.push_back(std::unique_ptr<sgpp::base::sle_solver::SLESolver>(
-      new sgpp::base::sle_solver::Gmmpp()));
+  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::Gmmpp()));
 #endif /* USE_GMMPP */
 #ifdef USE_UMFPACK
-  solvers.push_back(std::unique_ptr<sgpp::base::sle_solver::SLESolver>(
-      new sgpp::base::sle_solver::UMFPACK()));
+  solvers.push_back(std::unique_ptr<sgpp::solver::MySLESolver>(new sgpp::solver::UMFPACK()));
 #endif /* USE_UMFPACK */
 
   // test getters/setters
   {
-    sgpp::base::sle_solver::BiCGStab biCGStab;
+    sgpp::solver::MyBiCGStab biCGStab;
 
     const size_t maxItCount = 42;
     biCGStab.setMaxItCount(maxItCount);
@@ -233,11 +228,11 @@ BOOST_AUTO_TEST_CASE(TestSLESolvers) {
     FullSLE system(A);
 
     for (const auto& solver : solvers) {
-      if ((dynamic_cast<sgpp::base::sle_solver::BiCGStab*>(solver.get()) != nullptr) && (n > 20)) {
+      if ((dynamic_cast<sgpp::solver::MyBiCGStab*>(solver.get()) != nullptr) && (n > 20)) {
         /*
-         * BiCGStab is really weak and can't solve bigger systems
+         * MyBiCGStab is really weak and can't solve bigger systems
          * (a bug in the implementation is unlikely as MATLAB
-         * shows the same result, but BiCGStab should only be used for Newton's
+         * shows the same result, but MyBiCGStab should only be used for Newton's
          * method of optimization - for hierarchisation, only external solvers
          * should be used)
          */
@@ -290,7 +285,7 @@ BOOST_AUTO_TEST_CASE(TestHierarchisationSLE) {
   const size_t l = 4;
 
   sgpp::base::DataVector x(d);
-  sgpp::base::sle_solver::Auto solver;
+  sgpp::solver::Auto solver;
   ExampleFunctionSLE f;
 
   // Test All The Grids!

@@ -7,29 +7,29 @@
 
 #include <sgpp/base/datatypes/DataMatrix.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
-#include <sgpp/base/tools/sle/system/SLE.hpp>
+#include <sgpp/base/grid/sle/SLE.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #include <vector>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 /**
  * Abstract class for solving systems of linear equations.
  */
-class SLESolver {
+class MySLESolver {
  public:
   /**
    * Constructor.
    */
-  SLESolver() {}
+  MySLESolver() {}
 
   /**
    * Destructor.
    */
-  virtual ~SLESolver() {}
+  virtual ~MySLESolver() {}
 
   /**
    * Pure virtual method for a solving linear system.
@@ -40,7 +40,7 @@ class SLESolver {
    * @return              whether all went well
    *                      (false if errors occurred)
    */
-  virtual bool solve(SLE& system, DataVector& b, DataVector& x) const = 0;
+  virtual bool solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const = 0;
 
   /**
    * Virtual method for solving multiple linear systems with
@@ -54,11 +54,11 @@ class SLESolver {
    * @return              whether all went well
    *                      (false if errors occurred)
    */
-  virtual bool solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
+  virtual bool solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) const {
     const size_t n = system.getDimension();
     const size_t m = B.getNcols();
-    DataVector b(n);
-    DataVector x(n);
+    base::DataVector b(n);
+    base::DataVector x(n);
     X.resize(n, m);
 
     for (size_t i = 0; i < m; i++) {
@@ -74,6 +74,5 @@ class SLESolver {
     return true;
   }
 };
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

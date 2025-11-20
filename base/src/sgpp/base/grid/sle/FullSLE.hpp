@@ -8,7 +8,7 @@
 #include <sgpp/globaldef.hpp>
 
 #include <sgpp/base/datatypes/DataMatrix.hpp>
-#include <sgpp/base/tools/sle/system/CloneableSLE.hpp>
+#include <sgpp/base/grid/sle/CloneableSLE.hpp>
 
 #include <cstddef>
 

@@ -5,24 +5,33 @@
 
 #pragma once
 
-#include <sgpp/base/tools/sle/solver/SLESolver.hpp>
+#include <sgpp/solver/sle/common/MySLESolver.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #include <vector>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 /**
- * Linear system solver using Eigen (direct full solver).
+ * Automatic choice of external linear solver.
  */
-class Eigen : public SLESolver {
+class Auto : public MySLESolver {
  public:
+  /// maximal matrix dimension to allow use of full solvers
+  static const size_t MAX_DIM_FOR_FULL = 30000;
+  /// maximal matrix dimension to prefer GaussianElimination over BiCGStab
+  static const size_t MAX_DIM_FOR_GAUSSIAN = 200;
+  /// maximal ratio of non-zero entries for sparse solvers
+  static constexpr double MAX_NNZ_RATIO_FOR_SPARSE = 0.1;
+  /// ratio of the rows (e.g. 0.1 = 10%) to use for sparsity estimation
+  static constexpr double ESTIMATE_NNZ_ROWS_SAMPLE_SIZE = 0.05;
+
   /**
    * Destructor.
    */
-  ~Eigen() override;
+  ~Auto() override;
 
   /**
    * @param       system  system to be solved
@@ -31,7 +40,7 @@ class Eigen : public SLESolver {
    * @return              whether all went well
    *                      (false if errors occurred)
    */
-  bool solve(SLE& system, DataVector& b, DataVector& x) const override;
+  bool solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const override;
 
   /**
    * @param       system  system to be solved
@@ -40,8 +49,7 @@ class Eigen : public SLESolver {
    * @return              whether all went well
    *                      (false if errors occurred)
    */
-  bool solve(SLE& system, DataMatrix& B, DataMatrix& X) const override;
+  bool solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) const override;
 };
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

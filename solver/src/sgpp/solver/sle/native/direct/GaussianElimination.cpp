@@ -5,25 +5,25 @@
 
 #include <sgpp/base/datatypes/DataMatrix.hpp>
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/solver/GaussianElimination.hpp>
+#include <sgpp/solver/sle/native/direct/GaussianElimination.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #include <cmath>
 #include <numeric>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 GaussianElimination::~GaussianElimination() {}
 
-bool GaussianElimination::solve(SLE& system, DataVector& b, DataVector& x) const {
-  Printer::getInstance().printStatusBegin("Solving linear system (Gaussian elimination)...");
+bool GaussianElimination::solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const {
+  base::Printer::getInstance().printStatusBegin("Solving linear system (Gaussian elimination)...");
 
   // size of the system
   const size_t n = b.getSize();
   // working matrix
-  DataMatrix W(n, n + 1);
+  base::DataMatrix W(n, n + 1);
 
   // set W := (A, b) at the beginning
   for (size_t i = 0; i < n; i++) {
@@ -47,7 +47,7 @@ bool GaussianElimination::solve(SLE& system, DataVector& b, DataVector& x) const
   // |    l    (n-l)     1    column(s)        |
   // +-----------------------------------------+
   for (size_t l = 0; l < n; l++) {
-    Printer::getInstance().printStatusUpdate("k = " + std::to_string(l));
+    base::Printer::getInstance().printStatusUpdate("k = " + std::to_string(l));
 
     // search for pivot entry = maximum of the absolute values
     // of the entries w_{l,l}, ..., w_{n,l}
@@ -66,7 +66,7 @@ bool GaussianElimination::solve(SLE& system, DataVector& b, DataVector& x) const
 
     // all entries are zero ==> matrices W and A are rank deficient
     if (maxEntry == 0.0) {
-      Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
+      base::Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
       return false;
     }
 
@@ -102,10 +102,9 @@ bool GaussianElimination::solve(SLE& system, DataVector& b, DataVector& x) const
   x.resize(n);
   W.getColumn(n, x);
 
-  Printer::getInstance().printStatusUpdate("k = " + std::to_string(n));
-  Printer::getInstance().printStatusEnd();
+  base::Printer::getInstance().printStatusUpdate("k = " + std::to_string(n));
+  base::Printer::getInstance().printStatusEnd();
   return true;
 }
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

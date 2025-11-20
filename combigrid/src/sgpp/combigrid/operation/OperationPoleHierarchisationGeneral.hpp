@@ -8,8 +8,8 @@
 #include <sgpp/globaldef.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
 #include <sgpp/base/operation/hash/common/basis/Basis.hpp>
-#include <sgpp/base/tools/sle/solver/Auto.hpp>
-#include <sgpp/base/tools/sle/system/SLE.hpp>
+#include <sgpp/solver/sle/external/Auto.hpp>
+#include <sgpp/base/grid/sle/SLE.hpp>
 #include <sgpp/combigrid/LevelIndexTypes.hpp>
 #include <sgpp/combigrid/basis/HeterogeneousBasis.hpp>
 #include <sgpp/combigrid/operation/OperationPole.hpp>
@@ -175,7 +175,7 @@ class OperationPoleHierarchisationGeneral : public OperationPole {
   /// system of linear equations for the hierarchising
   HierarchisationGeneralSLE sle;
   /// solver for the system of linear equations
-  base::sle_solver::Auto sleSolver;
+  solver::Auto sleSolver;
 };
 
 }  // namespace combigrid

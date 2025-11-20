@@ -7,8 +7,8 @@
 
 #include <sgpp/globaldef.hpp>
 
-#include <sgpp/base/tools/sle/solver/GaussianElimination.hpp>
-#include <sgpp/base/tools/sle/solver/SLESolver.hpp>
+#include <sgpp/solver/sle/native/direct/GaussianElimination.hpp>
+#include <sgpp/solver/sle/common/MySLESolver.hpp>
 #include <sgpp/base/function/scalar/ScalarFunctionHessian.hpp>
 #include <sgpp/optimization/optimizer/unconstrained/UnconstrainedOptimizer.hpp>
 
@@ -83,7 +83,7 @@ class AdaptiveNewton : public UnconstrainedOptimizer {
                  size_t maxItCount, double tolerance, double stepSizeIncreaseFactor,
                  double stepSizeDecreaseFactor, double dampingIncreaseFactor,
                  double dampingDecreaseFactor, double lineSearchAccuracy,
-                 const base::sle_solver::SLESolver& sleSolver);
+                 const solver::MySLESolver& sleSolver);
 
   /**
    * Copy constructor.
@@ -178,9 +178,9 @@ class AdaptiveNewton : public UnconstrainedOptimizer {
   /// line search accuracy
   double rhoLs;
   /// default linear solver
-  const base::sle_solver::GaussianElimination defaultSleSolver;
+  const solver::GaussianElimination defaultSleSolver;
   /// linear solver
-  const base::sle_solver::SLESolver& sleSolver;
+  const solver::MySLESolver& sleSolver;
 };
 }  // namespace optimizer
 }  // namespace optimization

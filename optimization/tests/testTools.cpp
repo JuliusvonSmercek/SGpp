@@ -9,7 +9,7 @@
 #include <sgpp/base/grid/Grid.hpp>
 #include <sgpp/base/tools/Printer.hpp>
 #include <sgpp/base/tools/RandomNumberGenerator.hpp>
-#include <sgpp/base/tools/sle/system/FullSLE.hpp>
+#include <sgpp/base/grid/sle/FullSLE.hpp>
 #include <sgpp/optimization/gridgen/IterativeGridGeneratorRitterNovak.hpp>
 #include <sgpp/optimization/test_problems/unconstrained/Sphere.hpp>
 #include <sgpp/optimization/tools/FileIO.hpp>

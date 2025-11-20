@@ -8,7 +8,7 @@
 #include <sgpp/optimization/optimizer/least_squares/LevenbergMarquardt.hpp>
 
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/system/FullSLE.hpp>
+#include <sgpp/base/grid/sle/FullSLE.hpp>
 
 #include <limits>
 
@@ -25,7 +25,7 @@ LevenbergMarquardt::LevenbergMarquardt(const base::VectorFunction& phi,
       mu0(initialDamping),
       beta0(acceptanceThreshold),
       beta1(effectivenessThreshold),
-      defaultSleSolver(base::sle_solver::GaussianElimination()),
+      defaultSleSolver(solver::GaussianElimination()),
       sleSolver(defaultSleSolver) {
   phiGradient.clone(this->phiGradient);
 }
@@ -34,13 +34,13 @@ LevenbergMarquardt::LevenbergMarquardt(const base::VectorFunction& phi,
                                        const base::VectorFunctionGradient& phiGradient,
                                        size_t maxItCount, double tolerance, double damping,
                                        double acceptanceThreshold, double effectivenessThreshold,
-                                       const base::sle_solver::SLESolver& sleSolver)
+                                       const solver::MySLESolver& sleSolver)
     : LeastSquaresOptimizer(phi, maxItCount),
       tol(tolerance),
       mu0(damping),
       beta0(acceptanceThreshold),
       beta1(effectivenessThreshold),
-      defaultSleSolver(base::sle_solver::GaussianElimination()),
+      defaultSleSolver(solver::GaussianElimination()),
       sleSolver(sleSolver) {
   phiGradient.clone(this->phiGradient);
 }
@@ -51,7 +51,7 @@ LevenbergMarquardt::LevenbergMarquardt(const LevenbergMarquardt& other)
       mu0(other.mu0),
       beta0(other.beta0),
       beta1(other.beta1),
-      defaultSleSolver(base::sle_solver::GaussianElimination()),
+      defaultSleSolver(solver::GaussianElimination()),
       sleSolver(other.sleSolver) {
   other.phiGradient->clone(phiGradient);
 }

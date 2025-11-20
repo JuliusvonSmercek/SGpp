@@ -19,10 +19,21 @@
 
 #include <sgpp/solver/pde/OperationParabolicPDESolverSystem.hpp>
 
+#include <sgpp/solver/sle/common/MySLESolver.hpp>
 #include <sgpp/solver/sle/common/SLESolverTypeParser.hpp>
 #include <sgpp/solver/sle/common/TypesSolver.hpp>
 
+#include <sgpp/solver/sle/external/Armadillo.hpp>
+#include <sgpp/solver/sle/external/Auto.hpp>
+#include <sgpp/solver/sle/external/Eigen.hpp>
+#include <sgpp/solver/sle/external/Gmmpp.hpp>
+#include <sgpp/solver/sle/external/UMFPACK.hpp>
+
+#include <sgpp/solver/sle/native/direct/GaussianElimination.hpp>
+#include <sgpp/solver/sle/native/direct/IterativeGaussianElimination.hpp>
+
 #include <sgpp/solver/sle/native/iterative/BiCGStab.hpp>
 #include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
+#include <sgpp/solver/sle/native/iterative/MyBiCGStab.hpp>
 
 #endif /* SOLVER_HPP */

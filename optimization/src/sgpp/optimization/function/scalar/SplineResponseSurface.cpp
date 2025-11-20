@@ -204,14 +204,14 @@ void SplineResponseSurface::calculateInterpolationCoefficients() {
     /**
      * For spline basis use SLE
      **/
-    std::unique_ptr<sgpp::base::sle_solver::SLESolver> sleSolver;
+    std::unique_ptr<sgpp::solver::MySLESolver> sleSolver;
 #ifdef USE_EIGEN
-    // sgpp::base::sle_solver::Eigen sleSolver;
-    sleSolver.reset(new sgpp::base::sle_solver::Eigen());
+    // sgpp::solver::Eigen sleSolver;
+    sleSolver.reset(new sgpp::solver::Eigen());
 #else
     // if compiled without Eigen use simple Gaussian Elimination
-    // sgpp::base::sle_solver::GaussianElimination sleSolver;
-    sleSolver.reset(new sgpp::base::sle_solver::GaussianElimination());
+    // sgpp::solver::GaussianElimination sleSolver;
+    sleSolver.reset(new sgpp::solver::GaussianElimination());
 #endif /* USE_EIGEN */
     sgpp::base::Printer::getInstance().setVerbosity(-1);
     sgpp::base::HierarchisationSLE hierSLE(*grid);

@@ -257,54 +257,10 @@ namespace std {
 %include "base/src/sgpp/base/tools/RandomNumberGenerator.hpp"
 
 // SLE
-
-// global variables for the support of SLE solver libaries (set at compile-time)
-const bool ARMADILLO_ENABLED;
-const bool EIGEN_ENABLED;
-const bool GMMPP_ENABLED;
-const bool UMFPACK_ENABLED;
-
-%{
-#ifdef USE_ARMADILLO
-    const bool ARMADILLO_ENABLED = true;
-#else
-    const bool ARMADILLO_ENABLED = false;
-#endif
-
-#ifdef USE_EIGEN
-    const bool EIGEN_ENABLED = true;
-#else
-    const bool EIGEN_ENABLED = false;
-#endif
-
-#ifdef USE_GMMPP
-    const bool GMMPP_ENABLED = true;
-#else
-    const bool GMMPP_ENABLED = false;
-#endif
-
-#ifdef USE_UMFPACK
-    const bool UMFPACK_ENABLED = true;
-#else
-    const bool UMFPACK_ENABLED = false;
-#endif
-%}
-
-%include "base/src/sgpp/base/tools/sle/system/SLE.hpp"
-%include "base/src/sgpp/base/tools/sle/system/CloneableSLE.hpp"
-%include "base/src/sgpp/base/tools/sle/system/FullSLE.hpp"
-%include "base/src/sgpp/base/tools/sle/system/HierarchisationSLE.hpp"
-
-%include "base/src/sgpp/base/tools/sle/solver/SLESolver.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/Armadillo.hpp"
-%rename(AutoSLESolver) sgpp::base::sle_solver::Auto;
-%include "base/src/sgpp/base/tools/sle/solver/Auto.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/BiCGStab.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/Eigen.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/GaussianElimination.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/IterativeGaussianElimination.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/Gmmpp.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/UMFPACK.hpp"
+%include "base/src/sgpp/base/grid/sle/SLE.hpp"
+%include "base/src/sgpp/base/grid/sle/CloneableSLE.hpp"
+%include "base/src/sgpp/base/grid/sle/FullSLE.hpp"
+%include "base/src/sgpp/base/grid/sle/HierarchisationSLE.hpp"
 
 %include "base/src/sgpp/base/tools/MutexType.hpp"
 %include "base/src/sgpp/base/tools/Printer.hpp"
@@ -381,7 +337,6 @@ const bool UMFPACK_ENABLED;
 %feature("director") sgpp::base::VectorFunctionGradient;
 %feature("director") sgpp::base::VectorFunctionHessian;
 %feature("director") sgpp::base::SLE;
-%feature("director") sgpp::base::sle_solver::SLESolver;
 
 // dirty hack to override SWIG's generated director method for "clone"
 %typemap(directorin) std::unique_ptr<sgpp::base::ScalarFunction>& {

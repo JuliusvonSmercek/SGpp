@@ -3,9 +3,9 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
-#include <sgpp/base/tools/sle/solver/IterativeGaussianElimination.hpp>
-
 #include <sgpp/base/tools/Printer.hpp>
+#include <sgpp/solver/sle/native/direct/IterativeGaussianElimination.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #include <algorithm>
@@ -15,8 +15,7 @@
 #include <vector>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 constexpr const double IterativeGaussianElimination::DEGENERATION_TOLERANCE;
 
@@ -37,7 +36,7 @@ const bool FULL_PIVOTING = true;
  * @param tolerance A small tolerance for detecting singularity.
  * @return          True on success, false if the matrix is singular.
  */
-bool iterative_lu_decomposition(DataMatrix& A, std::vector<size_t>& pivotRow,
+bool iterative_lu_decomposition(base::DataMatrix& A, std::vector<size_t>& pivotRow,
                                 std::vector<size_t>& pivotCol, const size_t oldn,
                                 const double tolerance) {
   const size_t N = A.getNcols();
@@ -137,7 +136,7 @@ bool iterative_lu_decomposition(DataMatrix& A, std::vector<size_t>& pivotRow,
  * @param tolerance A small tolerance for detecting singularity.
  * @return          True on success, false if the matrix is singular.
  */
-bool lu_decomposition_update(const DataMatrix& A, DataMatrix& LU, const size_t oldn,
+bool lu_decomposition_update(const base::DataMatrix& A, base::DataMatrix& LU, const size_t oldn,
                              std::vector<size_t>& pivotRow, std::vector<size_t>& pivotCol,
                              const double tolerance) {
   const size_t N = A.getNcols();
@@ -179,10 +178,12 @@ bool lu_decomposition_update(const DataMatrix& A, DataMatrix& LU, const size_t o
  * @param b         Right-hand side vector.
  * @return          The solution vector x.
  */
-DataVector lu_decomposition_solve(const DataMatrix& LU, const std::vector<size_t>& pivotRow,
-                                  const std::vector<size_t>& pivotCol, const DataVector& b) {
+base::DataVector lu_decomposition_solve(const base::DataMatrix& LU,
+                                        const std::vector<size_t>& pivotRow,
+                                        const std::vector<size_t>& pivotCol,
+                                        const base::DataVector& b) {
   const size_t N = LU.getNcols();
-  DataVector y(N);
+  base::DataVector y(N);
 
   // Forward substitution: Ly = Pb
   for (size_t i = 0; i < N; ++i) {
@@ -204,7 +205,7 @@ DataVector lu_decomposition_solve(const DataMatrix& LU, const std::vector<size_t
   }
 
   // Undo column permutations: x = Q * (Q^T x)
-  DataVector x(N);
+  base::DataVector x(N);
   for (size_t i = 0; i < N; ++i) {
     x[pivotCol[i]] = y[i];
   }
@@ -217,8 +218,9 @@ IterativeGaussianElimination::IterativeGaussianElimination() : A(), LU(), pivotR
 
 IterativeGaussianElimination::~IterativeGaussianElimination() {}
 
-bool IterativeGaussianElimination::iterativeSolve(SLE& system, DataVector& b, DataVector& x) {
-  Printer::getInstance().printStatusBegin(
+bool IterativeGaussianElimination::iterativeSolve(base::SLE& system, base::DataVector& b,
+                                                  base::DataVector& x) {
+  base::Printer::getInstance().printStatusBegin(
       "Solving linear system (Iterative Gaussian elimination)...");
 
   // old size of the system
@@ -227,7 +229,8 @@ bool IterativeGaussianElimination::iterativeSolve(SLE& system, DataVector& b, Da
   const size_t n = system.getDimension();
 
   if (b.getSize() != n) {
-    Printer::getInstance().printStatusEnd("Error: right-hand side vector has incorrect dimension.");
+    base::Printer::getInstance().printStatusEnd(
+        "Error: right-hand side vector has incorrect dimension.");
     return false;
   } else if (0 == n) {
     x.resize(0);
@@ -235,7 +238,7 @@ bool IterativeGaussianElimination::iterativeSolve(SLE& system, DataVector& b, Da
     LU.resize(0, 0);
     pivotRow.clear();
     pivotCol.clear();
-    Printer::getInstance().printStatusEnd();
+    base::Printer::getInstance().printStatusEnd();
     return true;
   }
 
@@ -257,7 +260,7 @@ bool IterativeGaussianElimination::iterativeSolve(SLE& system, DataVector& b, Da
   }
 
   if (oldPartChanged) {
-    Printer::getInstance().printStatusUpdate(
+    base::Printer::getInstance().printStatusUpdate(
         "Warning: Matrix changed or shrank. Forcing full re-solve.");
     oldn = 0;  // Force full re-solve
     LU.resize(0, 0);
@@ -279,7 +282,7 @@ bool IterativeGaussianElimination::iterativeSolve(SLE& system, DataVector& b, Da
   bool success = lu_decomposition_update(A, LU, oldn, pivotRow, pivotCol, DEGENERATION_TOLERANCE);
 
   if (!success) {
-    Printer::getInstance().printStatusUpdate(
+    base::Printer::getInstance().printStatusUpdate(
         "Iterative update failed (singularity detected). Re-solving from scratch...");
     // Resetting state and re-solving by passing oldn=0.
     // A is already fully populated, so we just need to re-run the update
@@ -293,13 +296,12 @@ bool IterativeGaussianElimination::iterativeSolve(SLE& system, DataVector& b, Da
   if (success) {
     x = lu_decomposition_solve(LU, pivotRow, pivotCol, b);
   } else {
-    Printer::getInstance().printStatusUpdate(
+    base::Printer::getInstance().printStatusUpdate(
         "Error: Matrix is singular. Could not solve the system.");
   }
 
-  Printer::getInstance().printStatusEnd();
+  base::Printer::getInstance().printStatusEnd();
   return success;
 }
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

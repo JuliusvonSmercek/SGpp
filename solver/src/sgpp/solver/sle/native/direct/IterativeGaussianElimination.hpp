@@ -7,15 +7,14 @@
 
 #include <sgpp/base/datatypes/DataMatrix.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
-#include <sgpp/base/tools/sle/solver/SLESolver.hpp>
+#include <sgpp/solver/sle/common/MySLESolver.hpp>
 
 #include <cstddef>
 #include <stdexcept>
 #include <vector>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 /**
  * @brief An incremental linear system solver based on Gaussian elimination.
@@ -28,7 +27,7 @@ namespace sle_solver {
  * singularity is detected (pivot < tolerance) during an update, the solver automatically
  * performs a complete recalculation from scratch to ensure stability.
  */
-class IterativeGaussianElimination : public SLESolver {
+class IterativeGaussianElimination : public MySLESolver {
  public:
   /// Tolerance to detect near-zero pivots, which could indicate matrix degeneration.
   constexpr static const double DEGENERATION_TOLERANCE = 1e-9;
@@ -48,7 +47,7 @@ class IterativeGaussianElimination : public SLESolver {
    * supported. Calling this method will throw a std::runtime_error. Please use iterativeSolve()
    * instead.
    */
-  bool solve(SLE& system, DataVector& b, DataVector& x) const override {
+  bool solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const override {
     throw std::runtime_error(
         "IterativeGaussianElimination::solve is not supported. Use iterativeSolve().");
   }
@@ -70,18 +69,17 @@ class IterativeGaussianElimination : public SLESolver {
    * @return             True if the solution was successful, false otherwise (e.g., matrix is
    * singular).
    */
-  bool iterativeSolve(SLE& system, DataVector& b, DataVector& x);
+  bool iterativeSolve(base::SLE& system, base::DataVector& b, base::DataVector& x);
 
  protected:
   /// A copy of the system matrix from the last solve.
-  DataMatrix A;
+  base::DataMatrix A;
   /// The in-place LU decomposition of the matrix A.
-  DataMatrix LU;
+  base::DataMatrix LU;
   /// Pivot indices for rows.
   std::vector<size_t> pivotRow;
   /// Pivot indices for columns (used for full pivoting).
   std::vector<size_t> pivotCol;
 };
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

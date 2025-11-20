@@ -3,9 +3,11 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
+#include <sgpp/base/grid/sle/CloneableSLE.hpp>
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/solver/Armadillo.hpp>
-#include <sgpp/base/tools/sle/system/CloneableSLE.hpp>
+
+#include <sgpp/solver/sle/external/Armadillo.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #ifdef USE_ARMADILLO
@@ -20,14 +22,13 @@ typedef arma::mat ArmadilloMatrix;
 #include <string>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 Armadillo::~Armadillo() {}
 
-bool Armadillo::solve(SLE& system, DataVector& b, DataVector& x) const {
-  DataMatrix B(b.getPointer(), b.getSize(), 1);
-  DataMatrix X(B.getNrows(), B.getNcols());
+bool Armadillo::solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const {
+  base::DataMatrix B(b.getPointer(), b.getSize(), 1);
+  base::DataMatrix X(B.getNrows(), B.getNcols());
 
   // call version for multiple RHSs
   if (solve(system, B, X)) {
@@ -39,9 +40,9 @@ bool Armadillo::solve(SLE& system, DataVector& b, DataVector& x) const {
   }
 }
 
-bool Armadillo::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
+bool Armadillo::solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) const {
 #ifdef USE_ARMADILLO
-  Printer::getInstance().printStatusBegin("Solving linear system (Armadillo)...");
+  base::Printer::getInstance().printStatusBegin("Solving linear system (Armadillo)...");
 
   const arma::uword n = static_cast<arma::uword>(system.getDimension());
   ArmadilloMatrix A(n, n);
@@ -54,12 +55,12 @@ bool Armadillo::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
 #pragma omp parallel if (system.isCloneable()) shared(system, A, nnz, rowsDone, n)  // default(none)
 
   {
-    SLE* system2 = &system;
+    base::SLE* system2 = &system;
 #ifdef _OPENMP
-    std::unique_ptr<CloneableSLE> clonedSLE;
+    std::unique_ptr<base::CloneableSLE> clonedSLE;
 
     if (system.isCloneable() && (omp_get_max_threads() > 1)) {
-      dynamic_cast<CloneableSLE&>(system).clone(clonedSLE);
+      dynamic_cast<base::CloneableSLE&>(system).clone(clonedSLE);
       system2 = clonedSLE.get();
     }
 
@@ -88,21 +89,22 @@ bool Armadillo::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
         char str[10];
         snprintf(str, sizeof(str), "%.1f%%",
                  static_cast<double>(rowsDone) / static_cast<double>(n) * 100.0);
-        Printer::getInstance().printStatusUpdate("constructing matrix (" + std::string(str) + ")");
+        base::Printer::getInstance().printStatusUpdate("constructing matrix (" + std::string(str) +
+                                                       ")");
       }
     }
   }
 
-  Printer::getInstance().printStatusUpdate("constructing matrix (100.0%)");
-  Printer::getInstance().printStatusNewLine();
+  base::Printer::getInstance().printStatusUpdate("constructing matrix (100.0%)");
+  base::Printer::getInstance().printStatusNewLine();
 
   // print ratio of nonzero entries
   {
     char str[10];
     double nnzRatio = static_cast<double>(nnz) / (static_cast<double>(n) * static_cast<double>(n));
     snprintf(str, sizeof(str), "%.1f%%", nnzRatio * 100.0);
-    Printer::getInstance().printStatusUpdate("nnz ratio: " + std::string(str));
-    Printer::getInstance().printStatusNewLine();
+    base::Printer::getInstance().printStatusUpdate("nnz ratio: " + std::string(str));
+    base::Printer::getInstance().printStatusNewLine();
   }
 
   if (B.getNcols() == 1) {
@@ -110,16 +112,16 @@ bool Armadillo::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
     ArmadilloVector bArmadillo(B.getPointer(), n);
     ArmadilloVector xArmadillo(n);
 
-    Printer::getInstance().printStatusUpdate("solving with Armadillo");
+    base::Printer::getInstance().printStatusUpdate("solving with Armadillo");
 
     if (arma::solve(xArmadillo, A, bArmadillo)) {
-      DataVector x(xArmadillo.memptr(), n);
+      base::DataVector x(xArmadillo.memptr(), n);
       X.resize(n, 1);
       X.setColumn(0, x);
-      Printer::getInstance().printStatusEnd();
+      base::Printer::getInstance().printStatusEnd();
       return true;
     } else {
-      Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
+      base::Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
       return false;
     }
   } else {
@@ -127,7 +129,7 @@ bool Armadillo::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
     const arma::uword B_count = static_cast<arma::uword>(B.getNcols());
     ArmadilloMatrix BArmadillo(n, B_count);
     ArmadilloMatrix XArmadillo(n, B_count);
-    DataVector b(n);
+    base::DataVector b(n);
 
     // copy RHSs to Armadillo matrix
     for (arma::uword i = 0; i < B_count; i++) {
@@ -135,31 +137,30 @@ bool Armadillo::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
       BArmadillo.col(i) = ArmadilloVector(b.getPointer(), n);
     }
 
-    Printer::getInstance().printStatusUpdate("solving with Armadillo");
+    base::Printer::getInstance().printStatusUpdate("solving with Armadillo");
 
     if (arma::solve(XArmadillo, A, BArmadillo)) {
       X.resize(n, B_count);
 
-      // convert solutions to DataVector
+      // convert solutions to base::DataVector
       for (arma::uword i = 0; i < B_count; i++) {
-        DataVector x(XArmadillo.colptr(i), n);
+        base::DataVector x(XArmadillo.colptr(i), n);
         X.setColumn(i, x);
       }
 
-      Printer::getInstance().printStatusEnd();
+      base::Printer::getInstance().printStatusEnd();
       return true;
     } else {
-      Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
+      base::Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
       return false;
     }
   }
 
 #else
-  std::cerr << "Error in sle_solver::Armadillo::solve: "
+  std::cerr << "Error in solver::Armadillo::solve: "
             << "SG++ was compiled without Armadillo support!\n";
   return false;
 #endif /* USE_ARMADILLO */
 }
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

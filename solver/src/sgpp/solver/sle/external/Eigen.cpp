@@ -3,9 +3,11 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
+#include <sgpp/base/grid/sle/CloneableSLE.hpp>
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/solver/Eigen.hpp>
-#include <sgpp/base/tools/sle/system/CloneableSLE.hpp>
+
+#include <sgpp/solver/sle/external/Eigen.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #ifdef USE_EIGEN
@@ -17,8 +19,7 @@
 #include <string>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 #ifdef USE_EIGEN
 
@@ -33,7 +34,7 @@ typedef ::Eigen::MatrixXd EigenMatrix;
  * @return            whether all went well (false if errors occurred)
  */
 bool solveInternal(const EigenMatrix& A, const ::Eigen::HouseholderQR<EigenMatrix>& A_QR,
-                   DataVector& b, DataVector& x) {
+                   base::DataVector& b, base::DataVector& x) {
   const double tolerance = 1e-12;
 
   // solve system
@@ -42,7 +43,7 @@ bool solveInternal(const EigenMatrix& A, const ::Eigen::HouseholderQR<EigenMatri
 
   // check solution
   if ((A * xEigen).isApprox(bEigen, tolerance)) {
-    x = DataVector(xEigen.data(), xEigen.size());
+    x = base::DataVector(xEigen.data(), xEigen.size());
     return true;
   } else {
     return false;
@@ -52,9 +53,9 @@ bool solveInternal(const EigenMatrix& A, const ::Eigen::HouseholderQR<EigenMatri
 
 Eigen::~Eigen() {}
 
-bool Eigen::solve(SLE& system, DataVector& b, DataVector& x) const {
-  DataMatrix B(b.getPointer(), b.getSize(), 1);
-  DataMatrix X(B.getNrows(), B.getNcols());
+bool Eigen::solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const {
+  base::DataMatrix B(b.getPointer(), b.getSize(), 1);
+  base::DataMatrix X(B.getNrows(), B.getNcols());
 
   // call version for multiple RHSs
   if (solve(system, B, X)) {
@@ -66,9 +67,9 @@ bool Eigen::solve(SLE& system, DataVector& b, DataVector& x) const {
   }
 }
 
-bool Eigen::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
+bool Eigen::solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) const {
 #ifdef USE_EIGEN
-  Printer::getInstance().printStatusBegin("Solving linear system (Eigen)...");
+  base::Printer::getInstance().printStatusBegin("Solving linear system (Eigen)...");
 
   const size_t n = system.getDimension();
   EigenMatrix A = EigenMatrix::Zero(n, n);
@@ -77,12 +78,12 @@ bool Eigen::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
 
 #pragma omp parallel if (system.isCloneable()) shared(system, A, nnz, rowsDone, n)  // default(none)
   {
-    SLE* system2 = &system;
+    base::SLE* system2 = &system;
 #ifdef _OPENMP
-    std::unique_ptr<CloneableSLE> clonedSLE;
+    std::unique_ptr<base::CloneableSLE> clonedSLE;
 
     if (system.isCloneable() && (omp_get_max_threads() > 1)) {
-      dynamic_cast<CloneableSLE&>(system).clone(clonedSLE);
+      dynamic_cast<base::CloneableSLE&>(system).clone(clonedSLE);
       system2 = clonedSLE.get();
     }
 
@@ -111,59 +112,60 @@ bool Eigen::solve(SLE& system, DataMatrix& B, DataMatrix& X) const {
         char str[10];
         snprintf(str, sizeof(str), "%.1f%%",
                  static_cast<double>(rowsDone) / static_cast<double>(n) * 100.0);
-        Printer::getInstance().printStatusUpdate("constructing matrix (" + std::string(str) + ")");
+        base::Printer::getInstance().printStatusUpdate("constructing matrix (" + std::string(str) +
+                                                       ")");
       }
     }
   }
 
-  Printer::getInstance().printStatusUpdate("constructing matrix (100.0%)");
-  Printer::getInstance().printStatusNewLine();
+  base::Printer::getInstance().printStatusUpdate("constructing matrix (100.0%)");
+  base::Printer::getInstance().printStatusNewLine();
 
   // print ratio of nonzero entries
   {
     char str[10];
     double nnz_ratio = static_cast<double>(nnz) / (static_cast<double>(n) * static_cast<double>(n));
     snprintf(str, sizeof(str), "%.1f%%", nnz_ratio * 100.0);
-    Printer::getInstance().printStatusUpdate("nnz ratio: " + std::string(str));
-    Printer::getInstance().printStatusNewLine();
+    base::Printer::getInstance().printStatusUpdate("nnz ratio: " + std::string(str));
+    base::Printer::getInstance().printStatusNewLine();
   }
 
   // calculate QR factorization of system matrix
-  Printer::getInstance().printStatusUpdate("step 1: Householder QR factorization");
+  base::Printer::getInstance().printStatusUpdate("step 1: Householder QR factorization");
   ::Eigen::HouseholderQR<EigenMatrix> A_QR = A.householderQr();
 
-  DataVector x(n);
-  DataVector b(n);
+  base::DataVector x(n);
+  base::DataVector b(n);
   X.resize(n, B.getNcols());
 
   // solve system for each RHS
   for (size_t i = 0; i < B.getNcols(); i++) {
     B.getColumn(i, b);
-    Printer::getInstance().printStatusNewLine();
+    base::Printer::getInstance().printStatusNewLine();
 
     if (B.getNcols() == 1) {
-      Printer::getInstance().printStatusUpdate("step 2: solving");
+      base::Printer::getInstance().printStatusUpdate("step 2: solving");
     } else {
-      Printer::getInstance().printStatusUpdate("step 2: solving (RHS " + std::to_string(i + 1) +
-                                               " of " + std::to_string(B.getNcols()) + ")");
+      base::Printer::getInstance().printStatusUpdate("step 2: solving (RHS " +
+                                                     std::to_string(i + 1) + " of " +
+                                                     std::to_string(B.getNcols()) + ")");
     }
 
     if (solveInternal(A, A_QR, b, x)) {
       X.setColumn(i, x);
     } else {
-      Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
+      base::Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
       return false;
     }
   }
 
-  Printer::getInstance().printStatusEnd();
+  base::Printer::getInstance().printStatusEnd();
   return true;
 #else
-  std::cerr << "Error in sle_solver::Eigen::solve: "
+  std::cerr << "Error in solver::Eigen::solve: "
             << "SG++ was compiled without Eigen support!\n";
   return false;
 #endif /* USE_EIGEN */
 }
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

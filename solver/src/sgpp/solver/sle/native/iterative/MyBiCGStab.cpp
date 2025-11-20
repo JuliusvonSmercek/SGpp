@@ -4,28 +4,30 @@
 // sgpp.sparsegrids.org
 
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/solver/BiCGStab.hpp>
+
+#include <sgpp/solver/sle/native/iterative/MyBiCGStab.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #include <cmath>
 #include <numeric>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
-BiCGStab::BiCGStab() : BiCGStab(DEFAULT_MAX_IT_COUNT, DEFAULT_TOLERANCE, DataVector(0)) {}
+MyBiCGStab::MyBiCGStab()
+    : MyBiCGStab(DEFAULT_MAX_IT_COUNT, DEFAULT_TOLERANCE, base::DataVector(0)) {}
 
-BiCGStab::BiCGStab(size_t maxItCount, double tolerance, const DataVector& x0)
-    : SLESolver(), N(maxItCount), tol(tolerance), x0(x0) {}
+MyBiCGStab::MyBiCGStab(size_t maxItCount, double tolerance, const base::DataVector& x0)
+    : MySLESolver(), N(maxItCount), tol(tolerance), x0(x0) {}
 
-BiCGStab::~BiCGStab() {}
+MyBiCGStab::~MyBiCGStab() {}
 
-bool BiCGStab::solve(SLE& system, DataVector& b, DataVector& x) const {
-  Printer::getInstance().printStatusBegin("Solving linear system (BiCGStab)...");
+bool MyBiCGStab::solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const {
+  base::Printer::getInstance().printStatusBegin("Solving linear system (MyBiCGStab)...");
 
   const size_t n = b.getSize();
-  DataVector r(n, 0.0);
+  base::DataVector r(n, 0.0);
 
   if (n == 1) {
     const double A = system.getMatrixEntry(0, 0);
@@ -33,10 +35,10 @@ bool BiCGStab::solve(SLE& system, DataVector& b, DataVector& x) const {
     if (A != 0.0) {
       x.resize(1);
       x[0] = b[0] / A;
-      Printer::getInstance().printStatusEnd();
+      base::Printer::getInstance().printStatusEnd();
       return true;
     } else {
-      Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
+      base::Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
       return false;
     }
   }
@@ -55,14 +57,14 @@ bool BiCGStab::solve(SLE& system, DataVector& b, DataVector& x) const {
     r[i] = b[i] - r[i];
   }
 
-  DataVector r0Hat(r);
+  base::DataVector r0Hat(r);
   double rho = 1.0;
   double alpha = 1.0;
   double omega = 1.0;
-  DataVector v(n, 0.0);
-  DataVector p(n, 0.0);
-  DataVector s(n, 0.0);
-  DataVector t(n, 0.0);
+  base::DataVector v(n, 0.0);
+  base::DataVector p(n, 0.0);
+  base::DataVector s(n, 0.0);
+  base::DataVector t(n, 0.0);
   double rNormSquared = 0.0;
   size_t k = 0;
 
@@ -90,7 +92,7 @@ bool BiCGStab::solve(SLE& system, DataVector& b, DataVector& x) const {
       omega = 0.;
     }
     if (std::isnan(omega)) {
-      Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
+      base::Printer::getInstance().printStatusEnd("error: Could not solve linear system!");
       return false;
     }
 
@@ -101,7 +103,7 @@ bool BiCGStab::solve(SLE& system, DataVector& b, DataVector& x) const {
 
     rNormSquared = r.dotProduct(r);
 
-    Printer::getInstance().printStatusUpdate(
+    base::Printer::getInstance().printStatusUpdate(
         "k = " + std::to_string(k) + ", residual norm = " + std::to_string(sqrt(rNormSquared)));
 
     if (rNormSquared < tol * tol) {
@@ -109,26 +111,25 @@ bool BiCGStab::solve(SLE& system, DataVector& b, DataVector& x) const {
     }
   }
 
-  Printer::getInstance().printStatusUpdate(
+  base::Printer::getInstance().printStatusUpdate(
       "k = " + std::to_string(k) + ", residual norm = " + std::to_string(sqrt(rNormSquared)));
-  Printer::getInstance().printStatusEnd();
+  base::Printer::getInstance().printStatusEnd();
   return true;
 }
 
-size_t BiCGStab::getMaxItCount() const { return N; }
+size_t MyBiCGStab::getMaxItCount() const { return N; }
 
-void BiCGStab::setMaxItCount(size_t maxItCount) { N = maxItCount; }
+void MyBiCGStab::setMaxItCount(size_t maxItCount) { N = maxItCount; }
 
-double BiCGStab::getTolerance() const { return tol; }
+double MyBiCGStab::getTolerance() const { return tol; }
 
-void BiCGStab::setTolerance(double tolerance) { tol = tolerance; }
+void MyBiCGStab::setTolerance(double tolerance) { tol = tolerance; }
 
-const DataVector& BiCGStab::getStartingPoint() const { return x0; }
+const base::DataVector& MyBiCGStab::getStartingPoint() const { return x0; }
 
-void BiCGStab::setStartingPoint(const DataVector& startingPoint) {
+void MyBiCGStab::setStartingPoint(const base::DataVector& startingPoint) {
   x0.resize(startingPoint.getSize());
   x0 = startingPoint;
 }
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

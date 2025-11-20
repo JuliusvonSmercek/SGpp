@@ -5,26 +5,24 @@
 
 #pragma once
 
-#include <sgpp/base/tools/sle/solver/SLESolver.hpp>
+#include <sgpp/solver/sle/common/MySLESolver.hpp>
+
 #include <sgpp/globaldef.hpp>
 
-#include <stdint.h>
-#include <cstddef>
 #include <vector>
 
 namespace sgpp {
-namespace base {
-namespace sle_solver {
+namespace solver {
 
 /**
- * Linear system solver using UMFPACK (direct sparse solver).
+ * Linear system solver using Armadillo (direct full solver).
  */
-class UMFPACK : public SLESolver {
+class Armadillo : public MySLESolver {
  public:
   /**
    * Destructor.
    */
-  ~UMFPACK() override;
+  ~Armadillo() override;
 
   /**
    * @param       system  system to be solved
@@ -33,7 +31,7 @@ class UMFPACK : public SLESolver {
    * @return              whether all went well
    *                      (false if errors occurred)
    */
-  bool solve(SLE& system, DataVector& b, DataVector& x) const override;
+  bool solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const override;
 
   /**
    * @param       system  system to be solved
@@ -42,8 +40,7 @@ class UMFPACK : public SLESolver {
    * @return              whether all went well
    *                      (false if errors occurred)
    */
-  bool solve(SLE& system, DataMatrix& B, DataMatrix& X) const override;
+  bool solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) const override;
 };
-}  // namespace sle_solver
-}  // namespace base
+}  // namespace solver
 }  // namespace sgpp

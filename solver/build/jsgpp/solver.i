@@ -18,7 +18,51 @@
 %include "solver/src/sgpp/solver/sle/common/TypesSolver.hpp"
 %include "solver/src/sgpp/solver/sle/common/SLESolverTypeParser.hpp"
 
+%include "solver/src/sgpp/solver/sle/common/MySLESolver.hpp"
+%include "solver/src/sgpp/solver/sle/external/Armadillo.hpp"
+%include "solver/src/sgpp/solver/sle/external/Auto.hpp"
+%include "solver/src/sgpp/solver/sle/native/iterative/MyBiCGStab.hpp"
+%include "solver/src/sgpp/solver/sle/external/Eigen.hpp"
+%include "solver/src/sgpp/solver/sle/native/direct/GaussianElimination.hpp"
+%include "solver/src/sgpp/solver/sle/native/direct/IterativeGaussianElimination.hpp"
+%include "solver/src/sgpp/solver/sle/external/Gmmpp.hpp"
+%include "solver/src/sgpp/solver/sle/external/UMFPACK.hpp"
+
 %include "solver/src/sgpp/solver/pde/OperationParabolicPDESolverSystem.hpp"
+
+%feature("director") sgpp::solver::SLESolver;
+
+// global variables for the support of SLE solver libaries (set at compile-time)
+const bool ARMADILLO_ENABLED;
+const bool EIGEN_ENABLED;
+const bool GMMPP_ENABLED;
+const bool UMFPACK_ENABLED;
+
+%{
+#ifdef USE_ARMADILLO
+    const bool ARMADILLO_ENABLED = true;
+#else
+    const bool ARMADILLO_ENABLED = false;
+#endif
+
+#ifdef USE_EIGEN
+    const bool EIGEN_ENABLED = true;
+#else
+    const bool EIGEN_ENABLED = false;
+#endif
+
+#ifdef USE_GMMPP
+    const bool GMMPP_ENABLED = true;
+#else
+    const bool GMMPP_ENABLED = false;
+#endif
+
+#ifdef USE_UMFPACK
+    const bool UMFPACK_ENABLED = true;
+#else
+    const bool UMFPACK_ENABLED = false;
+#endif
+%}
 
 //%apply std::string *INPUT { std::string& istr };
 
