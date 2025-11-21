@@ -37,6 +37,11 @@
 %shared_ptr(sgpp::base::WrapperVectorFunctionGradient)
 %shared_ptr(sgpp::base::WrapperVectorFunctionHessian)
 
+%shared_ptr(sgpp::base::SLE)
+%shared_ptr(sgpp::base::CloneableSLE)
+%shared_ptr(sgpp::base::FullSLE)
+%shared_ptr(sgpp::base::HierarchisationSLE)
+
 %shared_ptr(sgpp::base::OperationMatrix)
 %shared_ptr(sgpp::base::OperationIdentity)
 %shared_ptr(sgpp::base::OperationConvert)
