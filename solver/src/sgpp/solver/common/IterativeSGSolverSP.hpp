@@ -6,6 +6,7 @@
 #ifndef SGSOLVERSP_HPP
 #define SGSOLVERSP_HPP
 
+#include <sgpp/solver/common/SGSolver.hpp>
 #include <sgpp/solver/sle/common/TypesSolver.hpp>
 
 #include <sgpp/globaldef.hpp>
@@ -16,10 +17,9 @@ namespace sgpp {
 namespace solver {
 
 /**
- * Abstract class that defines a solver used in Sparse Grids
- * Applications
+ * Abstract class that defines a iterative solver used in Sparse Grids Applications
  */
-class IterativeSGSolverSP {
+class IterativeSGSolverSP : public SGSolver {
  protected:
   /// Number of Iterations needed for the solve
   size_t nIterations;
@@ -70,14 +70,14 @@ class IterativeSGSolverSP {
   void setMaxIterations(size_t nIterations) { nMaxIterations = nIterations; }
 
   /**
-   * resets the epsilon, that is used in the IterativeSGSolver
+   * resets the epsilon, that is used in the IterativeSGSolverSP
    *
    * @param eps the new value of epsilon
    */
   void setEpsilon(float eps) { myEpsilon = eps; }
 
   /**
-   * gets the the epsilon, that is used in the IterativeSGSolver
+   * gets the the epsilon, that is used in the IterativeSGSolverSP
    *
    * @return the epsilon, used in the solver
    */

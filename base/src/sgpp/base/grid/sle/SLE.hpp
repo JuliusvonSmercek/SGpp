@@ -6,6 +6,8 @@
 #pragma once
 
 #include <sgpp/base/datatypes/DataVector.hpp>
+#include <sgpp/base/operation/hash/OperationMatrix.hpp>
+
 #include <sgpp/globaldef.hpp>
 
 #include <cstddef>
@@ -17,12 +19,12 @@ namespace base {
  * Abstract class representing a system of linear equations.
  * All row and column indices are zero based.
  */
-class SLE {
+class SLE : public OperationMatrix {
  public:
   /**
    * Constructor.
    */
-  SLE() {}
+  SLE() : OperationMatrix() {}
 
   /**
    * Destructor.
@@ -55,7 +57,7 @@ class SLE {
    * @param       x   vector to be multiplied
    * @param[out]  y   \f$y = Ax\f$
    */
-  virtual void matrixVectorMultiplication(const DataVector& x, DataVector& y) {
+  void mult(const DataVector& x, DataVector& y) {
     const size_t n = getDimension();
     y.resize(n);
     y.setAll(0.0);
@@ -66,6 +68,8 @@ class SLE {
       }
     }
   }
+
+  virtual void mult(DataVector& x, DataVector& y) override { this->mult(x, y); }
 
   /**
    * Count all non-zero entries.

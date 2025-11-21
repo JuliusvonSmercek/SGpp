@@ -10,7 +10,7 @@
 #include <sgpp/base/grid/generation/hashmap/HashRefinementBoundaries.hpp>
 #include <sgpp/base/grid/generation/functors/SurplusRefinementFunctor.hpp>
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/solver/sle/native/iterative/MyBiCGStab.hpp>
+#include <sgpp/solver/sle/native/iterative/BiCGStabSLE.hpp>
 #include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
 
 #include <sgpp/base/grid/type/LinearGrid.hpp>
@@ -146,7 +146,7 @@ bool IterativeGridGeneratorLinearSurplus::generate() {
   // initial hierarchization
   if (currentN > 1) {
     base::DataVector fXCutoff(fX.getPointer(), currentN);
-    solver::MyBiCGStab sleSolver;
+    solver::BiCGStabSLE sleSolver;
 
     // solve system
     base::Printer::getInstance().disableStatusPrinting();

@@ -12,7 +12,7 @@
 #include <sgpp/solver/sle/external/UMFPACK.hpp>
 #include <sgpp/solver/sle/native/direct/GaussianElimination.hpp>
 #include <sgpp/solver/sle/native/direct/IterativeGaussianElimination.hpp>
-#include <sgpp/solver/sle/native/iterative/MyBiCGStab.hpp>
+#include <sgpp/solver/sle/native/iterative/BiCGStabSLE.hpp>
 
 #include <sgpp/globaldef.hpp>
 
@@ -66,12 +66,12 @@ bool Auto::solve(base::SLE& system, base::DataMatrix& B, base::DataMatrix& X) co
   Eigen solverEigen;
   UMFPACK solverUMFPACK;
   Gmmpp solverGmmpp;
-  MyBiCGStab solverBiCGStab;
+  BiCGStabSLE solverBiCGStab;
   GaussianElimination solverGaussianElimination;
 
   std::map<SLESolver*, bool> supports;
 
-  // by default, only MyBiCGStab and GaussianElimination supported
+  // by default, only BiCGStabSLE and GaussianElimination supported
   supports[&solverArmadillo] = false;
   supports[&solverEigen] = false;
   supports[&solverUMFPACK] = false;

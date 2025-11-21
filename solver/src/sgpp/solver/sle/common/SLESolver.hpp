@@ -9,8 +9,11 @@
 #include <sgpp/base/datatypes/DataVector.hpp>
 #include <sgpp/base/grid/sle/SLE.hpp>
 
+#include <sgpp/solver/common/SGSolver.hpp>
+
 #include <sgpp/globaldef.hpp>
 
+#include <type_traits>
 #include <vector>
 
 namespace sgpp {
@@ -19,7 +22,7 @@ namespace solver {
 /**
  * Abstract class for solving systems of linear equations.
  */
-class SLESolver {
+class SLESolver : public SGSolver {
  public:
   /**
    * Constructor.

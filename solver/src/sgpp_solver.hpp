@@ -34,6 +34,6 @@
 
 #include <sgpp/solver/sle/native/iterative/BiCGStab.hpp>
 #include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
-#include <sgpp/solver/sle/native/iterative/MyBiCGStab.hpp>
+#include <sgpp/solver/sle/native/iterative/BiCGStabSLE.hpp>
 
 #endif /* SOLVER_HPP */

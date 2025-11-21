@@ -24,7 +24,7 @@
 %include "solver/src/sgpp/solver/sle/external/Armadillo.hpp"
 %rename(AutoSLESolver) sgpp::solver::Auto;
 %include "solver/src/sgpp/solver/sle/external/Auto.hpp"
-%include "solver/src/sgpp/solver/sle/native/iterative/MyBiCGStab.hpp"
+%include "solver/src/sgpp/solver/sle/native/iterative/BiCGStabSLE.hpp"
 %include "solver/src/sgpp/solver/sle/external/Eigen.hpp"
 %include "solver/src/sgpp/solver/sle/native/direct/GaussianElimination.hpp"
 %include "solver/src/sgpp/solver/sle/native/direct/IterativeGaussianElimination.hpp"

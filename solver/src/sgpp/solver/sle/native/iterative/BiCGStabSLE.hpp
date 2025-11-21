@@ -17,9 +17,9 @@ namespace sgpp {
 namespace solver {
 
 /**
- * Linear system solver implementing the iterative MyBiCGStab method.
+ * Linear system solver implementing the iterative BiCGStabSLE method.
  */
-class MyBiCGStab : public SLESolver {
+class BiCGStabSLE : public SLESolver {
  public:
   /// default maximal number of iterations
   static const size_t DEFAULT_MAX_IT_COUNT = 1000;
@@ -29,19 +29,19 @@ class MyBiCGStab : public SLESolver {
   /**
    * Constructor.
    */
-  MyBiCGStab();
+  BiCGStabSLE();
 
   /**
    * @param maxItCount        maximal number of iterations
    * @param tolerance         tolerance
    * @param startingPoint     starting vector
    */
-  MyBiCGStab(size_t maxItCount, double tolerance, const base::DataVector& startingPoint);
+  BiCGStabSLE(size_t maxItCount, double tolerance, const base::DataVector& startingPoint);
 
   /**
    * Destructor.
    */
-  ~MyBiCGStab() override;
+  ~BiCGStabSLE() override;
 
   /**
    * @param       system  system to be solved

@@ -5,7 +5,7 @@
 
 #include <sgpp/base/tools/Printer.hpp>
 
-#include <sgpp/solver/sle/native/iterative/MyBiCGStab.hpp>
+#include <sgpp/solver/sle/native/iterative/BiCGStabSLE.hpp>
 
 #include <sgpp/globaldef.hpp>
 
@@ -15,16 +15,16 @@
 namespace sgpp {
 namespace solver {
 
-MyBiCGStab::MyBiCGStab()
-    : MyBiCGStab(DEFAULT_MAX_IT_COUNT, DEFAULT_TOLERANCE, base::DataVector(0)) {}
+BiCGStabSLE::BiCGStabSLE()
+    : BiCGStabSLE(DEFAULT_MAX_IT_COUNT, DEFAULT_TOLERANCE, base::DataVector(0)) {}
 
-MyBiCGStab::MyBiCGStab(size_t maxItCount, double tolerance, const base::DataVector& x0)
+BiCGStabSLE::BiCGStabSLE(size_t maxItCount, double tolerance, const base::DataVector& x0)
     : SLESolver(), N(maxItCount), tol(tolerance), x0(x0) {}
 
-MyBiCGStab::~MyBiCGStab() {}
+BiCGStabSLE::~BiCGStabSLE() {}
 
-bool MyBiCGStab::solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const {
-  base::Printer::getInstance().printStatusBegin("Solving linear system (MyBiCGStab)...");
+bool BiCGStabSLE::solve(base::SLE& system, base::DataVector& b, base::DataVector& x) const {
+  base::Printer::getInstance().printStatusBegin("Solving linear system (BiCGStabSLE)...");
 
   const size_t n = b.getSize();
   base::DataVector r(n, 0.0);
@@ -51,7 +51,7 @@ bool MyBiCGStab::solve(base::SLE& system, base::DataVector& b, base::DataVector&
     x.setAll(0.0);
   }
 
-  system.matrixVectorMultiplication(x, r);
+  system.mult(x, r);
 
   for (size_t i = 0; i < n; i++) {
     r[i] = b[i] - r[i];
@@ -77,13 +77,13 @@ bool MyBiCGStab::solve(base::SLE& system, base::DataVector& b, base::DataVector&
       p[i] = r[i] + beta * (p[i] - omega * v[i]);
     }
 
-    system.matrixVectorMultiplication(p, v);
+    system.mult(p, v);
     alpha = rho / r0Hat.dotProduct(v);
 
     for (size_t i = 0; i < n; i++) {
       s[i] = r[i] - alpha * v[i];
     }
-    system.matrixVectorMultiplication(s, t);
+    system.mult(s, t);
     omega = t.dotProduct(s) / t.dotProduct(t);
 
     rNormSquared = s.dotProduct(s);
@@ -117,17 +117,17 @@ bool MyBiCGStab::solve(base::SLE& system, base::DataVector& b, base::DataVector&
   return true;
 }
 
-size_t MyBiCGStab::getMaxItCount() const { return N; }
+size_t BiCGStabSLE::getMaxItCount() const { return N; }
 
-void MyBiCGStab::setMaxItCount(size_t maxItCount) { N = maxItCount; }
+void BiCGStabSLE::setMaxItCount(size_t maxItCount) { N = maxItCount; }
 
-double MyBiCGStab::getTolerance() const { return tol; }
+double BiCGStabSLE::getTolerance() const { return tol; }
 
-void MyBiCGStab::setTolerance(double tolerance) { tol = tolerance; }
+void BiCGStabSLE::setTolerance(double tolerance) { tol = tolerance; }
 
-const base::DataVector& MyBiCGStab::getStartingPoint() const { return x0; }
+const base::DataVector& BiCGStabSLE::getStartingPoint() const { return x0; }
 
-void MyBiCGStab::setStartingPoint(const base::DataVector& startingPoint) {
+void BiCGStabSLE::setStartingPoint(const base::DataVector& startingPoint) {
   x0.resize(startingPoint.getSize());
   x0 = startingPoint;
 }

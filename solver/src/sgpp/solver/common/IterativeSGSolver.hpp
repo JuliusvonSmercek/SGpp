@@ -6,6 +6,7 @@
 #ifndef SGSOLVER_HPP
 #define SGSOLVER_HPP
 
+#include <sgpp/solver/common/SGSolver.hpp>
 #include <sgpp/solver/sle/common/TypesSolver.hpp>
 
 #include <sgpp/globaldef.hpp>
@@ -16,10 +17,9 @@ namespace sgpp {
 namespace solver {
 
 /**
- * Abstract class that defines a solver used in Sparse Grids
- * Applications
+ * Abstract class that defines a iterative solver used in Sparse Grids Applications
  */
-class IterativeSGSolver {
+class IterativeSGSolver : public SGSolver {
  protected:
   /// Number of Iterations needed for the solve
   size_t nIterations;
