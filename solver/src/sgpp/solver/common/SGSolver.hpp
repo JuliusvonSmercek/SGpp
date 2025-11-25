@@ -9,7 +9,7 @@ namespace sgpp {
 namespace solver {
 
 /**
- * Abstract class that defines a solver used in Sparse Grids Applications
+ * Abstract class that defines a solver used in Sparse Grids Applications.
  */
 class SGSolver {};
 
