@@ -25,7 +25,6 @@ declare -a cpp_examples_to_test=(
                                     "base/examples/dataVectorSerializeDemo.cpp"
                                     "base/examples/refinement.cpp"
                                     "base/examples/predictiveRefinement.cpp"
-                                    "solver/examples/fistaExample.cpp"
                                     "optimization/examples/optimization.cpp"
                                     "optimization/examples/constrainedOptimization.cpp"
                                     "optimization/examples/RitterNovakExample.cpp"
