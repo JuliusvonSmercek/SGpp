@@ -7,10 +7,10 @@
 #include <boost/test/unit_test.hpp>
 
 #include <sgpp/base/datatypes/DataVector.hpp>
-#include <sgpp/solver/sle/fista/ElasticNetFunction.hpp>
-#include <sgpp/solver/sle/fista/LassoFunction.hpp>
-#include <sgpp/solver/sle/fista/RidgeFunction.hpp>
-#include <sgpp/solver/sle/fista/ZeroFunction.hpp>
+#include <sgpp/solver/optimization/regularizers/ElasticNetFunction.hpp>
+#include <sgpp/solver/optimization/regularizers/LassoFunction.hpp>
+#include <sgpp/solver/optimization/regularizers/RidgeFunction.hpp>
+#include <sgpp/solver/optimization/regularizers/ZeroFunction.hpp>
 
 using sgpp::base::DataVector;
 using sgpp::solver::ZeroFunction;

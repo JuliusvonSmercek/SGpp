@@ -8,7 +8,7 @@
 
 #include <sgpp/base/datatypes/DataMatrix.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
-#include <sgpp/base/tools/sle/system/FullSLE.hpp>
+#include <sgpp/base/grid/sle/FullSLE.hpp>
 #include <sgpp/datadriven/datamining/modules/hpo/bo/BOConfig.hpp>
 
 #include <vector>

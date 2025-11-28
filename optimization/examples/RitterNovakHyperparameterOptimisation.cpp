@@ -23,13 +23,15 @@
 #include <sgpp/base/datatypes/DataVector.hpp>
 #include <sgpp/base/function/scalar/ScalarFunction.hpp>
 #include <sgpp/base/grid/Grid.hpp>
+#include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
 #include <sgpp/base/operation/BaseOpFactory.hpp>
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/solver/Auto.hpp>
-#include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
+
 #include <sgpp/optimization/gridgen/IterativeGridGeneratorFullAdaptiveRitterNovak.hpp>
 #include <sgpp/optimization/gridgen/IterativeGridGeneratorRitterNovak.hpp>
 #include <sgpp/optimization/test_problems/unconstrained/Rastrigin.hpp>
+
+#include <sgpp/solver/sle/external/Auto.hpp>
 
 // C system headers
 #include <cassert>

@@ -15,7 +15,7 @@
 #include <sgpp/datadriven/operation/hash/OperationPruneGraphOCL/OpFactory.hpp>
 #include <sgpp/datadriven/tools/ARFFTools.hpp>
 #include <sgpp/globaldef.hpp>
-#include <sgpp/solver/sle/ConjugateGradients.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
 
 #include <boost/program_options.hpp>
 

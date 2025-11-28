@@ -6,8 +6,8 @@
 #include <sgpp/globaldef.hpp>
 
 #include <sgpp/base/operation/hash/OperationEvalLinearNaive.hpp>
-#include <sgpp/base/tools/sle/solver/Auto.hpp>
-#include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
+#include <sgpp/solver/sle/external/Auto.hpp>
+#include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
 #include <sgpp/optimization/operation/hash/OperationMultipleHierarchisationLinear.hpp>
 
 namespace sgpp {
@@ -21,7 +21,7 @@ OperationMultipleHierarchisationLinear::~OperationMultipleHierarchisationLinear(
 
 bool OperationMultipleHierarchisationLinear::doHierarchisation(base::DataVector& nodeValues) {
   base::HierarchisationSLE system(grid);
-  base::sle_solver::Auto solver;
+  solver::Auto solver;
   base::DataVector b(nodeValues);
   return solver.solve(system, b, nodeValues);
 }
@@ -44,7 +44,7 @@ void OperationMultipleHierarchisationLinear::doDehierarchisation(base::DataVecto
 
 bool OperationMultipleHierarchisationLinear::doHierarchisation(base::DataMatrix& nodeValues) {
   base::HierarchisationSLE system(grid);
-  base::sle_solver::Auto solver;
+  solver::Auto solver;
   base::DataMatrix B(nodeValues);
   return solver.solve(system, B, nodeValues);
 }

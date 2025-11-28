@@ -14,7 +14,7 @@
 #include <sgpp/datadriven/operation/hash/OperationDensityOCLMultiPlatform/OpFactory.hpp>
 #include <sgpp/datadriven/operation/hash/OperationCreateGraphOCL/OpFactory.hpp>
 #include <sgpp/datadriven/operation/hash/OperationPruneGraphOCL/OpFactory.hpp>
-#include <sgpp/solver/sle/ConjugateGradients.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
 
 #include <chrono>
 #include <vector>

@@ -20,7 +20,7 @@
 %shared_ptr(sgpp::pde::OperationLaplaceLinearStretchedBoundary)
 
 // The Good, i.e. without any modifications
-%include "solver/src/sgpp/solver/operation/hash/OperationParabolicPDESolverSystem.hpp"
+%include "solver/src/sgpp/solver/pde/OperationParabolicPDESolverSystem.hpp"
 %include "pde/src/sgpp/pde/operation/hash/OperationParabolicPDESolverSystemDirichlet.hpp"
 
 %include "pde/src/sgpp/pde/algorithm/HeatEquationParabolicPDESolverSystem.hpp"

@@ -221,68 +221,13 @@ namespace std {
 %include "base/src/sgpp/base/operation/hash/OperationMultipleEvalPeriodic.hpp"
 %include "base/src/sgpp/base/operation/hash/common/basis/LinearPeriodicBasis.hpp"
 
-/*%include "solver/src/sgpp/solver/SGSolver.hpp"
-%include "solver/src/sgpp/solver/SLESolver.hpp"
-%include "solver/src/sgpp/solver/ODESolver.hpp"
-%feature("director") ConjugateGradients;
-%include "solver/src/sgpp/solver/sle/ConjugateGradients.hpp"
-%include "solver/src/sgpp/solver/sle/BiCGStab.hpp"
-%include "solver/src/sgpp/solver/ode/Euler.hpp"
-%include "solver/src/sgpp/solver/ode/CrankNicolson.hpp"*/
-
 %include "base/src/sgpp/base/tools/RandomNumberGenerator.hpp"
 
 // SLE
-
-// global variables for the support of SLE solver libaries (set at compile-time)
-const bool ARMADILLO_ENABLED;
-const bool EIGEN_ENABLED;
-const bool GMMPP_ENABLED;
-const bool UMFPACK_ENABLED;
-
-%{
-#ifdef USE_ARMADILLO
-    const bool ARMADILLO_ENABLED = true;
-#else
-    const bool ARMADILLO_ENABLED = false;
-#endif
-
-#ifdef USE_EIGEN
-    const bool EIGEN_ENABLED = true;
-#else
-    const bool EIGEN_ENABLED = false;
-#endif
-
-#ifdef USE_GMMPP
-    const bool GMMPP_ENABLED = true;
-#else
-    const bool GMMPP_ENABLED = false;
-#endif
-
-#ifdef USE_UMFPACK
-    const bool UMFPACK_ENABLED = true;
-#else
-    const bool UMFPACK_ENABLED = false;
-#endif
-%}
-
-%rename(AutoSLESolver)          sgpp::base::sle_solver::Auto;
-
-%include "base/src/sgpp/base/tools/sle/system/SLE.hpp"
-%include "base/src/sgpp/base/tools/sle/system/CloneableSLE.hpp"
-%include "base/src/sgpp/base/tools/sle/system/FullSLE.hpp"
-%include "base/src/sgpp/base/tools/sle/system/HierarchisationSLE.hpp"
-
-%include "base/src/sgpp/base/tools/sle/solver/SLESolver.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/Armadillo.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/Auto.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/BiCGStab.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/Eigen.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/GaussianElimination.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/IterativeGaussianElimination.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/Gmmpp.hpp"
-%include "base/src/sgpp/base/tools/sle/solver/UMFPACK.hpp"
-
+%include "base/src/sgpp/base/grid/sle/SLE.hpp"
+%include "base/src/sgpp/base/grid/sle/CloneableSLE.hpp"
+%include "base/src/sgpp/base/grid/sle/FullSLE.hpp"
+%include "base/src/sgpp/base/grid/sle/HierarchisationSLE.hpp"
 
 %include "base/src/sgpp/base/tools/MutexType.hpp"
 %rename(OperatorInsertion) sgpp::base::operator<<;
@@ -354,7 +299,6 @@ const bool UMFPACK_ENABLED;
 %feature("director") sgpp::base::VectorFunctionGradient;
 %feature("director") sgpp::base::VectorFunctionHessian;
 %feature("director") sgpp::base::SLE;
-%feature("director") sgpp::base::sle_solver::SLESolver;
 
 // dirty hack to override SWIG's generated director method for "clone"
 %typemap(directorin, descriptor="Lsgpp/SWIGTYPE_p_std__unique_ptrT_sgpp__base__ScalarFunction_t;") std::unique_ptr<sgpp::base::ScalarFunction>& {

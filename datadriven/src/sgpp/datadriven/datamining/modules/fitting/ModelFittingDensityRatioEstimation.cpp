@@ -7,7 +7,7 @@
 #include <sgpp/datadriven/DatadrivenOpFactory.hpp>
 #include <sgpp/datadriven/algorithm/SystemMatrixDensityRatioEstimation.hpp>
 #include <sgpp/datadriven/datamining/modules/fitting/ModelFittingDensityRatioEstimation.hpp>
-#include <sgpp/solver/SLESolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
 
 #include <sgpp/base/exception/application_exception.hpp>
 #include <sgpp/base/grid/generation/functors/SurplusRefinementFunctor.hpp>
@@ -23,7 +23,7 @@ using sgpp::base::SurplusRefinementFunctor;
 
 using sgpp::base::application_exception;
 
-using sgpp::solver::SLESolver;
+using sgpp::solver::IterativeSLESolver;
 
 namespace sgpp {
 namespace datadriven {
@@ -33,7 +33,7 @@ ModelFittingDensityRatioEstimation::ModelFittingDensityRatioEstimation(
     : ModelFittingBaseSingleGrid{}, refinementsPerformed{0} {
   this->config = std::unique_ptr<FitterConfiguration>(
       std::make_unique<FitterConfigurationLeastSquares>(config));
-  solver = std::unique_ptr<SLESolver>{buildSolver(this->config->getSolverFinalConfig())};
+  solver = std::unique_ptr<IterativeSLESolver>{buildSolver(this->config->getSolverFinalConfig())};
 }
 
 // TODO(lettrich): exceptions have to be thrown if not valid.

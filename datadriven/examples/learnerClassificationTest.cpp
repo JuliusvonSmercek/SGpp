@@ -15,7 +15,7 @@
 #include <sgpp/datadriven/configuration/RegularizationConfiguration.hpp>
 #include <sgpp/datadriven/tools/ARFFTools.hpp>
 #include <sgpp/globaldef.hpp>
-#include <sgpp/solver/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
 
 #include <exception>
 #include <limits>

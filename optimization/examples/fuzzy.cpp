@@ -86,7 +86,7 @@ int main() {
   {
     sgpp::base::DataVector surpluses(N);
     sgpp::base::HierarchisationSLE hierSLE(*gridBSpline);
-    sgpp::base::sle_solver::Auto sleSolver;
+    sgpp::solver::Auto sleSolver;
 
     if (!sleSolver.solve(hierSLE, functionValues, surpluses)) {
       std::cout << "Solving failed, exiting.\n";
@@ -109,7 +109,7 @@ int main() {
   {
     sgpp::base::DataVector surpluses(N);
     sgpp::base::HierarchisationSLE hierSLE(*gridLinear);
-    sgpp::base::sle_solver::Auto sleSolver;
+    sgpp::solver::Auto sleSolver;
 
     if (!sleSolver.solve(hierSLE, functionValues, surpluses)) {
       std::cout << "Solving failed, exiting.\n";

@@ -12,8 +12,8 @@
 #include <sgpp/datadriven/datamining/modules/fitting/FitterConfiguration.hpp>
 #include <sgpp/datadriven/datamining/modules/fitting/ModelFittingBase.hpp>
 #include <sgpp/datadriven/tools/Dataset.hpp>
-#include <sgpp/solver/SLESolver.hpp>
-#include <sgpp/solver/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
 
 #include <memory>
 #include <string>

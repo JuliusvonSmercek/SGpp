@@ -8,7 +8,7 @@
 #include <sgpp/base/datatypes/DataMatrix.hpp>
 #include <sgpp/base/datatypes/DataVector.hpp>
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/system/FullSLE.hpp>
+#include <sgpp/base/grid/sle/FullSLE.hpp>
 #include <sgpp/optimization/optimizer/unconstrained/LineSearchArmijo.hpp>
 #include <sgpp/optimization/optimizer/unconstrained/Newton.hpp>
 
@@ -31,13 +31,13 @@ Newton::Newton(const base::ScalarFunction& f, const base::ScalarFunctionHessian&
       alpha1(alpha1),
       alpha2(alpha2),
       p(p),
-      defaultSleSolver(base::sle_solver::GaussianElimination()),
+      defaultSleSolver(solver::GaussianElimination()),
       sleSolver(defaultSleSolver) {
 }
 
 Newton::Newton(const base::ScalarFunction& f, const base::ScalarFunctionHessian& fHessian,
                size_t max_it_count, double beta, double gamma, double tolerance, double epsilon,
-               double alpha1, double alpha2, double p, const base::sle_solver::SLESolver& sleSolver)
+               double alpha1, double alpha2, double p, const solver::SLESolver& sleSolver)
     : UnconstrainedOptimizer(f, nullptr, &fHessian, max_it_count),
       beta(beta),
       gamma(gamma),
@@ -46,7 +46,7 @@ Newton::Newton(const base::ScalarFunction& f, const base::ScalarFunctionHessian&
       alpha1(alpha1),
       alpha2(alpha2),
       p(p),
-      defaultSleSolver(base::sle_solver::GaussianElimination()),
+      defaultSleSolver(solver::GaussianElimination()),
       sleSolver(sleSolver) {
 }
 
@@ -59,7 +59,7 @@ Newton::Newton(const Newton& other)
       alpha1(other.alpha1),
       alpha2(other.alpha2),
       p(other.p),
-      defaultSleSolver(base::sle_solver::GaussianElimination()),
+      defaultSleSolver(solver::GaussianElimination()),
       sleSolver(other.sleSolver) {
 }
 

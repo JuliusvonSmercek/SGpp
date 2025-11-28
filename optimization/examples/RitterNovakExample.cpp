@@ -14,16 +14,17 @@
 // Additionally, compile SGpp with the `USE_LIBGP` and `USE_BAYESOPT` options enabled.
 // Note: Before compiling SGpp, verify that libgp and BayesOpt are installed system-wide.
 
-#include <sgpp/base/tools/sle/solver/Auto.hpp>
-#include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
-#include <sgpp/optimization/gridgen/IterativeGridGeneratorFullAdaptiveRitterNovak.hpp>
-#include <sgpp/optimization/gridgen/IterativeGridGeneratorRitterNovak.hpp>
-#include <sgpp/optimization/test_problems/unconstrained/Rastrigin.hpp>
-
 #include <sgpp/base/datatypes/DataVector.hpp>
 #include <sgpp/base/function/scalar/ScalarFunction.hpp>
 #include <sgpp/base/grid/Grid.hpp>
 #include <sgpp/base/grid/GridStorage.hpp>
+#include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
+
+#include <sgpp/optimization/gridgen/IterativeGridGeneratorFullAdaptiveRitterNovak.hpp>
+#include <sgpp/optimization/gridgen/IterativeGridGeneratorRitterNovak.hpp>
+#include <sgpp/optimization/test_problems/unconstrained/Rastrigin.hpp>
+
+#include <sgpp/solver/sle/external/Auto.hpp>
 
 #include <array>  // For std::array
 #include <cassert>
@@ -67,7 +68,7 @@ void gridGenerationRitterNovak() {
   sgpp::base::HierarchisationSLE hierSLE(*grid);
   const size_t N = hierSLE.getDimension();
 
-  sgpp::base::sle_solver::Auto sleSolver;
+  sgpp::solver::Auto sleSolver;
   sgpp::base::DataVector alpha(N);
   sgpp::base::DataVector b = gridGen.getFunctionValues();
 

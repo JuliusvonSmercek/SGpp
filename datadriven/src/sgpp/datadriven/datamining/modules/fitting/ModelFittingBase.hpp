@@ -14,8 +14,8 @@
 #include <sgpp/datadriven/datamining/modules/fitting/FitterConfiguration.hpp>
 #include <sgpp/datadriven/scalapack/BlacsProcessGrid.hpp>
 #include <sgpp/datadriven/tools/Dataset.hpp>
-#include <sgpp/solver/SLESolver.hpp>
-#include <sgpp/solver/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
 
 #include <sgpp/base/exception/application_exception.hpp>
 
@@ -29,7 +29,7 @@ using sgpp::base::DataMatrix;
 using sgpp::base::DataVector;
 using sgpp::base::Grid;
 using sgpp::base::OperationMatrix;
-using sgpp::solver::SLESolver;
+using sgpp::solver::IterativeSLESolver;
 using sgpp::solver::SLESolverConfiguration;
 
 namespace datadriven {
@@ -218,14 +218,14 @@ class ModelFittingBase {
    * to the config.
    * @param config configuratin for the solver object
    */
-  SLESolver *buildSolver(const SLESolverConfiguration &config) const;
+  IterativeSLESolver *buildSolver(const SLESolverConfiguration &config) const;
 
   /**
    * Configure solver based on the desired configuration
    * @param solver the solver object to be modified.
    * @param config configuration updating the for the solver.
    */
-  void reconfigureSolver(SLESolver &solver, const SLESolverConfiguration &config) const;
+  void reconfigureSolver(IterativeSLESolver &solver, const SLESolverConfiguration &config) const;
 
   /*
    * This method is used to pass the interactions for a geometry aware sparse grid to the offline
@@ -256,7 +256,7 @@ class ModelFittingBase {
   /**
    * Solver for the learning problem
    */
-  std::unique_ptr<SLESolver> solver;
+  std::unique_ptr<IterativeSLESolver> solver;
 };
 } /* namespace datadriven */
 } /* namespace sgpp */

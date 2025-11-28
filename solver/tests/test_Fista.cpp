@@ -10,9 +10,9 @@
 #include <sgpp/base/datatypes/DataVector.hpp>
 #include <sgpp/base/grid/Grid.hpp>
 #include <sgpp/base/operation/BaseOpFactory.hpp>
-#include <sgpp/solver/sle/ConjugateGradients.hpp>
-#include <sgpp/solver/sle/fista/Fista.hpp>
-#include <sgpp/solver/sle/fista/RidgeFunction.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
+#include <sgpp/solver/optimization/fista/Fista.hpp>
+#include <sgpp/solver/optimization/regularizers/RidgeFunction.hpp>
 
 #include <sgpp/globaldef.hpp>
 

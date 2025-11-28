@@ -6,9 +6,9 @@
 #include <sgpp/pde/algorithm/HeatEquationParabolicPDESolverSystem.hpp>
 #include <sgpp/pde/algorithm/HeatEquationParabolicPDESolverSystemParallelOMP.hpp>
 #include <sgpp/pde/application/HeatEquationSolver.hpp>
-#include <sgpp/solver/ode/Euler.hpp>
-#include <sgpp/solver/ode/CrankNicolson.hpp>
-#include <sgpp/solver/sle/ConjugateGradients.hpp>
+#include <sgpp/solver/ode/integrators/Euler.hpp>
+#include <sgpp/solver/ode/integrators/CrankNicolson.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
 #include <sgpp/base/grid/Grid.hpp>
 #include <sgpp/base/exception/application_exception.hpp>
 #include <sgpp/base/operation/BaseOpFactory.hpp>

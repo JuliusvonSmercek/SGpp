@@ -17,7 +17,7 @@
 #include <sgpp/datadriven/configuration/RegularizationConfiguration.hpp>
 #include <sgpp/datadriven/datamining/configuration/DataMiningConfigParser.hpp>
 #include <sgpp/datadriven/operation/hash/DatadrivenOperationCommon.hpp>
-#include <sgpp/solver/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
 
 #include <string>
 

@@ -9,7 +9,7 @@
 namespace sgpp {
 namespace datadriven {
 
-DBMatDecompMatrixSolver::DBMatDecompMatrixSolver() : SGSolver(0, 0) {}
+DBMatDecompMatrixSolver::DBMatDecompMatrixSolver() : IterativeSGSolver(0, 0) {}
 
 }  // namespace datadriven
 }  // namespace sgpp

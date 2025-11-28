@@ -6,7 +6,7 @@
 #ifndef OPERATIONPARABOLICPDESOLVERSYSTEMFREEBOUNDARIES_HPP
 #define OPERATIONPARABOLICPDESOLVERSYSTEMFREEBOUNDARIES_HPP
 
-#include <sgpp/solver/operation/hash/OperationParabolicPDESolverSystem.hpp>
+#include <sgpp/solver/pde/OperationParabolicPDESolverSystem.hpp>
 
 #include <sgpp/globaldef.hpp>
 

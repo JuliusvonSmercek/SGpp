@@ -8,7 +8,7 @@
 
 #include <sgpp/globaldef.hpp>
 
-#include <sgpp/base/tools/sle/solver/GaussianElimination.hpp>
+#include <sgpp/solver/sle/native/direct/GaussianElimination.hpp>
 #include <sgpp/optimization/optimizer/least_squares/LeastSquaresOptimizer.hpp>
 #include <sgpp/base/function/vector/VectorFunctionGradient.hpp>
 
@@ -69,7 +69,7 @@ class LevenbergMarquardt : public LeastSquaresOptimizer {
   LevenbergMarquardt(const base::VectorFunction& phi,
                      const base::VectorFunctionGradient& phiGradient, size_t maxItCount,
                      double tolerance, double initialDamping, double acceptanceThreshold,
-                     double effectivenessThreshold, const base::sle_solver::SLESolver& sleSolver);
+                     double effectivenessThreshold, const solver::SLESolver& sleSolver);
 
   /**
    * Copy constructor.
@@ -147,9 +147,9 @@ class LevenbergMarquardt : public LeastSquaresOptimizer {
   /// effectiveness threshold
   double beta1;
   /// default linear solver
-  const base::sle_solver::GaussianElimination defaultSleSolver;
+  const solver::GaussianElimination defaultSleSolver;
   /// linear solver
-  const base::sle_solver::SLESolver& sleSolver;
+  const solver::SLESolver& sleSolver;
 };
 }  // namespace optimizer
 }  // namespace optimization

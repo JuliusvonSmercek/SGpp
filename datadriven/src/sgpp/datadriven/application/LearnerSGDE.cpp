@@ -25,8 +25,8 @@
 #include <sgpp/datadriven/functors/classification/ZeroCrossingRefinementFunctor.hpp>
 #include <sgpp/datadriven/operation/hash/simple/OperationCovariance.hpp>
 #include <sgpp/pde/operation/PdeOpFactory.hpp>
-#include <sgpp/solver/TypesSolver.hpp>
-#include <sgpp/solver/sle/ConjugateGradients.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
 
 #include <sgpp/datadriven/DatadrivenOpFactory.hpp>
 #include <sgpp/datadriven/operation/hash/simple/OperationDensityMargTo1D.hpp>

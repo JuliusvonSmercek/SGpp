@@ -137,7 +137,7 @@ class CGSolver(ConjugateGradients, LinearSolver):
     #
     # @param cls python keyword (do not specify)
     # @param jsonObject A json object.
-    # @return The restored SGSolver object.
+    # @return The restored IterativeSGSolver object.
     @classmethod
     def fromJson(cls, jsonObject):
         cg = CGSolver()

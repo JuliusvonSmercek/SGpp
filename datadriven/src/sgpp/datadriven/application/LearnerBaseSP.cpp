@@ -14,8 +14,8 @@
 #include <sgpp/base/tools/GridPrinter.hpp>
 #include <sgpp/base/tools/PrecisionConverter.hpp>
 
-#include <sgpp/solver/sle/BiCGStabSP.hpp>
-#include <sgpp/solver/sle/ConjugateGradientsSP.hpp>
+#include <sgpp/solver/sle/native/iterative/BiCGStabSP.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradientsSP.hpp>
 
 #include <sgpp/datadriven/application/LearnerBaseSP.hpp>
 
@@ -162,7 +162,7 @@ LearnerTiming LearnerBaseSP::train(sgpp::base::DataMatrixSP& trainDataset,
   // check if System was created
   if (DMSystem == nullptr) return result;
 
-  sgpp::solver::SLESolverSP* myCG;
+  sgpp::solver::IterativeSLESolverSP* myCG;
 
   if (SolverConfigRefine.type_ == sgpp::solver::SLESolverType::CG) {
     myCG = new sgpp::solver::ConjugateGradientsSP(SolverConfigRefine.maxIterations_,

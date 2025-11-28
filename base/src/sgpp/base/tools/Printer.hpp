@@ -10,7 +10,7 @@
 #include <sgpp/base/grid/GridStorage.hpp>
 #include <sgpp/base/tools/MutexType.hpp>
 #include <sgpp/base/tools/SGppStopwatch.hpp>
-#include <sgpp/base/tools/sle/system/SLE.hpp>
+#include <sgpp/base/grid/sle/SLE.hpp>
 #include <sgpp/globaldef.hpp>
 
 #include <algorithm>

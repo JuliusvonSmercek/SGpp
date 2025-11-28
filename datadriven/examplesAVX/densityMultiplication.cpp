@@ -8,7 +8,7 @@
 #include <sgpp/base/grid/GridStorage.hpp>
 #include <sgpp/base/grid/generation/GridGenerator.hpp>
 #include <sgpp/globaldef.hpp>
-#include <sgpp/solver/sle/ConjugateGradients.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
 #include <sgpp/datadriven/operation/hash/OperationDensityMultiplicationAVX/OperationDensityMultiplicationAVX.hpp>
 #include <sgpp/datadriven/tools/ARFFTools.hpp>
 

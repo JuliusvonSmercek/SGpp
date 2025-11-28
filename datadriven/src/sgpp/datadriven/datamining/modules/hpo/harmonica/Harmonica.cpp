@@ -6,8 +6,8 @@
 #include <sgpp/datadriven/datamining/modules/hpo/harmonica/Harmonica.hpp>
 
 #include <sgpp/base/exception/data_exception.hpp>
-#include <sgpp/solver/sle/fista/LassoFunction.hpp>
-#include <sgpp/solver/sle/fista/Fista.hpp>
+#include <sgpp/solver/optimization/regularizers/LassoFunction.hpp>
+#include <sgpp/solver/optimization/fista/Fista.hpp>
 #include <sgpp/base/grid/type/LinearGrid.hpp>
 #include <sgpp/base/exception/application_exception.hpp>
 #include <sgpp/base/tools/Printer.hpp>

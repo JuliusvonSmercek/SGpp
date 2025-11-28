@@ -26,10 +26,10 @@
 #include <sgpp/base/operation/hash/common/basis/NakBsplineModifiedBasis.hpp>
 #include <sgpp/base/tools/Distribution.hpp>
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/solver/Armadillo.hpp>
-#include <sgpp/base/tools/sle/solver/Auto.hpp>
-#include <sgpp/base/tools/sle/solver/Eigen.hpp>
-#include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
+#include <sgpp/solver/sle/external/Armadillo.hpp>
+#include <sgpp/solver/sle/external/Auto.hpp>
+#include <sgpp/solver/sle/external/Eigen.hpp>
+#include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
 #include <sgpp/optimization/function/vector/ResponseSurfaceVector.hpp>
 #include <sgpp/optimization/gridgen/IterativeGridGeneratorRitterNovak.hpp>
 #include <sgpp/optimization/optimizer/unconstrained/GradientDescent.hpp>

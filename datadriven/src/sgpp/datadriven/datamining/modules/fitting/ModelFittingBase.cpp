@@ -10,8 +10,8 @@
 #include <sgpp/base/operation/BaseOpFactory.hpp>
 #include <sgpp/datadriven/configuration/RegularizationConfiguration.hpp>
 #include <sgpp/pde/operation/PdeOpFactory.hpp>
-#include <sgpp/solver/sle/BiCGStab.hpp>
-#include <sgpp/solver/sle/ConjugateGradients.hpp>
+#include <sgpp/solver/sle/native/iterative/BiCGStab.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
 
 #include <set>
 #include <string>
@@ -30,7 +30,7 @@ using base::GridPoint;
 using base::GridType;
 using sgpp::solver::BiCGStab;
 using sgpp::solver::ConjugateGradients;
-using sgpp::solver::SLESolver;
+using sgpp::solver::IterativeSLESolver;
 using sgpp::solver::SLESolverConfiguration;
 using sgpp::solver::SLESolverType;
 
@@ -83,7 +83,7 @@ std::set<std::set<size_t>> ModelFittingBase::getInteractions(
   return *interactions;
 }
 
-SLESolver *ModelFittingBase::buildSolver(const SLESolverConfiguration &sleConfig) const {
+IterativeSLESolver *ModelFittingBase::buildSolver(const SLESolverConfiguration &sleConfig) const {
   if (sleConfig.type_ == SLESolverType::CG) {
     return new ConjugateGradients(sleConfig.maxIterations_, sleConfig.eps_);
   } else if (sleConfig.type_ == SLESolverType::BiCGSTAB) {
@@ -95,7 +95,7 @@ SLESolver *ModelFittingBase::buildSolver(const SLESolverConfiguration &sleConfig
   }
 }
 
-void ModelFittingBase::reconfigureSolver(SLESolver &solver,
+void ModelFittingBase::reconfigureSolver(IterativeSLESolver &solver,
                                          const SLESolverConfiguration &sleConfig) const {
   solver.setMaxIterations(sleConfig.maxIterations_);
   solver.setEpsilon(sleConfig.eps_);

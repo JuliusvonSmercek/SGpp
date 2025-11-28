@@ -13,7 +13,7 @@
 #include <sgpp/base/operation/hash/OperationMultipleEval.hpp>
 #include <sgpp/datadriven/tools/TypesDatadriven.hpp>
 #include <sgpp/datadriven/application/LearnerLeastSquaresIdentity.hpp>
-#include <sgpp/solver/SLESolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
 #include <sgpp/datadriven/operation/hash/DatadrivenOperationCommon.hpp>
 #include <sgpp/globaldef.hpp>
 

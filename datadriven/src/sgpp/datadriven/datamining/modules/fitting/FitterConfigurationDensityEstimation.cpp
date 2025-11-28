@@ -5,7 +5,7 @@
 
 #include <sgpp/datadriven/algorithm/DBMatDatabase.hpp>
 #include <sgpp/datadriven/datamining/modules/fitting/FitterConfigurationDensityEstimation.hpp>
-#include <sgpp/solver/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
 #include <vector>
 
 namespace sgpp {

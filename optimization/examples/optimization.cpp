@@ -111,7 +111,7 @@ int main(int argc, const char* argv[]) {
   sgpp::base::DataVector functionValues(gridGen.getFunctionValues());
   sgpp::base::DataVector coeffs(functionValues.getSize());
   sgpp::base::HierarchisationSLE hierSLE(grid);
-  sgpp::base::sle_solver::Auto sleSolver;
+  sgpp::solver::Auto sleSolver;
 
   // solve linear system
   if (!sleSolver.solve(hierSLE, functionValues, coeffs)) {

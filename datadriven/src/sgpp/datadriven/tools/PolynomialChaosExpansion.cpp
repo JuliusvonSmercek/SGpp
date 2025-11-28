@@ -262,7 +262,7 @@ double PolynomialChaosExpansion::sparseGridQuadrature(
   base::DataVector coeffs(evals.getSize());
   if (!succHierarch) {
     sgpp::base::HierarchisationSLE hierSLE(*grid);
-    sgpp::base::sle_solver::Eigen sleSolver;
+    sgpp::solver::Eigen sleSolver;
 
     // solve linear system
     if (!sleSolver.solve(hierSLE, evals, coeffs)) {
@@ -340,7 +340,7 @@ double PolynomialChaosExpansion::adaptiveQuadratureWeighted(
 
     if (!succHierarch) {
       sgpp::base::HierarchisationSLE hierSLE(*grid);
-      sgpp::base::sle_solver::Eigen sleSolver;
+      sgpp::solver::Eigen sleSolver;
 
       // solve linear system
       if (!sleSolver.solve(hierSLE, funEvals, coeffs)) {

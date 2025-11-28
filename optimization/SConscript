@@ -10,7 +10,7 @@ import ModuleHelper
 
 Import("*")
 
-moduleDependencies = ["sgppbase"]
+moduleDependencies = ["sgppbase", "sgppsolver"]
 additionalDependencies = []
 
 # otherwise libgp won't find eigen

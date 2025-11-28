@@ -3,16 +3,18 @@
 // use, please see the copyright notice provided with SG++ or at
 // sgpp.sparsegrids.org
 
-#include <sgpp/optimization/gridgen/IterativeGridGeneratorFullAdaptiveRitterNovak.hpp>
-
 #include <sgpp/base/function/scalar/InterpolantScalarFunction.hpp>
 #include <sgpp/base/function/scalar/InterpolantScalarFunctionGradient.hpp>
 #include <sgpp/base/grid/generation/functors/SurplusRefinementFunctor.hpp>
+#include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/solver/IterativeGaussianElimination.hpp>
-#include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
-#include <sgpp/globaldef.hpp>
+
 #include <sgpp/optimization/gridgen/HashRefinementMultiple.hpp>
+#include <sgpp/optimization/gridgen/IterativeGridGeneratorFullAdaptiveRitterNovak.hpp>
+
+#include <sgpp/solver/sle/native/direct/IterativeGaussianElimination.hpp>
+
+#include <sgpp/globaldef.hpp>
 
 #include <algorithm>
 #include <array>
@@ -746,7 +748,7 @@ bool IterativeGridGeneratorFullAdaptiveRitterNovak::generate() {
   // Evaluate f on initial grid points
   evalFunction();
 
-  base::sle_solver::IterativeGaussianElimination fastMatrixSolver{};
+  solver::IterativeGaussianElimination fastMatrixSolver{};
   std::unique_ptr<IGGFARNHelper::StoppingCriterion> stoppingCriterion;
   if (this->isStoppingCriterionEnabled()) {
     stoppingCriterion =

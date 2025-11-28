@@ -11,8 +11,8 @@
 #include <sgpp/datadriven/application/RegressionLearner.hpp>
 #include <sgpp/datadriven/configuration/RegularizationConfiguration.hpp>
 #include <sgpp/globaldef.hpp>
-#include <sgpp/solver/SLESolver.hpp>
-#include <sgpp/solver/TypesSolver.hpp>
+#include <sgpp/solver/sle/common/IterativeSLESolver.hpp>
+#include <sgpp/solver/sle/common/TypesSolver.hpp>
 
 #include <memory>
 #include <set>

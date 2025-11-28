@@ -179,20 +179,10 @@
 #include <sgpp/base/tools/ScopedLock.hpp>
 #include <sgpp/base/tools/StdNormalDistribution.hpp>
 
-#include <sgpp/base/tools/sle/solver/Armadillo.hpp>
-#include <sgpp/base/tools/sle/solver/Auto.hpp>
-#include <sgpp/base/tools/sle/solver/BiCGStab.hpp>
-#include <sgpp/base/tools/sle/solver/Eigen.hpp>
-#include <sgpp/base/tools/sle/solver/GaussianElimination.hpp>
-#include <sgpp/base/tools/sle/solver/IterativeGaussianElimination.hpp>
-#include <sgpp/base/tools/sle/solver/Gmmpp.hpp>
-#include <sgpp/base/tools/sle/solver/SLESolver.hpp>
-#include <sgpp/base/tools/sle/solver/UMFPACK.hpp>
-
-#include <sgpp/base/tools/sle/system/CloneableSLE.hpp>
-#include <sgpp/base/tools/sle/system/FullSLE.hpp>
-#include <sgpp/base/tools/sle/system/HierarchisationSLE.hpp>
-#include <sgpp/base/tools/sle/system/SLE.hpp>
+#include <sgpp/base/grid/sle/CloneableSLE.hpp>
+#include <sgpp/base/grid/sle/FullSLE.hpp>
+#include <sgpp/base/grid/sle/HierarchisationSLE.hpp>
+#include <sgpp/base/grid/sle/SLE.hpp>
 
 #include <sgpp/base/function/scalar/ComponentScalarFunction.hpp>
 #include <sgpp/base/function/scalar/ComponentScalarFunctionGradient.hpp>

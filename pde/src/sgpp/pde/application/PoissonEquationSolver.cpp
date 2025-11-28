@@ -5,7 +5,7 @@
 
 #include <sgpp/pde/application/PoissonEquationSolver.hpp>
 #include <sgpp/pde/algorithm/PoissonEquationEllipticPDESolverSystemDirichlet.hpp>
-#include <sgpp/solver/sle/ConjugateGradients.hpp>
+#include <sgpp/solver/sle/native/iterative/ConjugateGradients.hpp>
 #include <sgpp/base/grid/Grid.hpp>
 #include <sgpp/base/exception/application_exception.hpp>
 #include <sgpp/base/tools/SGppStopwatch.hpp>

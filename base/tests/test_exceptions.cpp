@@ -42,7 +42,7 @@
 #include <sgpp/base/operation/BaseOpFactory.hpp>
 
 // For solver exception
-// #include <sgpp/solver/ode/Euler.hpp>
+// #include <sgpp/solver/ode/integrators/Euler.hpp>
 // #include <sgpp/base/application/ScreenOutput.hpp>
 
 // For tool exception

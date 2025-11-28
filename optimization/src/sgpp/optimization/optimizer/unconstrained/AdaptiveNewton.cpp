@@ -6,7 +6,7 @@
 #include <sgpp/globaldef.hpp>
 
 #include <sgpp/base/tools/Printer.hpp>
-#include <sgpp/base/tools/sle/system/FullSLE.hpp>
+#include <sgpp/base/grid/sle/FullSLE.hpp>
 #include <sgpp/optimization/optimizer/unconstrained/AdaptiveNewton.hpp>
 
 #include <algorithm>
@@ -29,7 +29,7 @@ AdaptiveNewton::AdaptiveNewton(const base::ScalarFunction& f,
       rhoLambdaPlus(dampingIncreaseFactor),
       rhoLambdaMinus(dampingDecreaseFactor),
       rhoLs(lineSearchAccuracy),
-      defaultSleSolver(base::sle_solver::GaussianElimination()),
+      defaultSleSolver(solver::GaussianElimination()),
       sleSolver(defaultSleSolver) {
 }
 
@@ -38,7 +38,7 @@ AdaptiveNewton::AdaptiveNewton(const base::ScalarFunction& f,
                                double tolerance, double stepSizeIncreaseFactor,
                                double stepSizeDecreaseFactor, double dampingIncreaseFactor,
                                double dampingDecreaseFactor, double lineSearchAccuracy,
-                               const base::sle_solver::SLESolver& sleSolver)
+                               const solver::SLESolver& sleSolver)
     : UnconstrainedOptimizer(f, nullptr, &fHessian, maxItCount),
       theta(tolerance),
       rhoAlphaPlus(stepSizeIncreaseFactor),
@@ -46,7 +46,7 @@ AdaptiveNewton::AdaptiveNewton(const base::ScalarFunction& f,
       rhoLambdaPlus(dampingIncreaseFactor),
       rhoLambdaMinus(dampingDecreaseFactor),
       rhoLs(lineSearchAccuracy),
-      defaultSleSolver(base::sle_solver::GaussianElimination()),
+      defaultSleSolver(solver::GaussianElimination()),
       sleSolver(sleSolver) {
 }
 
@@ -58,7 +58,7 @@ AdaptiveNewton::AdaptiveNewton(const AdaptiveNewton& other)
       rhoLambdaPlus(other.rhoLambdaPlus),
       rhoLambdaMinus(other.rhoLambdaMinus),
       rhoLs(other.rhoLs),
-      defaultSleSolver(base::sle_solver::GaussianElimination()),
+      defaultSleSolver(solver::GaussianElimination()),
       sleSolver(other.sleSolver) {
 }
 
