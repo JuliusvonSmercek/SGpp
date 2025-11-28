@@ -57,7 +57,7 @@ class SLE : public OperationMatrix {
    * @param       x   vector to be multiplied
    * @param[out]  y   \f$y = Ax\f$
    */
-  void mult(const DataVector& x, DataVector& y) {
+  void mult_const(const DataVector& x, DataVector& y) {
     const size_t n = getDimension();
     y.resize(n);
     y.setAll(0.0);
@@ -69,7 +69,9 @@ class SLE : public OperationMatrix {
     }
   }
 
-  virtual void mult(DataVector& x, DataVector& y) override { this->mult(x, y); }
+  void mult(const DataVector& x, DataVector& y) { this->mult_const(x, y); }
+
+  virtual void mult(DataVector& x, DataVector& y) override { this->mult_const(x, y); }
 
   /**
    * Count all non-zero entries.
